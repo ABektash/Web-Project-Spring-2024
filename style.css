@@ -48,3 +48,45 @@ body{
     bottom: -4px;
     left: 20px;
 }
+
+
+/* Home Page */
+
+#intro{
+    display: none;
+    text-align: center;
+    opacity: 0; 
+    transition: opacity 0.5s ease;
+}
+#intro h1{
+    font-size: 150px;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+#intro h4{
+    font-size: 40px;
+    font-weight: 400;
+    color: #fff;
+    margin-top: 160px;
+}
+#intro a{
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    font-size: 24px;
+    border: 2px solid #fff;
+    padding: 14px 70px;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+#intro a:hover{
+    background-color: black;
+}
+.back-video{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
