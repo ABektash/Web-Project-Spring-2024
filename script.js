@@ -4,14 +4,15 @@ function hideIntro() {
     var introDiv = document.getElementById("intro");
     introDiv.style.opacity = "0"; 
     setTimeout(function() {
-        introDiv.style.display = "none";
+        introDiv.style.position = "hidden";
     }, 500); 
 }
 
 
+
 document.addEventListener("mousemove", function() {
     var introDiv = document.getElementById("intro");
-    introDiv.style.display = "block";
+    introDiv.style.position = "visible";
     introDiv.style.opacity = "1"; 
 
     clearTimeout(timeout);
