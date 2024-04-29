@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 /*Header*/
 #header {
@@ -134,49 +135,88 @@ h4{
     color: #c70101
 }
 /* Matches menu*/
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
+#headertext{
+    margin-left: 5px;
+}
+
+.container-match * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+}
+.container-match body {
+  background-color: #ffaaa7;
+}
+
+.container-match {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  margin-top: -25px;
+}
 .card {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 30px;
-    width: 350px;
-    height: 180px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #ccc;
-    flex: 0 0 auto;
-    background-color: #fff;
-    
-
+  background-color: #fff;
+  width: 500px;
+  height: 210px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px;
 }
 
-.info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    vertical-align: middle;
+
+.match_info,
+.card_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
 }
 
-.team-logo img {
-    width: 50px;
-    height: 50px;
+.team1,
+.team2 {
+  display: flex;
+  align-items: center;
 }
 
-.match-time span {
-    display: block;
-    text-align: center;
+.team1 img,
+.team2 img {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
 }
 
-.team {
-    text-align: center;
+.card h1 {
+  font-size: 20px;
 }
 
-.team-name {
-    font-weight: bold;
-    vertical-align: baseline;
-    min-width: 10px;
+.vs {
+  background-color: #c7c6cb;
+  width: 25px;
+  height: 25px;
+  border-radius: 40px;
 }
+.vs p {
+  padding: 2px 5px;
+  color: #808080;
+}
+
+.seeDetails {
+  display: grid;
+  place-items: center;
+}
+
+.seeDetails a {
+  text-decoration: none;
+  color: #000;
+}
+
+.seeDetails span {
+  margin: 5px 10px;
+}
+
 
 .info-button {
     display: flex;
@@ -185,7 +225,7 @@ h4{
 }
 
 .info-button a {
-    align-items: baseline center;
+    align-items: center;
     background-color: #fff;
     border: 1px solid #e2e8f0;
     border-radius: 1rem;
@@ -194,7 +234,7 @@ h4{
     cursor: pointer;
     display: inline-block;
     font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     font-weight: 600;
     line-height: 1;
     padding: 1rem 1.6rem;
@@ -213,14 +253,7 @@ h4{
     transition: 0.3s;
 }
 
-.score-number {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #000;
-    padding: 2%;
-    text-align: center;
-    display: block;
-}
+
 
 #livetimeanimation {
     animation: 2s anim-lineUp ease-out infinite;
@@ -253,10 +286,6 @@ h4{
     font-size: 1.5rem;
 }
 
-#matchinfo {
-    color: grey;
-
-}
 
 #scrollpane {
     overflow-x: auto;
@@ -280,7 +309,7 @@ h4{
 }
 
 #red-slash {
-    border-top: 0.5rem solid #c70101;
+    border-top: 0.3rem solid #c70101;
     position: absolute;
     width: 6rem;
     content: "";
