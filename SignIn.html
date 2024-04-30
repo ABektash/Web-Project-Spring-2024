@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Signin.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="Sigin.js"></script>
+    <title>Profile</title>
+    <style>
+        body {
+            background-image: url("Images/LoginBlur.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="header">
+
+        <a id="navbar" href="index.html"><img src="Images/ManchesterUnitedLogo.png" width="80px" height="80px"
+                class="Logo" alt="Team Logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="Tickets.html">Tickets</a></li>
+                <li><a href="News.html">News</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="SignIn.html"><img src="Images/ProfileDefault.png" width="30px" height="30px"
+                            alt="Profile Logo"></a></li>
+            </ul>
+        </div>
+
+    </section>
+
+    <form id="loginForm" name="loginForm" onsubmit="return validateLogInForm(this)"action="index.html">
+        <h2>Login</h2>
+        <div class="row">
+            <label>Email Address</label>
+            <input type="text" name="email" />
+            <div class="error" id="loginEmailErr"></div>
+        </div>
+        <div class="row">
+            <label>Password</label>
+            <input type="password" name="password" />
+            <div class="error" id="loginPasswordErr"></div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Login" />
+        </div>
+        <div>
+            <p>Don't have an account?</p>
+            <button class="button signup" onclick="showSignUpForm(event)">Sign Up</button>
+        </div>
+    </form>
+
+    <form id="signUpForm" name="signUpForm" onsubmit="return validateSignUpForm(this)"action="Profile.html">
+        <h2>SignUp</h2>
+        <div class="row">
+            <label>Full Name</label>
+            <input type="text" name="name">
+            <div class="error" id="nameErr"></div>
+        </div>
+        <div class="row">
+            <label>Email Address</label>
+            <input type="text" name="email">
+            <div class="error" id="emailErr"></div>
+        </div>
+        <div class="row">
+            <label>Password</label>
+            <input type="password" name="password">
+            <div class="error" id="passwordErr"></div>
+        </div>
+        <div class="row">
+            <label>Confirm Password</label>
+            <input type="password" name="confpassword">
+            <div class="error" id="confpassErr"></div>
+        </div>
+        <div class="row">
+            <label>Gender</label>
+                <div class="radio-group">
+                    <label class="radio-button"><input type='radio' name='gender' value='male' /> Male <span></span></label>
+                    <label class="radio-button"><input type='radio' name='gender' value='female' /> Female <span></span></label>
+            </div>
+            <div class="error" id="genderErr"></div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+
+</html>
