@@ -8,6 +8,7 @@
     <title>Man Utd</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="API-football-data.js"></script>
 </head>
 
 <body>
@@ -51,175 +52,60 @@
             <h2 id="headertext"> Matches</h2>
         </div>
     <!--Demo of fixtures-->
-        <div id="scrollpane">
-            <div class="container-match">
-                <div class="card">
-                    <div class="card_title">
-                        <h1>Upcoming Match</h1> <!--Upcoming or Live or ended-->
-                        <p id="match_type">Old Trafford</p> <!--Match Location-->
-                    </div>
-                    <div class="match_info">
-                        <div class="team_name">
-                            <div class="team1">
-                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
-                                <h3>MIbhbjhvbhvjjvbhjvh</h3>
-                            </div>
-                            <div class="team2">
-                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
-                                <h3>RCBvhhcchggghjsvsffdvdfv</h3>
-                            </div>
-                        </div>
-
-                        <div class="vs">
-                            <p>vs</p>
-                        </div>
-                        <div class="date_time">
-                            <p>9, April 2021</p>
-                            <p>7.00 PM</p>
-                        </div>
-                    </div>
-                    <div class="seeDetails">
-                        <span id="timeNumber">41<span id="livetimeanimation">'</span>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-match">
-                <div class="card">
-                    <div class="card_title">
-                        <h1>Upcoming Match</h1> <!--Upcoming or Live or ended-->
-                        <p id="match_type">Old Trafford</p> <!--Match Location-->
-                    </div>
-                    <div class="match_info">
-                        <div class="team_name">
-                            <div class="team1">
-                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
-                                <h3>MIbhbjhvbhvjjvbhjvh</h3>
-                            </div>
-                            <div class="team2">
-                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
-                                <h3>RCBvhhcchggghjsvsffdvdfv</h3>
-                            </div>
-                        </div>
-
-                        <div class="vs">
-                            <p>vs</p>
-                        </div>
-                        <div class="date_time">
-                            <p>9, April 2021</p>
-                            <p>7.00 PM</p>
-                        </div>
-                    </div>
-                    <div class="seeDetails">
-                        <div class="info-button">
-                            <a id="match-button" href="https://tickets.manutd.com/en-GB/categories/home-tickets"
-                                tabindex="0">INFO BUTTON</a>
-                            <!--if not live, display BUY TICKETS instead of info button-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-match">
-                <div class="card">
-                    <div class="card_title">
-                        <h1>Upcoming Match</h1> <!--Upcoming or Live or ended-->
-                        <p id="match_type">Old Trafford</p> <!--Match Location-->
-                    </div>
-                    <div class="match_info">
-                        <div class="team_name">
-                            <div class="team1">
-                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
-                                <h3>MIbhbjhvbhvjjvbhjvh</h3>
-                            </div>
-                            <div class="team2">
-                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
-                                <h3>RCBvhhcchggghjsvsffdvdfv</h3>
-                            </div>
-                        </div>
-
-                        <div class="vs">
-                            <p>vs</p>
-                        </div>
-                        <div class="date_time">
-                            <p>9, April 2021</p>
-                            <p>7.00 PM</p>
-                        </div>
-                    </div>
-                    <div class="seeDetails">
-                        <span id="timeNumber">41<span id="livetimeanimation">'</span>
-
-                    </div>
-                </div>
-            </div>
-            <div class="container-match">
-                <div class="card">
-                    <div class="card_title">
-                        <h1>Upcoming Match</h1> <!--Upcoming or Live or ended-->
-                        <p id="match_type">Old Trafford</p> <!--Match Location-->
-                    </div>
-                    <div class="match_info">
-                        <div class="team_name">
-                            <div class="team1">
-                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
-                                <h3>MIbhbjhvbhvjjvbhjvh</h3>
-                            </div>
-                            <div class="team2">
-                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
-                                <h3>RCBvhhcchggghjsvsffdvdfv</h3>
-                            </div>
-                        </div>
-
-                        <div class="vs">
-                            <p>vs</p>
-                        </div>
-                        <div class="date_time">
-                            <p>9, April 2021</p>
-                            <p>7.00 PM</p>
-                        </div>
-                    </div>
-                    <div class="seeDetails">
-                        <span id="timeNumber">41<span id="livetimeanimation">'</span>
-
-                    </div>
-                </div>
-            </div>
-            <div class="container-match">
-                <div class="card">
-                    <div class="card_title">
-                        <h1>Upcoming Match</h1> <!--Upcoming or Live or ended-->
-                        <p id="match_type">Old Trafford</p> <!--Match Location-->
-                    </div>
-                    <div class="match_info">
-                        <div class="team_name">
-                            <div class="team1">
-                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
-                                <h3>MIbhbjhvbhvjjvbhjvh</h3>
-                            </div>
-                            <div class="team2">
-                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
-                                <h3>RCBvhhcchggghjsvsffdvdfv</h3>
-                            </div>
-                        </div>
-
-                        <div class="vs">
-                            <p>vs</p>
-                        </div>
-                        <div class="date_time">
-                            <p>9, April 2021</p>
-                            <p>7.00 PM</p>
-                        </div>
-                    </div>
-                    <div class="seeDetails">
-                        <span id="timeNumber">41<span id="livetimeanimation">'</span>
-
-                    </div>
-                </div>
-            </div>
+        <div id="scrollpane"></div>
 
             <div id="shopdemo"></div>
             <!--Players section-->
-
+            <div class="top-players-cards">
+                <h1 class="top-header">Top Performing Players</h1>
+                <div class="cards-container" id="topPlayersContainer">
+                    <div class="minip">
+                        <div class="mg">
+                            <div class="clr"></div>
+                            <div class="group">
+                                <span>Midfielder</span>
+                            </div>
+                        </div>
+                        <div class="av" style="background-image: url('Images/p1.webp');"></div>
+                        <div class="info">
+                            <name>Bruno Fernandez</name>
+                            <deets>
+                                Age: 29 <br>Rating: 7.40
+                            </deets>
+                        </div>
+                    </div>
+                    <div class="minip">
+                        <div class="mg">
+                            <div class="clr"></div>
+                            <div class="group">
+                                <span>Defender</span>
+                            </div>
+                        </div>
+                        <div class="av" style="background-image: url('Images/p2.png');"></div>
+                        <div class="info">
+                            <name>Diogo Dalot</name>
+                            <deets>
+                                Age: 25 <br>Rating: 6.97
+                            </deets>
+                        </div>
+                    </div>
+                    <div class="minip">
+                        <div class="mg">
+                            <div class="clr"></div>
+                            <div class="group">
+                                <span>Midfielder</span>
+                            </div>
+                        </div>
+                        <div class="av" style="background-image: url('Images/p3.png');"></div>
+                        <div class="info">
+                            <name>Casemiro</name>
+                            <deets>
+                                Age: 32 <br>Rating: 6.93
+                            </deets>
+                        </div>
+                    </div>
+                </div>
+                </div>
     </section>
 
     <footer class="footer">
