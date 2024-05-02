@@ -1,5 +1,5 @@
 //Fetching upcoming/live matches in home
-
+/*
 fetch("https://v3.football.api-sports.io/fixtures?season=2023&team=33", {
     "method": "GET",
     "headers": {

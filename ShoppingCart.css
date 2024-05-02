@@ -1,0 +1,10 @@
+/* cart  */
+#cart table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+#cart table img{
+    width: 10px;
+}

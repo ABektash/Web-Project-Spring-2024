@@ -1,0 +1,299 @@
+/* shop */
+.slides {
+    display: block;
+    height: 90vh;
+}
+
+.slide {
+    width: 100%;
+    /* Cover the entire width of the container */
+    height: 100%;
+    /* Set a fixed height for all images */
+
+}
+
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+/* text on the slideshow */
+/* .express-passion {
+    font-size: 7rem;
+
+    text-align: center;
+
+}
+
+.official-merchandise {
+    font-size: 3rem;
+
+    text-align: center;
+}
+
+.shopbtn {
+
+    color: black;
+    background-color: #4e6c85;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    transition: 0.7s ease;
+    margin: 0 auto;
+    border: white;
+    transition: 0.7s ease;
+}
+
+.shopbtn_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.shopbtn:hover {
+    background-color: #d2691e;
+    transform: scale(1.1, 1.1);
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    /* Ensure content is above images} */
+
+
+/* kits */
+#Kits {
+    background-color: white;
+    width: 100%;
+    height: 4cm;
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+#Kits h2 {
+    font-size: 10rem;
+}
+
+
+/* The three cards */
+
+#cardSec {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("Images/locker2.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-color: #c70101;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    position: relative;
+}
+
+#cardSec * {
+
+    font-family: sans-serif;
+}
+
+.cardImage {
+    height: 500px;
+
+    width: 350px;
+    border-radius: 3px;
+    transition: .5s;
+}
+
+.cardContainer {
+    display: flex;
+}
+
+.shopCard {
+    height: 500px;
+    margin: 50px;
+    box-shadow: 5px 5px 20px black;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+
+.Text {
+    height: 70px;
+    width: 350px;
+
+    padding: 6px;
+
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 240px;
+    background: rgba(27, 27, 27, 0.5);
+    color: white;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.Text h1 {
+    margin: 10px;
+    font-size: 40px;
+}
+
+.Text p {
+    font-size: 20px;
+    margin: 20px;
+    visibility: hidden;
+    opacity: 0;
+
+}
+
+.shopCard:hover {
+    cursor: pointer;
+}
+
+.shopCard:hover .Text {
+    height: 220px;
+    bottom: 240px;
+    background: black;
+    margin-top: 20px;
+}
+
+.shopCard:hover p {
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.shopCard.cardImage {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+
+
+
+/* .shopCard2:hover {
+    cursor: pointer;
+} */
+
+/* .shopCard2:hover .Text {
+    height: 220px;
+    bottom: 240px;
+    background: black;
+    margin-top: 20px;
+} */
+
+/* .shopCard2:hover p {
+    opacity: 1;
+    visibility: visible;
+
+} */
+
+/* .shopCard2:hover .cardImage {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+
+
+.shopCard3:hover {
+    cursor: pointer;
+}
+
+.shopCard3:hover .Text {
+    height: 220px;
+    bottom: 240px;
+    background: black;
+    margin-top: 20px;
+}
+
+.shopCard3:hover p {
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.shopCard3:hover .cardImage {
+    transform: scale(1.1) rotate(-3deg);
+} */
+
+/* wallpaper  */
+
+#wallpaper {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("Images/celeb3.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+.wp-content {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    color: white;
+    transform: translateY(-10vh);
+}
+
+.wp-content h1 {
+    font-size: 7rem;
+    margin-top: 80px;
+    color: white;
+    transform: translateZ(1000vh);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.wp-content p {
+    margin: 10px auto;
+    font-weight: 100;
+    line-height: 20px;
+    color: white;
+    font-size: 3rem;
+}
+
+#wallpaper button {
+    width: 15%;
+    height: 15%;
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    font-size: 24px;
+    border: 2px solid whitesmoke;
+    padding: 14px 70px;
+    border-radius: 50px;
+    margin-top: 1.875rem;
+    cursor: pointer;
+    background-color: black;
+    transition: 0.7, ease;
+    text-align: center;
+}
+
+#wallpaper button:hover {
+
+    cursor: pointer;
+    background-color: black;
+    transform: scale(1.05);
+}
+
+html {
+    scroll-behavior: smooth;
+}
