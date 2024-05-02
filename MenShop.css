@@ -9,6 +9,8 @@
   
   #categories li {
     float: left;
+    width: 15%;
+    display: inline-block;
   }
   
   #categories li a {
@@ -392,13 +394,4 @@ outline: none;
 #proDetails .single-pro-details span{
     line-height: 25px;
 }
-
-
-
-
-
-
-
-
-
 

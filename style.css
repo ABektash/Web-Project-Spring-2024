@@ -90,7 +90,7 @@ h1 {
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: 1;
-    padding-bottom: 3rem;
+    padding-bottom: 6rem;
 }
 
 #intro h1 {
@@ -149,14 +149,6 @@ h4 {
 
 /* Matches menu*/
 
-#headertext {
-    margin-left: 5px;
-    text-decoration: underline #c70101;
-    text-underline-offset: 5px;
-    text-underline-position: above;
-    padding-top: 30px;
-    padding-bottom: 20px;
-}
 
 .container-match * {
     padding: 0;
@@ -332,6 +324,15 @@ h4 {
 
 }
 
+#headertext {
+    margin-left: 5px;
+    text-decoration: underline #c70101;
+    text-underline-offset: 5px;
+    text-underline-position: above;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
 .see-more {
     font-size: 1.2rem;
     color: #c70101;
@@ -369,6 +370,60 @@ h2 {
     background-color: #c70101;
     width: 100%;
     height: 25rem;
+    display: flex block;
+}
+
+#Image-slide-in {
+    animation: 3s slide-right;
+    width: 40%;
+    height: 100%;
+    margin-right: 3rem;
+}
+
+#Image-slide-in img {
+    background-color: transparent;
+    width: auto;
+    height: 100%;
+    scale: 1.2;
+    margin-left: 8rem;
+    margin-right: 2rem;
+}
+
+@keyframes slide-right {
+    from {
+        margin-left: -100%;
+    }
+
+    to {
+        margin-left: 0%;
+    }
+}
+
+#shop-now {
+    text-decoration: none;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+}
+
+#visit-now {
+    font-size: 6em;
+    position: relative;
+    text-decoration: none;
+    align-self: center;
+}
+
+#visit-now:hover {
+   scale: 1.5;
+   transition: ease-in-out 0.3s;
+   text-decoration:underline;
+   text-decoration-color: gold;
+   text-underline-offset: 1rem;
+}
+
+#visit-now:visited {
+    color: white;
 }
 
 
@@ -572,6 +627,69 @@ h2 {
 .see-All:hover {
     color: black;
     text-decoration: underline;
+}
+
+
+#headertext-standings {
+    margin-left: 5px;
+    text-decoration: underline #c70101;
+    text-underline-offset: 10px;
+    text-underline-position: above;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+#matchestext-standings {
+    background-color: white;
+    font-size: 2rem;
+}
+
+.container-table {
+    width: 100%;
+    margin: 2rem;
+}
+
+.container-table table {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.container-table th {
+    background-color: #c70101;
+    color: white;
+    text-decoration: none;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 1.5rem;
+    padding: 0.69rem;
+}
+
+#standings-body {
+    width: 100%;
+    height: auto;
+}
+
+#standings-body td {
+    height: 3rem;
+    text-align: center;
+    font-size: 1.15rem;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 500;
+
+}
+
+#standings-body img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+#standings-body .team {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
