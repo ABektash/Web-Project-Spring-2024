@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="Sigin.js"></script>
+    <title>Profile</title>
+</head>
+
+<body>
+    <section id="header">
+
+        <a id="navbar" href="index.html"><img src="Images/ManchesterUnitedLogo.png" width="80px" height="80px"
+                class="Logo" alt="Team Logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="Tickets.html">Tickets</a></li>
+                <li><a href="News.html">News</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="SignIn.html"><img src="Images/ProfileDefault.png" width="30px" height="30px"
+                            alt="Profile Logo"></a></li>
+            </ul>
+        </div>
+
+    </section>
+
+    <div class="wrapper">
+        <div class="profile__container">
+            <div class="left">
+                <span>Welcome <br /> Joe Nunez</span>
+                <img id="ball" src="images/ball.png" alt="ball">
+            </div>
+            <div class="center">
+                <img class="t-shirt" src="https://www.manutd.com/assets/images/bg/t-shirt.png" alt="a">
+                <span id="name">Nunez</span>
+                <span id="shirtNumber">0</span>
+            </div>
+            <div class="profile__details">
+                <ul class="profile__info">
+                    <div class="profile-dob">
+                        <p class="headling"><b>Date of birth</b></p>
+                        <p>17 Sep 2000</p>
+                    </div>
+                    <div class="profile-age">
+                        <p class="headling"><b>Age</b></p>
+                        <p>23</p>
+                    </div>
+                    <div class="profile-tshirt-no">
+                        <p class="headling" id="shirtNoContainer">
+                            <span>
+                                <b>Shirt</b>
+                            </span>
+                            <span class="editButton" onclick="editShirtNumber()">Edit
+                            </span>
+                        </p>
+                        <p id="number">0</p>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
+        <div class="profile_description">
+            <span><b>joe nunez</b> is one of our most loyal fans from Dominica.</span>
+            <!-- <span> The 23 year-old's My United debut came on 29 Apr 2024. </span>  -->
+            <span> <span class="first-capitalize">joe<small class="lang-specific">'s</small></span> favourite player is
+                <span class="first-capitalize">Marcus Rashford.</span> </span>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a id="login-footer" href="SignIn.html">Login</a></li>
+                        <li><a id="login-footer" href="SignIn.html">Sign up</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Accessibility</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="About.html">History</a></li>
+                        <li><a href="About.html">Old Trafford</a></li>
+                        <li><a href="About.html">Legends</a></li>
+                        <li><a href="More.html">Matches</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li><a href="Tickets.html">Tickets</a></li>
+                        <li><a href="Shop.html">Merch</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/manchesterunited"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://twitter.com/ManUtd"><i class="fa-brands fa-x"></i></a>
+                        <a href="http://instagram.com/manchesterunited"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/manutd"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Profile */
+
+* {
+    --background-color: #c70101;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.wrapper {
+    max-width: 1700px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2cm;
+    margin-inline: auto;
+}
+
+.profile__container {
+    position: relative;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    background-color: var(--background-color);
+    max-height: 480px;
+    padding-top: 2rem;
+    padding-inline: 2rem;
+    border-radius: 5mm;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    background: #c70101;
+    box-shadow: inset 7px 7px 14px #500000,
+        inset -7px -7px 14px #ff0202;
+}
+
+.left span {
+    display: block;
+    color: white;
+    /* text-align: left; */
+    font-size: xx-large;
+}
+
+#ball {
+    margin-top: 10px;
+    width: 120px;
+    height: 120px;
+}
+
+#ball {
+    transition: transform 1.4s ease-in-out;
+}
+
+#ball:hover {
+    transform: rotate(360deg);
+}
+
+.center {
+    position: relative;
+    overflow: hidden;
+}
+
+.center img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transform: translateY(50px);
+}
+
+.center #name {
+    color: rgb(255, 255, 255);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    position: absolute;
+    top: 15%;
+    left: 52%;
+    transform: translate(-55%, 50px);
+    font-size: 2rem;
+}
+
+.center #shirtNumber {
+    color: rgb(255, 255, 255);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    position: absolute;
+    top: 22%;
+    left: 52%;
+    transform: translate(-60%, 50px);
+    font-size: 6rem;
+}
+
+
+.container .right span {
+    color: white;
+    font-weight: bold;
+    text-align: right;
+    font-size: medium;
+    font-family: inherit;
+}
+
+.profile_description {
+    margin-top: 30px;
+    margin-bottom: 32px;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 300;
+    font-size: xx-large;
+    line-height: 25px;
+    text-align: center;
+    color: #1a1a1a;
+}
+
+.profile__info {
+    font-size: x-large;
+    text-align: right;
+    margin: 0;
+}
+
+.profile__info p {
+    margin: 0;
+    color: white;
+}
+
+.profile__info p.headling {
+    font-size: xx-large;
+    color: #ffe600;
+}
+
+.editButton {
+    margin-left: 10px;
+}
+
+.editButton:hover {
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -156,19 +156,18 @@ body {
 .signup:hover {
     text-decoration: none;
     color: rgb(39, 39, 39);
-    /* Change color as needed */
 }
 
-.login {
+/* .login {
     background-color: #c70101;
     font-family: inherit;
     font-size: inherit;
-}
+} */
 
-.login:hover {
+/* .login:hover {
     transition: 0.3s;
     background: #740000
-}
+} */
 
 h2 {
     color: #c70101;
@@ -182,7 +181,11 @@ form {
     padding: 20px 35px 35px;
     border: 1px solid #ccc;
     margin: 50px auto 0;
-    border-radius: 1cm;
+    border-radius: 6mm;
+    margin-bottom: 3cm;
+    margin-top: 3cm;
+    box-shadow: inset 5px 5px 8px #d4d4d4,
+    inset -5px -5px 8px #ffffff;
 }
 
 label {
@@ -212,6 +215,7 @@ select {
 input[type="submit"] {
     font-size: 110%;
     font-weight: 100;
+    font-family: inherit;
     background: #c70101;
     border-color: #74000000;
     box-shadow: 0 3px 0 #c40000;
@@ -225,7 +229,56 @@ input[type="submit"]:hover {
     transition: 0.4s;
     background: #740000;
 }
-
+/* input[type="submit"] {
+    display: inline-block;
+    padding: 12px 28px;
+    margin: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    background-image: linear-gradient(to bottom right, #00c6ff, #0072ff);
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0px 4px 0px #0072ff;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 0px #0072ff;
+  }
+  
+  input[type="submit"]:active {
+    transform: translateY(0px);
+    box-shadow: none;
+    background-image: linear-gradient(to bottom right, #0072ff, #00c6ff);
+  }
+  
+  input[type="submit"]:before,
+  input[type="submit"]:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+  
+  input[type="submit"]:before {
+    top: -3px;
+    left: -3px;
+    border-radius: 40px;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+  }
+  
+   input[type="submit"]:after {
+    bottom: -3px;
+    right: -3px;
+    border-radius: 40px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+  } */
 .radio-button {
     width: 100%;
     display: flex;
