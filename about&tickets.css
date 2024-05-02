@@ -1,0 +1,524 @@
+#hero {
+    background-image: url("Images/man-united-fans.jpg");
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 25% right 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#hero h1 {
+    color: white;
+    font-size: 90px;
+    padding-left: 100px;
+    padding-top: 55px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.bookdiv {
+    background-color: #c70101;
+    width: 100%;
+    color: white;
+    font-size: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-image: url("Images/logo.png");
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.bookdiv h1 {
+    color: #fff;
+    font-size: 5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.bookdiv p {
+    color: #fff;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 900;
+    border-left: 10px solid red;
+    padding-left: 10px;
+    margin-bottom: 30px;
+}
+
+.tick-header {
+    background-color: #c70101;
+    text-align: center;
+    font-size: 5rem;
+    color: white;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 100%;
+
+}
+
+.tick_grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 4rem;
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.tick_card {
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tick_card_header {
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.city {
+    width: 100%;
+}
+
+.newcastle {
+    width: 100%;
+}
+
+.arsenal2 {
+    width: 100%;
+}
+
+.betis {
+    width: 100%;
+}
+
+.tick_content {
+    padding: 1rem;
+}
+
+.tick_card_header h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+
+}
+
+.tick_content p {
+    color: var(--text-light);
+}
+
+.booknow1 {
+    padding: 1rem 3rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: white;
+    background-color: #c70101;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+
+}
+
+.booknow1:hover {
+    background-color: red;
+}
+
+.info {
+    padding: 1rem 3rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: white;
+    background-color: #c70101;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 0.5rem;
+    display: block;
+    width: 100%;
+
+}
+
+.info:hover {
+    background-color: red;
+}
+
+.header {
+    background-color: #c70101;
+    color: white;
+    font-size: 5rem;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 100%;
+    text-align: center;
+}
+
+.fans {
+    background-color: var(--extra-light);
+}
+
+.fangrid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.fan_feedbackcard img {
+    max-width: 150px;
+    margin: auto;
+    margin-bottom: 1rem;
+    display: flex;
+}
+
+.fan_feedbackcard {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.fan_feedbackcard p {
+    text-align: center;
+    color: black;
+    font-size: 1.5rem;
+}
+
+.footer body {
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #c70101;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
+}
+
+#login-footer {
+    color: white;
+}
+
+.about {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+
+
+}
+
+.about_us {
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url('Images/united4.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+}
+
+.cont content {
+    font-size: 25px;
+    color: #fff;
+    line-height: 1.5;
+    margin-top: 30px;
+    text-align: center;
+
+}
+
+.cont h2 {
+    text-transform: uppercase;
+    font-size: 65px;
+    font-weight: 475;
+    color: #fff;
+    margin-top: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.history {
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.histoo h2 {
+    font-size: 55px;
+    font-weight: 475;
+    color: #fff;
+    margin-top: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.histoo h2::after {
+    content: "";
+    height: 3px;
+    display: block;
+    background-color: #c70101;
+    margin: auto;
+    width: 325px;
+
+}
+
+.histoo content {
+    font-size: 25px;
+    color: #fff;
+    line-height: 1.5;
+    margin-top: 30px;
+    text-align: center;
+
+}
+
+.cont h2::after {
+    content: "";
+    height: 3px;
+    display: block;
+    background-color: #c70101;
+    margin: auto;
+    width: 330px;
+
+}
+
+.cont {
+    width: 80%;
+    padding: 30px 0px;
+    margin: auto;
+}
+
+.content h2::after {
+    width: 390px;
+}
+
+.content p {
+    font-size: 25px;
+    color: #fff;
+    line-height: 1.5;
+    margin-top: 30px;
+    text-align: center;
+
+}
+
+.Contact {
+    padding-bottom: 4rem;
+}
+
+.lengend {
+    display: flex;
+    gap: 2rem;
+    margin-top: 15rem;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+.legend_record img {
+    max-width: 125px;
+    margin: auto;
+    margin-bottom: 1rem;
+    display: flex;
+
+}
+
+.legend_record {
+    display: flex;
+    padding: 3rem;
+    border-radius: 3rem;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    background-color: black;
+    margin-top: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+}
+
+.legend_record p {
+    text-align: center;
+    color: whitesmoke;
+    font-size: 1.5rem;
+}
+
+.our_legends h2 {
+    color: white;
+    font-size: 55px;
+    font-weight: 475;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.our_legends h2::after {
+    content: "";
+    height: 3px;
+    display: block;
+    background-color: #c70101;
+    margin: auto;
+    width: 350px;
+
+}
+
+#content h2 {
+    color: white;
+    font-size: 65px;
+    font-weight: 475;
+    padding-top: 2px;
+    margin-top: 2rem;
+    padding-bottom: 2px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#content h2::after {
+
+    content: "";
+    height: 3px;
+    display: block;
+    background-color: #c70101;
+    margin: auto;
+    width: 350px;
+
+}
+
+#content p {
+    font-size: 25px;
+    color: #fff;
+    line-height: 1.5;
+    margin-top: 30px;
+    text-align: center;
+
+}
+
+.Contact {
+    font-weight: 475;
+    justify-content: center;
+    padding: 25px 100px;
+    margin-top: 2rem;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.Contact .content {
+    max-width: 800px;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    min-height: 110vh;
+}
