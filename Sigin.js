@@ -7,6 +7,14 @@ function showSignUpForm() {
     signUpForm.style.display = 'block';
 
 }
+function showLoginForm() {
+    event.preventDefault();
+    const loginForm = document.getElementById("loginForm");
+    const signUpForm = document.getElementById("signUpForm");
+    loginForm.style.display = 'block';
+    signUpForm.style.display = 'none';
+
+}
 
 
 function printError(elemId, hintMsg) {
@@ -50,7 +58,7 @@ function validateLogInForm(form) {
             "Email Address: " + email + "\n" +
             "Password: " + password + "\n";
 
-        alert(dataPreview);
+        // alert(dataPreview);
     }
     return true;
 };
@@ -64,9 +72,12 @@ function validateSignUpForm(form) {
     var email = form.email.value;
     var password = form.password.value;
     var confpassword = form.confpassword.value;
+    var day = form.day.value;
+    var month = form.month.value;
+    var year = form.year.value;
     var gender = form.gender.value;
 
-    var nameErr = emailErr = passwordErr = confpassErr = genderErr = true;
+    var nameErr = emailErr = passwordErr = confpassErr = dobErr = genderErr = true;
 
     if (name == "") {
         printError("nameErr", "Please enter your name");
@@ -114,6 +125,13 @@ function validateSignUpForm(form) {
         }
     }
 
+    if (day == "" || month == "" || year == "") {
+        printError("dobErr", "Please enter your date of birth");
+    } else {
+        printError("dobErr", "");
+        dobErr = false;
+    }
+
     if (gender == "") {
         printError("genderErr", "Please select your gender");
     } else {
@@ -121,64 +139,8 @@ function validateSignUpForm(form) {
         genderErr = false;
     }
 
-    if (nameErr || emailErr || passwordErr || confpassErr || genderErr) {
+    if (nameErr || emailErr || passwordErr || confpassErr || dobErr || genderErr) {
         return false;
-    } else {
-        var dataPreview = "You've entered the following details: \n" +
-            "Full Name: " + name + "\n" +
-            "Email Address: " + email + "\n" +
-            "Gender: " + gender + "\n";
-
-        alert(dataPreview);
     }
     return true;
-};
-
-
-// Profile
-
-function editShirtNumber() {
-    var currentNumber = document.getElementById("number").textContent;
-    var textBox = document.createElement("input");
-    textBox.type = "text";
-    textBox.id = "newShirtNumber";
-    textBox.maxLength = 2;
-    textBox.style.width = "2ch";
-    textBox.value = currentNumber;
-    textBox.setSelectionRange(0, 2);
-    var numberElement = document.getElementById("number");
-    var existingTextBox = document.getElementById("newShirtNumber");
-
-    if (existingTextBox !== null) {
-        numberElement.parentNode.removeChild(existingTextBox);
-    }
-    numberElement.parentNode.insertBefore(textBox, numberElement);
-    numberElement.style.visibility = "hidden";
-
-
-    function updateShirtNumber() {
-        var newNumber = document.getElementById("newShirtNumber").value;
-
-        if (/^\d{1,2}$/.test(newNumber)) {
-            document.getElementById("number").textContent = newNumber;
-            document.getElementById("shirtNumber").textContent = newNumber;
-        } else {
-
-
-            return;
-        }
-
-
-        textBox.parentNode.removeChild(textBox);
-        numberElement.style.visibility = "visible";
-    }
-
-    textBox.addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-            updateShirtNumber();
-        }
-    });
-
-
-    textBox.addEventListener("blur", updateShirtNumber);
 }
