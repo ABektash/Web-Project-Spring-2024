@@ -12,10 +12,12 @@ function hideIntro() {
 
 document.addEventListener("mousemove", function() {
     var introDiv = document.getElementById("intro");
+    if (introDiv != null){
     introDiv.style.position = "visible";
     introDiv.style.opacity = "1"; 
 
     clearTimeout(timeout);
 
     timeout = setTimeout(hideIntro, 5000); 
+    }
 });
