@@ -77,8 +77,11 @@ form {
     border-radius: 6mm;
     margin-bottom: 1.5cm;
     margin-top: 1.5cm;
-    box-shadow: inset 5px 5px 8px #d4d4d4,
-        inset -5px -5px 8px #ffffff;
+
+    
+    background: #ffffff;
+    box-shadow:  -19px 19px 38px #bfbfbf,
+                 19px -19px 38px #ffffff;
 }
 
 label {
@@ -103,6 +106,10 @@ select {
 .error {
     color: red;
     font-size: 90%;
+}
+
+.DateOfBirth {
+    margin-inline: 3px;
 }
 
 input[type="submit"] {
