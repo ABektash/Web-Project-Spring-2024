@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ShoppingCart.css">
+    <link rel="stylesheet" href="shop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="ShoppingCart.js"></script>
 </head>
+
 <body>
     <section id="header">
 
         <a id="navbar" href="index.html"><img src="Images/ManchesterUnitedLogo.png" width="80px" height="80px"
-            class="Logo" alt="Team Logo"></a>
-    <div>
-        <ul id="navbar">
-            <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="Shop.html">Shop</a></li>
-            <li><a href="Tickets.html">Tickets</a></li>
-            <li><a href="News.html">News</a></li>
-            <li><a href="Players.html">Players</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="SignIn.html"><img src="Images/ProfileDefault.png" width="30px" height="30px"
-                        alt="Profile Logo"></a></li>
-        </ul>
-    </div>
+                class="Logo" alt="Team Logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="Tickets.html">Tickets</a></li>
+                <li><a href="News.html">News</a></li>
+                <li><a href="Players.html">Players</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="SignIn.html"><img src="Images/ProfileDefault.png" width="30px" height="30px"
+                            alt="Profile Logo"></a></li>
+            </ul>
+        </div>
+    </section>
+    <section id="banner">
+        <div class="banner-content">
+            <h1>#Shopping Cart</h1>
+        </div>
+
     </section>
 
     <section id="cart" class="section-p1">
@@ -41,25 +52,74 @@
                 <tr>
                     <td><a href="#"><i class="far fa-times-circle"></i></a></td>
                     <td><img src="Images/f1.avif" alt=""></td>
-                    <td>Cartoon AStronaut T-shirts</td>
+                    <td>T-shirts</td>
                     <td>$118</td>
-                    <td><input type="number" value="1"></td>
-                    <td>$450</td>
+                    <td><input type="number" value="1" min="1"></td>
+                    <td>$451</td>
+                </tr>
+                <tr>
+                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
+                    <td><img src="Images/trial.avif" alt=""></td>
+                    <td>T-shirts</td>
+                    <td>$118</td>
+                    <td><input type="number" value="1" min="1"></td>
+                    <td>$451</td>
+
+                </tr>
+                <tr>
+                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
+                    <td><img src="Images/w18.avif" alt=""></td>
+                    <td>T-shirts</td>
+                    <td>$118</td>
+                    <td><input type="number" value="1" min="1">
+                        <div id="errorText" style="display: none;">
+                            Out Of Stock
+                        </div>
+                    </td>
+                    <td>$451</td>
+
                 </tr>
             </tbody>
 
         </table>
     </section>
 
+    <section id="cart-add" class="section-p1">
+        <div id="address">
+            <input id="addText" type="text" placeholder="Enter Your address">
+            <div class="addressError" style="display: none;">
+                Please enter your address
+            </div>
+            <div class="addressSucc" style="display: none;">
+                Please enter your address
+            </div>
+            <button class="submit" onclick=validateAddress();>Submit</button>
 
 
+        </div>
 
-
-
-
-
-
-
+        <div id="Subtotal">
+            <h3>Cart Total</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>$9678</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong>Total $9678</strong></td>
+                </tr>
+            </table>
+            <div id="sucText" style="display: none;">
+                Successfull
+            </div>
+            <button id="checkout-btn" onclick=validateAndProceed();>Proceed to checkout</button>
+        </div>
+    </section>
 
     <footer class="footer">
         <div class="container">
@@ -101,7 +161,6 @@
             </div>
         </div>
     </footer>
-
-
 </body>
+
 </html>
