@@ -5,25 +5,25 @@
     padding: 0;
     overflow: hidden;
     background-color: #333;
-  }
-  
-  #categories li {
-    float: left;
+}
+
+#categories li {
+    /* float: left; */
     width: 15%;
     display: inline-block;
-  }
-  
-  #categories li a {
+}
+
+#categories li a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-  }
-  
-  #categories li a:hover:not(.active) {
+}
+
+#categories li a:hover:not(.active) {
     background-color: #111;
-  }
+}
 
 
 #product-1,
@@ -33,6 +33,43 @@
 #product-5,
 #product-6 {
     text-align: center;
+
+}
+
+
+#product-1 h2,
+#product-2 h2,
+#product-3 h2,
+#product-4 h2,
+#product-5 h2,
+#product-6 h2 {
+    font-size: 3rem;
+
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    color: #c70101;
+
+
+
+}
+
+#product-1 p,
+#product-2 p,
+#product-3 p,
+#product-4 p,
+#product-5 p,
+#product-6 p {
+    font-size: 1rem;
+
+
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    color: black;
+    transform: translateY(-3rem);
+
 }
 
 #product-1 .pro-container,
@@ -43,8 +80,8 @@
 #product-6 .pro-container {
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
     flex-wrap: wrap;
+    padding: 2.3rem;
 }
 
 #product-1 .pro,
@@ -63,6 +100,7 @@
     margin: 15px 0;
     transition: 0.2s ease;
     position: relative;
+    transform: translateY(-2.5rem);
 }
 
 #product-1 .pro:hover,
@@ -155,207 +193,166 @@
     bottom: 20px;
     right: 10px;
 }
-select
-{
-    width: 20%;
-    height: 20%;
-    text-decoration: none;
-    display: inline-block;
-    color: #fff;
-    font-size: 24px;
-    border: 2px solid whitesmoke;
-    padding: 14px 70px;
-    border-radius: 50px;
-    margin-top: 1.875rem;
-    cursor: pointer;
-    background-color: black;
-    transition: 0.7, ease;
-    text-align: center;
-}
-select::-ms-expand {
-    display: none;
-}
 
-select:focus {
-    outline: none;
-}
 
-select option {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: black;
-    color: white;
-    border: none;
-}
-/* *{
-    margin: 0;
-    padding: 0;
-   
-   
-} */
-/* h1 {
-    font-size: 36px; 
-    color:black; 
-  
-}
-
-h2 {
-    font-size: 40px; 
-    
-    color:Black; 
-   
-}
-
-h4 {
-    font-size: 20px; 
-    color: #000; 
- 
-}
-
-h6 {
-    font-weight: 600;
-    font-size: 12px; 
-}
-
-p {
-    font-size: 16px;
-    color: #222; 
-    margin: 10px 0 20px 0; 
-} */
-.section-p1
-{
+.section-p1 {
     padding: 40px 80px;
 }
 
-body{
+
+
+body {
     width: 100%;
-   
-}
-#hero1
-{
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("Images/rashg.jpg");
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-#hero2
-{
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("Images/womeng.png");
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-#hero3
-{
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("Images/giggs.jpg");
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
 }
 
-.men-content, .women-content ,.retro-content
-{
+#hero1 {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("Images/mount.webp");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 5px 5px 0 rgba(0, 0, 0, 3);
+
+
+}
+
+#hero2 {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("Images/woo.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 5px 5px 0 rgba(0, 0, 0, 3);
+    overflow: hidden;
+}
+
+#hero3 {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("Images/ret.jpg  ");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 5px 5px 0 rgba(0, 0, 0, 3);
+}
+
+.men-content,
+.women-content,
+.retro-content {
     width: 100%;
     position: absolute;
     text-align: center;
     color: white;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-margin-top: 50px;
-}
-.men-content, .women-content, .retro-content h4
-{
-    
-    font-size: 4rem;
-    color: white;
-    transform: translateZ(100vh);
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    margin-bottom: 70px;
 
 }
-.men-content, .women-content, .retro-content h2{
+
+.men-content h4,
+.women-content h4,
+.retro-content h4 {
+
+    font-size: 4rem;
+    transform: translateZ(100vh);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: italic;
+    color: #c70101
+}
+
+.men-content h2,
+.women-content h2,
+.retro-content h2 {
 
     font-size: 5rem;
     color: white;
     transform: translateZ(100vh);
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    font-style: italic;
 }
-.men-content, .women-content , .retro-content h1
-{
-    font-size: 7rem;
-    color: white;
-    transform: translateZ(100vh);
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-}
-.men-content, .women-content, .retro-content p{
+
+
+
+.men-content p,
+.women-content p,
+.retro-content p {
     color: white;
     font-size: 2rem;
     transform: translateZ(100vh);
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    font-style: italic;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
 
 /* single product */
-#proDetails .single-pro-image
-{
-width: 80%;
-margin-right: 50px;
+#proDetails .single-pro-image {
+    width: 30%;
+
+    margin-right: 50px;
 }
 
-.small-img-group
-{
-    display:flex;
+.small-img-group {
+    display: flex;
     justify-content: space-between;
 
 }
 
-.small-img-col
-{
+.small-img-col {
     flex-basis: 24%;
     cursor: pointer;
 }
 
-#proDetails
-{
+#proDetails {
     display: flex;
+    overflow: hidden;
     margin-top: 20px;
+    padding: 0.9rem;
 }
 
-#proDetails .single-pro-details
-{
-    width: 50%;
+#proDetails .single-pro-details {
+    margin-left: 15rem;
+    width: 40%;
+    max-height: 30%;
     padding-top: 30px;
     display: flex;
     flex-direction: column;
-    
+    padding: 1  rem;
 }
 
-#proDetails .single-pro-details h4{
-    padding: 40px,0,20px,0;
+#proDetails .single-pro-details h4 {
+    /* padding: 40px, 0, 20px, 0; */
+    font-size: 1.5rem;
 
 }
-#proDetails .single-pro-details h2{
- font-size: 26px;
+#proDetails .single-pro-details h5{
+    font-size: 1.1rem;
+    transform: translateY(1.8rem);
+}
+
+#proDetails .single-pro-details h2 {
+    font-size: 26px;
 
 }
-button .normal{
+
+.normal {
     font-size: 14px;
     font-weight: 600;
     padding: 15px 30px;
@@ -367,31 +364,41 @@ button .normal{
     transition: 0.2;
 }
 
-#proDetails .single-pro-details select{
-display: block;
-padding: 5px 10px;
-margin-bottom: 10;
+#proDetails .single-pro-details select {
+    display: block;
+    padding: 5px 10px;
+    margin-bottom: 10px ;
+    width:7rem;
 }
 
 #proDetails .single-pro-details input {
-width: 20px;
-height: 20px;
-padding-left: 10px;
-font-size: 16px;
-margin-right: 10px;    
+    width: 2rem;
+    height: 20px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
 
 }
-#proDetails .single-pro-details input:focus
-{
-outline: none;
+
+#proDetails .single-pro-details input:focus {
+    outline: none;
 }
 
-#proDetails .single-pro-details button{
+#proDetails .single-pro-details button {
+    margin-top: 1rem;
     background-color: #088178;
     color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 15px 30px;
+    color:white;
+    border-radius: 4px;
+    border: none;
+    
+    
 }
 
-#proDetails .single-pro-details span{
-    line-height: 25px;
+#proDetails .single-pro-details button:hover {
+cursor: pointer;
+background-color: #056660;
 }
-

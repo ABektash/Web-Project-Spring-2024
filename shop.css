@@ -1,96 +1,4 @@
 /* shop */
-.slides {
-    display: block;
-    height: 90vh;
-}
-
-.slide {
-    width: 100%;
-    /* Cover the entire width of the container */
-    height: 100%;
-    /* Set a fixed height for all images */
-
-}
-
-.slideshow-container {
-    max-width: 100%;
-    position: relative;
-    margin: auto;
-}
-
-/* text on the slideshow */
-/* .express-passion {
-    font-size: 7rem;
-
-    text-align: center;
-
-}
-
-.official-merchandise {
-    font-size: 3rem;
-
-    text-align: center;
-}
-
-.shopbtn {
-
-    color: black;
-    background-color: #4e6c85;
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: 600;
-    display: inline-block;
-    padding: 0.9375em 2.1875em;
-    letter-spacing: 1px;
-    border-radius: 15px;
-    margin-bottom: 40px;
-    margin-top: 20px;
-    transition: 0.7s ease;
-    margin: 0 auto;
-    border: white;
-    transition: 0.7s ease;
-}
-
-.shopbtn_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.shopbtn:hover {
-    background-color: #d2691e;
-    transform: scale(1.1, 1.1);
-}
-
-.slide-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 1;
-    /* Ensure content is above images} */
-
-
-/* kits */
-#Kits {
-    background-color: white;
-    width: 100%;
-    height: 4cm;
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-}
-
-#Kits h2 {
-    font-size: 10rem;
-}
-
-
 /* The three cards */
 
 #cardSec {
@@ -104,12 +12,6 @@
     align-items: center;
     position: relative;
 }
-
-#cardSec * {
-
-    font-family: sans-serif;
-}
-
 .cardImage {
     height: 500px;
 
@@ -186,49 +88,6 @@
 
 
 
-/* .shopCard2:hover {
-    cursor: pointer;
-} */
-
-/* .shopCard2:hover .Text {
-    height: 220px;
-    bottom: 240px;
-    background: black;
-    margin-top: 20px;
-} */
-
-/* .shopCard2:hover p {
-    opacity: 1;
-    visibility: visible;
-
-} */
-
-/* .shopCard2:hover .cardImage {
-    transform: scale(1.1) rotate(-3deg);
-}
-
-
-
-.shopCard3:hover {
-    cursor: pointer;
-}
-
-.shopCard3:hover .Text {
-    height: 220px;
-    bottom: 240px;
-    background: black;
-    margin-top: 20px;
-}
-
-.shopCard3:hover p {
-    opacity: 1;
-    visibility: visible;
-
-}
-
-.shopCard3:hover .cardImage {
-    transform: scale(1.1) rotate(-3deg);
-} */
 
 /* wallpaper  */
 
@@ -255,24 +114,27 @@
 }
 
 .wp-content h1 {
-    font-size: 7rem;
+    font-size: 6rem;
     margin-top: 80px;
-    color: white;
-    transform: translateZ(1000vh);
+    color: whitesmoke;
+    transform: translateZ(100vh);
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 .wp-content p {
-    margin: 10px auto;
+    margin: 0.5rem auto;
     font-weight: 100;
-    line-height: 20px;
-    color: white;
+    line-height: 1rem;
+    color: whitesmoke;
     font-size: 3rem;
+    transform: translateZ(100vh);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 #wallpaper button {
-    width: 15%;
-    height: 15%;
+    width: 18%;
+    height: 20%;
+    align-items: center;
     text-decoration: none;
     display: inline-block;
     color: #fff;
@@ -280,7 +142,7 @@
     border: 2px solid whitesmoke;
     padding: 14px 70px;
     border-radius: 50px;
-    margin-top: 1.875rem;
+    margin-top: 1.7rem;
     cursor: pointer;
     background-color: black;
     transition: 0.7, ease;
@@ -292,6 +154,7 @@
     cursor: pointer;
     background-color: black;
     transform: scale(1.05);
+   
 }
 
 html {
