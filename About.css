@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 /*Header*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*Header*/
 #header {
     display: flex;
     align-items: center;
@@ -70,6 +73,7 @@ h1 {
     bottom: -4px;
     left: 20px;
 }
+
 
 
 /* Footer section*/
