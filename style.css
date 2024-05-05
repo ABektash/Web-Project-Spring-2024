@@ -415,11 +415,11 @@ h2 {
 }
 
 #visit-now:hover {
-   scale: 1.5;
-   transition: ease-in-out 0.3s;
-   text-decoration:underline;
-   text-decoration-color: gold;
-   text-underline-offset: 1rem;
+    scale: 1.5;
+    transition: ease-in-out 0.3s;
+    text-decoration: underline;
+    text-decoration-color: gold;
+    text-underline-offset: 1rem;
 }
 
 #visit-now:visited {
@@ -712,35 +712,88 @@ h2 {
     font-weight: 700;
     font-style: italic;
     color: white;
-  background-color: #fff000;
-  border-radius: 12px;
-  color: #000;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 10px 15px;
-  text-align: center;
-  transition: 200ms;
-  width: 100%;
-  box-sizing: border-box;
-  border: 0;
-  font-size: 2rem;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+    background-color: #fff000;
+    border-radius: 12px;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    transition: 200ms;
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 2rem;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
 #predict-now:not(:disabled):hover,
 #predict-now:not(:disabled):focus {
-  outline: 0;
-  background: #f4e603;
-  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+    outline: 0;
+    background: #f4e603;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, .2), 0 3px 8px 0 rgba(0, 0, 0, .15);
 }
 
 #predict-now:disabled {
-  filter: saturate(0.2) opacity(0.5);
-  -webkit-filter: saturate(0.2) opacity(0.5);
-  cursor: not-allowed;
+    filter: saturate(0.2) opacity(0.5);
+    -webkit-filter: saturate(0.2) opacity(0.5);
+    cursor: not-allowed;
 }
+
+
+
+.predictions-table {
+    width: 100%;
+    margin: 2rem;
+}
+
+.predictions-table table {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.predictions-table th {
+    background-color: #c70101;
+    color: white;
+    text-decoration: none;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 1.5rem;
+    padding: 0.69rem;
+}
+
+#predictions-body {
+    width: 100%;
+    height: auto;
+}
+
+#predictions-body td {
+    height: 3rem;
+    text-align: center;
+    font-size: 1.15rem;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 500;
+
+}
+
+#predictions-body img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+#predictions-body .team {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
 
 /* footer section*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
