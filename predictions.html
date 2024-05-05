@@ -32,46 +32,67 @@
         </div>
 
     </section>
-    <!--Start page, video + header text-->
-    <div id="welcome">
-        <video autoplay loop muted plays-inline class="back-video">
-            <source src="Videos/manu.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div id="intro">
-        <h4>Welcome to the official website of</h4>
-        <h1>Manchester United</h1>
-    </div>
-    <br>
     <section>
-        <div id="breakbar"></div>
-    </section>
-    <section>
-        <div id="matchestext">
-            <h2 id="headertext"> Matches</h2>
-            <span><a class="see-more" href="predictions.html" style="color:rgb(234, 205, 38);">Predict Upcoming Matches</a></span>
-            <span><a class="see-more" href="News.html">View More</a></span>
-        </div>
-        <!--Demo of fixtures-->
-        <div id="scrollpane"></div>
+        <div id="matchestext" style="margin-bottom: 2rem;">
+            <h2 id="headertext" style="text-underline-offset: 10px;"> Upcoming Match</h2>
 
-        <div id="shopdemo">
+            <span><a class="see-more" href="index.html">Go back</a></span>
+            <span><a class="see-more" style="color:rgb(234, 205, 38); text-decoration: none;">Predict The Upcoming Match</a></span>
 
-            <div id="Image-slide-in">
-                <img src="Images/Home-Shop-AD/3.png" alt="Picture of Player">
-            </div>
-            <div id="visit-now">
-                <a href="Shop.html" id="shop-now">Visit Shop</a>
-            </div>
 
         </div>
-        <!--Players section-->
-        <div class="top-players-cards">
-            <h1 class="top-header">Top Performing Players</h1>
-            <div class="cards-container" id="cardsContainer">
+        <div class="container-grid" id="matches-grid">
+            <div class="container-match">
+                <div class="card">
+                    <div class="card_title">
+                        <h1>Upcoming Match</h1> <!--Upcoming or Live or ended-->
+                        <p id="match_type">Old Trafford</p> <!--Match Location-->
+                    </div>
+                    <div class="match_info">
+                        <div class="team_name">
+                            <div class="team1">
+                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
+                                <h3>MIbhbjhvbhvjjvbhjvh</h3>
+                            </div>
+                            <div class="team2">
+                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
+                                <h3>RCBvhhcchggghjsvsffdvdfv</h3>
+                            </div>
+                        </div>
 
+                        <div class="vs">
+                            <p>vs</p>
+                        </div>
+                        <div class="date_time">
+                            <p>9, April 2021</p>
+                            <p>7.00 PM</p>
+                        </div>
+                    </div>
+                    <div class="seeDetails">
+                        <span id="timeNumber">41<span id="livetimeanimation">'</span>
+
+                    </div>
+                </div>
+                
             </div>
-        </div>
+            <div id="shopdemo">
+
+                <div id="Image-slide-in">
+                    <img src="Images/predict-pic.PNG" style="scale: 1;" alt="Picture of Player">
+                </div>
+                <div id="choose-now">
+                    <button onclick="teamchosen(this.innerText)" id="predict-now">Team1</button>
+                </div>
+                <div id="choose-now">
+                    <button onclick="teamchosen(this.innerText)" id="predict-now">Team2</button>
+                </div>
+                <script>
+                    function teamchosen(teamchosen) {
+                        alert(teamchosen + " has been chosen!");
+                        window.location.href = "index.html"; 
+                    }
+                </script>
+            </div>
     </section>
 
     <footer class="footer">
@@ -113,7 +134,10 @@
                 </div>
             </div>
         </div>
+
     </footer>
+
+
 
 </body>
 

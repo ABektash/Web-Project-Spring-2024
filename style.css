@@ -697,8 +697,50 @@ h2 {
 
 
 
+#choose-now {
+    font-size: 6em;
+    position: relative;
+    align-self: center;
+    padding-left: 4rem;
+}
 
 
+
+/* CSS */
+#predict-now {
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+  background-color: #fff000;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 2rem;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#predict-now:not(:disabled):hover,
+#predict-now:not(:disabled):focus {
+  outline: 0;
+  background: #f4e603;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+}
+
+#predict-now:disabled {
+  filter: saturate(0.2) opacity(0.5);
+  -webkit-filter: saturate(0.2) opacity(0.5);
+  cursor: not-allowed;
+}
 
 /* footer section*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
