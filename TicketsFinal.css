@@ -1,0 +1,389 @@
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    height: 5.5rem;
+    background: #c70101;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .4);
+    position: sticky;
+    top: 0%;
+    left: 0%;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0px 20px;
+    position: relative;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: justify;
+    text-transform: uppercase;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: white;
+
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+
+/* Home Page */
+
+#intro {
+    display: none;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#intro h1 {
+    font-size: 150px;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+#intro h4 {
+    font-size: 40px;
+    font-weight: 400;
+    color: #fff;
+    margin-top: 160px;
+}
+
+#intro a {
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    font-size: 24px;
+    border: 2px solid #fff;
+    padding: 14px 70px;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+#intro a:hover {
+    background-color: black;
+}
+
+.back-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+#hero {
+    background-image: url("Images/man-united-fans.jpg");
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 25% right 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#hero h1 {
+    color: white;
+    font-size: 90px;
+    padding-left: 100px;
+    padding-top: 55px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.bookdiv
+{
+    background-color:#c70101;
+    width: 100%;
+    color: white;
+    font-size: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-image: url("Images/logo.png");
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.bookdiv h1
+{
+  color: #fff;
+  font-size:5rem ;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+}
+.bookdiv p
+{
+    color: #fff;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 900;
+    border-left: 10px solid red;
+    padding-left: 10px;
+    margin-bottom: 30px;
+}
+.tick-header
+{
+  background-color: #c70101;
+  text-align: center;
+  font-size: 5rem;
+  color: white;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  width: 100%;
+
+}
+.tick_grid
+{
+  display: grid;
+  gap : 2rem;
+  margin-top: 4rem;
+  grid-template-columns: repeat(3,1fr);
+  padding-left:2rem ;
+ padding-right: 2rem;
+}
+.tick_card
+{
+ overflow : hidden;
+border-radius : 1rem;
+box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+.tick_card_header
+{
+    gap : 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+}
+.tick_content
+{
+    padding: 1rem;
+}
+
+.tick_card_header h4
+{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color : var(--text-dark);
+
+}
+.tick_content p
+{
+    color :var(--text-light);
+}
+.booknow1
+{
+    padding : 1rem 3rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: white;
+    background-color:#c70101;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.3s ;
+    width: 100%;
+
+}
+.booknow1:hover
+{
+    background-color: red;
+}
+.info
+{
+    padding : 1rem 3rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: white;
+    background-color:#c70101;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.3s ;
+    margin-top: 0.5rem;
+    display: block;
+    width: 100%;
+
+}
+.info:hover
+{
+    background-color: red;
+}
+.header
+{
+    background-color:#c70101;
+    color: white;
+    font-size: 5rem;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 100%;
+    text-align: center;
+}
+.fans
+{
+    background-color: var(--extra-light);
+}
+.fangrid
+{
+    display: grid;
+    gap : 2rem;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    padding-left: 3rem ;
+    padding-right: 3rem;
+    grid-template-columns: repeat(3,1fr);
+}
+.fan_feedbackcard img
+{
+   max-width: 150px;
+   margin : auto;
+   margin-bottom: 1rem;
+   display: flex;
+}
+.fan_feedbackcard
+{
+  padding : 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+.fan_feedbackcard p
+{
+   text-align: center;
+   color: black;
+   font-size: 1.5rem;
+}
+
+.footer body{
+	line-height: 1.5;
+	font-family: 'Poppins', sans-serif;
+}
+.footer *{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #c70101;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+    
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+
+#login-footer{
+    color: white;
+}
+
+
+
