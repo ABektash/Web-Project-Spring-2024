@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man Utd</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="API-football-data.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!--Header-->
+    <section id="header">
+
+        <a id="navbar" href="index.html"><img src="Images/ManchesterUnitedLogo.png" width="80px" height="80px"
+                class="Logo" alt="Team Logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="Tickets.html">Tickets</a></li>
+                <li><a href="News.html">News</a></li>
+                <li><a href="Players.html">Players</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="SignIn.html"><img src="Images/ProfileDefault.png" width="30px" height="30px"
+                            alt="Profile Logo"></a></li>
+            </ul>
+        </div>
+
+    </section>
+    <section>
+        <div id="matchestext" style="margin-bottom: 2rem;">
+            <h2 id="headertext" style="text-underline-offset: 10px;"> Upcoming Match</h2>
+
+            <span><a class="see-more" href="index.html">Go back</a></span>
+            <span><a class="see-more" style="color:rgb(234, 205, 38); text-decoration: none;">Predict The Upcoming Match</a></span>
+
+
+        </div>
+        <div class="container-grid" id="matches-grid">
+            <div class="container-match">
+                <div class="card">
+                    <div class="card_title">
+                        <h1>Upcoming Match</h1> <!--Upcoming or Live or ended-->
+                        <p id="match_type">Old Trafford</p> <!--Match Location-->
+                    </div>
+                    <div class="match_info">
+                        <div class="team_name">
+                            <div class="team1">
+                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
+                                <h3>MIbhbjhvbhvjjvbhjvh</h3>
+                            </div>
+                            <div class="team2">
+                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
+                                <h3>RCBvhhcchggghjsvsffdvdfv</h3>
+                            </div>
+                        </div>
+
+                        <div class="vs">
+                            <p>vs</p>
+                        </div>
+                        <div class="date_time">
+                            <p>9, April 2021</p>
+                            <p>7.00 PM</p>
+                        </div>
+                    </div>
+                    <div class="seeDetails">
+                        <span id="timeNumber">41<span id="livetimeanimation">'</span>
+
+                    </div>
+                </div>
+                
+            </div>
+            <div id="shopdemo">
+
+                <div id="Image-slide-in">
+                    <img src="Images/predict-pic.PNG" style="scale: 1;" alt="Picture of Player">
+                </div>
+                <div id="choose-now">
+                    <button onclick="teamchosen(this.innerText)" id="predict-now">Team1</button>
+                </div>
+                <div id="choose-now">
+                    <button onclick="teamchosen(this.innerText)" id="predict-now">Team2</button>
+                </div>
+                <script>
+                    function teamchosen(teamchosen) {
+                        alert(teamchosen + " has been chosen!");
+                        window.location.href = "index.html"; 
+                    }
+                </script>
+            </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a id="login-footer" href="SignIn.html">Login</a></li>
+                        <li><a id="login-footer" href="SignIn.html">Sign up</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Accessibility</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="About.html">History</a></li>
+                        <li><a href="About.html">Old Trafford</a></li>
+                        <li><a href="About.html">Legends</a></li>
+                        <li><a href="More.html">Matches</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li><a href="Tickets.html">Tickets</a></li>
+                        <li><a href="Shop.html">Merch</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/manchesterunited"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://twitter.com/ManUtd"><i class="fa-brands fa-x"></i></a>
+                        <a href="http://instagram.com/manchesterunited"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/manutd"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+</body>
+
+
+
+
+
+
+</html>
