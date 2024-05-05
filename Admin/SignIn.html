@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Signin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="Sigin.js"></script>
+    <title>Login/SignUp</title>
+
+  </head>
+
+  <body>
+    <section id="header">
+      <a id="navbar" href="index.html"
+        ><img
+          src="img/manu.png"
+          width="50px"
+          height="50px"
+          class="Logo"
+          alt="Team Logo"
+      /></a>
+    </section>
+
+    <form
+      id="loginForm"
+      name="loginForm"
+      onsubmit="return validateLogInForm(this)"
+      action="dashboard.html"
+    >
+      <h2>Login</h2>
+      <div class="row">
+        <label>Email Address</label>
+        <input type="text" name="email" />
+        <div class="error" id="loginEmailErr"></div>
+      </div>
+      <div class="row">
+        <label>Password</label>
+        <input type="password" name="password" />
+        <div class="error" id="loginPasswordErr"></div>
+      </div>
+      <div class="row">
+        <input type="submit" value="Login" />
+      </div>
+      <div>
+        <p class="signupLoginText">Don't have an account?</p>
+        <button class="button signupLogin" onclick="showSignUpForm(event)">
+          Sign Up
+        </button>
+      </div>
+    </form>
+
+    <form
+      id="signUpForm"
+      name="signUpForm"
+      onsubmit="return validateSignUpForm(this)"
+      action="dashboard.html"
+    >
+      <h2>SignUp</h2>
+      <div class="row">
+        <label>Full Name</label>
+        <input type="text" name="name" />
+        <div class="error" id="nameErr"></div>
+      </div>
+      <div class="row">
+        <label>Email Address</label>
+        <input type="text" name="email" />
+        <div class="error" id="emailErr"></div>
+      </div>
+      <div class="row">
+        <label>Password</label>
+        <input type="password" name="password" />
+        <div class="error" id="passwordErr"></div>
+      </div>
+
+      <div class="row">
+        <label>Confirm Password</label>
+        <input type="password" name="confpassword" />
+        <div class="error" id="confpassErr"></div>
+      </div>
+
+      <div class="row">
+        <input type="submit" value="Register" />
+      </div>
+      <div>
+        <p class="signupLoginText">Have an account?</p>
+        <button class="button signupLogin" onclick="showLoginForm(event)">
+          Login
+        </button>
+      </div>
+    </form>
+
+
+  </body>
+</html>

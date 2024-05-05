@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man Utd</title>
+    <link rel="stylesheet" href="BuyPage.css">
+    <script src='validationForm.js'></script>
+    <script src="API-football-data.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="Images/ManchesterUnitedLogo.png" width="80px" height="80px" class="Logo"
+                alt="Team Logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="Shop.html">SHOP</a></li>
+                <li><a class="active" href="Tickets.html">TICKETS</a></li>
+                <li><a href="About.html">ABOUT</a></li>
+                <li><a href="More.html">MORE</a></li>
+                <li><a href="SignIn.html"><img src="Images/ProfileDefault.png" width="40px" height="40px"
+                            alt="Profile Logo"></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="Bform">
+        <div class="booking_form">
+            <form name="booking" id="booking">
+                <div class="row">
+                    <div class="column">
+                        <h3 class="title">Building  Address </h3>
+                        <div class="input">
+                            <span>Full name</span>
+                            <input type="'text" placeholder="Name" name="name">
+                            <div class="error" class="nameErr"></div>
+                        </div>
+
+                        <div class="input">
+                            <span>Email</span>
+                            <input type="email" placeholder="Email" name="email">
+                            <div class="error" id="emailErr"></div>
+                        </div>
+
+                        <div class="input">
+                            <span>Address</span>
+                            <input type="text" placeholder="street no." name="Address">
+                            <div class="error" id="addressErr"></div>
+                        </div>
+
+                        <div class="input">
+                            <span>City</span>
+                            <input type="text" placeholder="cairo" name="city">
+                            <div class="error" id="nameErr"></div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="input">
+                                <span>State</span>
+                                <input type="text" placeholder="Egypt" name="country">
+                                <div class="error" id="countryErr"></div>
+                            </div>
+                            <div class="input">
+                                <span>Zip Code</span>
+                                <input type="number" placeholder="234 856" name="zipcode">
+                                <div class="error" id="zipErr"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <h3 class="title">Payment </h3>
+                        <div class="input">
+                            <span>Cards Accepted</span>
+                            <img src="Images/imgcards.png">
+                        </div>
+
+                        <div class="input">
+                            <span>Name On Card</span>
+                            <input type="text" placeholder="Name" name="nameoncard">
+                            <div class="error" id="cardnameErr"></div>
+                        </div>
+
+                        <div class="input">
+                            <span>Credit Card number</span>
+                            <input type="number" placeholder="number" name="ccardnumber">
+                            <div class="error" id="cardnumberErr "></div>
+                        </div>
+
+                        <div class="input">
+                            <span>Exp. Month</span>
+                            <input type="text" placeholder="November" name="expmonth">
+                            <div class="error" id="expmonthErr"></div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="input">
+                                <span>Exp. Year</span>
+                                <input type="number" placeholder="2025" name="expyear">
+                                <div class="error" id="expyearErr"></div>
+                            </div>
+                            <div class="input">
+                                <span>CVV</span>
+                                <input type="number" placeholder="526" name="cvv">
+                                <div class="error" id="cvvErr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               <button type="submit" class="btn" value="Submit" >Submit</button>
+
+            </form>
+
+
+        </div>
+    </section>
+</body>
+</html>
