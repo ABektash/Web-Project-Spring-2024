@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         fetchAllPlayers();
     } else if (document.getElementById('all-matches-grid')) {
         fetchAllMatches();
+    } else if (document.getElementById('matches-predictions-grid')) {
+        fetchNextUpcomingMatch();
     } else {
         fetchNewsMatches();
         fetchStandings();
@@ -136,6 +138,45 @@ function createTeamDiv(teamName, teamLogoUrl, teamNum) {
 
 
 
+//Fetch next match
+function fetchNextUpcomingMatch() {
+    fetch('https://apiv2.allsportsapi.com/football/?met=Fixtures&teamId=102&APIkey=1f8afcd2d774c4cb00dd0c35f3de570c288ba8584acbd2f2748b95b081c57b2c&from=2024-05-06&to=2024-07-01')
+        .then(response => response.json())
+        .then(data => {
+            const scrollpane = document.getElementById('matches-predictions-grid');
+            const currentTime = new Date();
+
+
+            const upcomingMatches = data.result.filter(matchData => {
+                const matchDate = new Date(`${matchData.event_date}T${matchData.event_time}`);
+                return matchDate > currentTime;
+            });
+
+
+            upcomingMatches.sort((a, b) => {
+                const dateA = new Date(`${a.event_date}T${a.event_time}`);
+                const dateB = new Date(`${b.event_date}T${b.event_time}`);
+                return dateA - dateB;
+            });
+
+            if (upcomingMatches.length > 0) {
+                const nextMatch = upcomingMatches[0];
+                document.getElementById('predict-now1').innerText = nextMatch.event_home_team;
+                document.getElementById('predict-now2').innerText = nextMatch.event_away_team;
+                const containerMatch = createContainerUpcomingMatch(nextMatch);
+                scrollpane.appendChild(containerMatch);
+            } else {
+                const noMatchesMessage = document.createElement('div');
+                noMatchesMessage.textContent = 'No upcoming matches';
+                scrollpane.appendChild(noMatchesMessage);
+            }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
+
+
+
+
 
 
 
@@ -155,22 +196,11 @@ function fetchTopPlayers() {
             top4Players.forEach(playerData => {
                 const rating = parseFloat(playerData.player_rating).toFixed(2);
                 const age = playerData.player_age || 'N/A';
-                const name = playerData.player_name || 'N/A';
+                const playerName = playerData.player_name || 'N/A';
                 const imageUrl = `Images/Players/${playerData.player_key}.png`;
 
                 const minip = document.createElement('div');
                 minip.classList.add('minip');
-
-                const mg = document.createElement('div');
-                mg.classList.add('mg');
-
-                const clr = document.createElement('div');
-                clr.classList.add('clr');
-
-                const group = document.createElement('div');
-                group.classList.add('group');
-
-                const span = document.createElement('span');
 
                 const av = document.createElement('div');
                 av.classList.add('av');
@@ -179,18 +209,17 @@ function fetchTopPlayers() {
                 const info = document.createElement('div');
                 info.classList.add('info');
 
-                const nameElement = document.createElement('name');
-                nameElement.innerText = name;
+                const name = document.createElement('div');
+                name.innerText = playerName;
+                name.classList.add('player-name');
 
-                const deets = document.createElement('deets');
+                const deets = document.createElement('div');
+                deets.classList.add('player-deets');
                 deets.innerHTML = `Age: ${age}<br>Rating: ${rating}`;
 
-                group.appendChild(span);
-                mg.appendChild(clr);
-                mg.appendChild(group);
-                minip.appendChild(mg);
+                
                 minip.appendChild(av);
-                info.appendChild(nameElement);
+                info.appendChild(name);
                 info.appendChild(deets);
                 minip.appendChild(info);
 
@@ -577,17 +606,6 @@ function createPlayerCard(playerId, imageUrl, playerName, playerAge = "", player
     const minip = document.createElement('div');
     minip.classList.add('minip');
 
-    const mg = document.createElement('div');
-    mg.classList.add('mg');
-
-    const clr = document.createElement('div');
-    clr.classList.add('clr');
-
-    const group = document.createElement('div');
-    group.classList.add('group');
-
-    const span = document.createElement('span');
-
     const av = document.createElement('div');
     av.classList.add('av');
     av.style.backgroundImage = `url('${imageUrl}')`;
@@ -595,20 +613,18 @@ function createPlayerCard(playerId, imageUrl, playerName, playerAge = "", player
     const info = document.createElement('div');
     info.classList.add('info');
 
-    const name = document.createElement('name');
+    const name = document.createElement('div');
     name.innerText = playerName;
+    name.classList.add('player-name');
 
-    const deets = document.createElement('deets');
+    const deets = document.createElement('div');
+    deets.classList.add('player-deets');
     if (playerAge != "") {
         deets.innerHTML = `Age: ${playerAge}<br>Number: ${playerNumber}`;
     }
     else
         deets.innerHTML = `<br>Position: coach`;
 
-    group.appendChild(span);
-    mg.appendChild(clr);
-    mg.appendChild(group);
-    minip.appendChild(mg);
     minip.appendChild(av);
     info.appendChild(name);
     info.appendChild(deets);

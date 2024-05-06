@@ -42,58 +42,30 @@
 
         </div>
         <div class="container-grid" id="matches-predictions-grid">
-            <div class="container-match">
-                <div class="card">
-                    <div class="card_title">
-                        <h1>Upcoming Match</h1> <!--Upcoming or Live or ended-->
-                        <p id="match_type">Old Trafford</p> <!--Match Location-->
-                    </div>
-                    <div class="match_info">
-                        <div class="team_name">
-                            <div class="team1">
-                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
-                                <h3>MIbhbjhvbhvjjvbhjvh</h3>
-                            </div>
-                            <div class="team2">
-                                <img src="Images/ManchesterUnitedLogo.png" alt="" />
-                                <h3>RCBvhhcchggghjsvsffdvdfv</h3>
-                            </div>
-                        </div>
+            
+        </div>
+        <div id="shopdemo">
 
-                        <div class="vs">
-                            <p>vs</p>
-                        </div>
-                        <div class="date_time">
-                            <p>9, April 2021</p>
-                            <p>7.00 PM</p>
-                        </div>
-                    </div>
-                    <div class="seeDetails">
-                        <span id="timeNumber">41<span id="livetimeanimation">'</span>
-
-                    </div>
-                </div>
-                
+            <div id="Image-slide-in">
+                <img src="Images/predict-pic.PNG" style="scale: 1;" alt="Picture of Player">
             </div>
-            <div id="shopdemo">
-
-                <div id="Image-slide-in">
-                    <img src="Images/predict-pic.PNG" style="scale: 1;" alt="Picture of Player">
-                </div>
-                <div id="choose-now">
-                    <button onclick="teamchosen(this.innerText)" id="predict-now">Team1</button>
-                </div>
-                <div id="choose-now">
-                    <button onclick="teamchosen(this.innerText)" id="predict-now">Team2</button>
-                </div>
-                <script>
-                    function teamchosen(teamchosen) {
-                        alert(teamchosen + " has been chosen!");
-                        window.location.href = "index.html"; 
-                    }
-                </script>
+            <div id="choose-now">
+                <button onclick="teamchosen(this.innerText)" id="predict-now1" class="predict-now"></button>
             </div>
-    </section>
+            <div id="choose-now">
+                <button onclick="teamchosen(this.innerText)" class="predict-now">Draw</button>
+            </div>
+            <div id="choose-now">
+                <button onclick="teamchosen(this.innerText)" id="predict-now2" class="predict-now"></button>
+            </div>
+            <script>
+                function teamchosen(teamchosen) {
+                    alert(teamchosen + " has been chosen!");
+                    window.location.href = "index.html"; 
+                }
+            </script>
+        </div>
+        </section>
     <section>
 
         <div class="predictions-table">

@@ -62,12 +62,6 @@ body {
 	margin-right: 20px;
 }
 
-
-#sidebar .brand .bx {
-	min-width: 60px;
-	display: flex;
-	justify-content: center;
-}
 #sidebar .side-menu {
 	width: 100%;
 	margin-top: 48px;
@@ -117,21 +111,14 @@ body {
 	white-space: nowrap;
 	overflow-x: hidden;
 }
-#sidebar .side-menu.top li.active a {
-	color: #FFF; 
-}
+
 #sidebar.hide .side-menu li a {
-	width: calc(48px - (4px * 2));
+	width: 40px;
 	transition: width .3s ease;
 }
-#sidebar .side-menu li a.logout {
-	color: #FFF;
-}
-#sidebar .side-menu.top li a:hover {
-	color: #FFF; 
-}
+
 #sidebar .side-menu li a .bx {
-	min-width: calc(60px  - ((4px + 6px) * 2));
+	min-width: 40px;
 	display: flex;
 	justify-content: center;
 }
@@ -176,21 +163,13 @@ body {
 	border-radius: 50%;
 	box-shadow: -20px -20px 0 #c70101;
 }
-#content nav a {
-	color: #FFF; 
-}
+
 #content nav .bx.bx-menu {
 	cursor: pointer;
 	color: black; 
 	font-size: larger;
 }
-#content nav .nav-link {
-	font-size: 16px;
-	transition: .3s ease;
-}
-#content nav .nav-link:hover {
-	color: #FFF; 
-}
+
 #content nav form {
 	max-width: 400px;
 	width: 100%;
@@ -234,45 +213,3 @@ body {
 }
 
 
-
-
-
-@media screen and (max-width: 768px) {
-	#sidebar {
-		width: 200px;
-	}
-	#content {
-		width: calc(100% - 60px);
-		left: 200px;
-	}
-	#content nav .nav-link {
-		display: none;
-	}
-}
-
-@media screen and (max-width: 576px) {
-	#content nav form .form-input input {
-		display: none;
-	}
-	#content nav form .form-input button {
-		width: auto;
-		height: auto;
-		background: transparent;
-		border-radius: none;
-		color: #342E37;
-	}
-	#content nav form.show .form-input input {
-		display: block;
-		width: 100%;
-	}
-	#content nav form.show .form-input button {
-		width: 36px;
-		height: 100%;
-		border-radius: 0 36px 36px 0;
-		color: #FFF; 
-		background: #DB504A;
-	}
-	#content nav form.show ~ .profile {
-		display: none;
-	}
-}
