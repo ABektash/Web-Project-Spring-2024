@@ -6,26 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Man Utd</title>
     <link rel="stylesheet" href="BuyPage.css">
+    <link rel="stylesheet" href="style.css">
     <script src='validationForm.js'></script>
     <script src="API-football-data.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <section id="header">
-        <a href="#"><img src="Images/ManchesterUnitedLogo.png" width="80px" height="80px" class="Logo"
-                alt="Team Logo"></a>
-        <div>
-            <ul id="navbar">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="Shop.html">SHOP</a></li>
-                <li><a class="active" href="Tickets.html">TICKETS</a></li>
-                <li><a href="About.html">ABOUT</a></li>
-                <li><a href="More.html">MORE</a></li>
-                <li><a href="SignIn.html"><img src="Images/ProfileDefault.png" width="40px" height="40px"
-                            alt="Profile Logo"></a></li>
-            </ul>
-        </div>
-    </section>
+   <!--Header-->
+   <section id="header">
+
+    <a id="navbar" href="index.html"><img src="Images/ManchesterUnitedLogo.png" width="80px" height="80px" class="Logo" alt="Team Logo"></a>
+    <div>
+        <ul id="navbar">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="Shop.html">Shop</a></li>
+            <li><a href="Tickets.html">Tickets</a></li>
+            <li><a href="News.html">News</a></li>
+            <li><a href="Players.html">Players</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="SignIn.html"><img src="Images/ProfileDefault.png" width="30px" height="30px"
+                        alt="Profile Logo"></a></li>
+        </ul>
+    </div>
+
+</section>
 
     <section class="Bform">
         <div class="booking_form">
@@ -118,5 +122,46 @@
 
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a id="login-footer" href="SignIn.html">Login</a></li>
+                        <li><a id="login-footer" href="SignIn.html">Sign up</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Accessibility</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="About.html">History</a></li>
+                        <li><a href="About.html">Old Trafford</a></li>
+                        <li><a href="About.html">Legends</a></li>
+                        <li><a href="More.html">Matches</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li><a href="Tickets.html">Tickets</a></li>
+                        <li><a href="Shop.html">Merch</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/manchesterunited"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://twitter.com/ManUtd"><i class="fa-brands fa-x"></i></a>
+                        <a href="http://instagram.com/manchesterunited"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/manutd"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
