@@ -1,4 +1,8 @@
 /* cart  */
+#cart
+{
+    padding: 3rem;
+}
 #cart table {
     width: 100%;
     border-collapse: collapse;
@@ -65,13 +69,17 @@
 }
 
 #cart-add {
+    margin-top: 2.5rem;
     display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: center;
     overflow: hidden;
+  
+
 }
 
-#address
+/* #address
 {
     width: 50%;
     margin-bottom: 30;
@@ -88,16 +96,17 @@
     width:60%;
     margin-right: 10px;
     border: 1px solid #e2e9e1;
-}
+} */
 
 #Subtotal {
     width: 50%;
     margin-bottom: 30px;
-    border: 3px solid whitesmoke;
-    border-color: gray;
+    border: 1px solid;
+    border-color:black;
     border-radius: 10px;
     padding: 20px;
     margin-right: 30px;
+    align-self: center;
 
 }
 
@@ -166,4 +175,19 @@
     color: #e2e9e1;
     font-size: 5rem;
     
+}
+
+.errorText{
+    margin-top: 6rem;
+}
+
+.quantity
+{
+    border-radius: 1rem;
+    border-style: solid;
+}
+
+.quantity:focus
+{
+    outline: none;
 }

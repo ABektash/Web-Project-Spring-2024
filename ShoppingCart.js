@@ -13,33 +13,23 @@ function validateAndProceed() {
     if (!validInput) {
         document.getElementById('errorText').style.display = 'block';
         document.getElementById('errorText').style.color = 'red';
-        document.getElementById('sucText').style.display="none";
+        document.getElementById('eText').style.display="block";
+        document.getElementById('eText').style.color="red";
+
+        document.getElementById('Subtotal').style.borderColor="red";
     } else {
         document.getElementById('errorText').style.display = 'none';
-        document.getElementById('sucText').style.display="block";
-        document.getElementById('sucText').style.color="green";
+        document.getElementById('eText').style.display="none";
+        document.getElementById('Subtotal').style.borderColor="";
+        window.location.href = 'BuyPage.html';
     }
 }
 
-document.getElementById('checkout-btn').addEventListener('click', validateAndProceed);
 
 
-function validateAddress() {
-    var addressInput = document.getElementById('addText').value.trim();
-    var addressError = document.getElementById('addressError');
-    var addressSucc = document.getElementById('addressSucc');
-
-    if (addressInput === '') {
-        addressError.textContent = 'Please enter your address';
-        addressError.style.color = 'red';
-        addressError.style.display="block";
-        addressSucc.style.display="none";
-         
-    } else {
-        addressSucc.textContent = 'successfull';
-        addressSucc.style.color = 'green';
-        addressSucc.style.display="block";
-        addressError.style.display="none";
-    }
-    document.getElementById('submit').addEventListener('click', validateAddress);
-}
+addEventListener("DOMContentLoaded", (event) => {
+    document.getElementById('remIcon').addEventListener('click', function() {
+    
+        var tr = this.parentNode.parentNode.parentNode;
+        tr.style.display = 'none';
+    }); });

@@ -18,8 +18,8 @@
                 class="Logo" alt="Team Logo"></a>
         <div>
             <ul id="navbar">
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="Shop.html">Shop</a></li>
+                <li><a  href="index.html">Home</a></li>
+                <li><a class="active" href="Shop.html">Shop</a></li>
                 <li><a href="Tickets.html">Tickets</a></li>
                 <li><a href="News.html">News</a></li>
                 <li><a href="Players.html">Players</a></li>
@@ -54,15 +54,15 @@
                     <td><img src="Images/f1.avif" alt=""></td>
                     <td>T-shirts</td>
                     <td>$118</td>
-                    <td><input type="number" value="1" min="1"></td>
+                    <td><input class="quantity" type="number" value="1" min="1"></td>
                     <td>$451</td>
                 </tr>
                 <tr>
                     <td><a href="#"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="Images/trial.avif" alt=""></td>
+                    <td><img src="Images/1st.avif" alt=""></td>
                     <td>T-shirts</td>
                     <td>$118</td>
-                    <td><input type="number" value="1" min="1"></td>
+                    <td><input class="quantity" type="number" value="1" min="1"></td>
                     <td>$451</td>
 
                 </tr>
@@ -71,11 +71,28 @@
                     <td><img src="Images/w18.avif" alt=""></td>
                     <td>T-shirts</td>
                     <td>$118</td>
-                    <td><input type="number" value="1" min="1">
+                    <td><input class="quantity" type="number" value="1" min="1">
                         <div id="errorText" style="display: none;">
                             Out Of Stock
                         </div>
                     </td>
+                    <td>$451</td>
+                </tr>
+                <tr>
+                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
+                    <td><img src="Images/f4.avif" alt=""></td>
+                    <td>T-shirts</td>
+                    <td>$118</td>
+                    <td><input class="quantity" type="number" value="1" min="1"></td>
+                    <td>$451</td>
+
+                </tr>
+                <tr>
+                    <td><a href="#"><i class="far fa-times-circle" id="remIcon"></i></a></td>
+                    <td><img src="Images/w11.webp" alt=""></td>
+                    <td>T-shirts</td>
+                    <td>$118</td>
+                    <td><input class="quantity" type="number" value="1" min="1"></td>
                     <td>$451</td>
 
                 </tr>
@@ -85,7 +102,7 @@
     </section>
 
     <section id="cart-add" class="section-p1">
-        <div id="address">
+        <!-- <div id="address">
             <input id="addText" type="text" placeholder="Enter Your address">
             <div class="addressError" style="display: none;">
                 Please enter your address
@@ -96,7 +113,7 @@
             <button class="submit" onclick=validateAddress();>Submit</button>
 
 
-        </div>
+        </div> -->
 
         <div id="Subtotal">
             <h3>Cart Total</h3>
@@ -114,8 +131,8 @@
                     <td><strong>Total $9678</strong></td>
                 </tr>
             </table>
-            <div id="sucText" style="display: none;">
-                Successfull
+            <div id="eText" style="display: none;">
+                Failed!
             </div>
             <button id="checkout-btn" onclick=validateAndProceed();>Proceed to checkout</button>
         </div>
@@ -161,6 +178,8 @@
             </div>
         </div>
     </footer>
+
+   
 </body>
 
 </html>

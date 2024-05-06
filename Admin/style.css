@@ -213,3 +213,279 @@ body {
 }
 
 
+
+
+main {
+    width: 100%;
+    padding: 36px 24px;
+    font-family: 'Poppins', sans-serif;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+}
+
+.head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 16px;
+    flex-wrap: wrap;
+}
+
+.head-title .left h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.pageSub {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+}
+
+.pageSub li {
+    color: #222;
+}
+
+.pageSub li a {
+    color: #666;
+    pointer-events: none;
+}
+
+.pageSub li a.active {
+    color: #007bff;
+    pointer-events: unset;
+}
+
+
+
+
+
+.box-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 24px;
+    margin-top: 36px;
+}
+
+.box-info li {
+    padding: 24px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+    transition: transform 0.3s ease;
+}
+
+.box-info li:hover {
+    transform: scale(1.1);
+
+}
+
+.box-info li .bx {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-info li:nth-child(1) .bx {
+    background: #cce5ff;
+    color: #007bff;
+}
+
+.box-info li:nth-child(2) .bx {
+    background: #fff3cd;
+    color: #ffc107;
+}
+
+.box-info li:nth-child(3) .bx {
+    background: #ffe8e6;
+    color: #dc3545;
+}
+
+.text h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #222;
+}
+
+.text p {
+    color: #222;
+}
+
+.table-data {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 24px;
+    margin-top: 24px;
+    width: 100%;
+    color: #222;
+}
+
+.table-data>div {
+    border-radius: 20px;
+    background: #f8f9fa;
+    padding: 24px;
+    overflow-x: auto;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+    margin-bottom: 24px;
+}
+
+.head h3 {
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.head .bx {
+    cursor: pointer;
+}
+
+.order {
+    flex-grow: 1;
+    flex-basis: 500px;
+}
+
+.order table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order table th {
+    padding-bottom: 12px;
+    font-size: 13px;
+    text-align: left;
+    border-bottom: 1px solid #ced4da;
+}
+
+.order table td {
+    padding: 16px 0;
+}
+
+.order table tr td:first-child {
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+    padding-left: 6px;
+}
+
+.order table td img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.order table tbody tr:hover {
+    background: #e9ecef;
+}
+
+
+
+
+.most-ord-pr {
+    flex-grow: 1;
+    flex-basis: 300px;
+}
+
+.most-ord-pr {
+    width: 100%;
+}
+
+.most-ord-pr li {
+    width: 100%;
+    margin-bottom: 16px;
+    background: #f8d7da;
+    border-radius: 10px;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.most-ord-pr li .bx {
+    cursor: pointer;
+}
+
+.most-ord-pr li:last-child {
+    margin-bottom: 0;
+}
+
+.pimg {
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.price {
+    color: green;
+}
+
+
+.de {
+    transform: translateX(-1rem);
+    text-align: center;
+}
+
+.de:hover {
+    cursor: pointer;
+    color: blue;
+}
+
+#delete:hover {
+    color: #c70101
+}
+
+@media screen and (max-width: 768px) {
+    #sidebar {
+        width: 200px;
+    }
+
+    #content {
+        width: calc(100% - 60px);
+        left: 200px;
+    }
+
+   }
+
+@media screen and (max-width: 576px) {
+    #content nav form .form-input input {
+        display: none;
+    }
+
+    #content nav form .form-input button {
+        width: auto;
+        height: auto;
+        background: transparent;
+        border-radius: none;
+        color: #342E37;
+    }
+
+    #content nav form.show .form-input input {
+        display: block;
+        width: 100%;
+    }
+
+    #content nav form.show .form-input button {
+        width: 36px;
+        height: 100%;
+        border-radius: 0 36px 36px 0;
+        color: #FFF;
+        background: #DB504A;
+    }
+
+    #content nav form.show~.profile {
+        display: none;
+    }
+}
+
