@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Products</title>
+    <title>Edit Products</title>
 	<link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Products.css">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -75,34 +75,35 @@
 	</section>
 	<script src="script.js"></script>
 
-    <!-- productForm -->
-	<form id="productForm" name="productForm" onsubmit="return validateForm(this)">
-		<h2 id="addH2">Add Product</h2>
+    <!-- EditproductForm -->
+	 <form id="productForm" name="productForm" onsubmit="return validateForm(this)">
+		<h2 id="addH2">Edit Product</h2>
 		<div class="row">
 			<label>Name Of Product</label>
-			<input type="text" name="name" placeholder="Enter product name" />
+			<input type="text" name="name" placeholder="Enter product name" value="T-shirt" />
 			<div class="error" id="nameErr"></div>
 		</div>
 		<div class="row">
 			<label>Price</label>
 			<div class="price-input">
-				<input type="text" name="price" placeholder="Enter product price" />
+				<input type="text" name="price" placeholder="Enter product price" value="120.50" />
 				<span class="currency">$</span>
 			</div>
 			<div class="error" id="priceErr"></div>
 		</div>
 		<div class="row">
 			<label>Number of Available Pieces</label>
-			<input  type="number" name="quantity" placeholder="Enter quantity available" />
+			<input  type="number" name="quantity" placeholder="Enter quantity available" value="40" />
 			<div class="error" id="quantityErr"></div>
+			
 		</div>
 	
 		<div class="row">
 			<label>Select Size</label>
-			<select id="SelectSize" name="size" placeholder="Select product size">
+			<select id="SelectSize" name="size">
 				<option value="selectSize">Select Size</option>
 				<option value="S">S</option>
-				<option value="M">M</option>
+				<option value="M" selected>M</option>
 				<option value="L">L</option>
 				<option value="XL">XL</option>
 				<option value="XXL">XXL</option>
@@ -117,9 +118,11 @@
 		</div>
 	
 		<div class="row">
-			<input type="submit" class="submit-btn" value="Add Product" />
+			<input type="submit" class="submit-btn" value="Edit Product" />
 		</div>
-	</form>
+	</form> 
 	
+	
+</body>
 
 </html>

@@ -12,47 +12,59 @@ function validateForm() {
   var selectelement = document.getElementById("SelectSize");
   var size = selectelement.value.trim();
   var image = form.image.value;
-  
 
-  var nameErr = priceErr = quantityErr = sizeErr = imageErr = true;
+  var nameErr =
+    (priceErr =
+    quantityErr =
+    sizeErr =
+    imageErr =
+    selectErr =
+      false);
 
   if (name == "") {
-      printError("nameErr", "Please enter the name of the product");
+    printError("nameErr", "Please enter the name of the product");
+    nameErr = true;
   } else {
-      printError("nameErr", "");
-      nameErr = false;
+    printError("nameErr", "");
   }
 
   if (price == "") {
-      printError("priceErr", "Please enter the price of the product");
+    printError("priceErr", "Please enter the price of the product");
+    priceErr = true;
   } else {
-      printError("priceErr", "");
-      priceErr = false;
+    printError("priceErr", "");
   }
 
   if (quantity == "") {
-      printError("quantityErr", "Please enter the number of available pieces");
+    printError("quantityErr", "Please enter the number of available pieces");
+    quantityErr = true;
   } else {
-      printError("quantityErr", "");
-      quantityErr = false;
+    printError("quantityErr", "");
   }
 
-  if (size === "Select Size") {
-      printError("sizeErr", "Please select a size");
+  if (size === "selectSize") {
+    printError("sizeErr", "Please select a size");
+    sizeErr = true;
   } else {
-      printError("sizeErr", "");
-      sizeErr = false;
+    printError("sizeErr", "");
   }
 
   if (image == "") {
-      printError("imageErr", "Please upload an image");
+    printError("imageErr", "Please upload an image");
+    imageErr = true;
   } else {
-      printError("imageErr", "");
-      imageErr = false;
+    printError("imageErr", "");
   }
 
-  if (nameErr || priceErr || quantityErr || sizeErr || imageErr) {
-      return false;
+  if (!nameErr && !priceErr && !quantityErr && !sizeErr && !imageErr) {
+    var submitBtn = form.querySelector('input[type="submit"]');
+    submitBtn.style.boxShadow = "0 3px 0 green";
+    submitBtn.style.backgroundColor = "green";
+    submitBtn.value = "Successful!!";
+    form.querySelector(".succ").style.display = "block";
+
+    return true;
   }
-  return true;
+
+  return false;
 }

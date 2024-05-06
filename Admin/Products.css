@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 /* productForm Screen */
-
+.body{
+    font-family: 'Lato', sans-serif;
+}
 #productForm #addH2 {
     color: #c70101;
     text-align: center;
@@ -7,16 +10,17 @@
 }
 
 #productForm {
-    width: 300px;
+    width: 400px;
     background: #ffffff;
     padding: 20px 35px 35px;
     border: 1px solid #ccc;
     margin: 50px auto 0;
     border-radius: 6mm;
     margin-bottom: 4cm;
-    margin-top: 4cm;
+    margin-top: 2cm;
     padding-bottom: 1cm;
     background: #ffffff;
+    font-family: 'Lato', sans-serif;
     box-shadow:  -19px 19px 38px #bfbfbf,
                  19px -19px 38px #ffffff;
 }
@@ -38,6 +42,8 @@ select {
 
 #productForm .row {
     padding-bottom: 20px;
+    margin: 5px;
+    margin-top: 15px;
 }
 
 #productForm .error {
@@ -77,4 +83,4 @@ select {
     right: 15px;
     transform: translateY(-50%);
   }
-  
+
