@@ -3,37 +3,14 @@
 body {
     font-family: "Poppins", sans-serif;
     margin: 0;
+    /* background-color: #cecece; */
 }
 
 /* Login/SignUp Screen */
 
+
 #signUpForm {
     display: none;
-}
-
-.button-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.button {
-    display: inline-block;
-    font-family: inherit;
-    font-size: inherit;
-    width: 200px;
-    height: 50px;
-    padding: 0;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    background-color: transparent;
-    color: #ffffff;
 }
 
 .signupLogin {
@@ -77,11 +54,9 @@ form {
     border-radius: 6mm;
     margin-bottom: 1.5cm;
     margin-top: 1.5cm;
-
-    
     background: #ffffff;
     box-shadow:  -19px 19px 38px #bfbfbf,
-                 19px -19px 38px #ffffff;
+                 19px -19px 38px #c5c5c5;
 }
 
 label {

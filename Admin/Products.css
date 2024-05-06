@@ -1,0 +1,80 @@
+/* productForm Screen */
+
+#productForm #addH2 {
+    color: #c70101;
+    text-align: center;
+    text-decoration: double;
+}
+
+#productForm {
+    width: 300px;
+    background: #ffffff;
+    padding: 20px 35px 35px;
+    border: 1px solid #ccc;
+    margin: 50px auto 0;
+    border-radius: 6mm;
+    margin-bottom: 4cm;
+    margin-top: 4cm;
+    padding-bottom: 1cm;
+    background: #ffffff;
+    box-shadow:  -19px 19px 38px #bfbfbf,
+                 19px -19px 38px #ffffff;
+}
+
+#productForm label  {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#productForm Input,
+select {
+    border: 1px solid #a5a5a5;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 3mm;
+}
+
+#productForm .row {
+    padding-bottom: 20px;
+}
+
+#productForm .error {
+    color: red;
+    font-size: 90%;
+}
+
+#productForm input[type="submit"] {
+    font-size: 110%;
+    font-weight: 100;
+    font-family: inherit;
+    background: #c70101;
+    border-color: #74000000;
+    box-shadow: 0 3px 0 #c40000;
+    color: #fff;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 1cm;
+}
+
+#productForm input[type="submit"]:hover {
+    transition: 0.4s;
+    background: #740000;
+}
+
+#productForm .price-input {
+    position: relative;
+  }
+  
+  #productForm  .price-input input[type="text"] {
+    padding-right: 10px; /* padding for $*/
+  }
+  
+  #productForm .price-input .currency {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+  }
+  

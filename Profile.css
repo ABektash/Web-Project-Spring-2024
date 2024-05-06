@@ -39,7 +39,6 @@
 .left span {
     display: block;
     color: white;
-    /* text-align: left; */
     font-size: xx-large;
 }
 
@@ -223,7 +222,7 @@
 
 #showPopUp {
     background-color: #ffe600;
-    color: black; /* Or any contrasting color for text */
+    color: black; 
     border: none;
     padding: 10px 20px;
     font-size: 16px;
