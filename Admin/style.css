@@ -445,6 +445,123 @@ main {
 #delete:hover {
     color: #c70101
 }
+.Bform {
+    margin: 0px;
+    margin-left: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.booking_form {
+    align-items: center;
+    min-height: 70vh;
+    justify-content: center;
+    display: flex;
+    background: none;
+    background-size: cover;
+}
+
+.booking_form form {
+    width: 750px;
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+    margin-right: 250px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.small-input {
+    width: 70px; 
+}
+
+.input input {
+    padding: 10px 14px;
+    border: 1px solid cornsilk;
+    border-radius: 6px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.input label {
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
+
+.input span {
+    margin-top: 10px;
+}
+
+.input span i {
+    margin-right: 6px;
+}
+
+.error-message{
+    color: red;
+    font-size: small;
+}
+
+#success-message{
+    color: green;
+    display: none;
+}
+
+
+form .btn
+{
+    padding : 1rem 3rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: white;
+    background-color:#c70101;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.3s ;
+    width: 100%;
+    margin-top: 10px;
+}
+form .btn:hover
+{
+    background-color: red;
+    transition: 0.3s;
+}
+
+
+.DateOfBirth {
+    margin-inline: 3px;
+}
+
+.DateOfBirth label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.DateOfBirth input {
+    border: 1px solid #a5a5a5;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 3mm;
+}
+
+
+
 
 @media screen and (max-width: 768px) {
     #sidebar {
