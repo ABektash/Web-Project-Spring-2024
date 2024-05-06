@@ -5,7 +5,7 @@ function printError(elemId, hintMsg) {
 function validateForm() {
   event.preventDefault(); // Prevent default form submission
 
-  var form = document.getElementById("productForm"); // Get the form element
+  var form = document.getElementById("productForm");
   var name = form.name.value;
   var price = form.price.value;
   var quantity = form.quantity.value;

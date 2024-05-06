@@ -1,5 +1,10 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    width: 100%;
+    margin: 0;
+    font-family: "Roboto Condensed", sans-serif;
+}
 
 #header {
     display: flex;
@@ -14,10 +19,7 @@
     top: 0;
 }
 
-body {
-    width: 100%;
-    margin: 0;
-}
+
 
 #navbar li {
     list-style: none;

@@ -8,46 +8,47 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	<script src="script.js"></script>
-	<title>Manchester united admin</title>
+	<title>Add User</title>
 </head>
 
 <body>
 
+	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
 			<img src="img/manu.png" alt="Admin Image">
 			<span class="text">Welcome admin!</span>
 		</a>
 		<ul class="side-menu top">
-			<li>
-				<a href="#">
-					<i class='bx bxs-dashboard'></i>
+			<li class="active">
+				<a href="dashboard.html">
+					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li class="active">
-				<a href="#">
-					<i class='bx bxs-shopping-bag-alt'></i>
-					<span class="text">My Store</span>
+			<li>
+				<a href="manageProducts.html">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">Manage Products</span>
 				</a>
 			</li>
-			<!-- <li>
-				<a href="#">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Analytics</span>
-				</a>
-			</li> -->
 			<li>
-				<a href="#">
-					<i class='bx bxs-group'></i>
-					<span class="text">Manage users</span>
+				<a href="manageUsers.html">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Manage Users</span>
+				</a>
+			</li>
+			<li>
+				<a href="manageTickets.html">
+					<i class='bx bxs-doughnut-chart' ></i>
+					<span class="text">Tickets</span>
 				</a>
 			</li>
 		</ul>
 		<ul class="side-menu">
 			<li>
-				<a href="#" class="logout">
-					<i class='bx bxs-log-out-circle'></i>
+				<a href="SignIn.html" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
 			</li>
@@ -68,22 +69,20 @@
 				</div>
 			</form>
 			<a href="#" class="profile">
-				<img src="img/profile.jpg">
+				<img src="img/profile.jpg" alt="error loading the image">
 			</a>
 		</nav>
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1><i class="fa-solid fa-pencil"></i> Add</h1>
-					<ul class="breadcrumb">
-						<li>
-							<a href="#"><i class="fa-solid fa-ellipsis"></i></a>
-						</li>
-						<li><i class='bx bx-chevron-right'></i></li>
-						<li>
-							<a class="active" href="#">Add User</a>
-						</li>
-					</ul>
+					<h1><i class="fa-solid fa-pencil"></i> Add user</h1>
+					<ul class="pageSub">
+                       
+                        <li><i class='bx bx-chevron-right' ></i></li>
+                        <li>
+                            <a class="active" href="manageUsers.html">Back</a>
+                        </li>
+                    </ul>
 				</div>
 
 			</div>
@@ -221,7 +220,7 @@
 						dayError.style.display = 'block';
 						isValid = false;
 					} else if (!/^\d{1,2}$/.test(day) || parseInt(day) < 1 || parseInt(day) > 31) {
-						dayError.innerHTML = 'Day must be a number between 1 and 31';
+						dayError.innerHTML = 'Must be between 1-31';
 						dayError.style.display = 'block';
 						isValid = false;
 					}
@@ -231,7 +230,7 @@
 						monthError.style.display = 'block';
 						isValid = false;
 					} else if (!/^\d{1,2}$/.test(month) || parseInt(month) < 1 || parseInt(month) > 12) {
-						monthError.innerHTML = 'Month must be a number between 1 and 12';
+						monthError.innerHTML = 'Must be between 1-12';
 						monthError.style.display = 'block';
 						isValid = false;
 					}

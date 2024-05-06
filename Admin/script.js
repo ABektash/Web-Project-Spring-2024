@@ -1,23 +1,23 @@
-const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('content')) {
+    const menuBar = document.querySelector('#content nav .bx.bx-menu');
+    const sidebar = document.getElementById('sidebar');
 
-allSideMenu.forEach(item=> {
-	const li = item.parentElement;
-
-	item.addEventListener('click', function () {
-		allSideMenu.forEach(i=> {
-			i.parentElement.classList.remove('active');
-		})
-		li.classList.add('active');
-	})
+    menuBar.addEventListener('click', function () {
+      sidebar.classList.toggle('hide');
+    })
+  }
 });
 
 
 
 
-// TOGGLE SIDEBAR
-const menuBar = document.querySelector('#content nav .bx.bx-menu');
-const sidebar = document.getElementById('sidebar');
+// Modal
 
-menuBar.addEventListener('click', function () {
-	sidebar.classList.toggle('hide');
-})
+var modal = document.getElementById('modal-Id');
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}

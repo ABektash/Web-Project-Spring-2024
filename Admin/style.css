@@ -309,6 +309,9 @@ main {
     color: #dc3545;
 }
 
+
+
+
 .text h3 {
     font-size: 24px;
     font-weight: 600;
@@ -351,6 +354,7 @@ main {
 .head .bx {
     cursor: pointer;
 }
+
 
 .order {
     flex-grow: 1;
@@ -418,6 +422,7 @@ main {
     cursor: pointer;
 }
 
+
 .most-ord-pr li:last-child {
     margin-bottom: 0;
 }
@@ -432,17 +437,18 @@ main {
 }
 
 
-.de {
-    transform: translateX(-1rem);
-    text-align: center;
+.de a{
+    /* transform: translateX(-1rem);
+    text-align: center; */
+    color: black;
 }
 
-.de:hover {
+.de a:hover {
     cursor: pointer;
     color: blue;
 }
 
-#delete:hover {
+#delete a:hover {
     color: #c70101
 }
 .Bform {
@@ -604,5 +610,118 @@ form .btn:hover
     #content nav form.show~.profile {
         display: none;
     }
+}
+
+/* modal */
+
+.cancelbtn, .deletebtn {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 20px;
+  }
+                                
+  .cancelbtn, .deletebtn {
+    float: left;
+    width: 45%;
+   
+  }
+  
+  
+  .cancelbtn {
+    background-color: #ccc;
+    color: black;
+    margin-right: 40px;
+    margin-left: 30px;
+  }
+  
+  
+  .deletebtn {
+    background-color: #c70101;
+  }
+  
+  
+  .container {
+    padding: 16px;
+    text-align: center;
+  }
+  
+  
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
+    background-color: #474e5db0;
+    padding-top: 10px;
+    padding-left: 300px;
+    
+
+  }
+  
+   
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    border: 1px solid #888;
+    width: 80%; 
+    border-radius: 20px;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+  }
+  
+  
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+  
+  
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  
+  @media screen and (max-width: 300px) {
+    .cancelbtn, .deletebtn {
+       width: 100%;
+    }
+  }
+
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+ 
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
 }
 

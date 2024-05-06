@@ -6,7 +6,7 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-	<title>Manchester united admin</title>
+	<title>Manage Users</title>
 </head>
 <body>
 
@@ -18,34 +18,34 @@
 			<span class="text">Welcome admin!</span>
 		</a>
 		<ul class="side-menu top">
-			<li >
-				<a href="#">
+			<li>
+				<a href="dashboard.html">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li class="active">
-				<a href="#">
+			<li>
+				<a href="manageProducts.html">
 					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">My Store</span>
+					<span class="text">Manage Products</span>
 				</a>
 			</li>
-			<!-- <li>
-				<a href="#">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Analytics</span>
-				</a>
-			</li> -->
-			<li>
-				<a href="#">
+			<li class="active">
+				<a href="manageUsers.html">
 					<i class='bx bxs-group' ></i>
-					<span class="text">Manage users</span>
+					<span class="text">Manage Users</span>
+				</a>
+			</li>
+			<li>
+				<a href="manageTickets.html">
+					<i class='bx bxs-doughnut-chart' ></i>
+					<span class="text">Tickets</span>
 				</a>
 			</li>
 		</ul>
 		<ul class="side-menu">
 			<li>
-				<a href="#" class="logout">
+				<a href="SignIn.html" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
@@ -67,28 +67,40 @@
 				</div>
 			</form>
 			<a href="#" class="profile">
-				<img src="img/profile.jpg">
+				<img src="img/profile.jpg" alt="error loading the image">
 			</a>
 		</nav>
         <main>
             
             <div class="head-title">
                 <div class="left">
-                    <h1>Analytics</h1>
-                    <ul class="breadcrumb">
-                        <li>
-                            <a href="#">Analytics</a>
-                        </li>
+                    <h1>Manage users</h1>
+                    <ul class="pageSub">
+                        
                         <li><i class='bx bx-chevron-right' ></i></li>
                         <li>
-                            <a class="active" href="#">analytics</a>
+                            <a class="active" href="addUser.html">Add user</a>
                         </li>
                     </ul>
                 </div>
                
             </div>
         
-            
+            <div id="modal-Id-user" class="modal">
+                <span onclick="document.getElementById('modal-Id-user').style.display='none'" class="close" title="Close Modal">×</span>
+                <form class="modal-content" >
+                  <div class="container">
+                    <h1>Delete Account</h1>
+                    <p>Are you sure you want to delete this User?</p>
+                  
+                    <div class="clearfix">
+                      <button type="button" onclick="document.getElementById('modal-Id-user').style.display='none'" class="cancelbtn">Cancel</button>
+                      <button type="button" onclick="document.getElementById('modal-Id-user').style.display='none'" class="deletebtn">Delete</button>
+                      
+                    </div>
+                  </div>
+                </form>
+              </div>
         
         
             <div class="table-data">
@@ -104,10 +116,9 @@
                                 <th>Email</th>
                                 <th>Birth Date</th>
                                 <th>Gender</th>
+                                <th>Points</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
-                                <th>Points</th>
-                                <th>Info</th>
                             </tr>
                                 
                         </thead>
@@ -120,10 +131,9 @@
                                 <td>ziad2205959@miuegypt.edu.eg</td>
                                 <td>26/06/2004</td>
                                 <td>Male</td>
-                                <td class="de" id="delete"><i class="fa-solid fa-trash"></i></td>
-                                <td class="de" id="edit"><i class="fa-solid fa-pencil"></i></td>
                                 <td>70000</td>
-                                <td class="de" id="Info"><i class="fa-solid fa-ellipsis"></i></td>
+                                <td class="de" id="delete"><a onclick="document.getElementById('modal-Id-user').style.display='block'"><i class="fa-solid fa-trash"></i></a></td>
+                                <td class="de" id="edit"><a href="editUser.html"><i class="fa-solid fa-pencil"></i></a></td>
                               
                             </tr>
                             <tr>
@@ -134,10 +144,9 @@
                                 <td>youssef2205890@miuegypt.edu.eg</td>
                                 <td>16/12/2004</td>
                                 <td>Male</td>
-                                <td class="de" id="delete"><i class="fa-solid fa-trash"></i></td>
-                                <td class="de" id="edit"><i class="fa-solid fa-pencil"></i></td>
                                 <td>60000</td>
-                                <td class="de" id="Info"><i class="fa-solid fa-ellipsis"></i></td>
+                                <td class="de" id="delete"><a onclick="document.getElementById('modal-Id-user').style.display='block'"><i class="fa-solid fa-trash"></i></a></td>
+                                <td class="de" id="edit"><a href="editUser.html"><i class="fa-solid fa-pencil"></i></a></td>
                                 
                             </tr>
                             <tr>
@@ -148,10 +157,9 @@
                                 <td>abdelrahman2202178@miuegypt.edu.eg</td>
                                 <td>10/04/2004</td>
                                 <td>Male</td>
-                                <td class="de" id="delete"><i class="fa-solid fa-trash"></i></td>
-                                <td class="de" id="edit"><i class="fa-solid fa-pencil"></i></td>
                                 <td>50000</td>
-                                <td class="de" id="Info"><i class="fa-solid fa-ellipsis"></i></td>
+                                <td class="de" id="delete"><a onclick="document.getElementById('modal-Id-user').style.display='block'"><i class="fa-solid fa-trash"></i></a></td>
+                                <td class="de" id="edit"><a href="editUser.html"><i class="fa-solid fa-pencil"></i></a></td>
                                
                             </tr>
                             <tr>
@@ -162,10 +170,9 @@
                                 <td>ammar2201210@miuegypt.edu.eg</td>
                                 <td>24/03/2005</td>
                                 <td>Male</td>
-                                <td class="de" id="delete"><i class="fa-solid fa-trash"></i></td>
-                                <td class="de" id="edit"><i class="fa-solid fa-pencil"></i></td>
                                 <td>40000</td>
-                                <td class="de" id="Info"><i class="fa-solid fa-ellipsis"></i></td>
+                                <td class="de" id="delete"><a onclick="document.getElementById('modal-Id-user').style.display='block'"><i class="fa-solid fa-trash"></i></a></td>
+                                <td class="de" id="edit"><a href="editUser.html"><i class="fa-solid fa-pencil"></i></a></td>
                               
                             </tr>
                             <tr>
@@ -176,10 +183,9 @@
                                 <td>taqi220245@miuegypt.edu.eg</td>
                                 <td>28/04/2004</td>
                                 <td>Male</td>
-                                <td class="de" id="delete"><i class="fa-solid fa-trash"></i></td>
-                                <td class="de" id="edit"><i class="fa-solid fa-pencil"></i></td>
                                 <td>30000</td>
-                                <td class="de" id="Info"><i class="fa-solid fa-ellipsis"></i></td>
+                                <td class="de" id="delete"><a onclick="document.getElementById('modal-Id-user').style.display='block'"><i class="fa-solid fa-trash"></i></a></td>
+                                <td class="de" id="edit"><a href="editUser.html"><i class="fa-solid fa-pencil"></i></a></td>
                                 
                             </tr>
                         </tbody>
