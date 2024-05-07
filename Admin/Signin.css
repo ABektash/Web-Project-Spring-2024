@@ -76,6 +76,10 @@ h1 {
     bottom: -4px;
     left: 20px;
 }
+.Logo{
+    width: 80px;
+    height: 80px;
+}
 
 
 /* Login/SignUp Screen */

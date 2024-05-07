@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         fetchAllMatches();
     } else if (document.getElementById('matches-predictions-grid')) {
         fetchNextUpcomingMatch();
-    } else {
+    } else if(document.getElementById("matchestext-standings")) {
         fetchNewsMatches();
         fetchStandings();
     }
