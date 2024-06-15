@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Man Utd Shop</title>
+    <!-- <link rel="stylesheet" href="MenShop.css"> -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/shop.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="/js/script.js"></script>
+
+    <title>Shop</title>
+  </head>
+
+  <body>
+    <!-- the navigation bar -->
+    <%- include('../partials/header') %>
+
+    <section id="wallpaper">
+      <div class="wp-content">
+        <h1>Unleash Your Passion</h1>
+        <p>Find Your Fan Gear</p>
+        <div>
+          <button type="button" onclick="window.location.href='#cardSec';">
+            Shop Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- The three cards -->
+    <section id="cardSec">
+      <div class="cardContainer">
+        <!-- first card -->
+        <div class="shopCard" onclick="window.location.href='/MenShop';">
+          <img src="Images/men.jpg" alt="Men's Collection" class="cardImage" />
+          <div class="Text">
+            <h1>Men</h1>
+            <p>
+              Unleash your passion for the Red Devils with our diverse range of
+              men's apparel.
+            </p>
+          </div>
+        </div>
+
+        <!-- second card -->
+        <div class="shopCard" onclick="window.location.href='/WomenShop';">
+          <img
+            src="Images/women.jpg"
+            alt="Women's Collection"
+            class="cardImage" />
+          <div class="Text">
+            <h1>Women</h1>
+            <p>
+              Stand out from the crowd with our vibrant and trendsetting women's
+              merchandise from Manchester United.
+            </p>
+          </div>
+        </div>
+
+        <!-- Third card -->
+        <div class="shopCard" onclick="window.location.href='/RetroShop';">
+          <img
+            src="Images/Retro.jpg"
+            alt="Retro Collection"
+            class="cardImage" />
+          <div class="Text">
+            <h1>Retro</h1>
+            <p>
+              Embrace the heritage of the Red Devils with our vintage-inspired
+              retro collection from Manchester United.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer  -->
+    <%- include('../partials/footer') %>
+  </body>
+</html>

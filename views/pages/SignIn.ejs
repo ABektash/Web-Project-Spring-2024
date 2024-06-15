@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/Signin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="/js/Sigin.js"></script>
+    <title>Login/SignUp</title>
+    <!-- <style>
+        body {
+            background-image: url("Images/LoginBlur.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style> -->
+  </head>
+
+  <body>
+    <%- include('../partials/header') %>
+
+    <form
+      id="loginForm"
+      name="loginForm"
+      onsubmit="return validateLogInForm(this)"
+      action="index.html">
+      <h2>Login</h2>
+      <div class="row">
+        <label>Email Address</label>
+        <input type="text" name="email" />
+        <div class="error" id="loginEmailErr"></div>
+      </div>
+      <div class="row">
+        <label>Password</label>
+        <input type="password" name="password" />
+        <div class="error" id="loginPasswordErr"></div>
+      </div>
+      <div class="row">
+        <input type="submit" value="Login" />
+      </div>
+      <div>
+        <p class="signupLoginText">Don't have an account?</p>
+        <button class="button signupLogin" onclick="showSignUpForm(event)">
+          Sign Up
+        </button>
+      </div>
+    </form>
+
+    <form
+      id="signUpForm"
+      name="signUpForm"
+      onsubmit="return validateSignUpForm(this)"
+      action="Profile.html">
+      <h2>SignUp</h2>
+      <div class="row">
+        <label>Full Name</label>
+        <input type="text" name="name" />
+        <div class="error" id="nameErr"></div>
+      </div>
+      <div class="row">
+        <label>Email Address</label>
+        <input type="text" name="email" />
+        <div class="error" id="emailErr"></div>
+      </div>
+      <div class="row">
+        <label>Password</label>
+        <input type="password" name="password" />
+        <div class="error" id="passwordErr"></div>
+      </div>
+
+      <div class="row">
+        <label>Confirm Password</label>
+        <input type="password" name="confpassword" />
+        <div class="error" id="confpassErr"></div>
+      </div>
+
+      <div class="row">
+        <div class="DateOfBirth">
+          <label for="day">Day</label>
+          <input
+            type="text"
+            id="day"
+            name="day"
+            pattern="[0-9]*"
+            maxlength="2"
+            size="2" />
+        </div>
+
+        <div class="DateOfBirth">
+          <label for="month">Month</label>
+          <input
+            type="text"
+            id="month"
+            name="month"
+            pattern="[0-9]*"
+            maxlength="2"
+            size="2" />
+        </div>
+
+        <div class="DateOfBirth">
+          <label for="year">Year</label>
+          <input
+            type="text"
+            id="year"
+            name="year"
+            pattern="[0-9]*"
+            maxlength="4"
+            size="4" />
+        </div>
+        <div class="error" id="dobErr"></div>
+      </div>
+
+      <div class="row">
+        <label>Gender</label>
+        <div class="radio-group">
+          <label class="radio-button"
+            ><input type="radio" name="gender" value="male" /> Male <span></span
+          ></label>
+          <label class="radio-button"
+            ><input type="radio" name="gender" value="female" /> Female
+            <span></span
+          ></label>
+        </div>
+        <div class="error" id="genderErr"></div>
+      </div>
+      <div class="row">
+        <input type="submit" value="Register" />
+      </div>
+      <div>
+        <p class="signupLoginText">Have an account?</p>
+        <button class="button signupLogin" onclick="showLoginForm(event)">
+          Login
+        </button>
+      </div>
+    </form>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

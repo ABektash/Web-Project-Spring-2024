@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man Utd Predictions</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js"></script>
+    <script src="/js/API-football-data.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!--Header-->
+    <%- include('../partials/header') %>
+    <section>
+        <div id="matchestext" style="margin-bottom: 2rem;">
+            <h2 id="headertext" style="text-underline-offset: 10px;"> Upcoming Match</h2>
+
+            <span><a class="see-more" href="/index">Go back</a></span>
+            <span><a class="see-more" style="color:rgb(234, 205, 38); text-decoration: none;">Predict The Upcoming Match</a></span>
+
+
+        </div>
+        <div class="container-grid" id="matches-predictions-grid">
+            
+        </div>
+        <div id="shopdemo">
+
+            <div id="Image-slide-in">
+                <img src="Images/predict-pic.PNG" style="scale: 1;" alt="Picture of Player">
+            </div>
+            <div id="choose-now">
+                <button onclick="teamchosen(this.innerText)" id="predict-now1" class="predict-now"></button>
+            </div>
+            <div id="choose-now">
+                <button onclick="teamchosen(this.innerText)" class="predict-now">Draw</button>
+            </div>
+            <div id="choose-now">
+                <button onclick="teamchosen(this.innerText)" id="predict-now2" class="predict-now"></button>
+            </div>
+            <script>
+                function teamchosen(teamchosen) {
+                    alert(teamchosen + " has been chosen!");
+                    window.location.href = "/index"; 
+                }
+            </script>
+        </div>
+        </section>
+    <section>
+
+        <div class="predictions-table">
+            <div id="matchestext-standings">
+                <h2 id="headertext-standings"> Top Predictions</h2>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>User</th>
+                  <th>Points</th>
+                </tr>
+              </thead>
+              <tbody id="predictions-body">
+                <tr>
+                  <td>1</td>
+                  <td class="team">
+                    <img src="Images/image.png" alt="Manchester United Logo">
+                    Abdelrahman Mohamed 
+                  </td>
+                  <td>80</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="team">
+                      <img src="Images/image.png" alt="Manchester United Logo">
+                      Youssef Abdelshahid
+                    </td>
+                    <td>60</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td class="team">
+                      <img src="Images/image.png" alt="Manchester United Logo">
+                      Ammar Alaa
+                    </td>
+                    <td>55</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td class="team">
+                      <img src="Images/image.png" alt="Manchester United Logo">
+                      Mohamed Salah
+                    </td>
+                    <td>55</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+    </section>
+
+    <%- include('../partials/footer') %>
+
+
+</body>
+
+
+
+
+
+
+</html>
