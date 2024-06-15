@@ -36,6 +36,8 @@ app.use('/predictions', require('./routes/predictions'));
 app.use('/Profile', require('./routes/Profile'));
 app.use('/singleProduct', require('./routes/singleProduct'));
 app.use('/Tickets', require('./routes/Tickets'));
+app.use('/SignIn', require('./routes/SignIn'));
+app.use('/dashboard', require('./routes/dashboard'));
 
 
 const PORT = process.env.PORT || 3000;
