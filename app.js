@@ -44,7 +44,7 @@ app.use('/manageTickets',require('./routes/manageTickets'));
 app.use('/manageUsers',require('./routes/manageUsers'));
 app.use('/editUser',require('./routes/editUser'));
 app.use('/editTicket',require('./routes/editTicket'));
-app.use('/EditProduct',require('./routes/EditProduct'));
+// app.use('/EditProduct',require('./routes/EditProduct'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

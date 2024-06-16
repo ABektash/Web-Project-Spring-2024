@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="/css/adminStyle.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<script src="adminScript.js"></script>
+	<title>Add User</title>
+</head>
+
+<body>
+
+	<!-- SIDEBAR -->
+	<%- include('../partials/sidebar') %>
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<%- include('../partials/nav') %>
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1><i class="fa-solid fa-pencil"></i> Add user</h1>
+					<ul class="pageSub">
+                       
+                        <li><i class='bx bx-chevron-right' ></i></li>
+                        <li>
+                            <a class="active" href="manageUsers.html">Back</a>
+                        </li>
+                    </ul>
+				</div>
+
+			</div>
+
+
+			<section class="Bform">
+				<div class="booking_form">
+					<form name="booking" id="booking" method="POST" action="/addUser">
+						<div class="row">
+							<div class="column">
+								<div class="input">
+									<span><i class="fa-solid fa-user"></i> Name</span>
+									<input type="text" placeholder="Enter name" name="name" >
+									<div class="error-message" id="name-error" style="color: red; "><%= errors.name || '' %></div>
+								</div>
+			
+								<div class="input">
+									<span><i class="fa-solid fa-envelope"></i> Email</span>
+									<input type="text" placeholder="Enter email" name="email" >
+									<div class="error-message" id="email-error" style="color: red; "><%= errors.email || '' %></div>
+								</div>
+			
+								<div class="input">
+									<span><i class="fa-solid fa-lock"></i> Password</span>
+									<input type="text" placeholder="Enter password" name="password" >
+									<div class="error-message" id="password-error" style="color: red; "><%= errors.password || '' %></div>
+								</div>
+								<div class="input">
+									<span><i class="fa-solid fa-venus-mars"></i> Gender</span>
+									<div>
+										<input type="radio" id="male" name="gender" value="male" >
+										<label for="male">Male</label>
+									</div>
+									<div>
+										<input type="radio" id="female" name="gender" value="female">
+										<label for="female">Female</label>
+									</div>
+									<div class="error-message" id="gender-radio-error" style="color: red; "><%= errors.gender || '' %></div>
+								</div>
+							</div>
+			
+							<div class="column">
+								<div class="input">
+									<label for="day"><i class="fa-solid fa-calendar"></i> Day</label>
+									<input type="text" placeholder="DD" id="day" name="day" class="small-input" >
+									<div class="error-message" id="day-error" style="color: red; "><%= errors.day || '' %></div>
+								</div>
+			
+								<div class="input">
+									<label for="month"><i class="fa-solid fa-calendar"></i> Month</label>
+									<input type="text" placeholder="MM" id="month" name="month" class="small-input" >
+									<div class="error-message" id="month-error" style="color: red; "><%= errors.month || '' %></div>
+								</div>
+			
+								<div class="input">
+									<label for="year"><i class="fa-solid fa-calendar"></i> Year</label>
+									<input type="text" placeholder="YYYY" id="year" name="year" class="small-input" >
+									<div class="error-message" id="year-error" style="color: red; "><%= errors.year || '' %></div>
+								</div>
+							</div>
+						</div>
+
+						<button type="submit" class="btn" value="Submit">Add</button>
+						<% if (Object.keys(errors).length == 0 && !get) { %>				 
+							<div id="success-message">User added successfully!</div>
+						<% } %>
+
+					</form>
+				</div>
+			</section>
+	
+
+</body>
+
+</html>

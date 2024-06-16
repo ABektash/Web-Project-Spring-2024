@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/adminStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/js/adminScript.js"></script>
+    <title>Add Ticket</title>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+	<%- include('../partials/sidebar') %>
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <%- include('../partials/nav') %>
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1><i class="fa-solid fa-pencil"></i> Add ticket</h1>
+                    <ul class="pageSub">
+                        
+                        <li><i class='bx bx-chevron-right' ></i></li>
+                        <li>
+                            <a class="active" href="manageTickets.html">Back</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <section class="Bform">
+                <div class="booking_form">
+                    <form name="booking" id="booking" method="POST" action="/addTicket">
+                        <div class="row">
+                            <div class="column">
+                                <div class="input">
+                                    <span><i class="fa-solid fa-user"></i> Match</span>
+                                    <input type="text" placeholder="Enter match title" name="match">
+                                    <div class="error-message" id="match-error" style="color: red; ">
+                                        <%= errors.match || '' %>
+                                    </div>
+                                </div>
+
+                                <div class="input">
+                                    <span><i class="fa-solid fa-location-dot"></i> Stadium</span>
+                                    <input type="text" placeholder="Enter stadium name" name="stadium">
+                                    <div class="error-message" id="stadium-error" style="color: red; ">
+                                        <%= errors.stadium || '' %>
+                                    </div>
+                                </div>
+
+                                <div class="input">
+                                    <span><i class="fa-solid fa-gem"></i> Price</span>
+                                    <input type="text" placeholder="Enter ticket price" name="price">
+                                    <div class="error-message" id="price-error" style="color: red; ">
+                                        <%= errors.price || '' %>
+                                    </div>
+                                </div>
+                                <div class="input">
+                                    <span><i class="fa-solid fa-ticket"></i> Ticket type</span>
+                                    <div>
+                                        <input type="radio" id="vip" name="ticketType" value="vip" >
+                                        <label for="vip">VIP</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="premium" name="ticketType" value="premium" >
+                                        <label for="premium">Premium</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="standard" name="ticketType" value="standard">
+                                        <label for="standard">Standard</label>
+                                    </div>
+                                    <div class="error-message" id="ticket-radio-error"
+                                        style="color: red; "><%= errors.ticketType || '' %></div>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="input">
+                                    <label for="day"><i class="fa-solid fa-calendar"></i> Day</label>
+                                    <input type="text" placeholder="DD" id="day" name="day" class="small-input">
+                                    <div class="error-message" id="day-error" style="color: red;"><%= errors.day || '' %></div>
+                                </div>
+
+                                <div class="input">
+                                    <label for="month"><i class="fa-solid fa-calendar"></i> Month</label>
+                                    <input type="text" placeholder="MM" id="month" name="month" class="small-input">
+                                    <div class="error-message" id="month-error" style="color: red;">
+                                        <%= errors.month || '' %>
+                                    </div>
+                                </div>
+
+                                <div class="input">
+                                    <label for="year"><i class="fa-solid fa-calendar"></i> Year</label>
+                                    <input type="text" placeholder="YYYY" id="year" name="year" class="small-input">
+                                    <div class="error-message" id="year-error" style="color: red;"><%= errors.year || '' %></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn" value="Submit">Add</button>
+                        <% if (Object.keys(errors).length == 0 && !get) { %>                     
+                            <div id="success-message">Ticket added successfully!</div>
+                        <% } %>
+
+                    </form>
+                </div>
+            </section>
+          
+
+</body>
+
+</html>
