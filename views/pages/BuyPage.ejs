@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Man Utd</title>
+    <link rel="stylesheet" href="/css/BuyPage.css" />
+    <script src="BuyPage.js"></script>
+    <script src="API-football-data.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+
+  <body>
+    <%- include('../partials/header') %>
+
+    <section class="Bform">
+      <div class="booking_form">
+        <form name="booking" id="booking" method="POST" action="/BuyPage">
+          <div class="row">
+            <div class="column">
+              <h3 class="title">Personal Information</h3>
+              <div class="input">
+                <span>Full name</span>
+                <input type="'text" placeholder="Name" name="name" />
+                <div class="error" id="nameErr"><%= errors.name || '' %></div>
+              </div>
+
+              <div class="input">
+                <span>Email</span>
+                <input type="text" placeholder="Email" name="email" />
+                <div class="error" id="emailErr"><%= errors.email || '' %></div>
+              </div>
+
+              <div class="input">
+                <span>Address</span>
+                <input type="text" placeholder="street no." name="address" />
+                <div class="error" id="addressErr"><%= errors.address || '' %></div>
+              </div>
+
+              <div class="input">
+                <span>City</span>
+                <input type="text" placeholder="cairo" name="city" />
+                <div class="error" id="cityErr"><%= errors.city || '' %></div>
+              </div>
+
+              <div class="flex">
+                <div class="input">
+                  <span>State</span>
+                  <input type="text" placeholder="Egypt" name="country" />
+                  <div class="error" id="countryErr"><%= errors.country || '' %></div>
+                </div>
+                <div class="input">
+                  <span>Zip Code</span>
+                  <input type="number" placeholder="234 856" name="zipcode" />
+                  <div class="error" id="zipErr"><%= errors.zipcode || '' %></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="column">
+              <h3 class="title">Payment</h3>
+              <div class="input">
+                <span>Cards Accepted</span>
+                <img src="Images/imgcards.png" />
+              </div>
+
+              <div class="input">
+                <span>Name On Card</span>
+                <input type="text" placeholder="Name" name="nameoncard" />
+                <div class="error" id="cardnameErr"><%= errors.nameoncard || '' %></div>
+              </div>
+
+              <div class="input">
+                <span>Credit Card number</span>
+                <input type="text" placeholder="number" name="cardnumber" />
+                <div class="error" id="cardnumberErr"><%= errors.cardnumber || '' %></div>
+              </div>
+
+              <div class="input">
+                <span>Exp. Month</span>
+                <input type="text" placeholder="From 1 to 12" name="month" />
+                <div class="error" id="expmonthErr"><%= errors.month || '' %></div>
+              </div>
+
+              <div class="flex">
+                <div class="input">
+                  <span>Exp. Year</span>
+                  <input type="number" placeholder="2025" name="year" />
+                  <div class="error" id="expyearErr"><%= errors.year || '' %></div>
+                </div>
+                <div class="input">
+                  <span>CVV</span>
+                  <input type="text" placeholder="526" name="cvv" />
+                  <div class="error" id="cvvErr"><%= errors.cvv || '' %></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn"
+            value="Submit">
+            Checkout
+          </button>
+          <% if (Object.keys(errors).length == 0 && !get) { %>
+            <div style="color: green; margin-top: 5px;">Form submitted successfully</div>
+          <% } %>
+
+        </form>
+      </div>
+    </section>
+
+  </body>
+</html>

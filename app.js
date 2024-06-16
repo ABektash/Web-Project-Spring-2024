@@ -46,6 +46,7 @@ app.use('/editUser',require('./routes/editUser'));
 app.use('/editTicket',require('./routes/editTicket'));
 app.use('/addTicket',require('./routes/addTicket'));
 app.use('/addUser',require('./routes/addUser'));
+app.use('/BuyPage',require('./routes/BuyPage'));
 // app.use('/EditProduct',require('./routes/EditProduct'));
 
 const PORT = process.env.PORT || 3000;
