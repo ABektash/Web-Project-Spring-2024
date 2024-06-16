@@ -522,8 +522,7 @@ main {
 }
 
 #success-message{
-    color: green;
-    display: none;
+    color: green; 
 }
 
 
