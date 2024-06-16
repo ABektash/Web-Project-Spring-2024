@@ -38,7 +38,10 @@ app.use('/singleProduct', require('./routes/singleProduct'));
 app.use('/Tickets', require('./routes/Tickets'));
 app.use('/SignIn', require('./routes/SignIn'));
 app.use('/dashboard', require('./routes/dashboard'));
-
+app.use('/Products', require('./routes/products'));
+app.use('/manageProducts',require('./routes/manageProducts'));
+app.use('/manageTickets',require('./routes/manageTickets'));
+app.use('/manageUsers',require('./routes/manageUsers'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
