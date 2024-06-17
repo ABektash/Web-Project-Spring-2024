@@ -1,9 +1,11 @@
+const Product = require("../models/Product");
+
 exports.getProductsPage = (req, res) => {
   res.render('pages/Products', { errors: {}, get: true });
 };
 
 exports.postProductPage = async (req, res) => {
-
+console.log(req.body);
   const { name, price, quantity, size, productImg } = req.body;
   const errors = {};
 
@@ -40,7 +42,29 @@ exports.postProductPage = async (req, res) => {
 
 
 
-  res.render("pages/Products", { errors, get: false });
+
+  if(Object.keys(errors).length>0)
+    {
+      return res.render("pages/Products", { errors, get: false });
+    }
 
 
+    try{
+      const newProduct=new Product({
+        name,
+        price,
+        quantity,
+        size,
+        productImg
+      });
+      await newProduct.save();
+      res.render("pages/Products", { errors, get: false });
+    }
+    catch(error){
+       console.error(error);
+       res.status(500).send('Server error');
+    }
+    
 };
+
+

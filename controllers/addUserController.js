@@ -1,3 +1,6 @@
+const User = require("../models/User");
+
+
 exports.getAddUserPage = (req, res) => {
     res.render('pages/addUser', { errors: {}, get: true });
 };
@@ -48,7 +51,29 @@ exports.postAddUserPage = async (req, res) => {
 
 
 
-    res.render('pages/addUser', { errors, get: false });
+   
+
+    if(Object.keys(errors).length>0)
+        {
+            res.render('pages/addUser', { errors, get: false });
+        }
+    
+    
+        try{
+          const newUser=new User({
+           name,
+           email,
+           password,
+           gender,
+           birthdate: new Date(year, month, day)
+          });
+          await newUser.save();
+          res.render('pages/addUser', { errors, get: false });
+        }
+        catch(error){
+           console.error(error);
+           res.status(500).send('Server error');
+        }
 
 };
 function isValidEmail(email) {
