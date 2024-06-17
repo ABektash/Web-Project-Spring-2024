@@ -53,33 +53,17 @@
       <div class="row">
         <div class="DateOfBirth">
           <label for="day">Day</label>
-          <input
-            type="text"
-            id="day"
-            name="day"
-            pattern="[0-9]*"
-            maxlength="2"
-            size="2" />
+          <input type="number" id="day" name="day" min="1" max="31" size="2" />
         </div>
+
         <div class="DateOfBirth">
           <label for="month">Month</label>
-          <input
-            type="text"
-            id="month"
-            name="month"
-            pattern="[0-9]*"
-            maxlength="2"
-            size="2" />
+          <input type="number" id="month" name="month" min="1" max="12" size="2" />
         </div>
+
         <div class="DateOfBirth">
           <label for="year">Year</label>
-          <input
-            type="text"
-            id="year"
-            name="year"
-            pattern="[0-9]*"
-            maxlength="4"
-            size="4" />
+          <input type="number" id="year" name="year" min="1900" max="2024" size="4" />
         </div>
         <div class="error"><%= errors.dob || '' %></div>
       </div>

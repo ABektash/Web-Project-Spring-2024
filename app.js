@@ -36,7 +36,6 @@ app.use('/predictions', require('./routes/predictions'));
 app.use('/Profile', require('./routes/Profile'));
 app.use('/singleProduct', require('./routes/singleProduct'));
 app.use('/Tickets', require('./routes/Tickets'));
-app.use('/SignIn', require('./routes/SignIn'));
 app.use('/dashboard', require('./routes/dashboard'));
 app.use('/Products', require('./routes/products'));
 app.use('/manageProducts',require('./routes/manageProducts'));
@@ -48,6 +47,7 @@ app.use('/addTicket',require('./routes/addTicket'));
 app.use('/addUser',require('./routes/addUser'));
 app.use('/BuyPage',require('./routes/BuyPage'));
 app.use('/SignUp',require('./routes/SignUp'));
+app.use('/Login',require('./routes/Login'));
 // app.use('/EditProduct',require('./routes/EditProduct'));
 
 const PORT = process.env.PORT || 3000;
