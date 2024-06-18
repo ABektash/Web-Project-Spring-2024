@@ -110,6 +110,21 @@
 										<label for="female">Female</label>
 									</div>
 									<div class="error-message" id="gender-radio-error" style="color: red; "><%= errors.gender || '' %></div>
+								
+								</div>
+								<div class="input">
+									<span>Type Of User</span>
+									<div>
+										<input type="radio" id="Admin" name="type" value="Admin" >
+										<label for="Admin">Admin</label>
+									</div>
+									<div>
+										<input type="radio" id="user" name="type" value="User" >
+										<label for="User">User</label>
+									</div>
+									<div class="error-message" id="type-radio-error" style="color: red; ">
+										<%= errors.type || "" %>
+									</div>
 								</div>
 							</div>
 			

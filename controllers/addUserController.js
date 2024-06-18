@@ -7,10 +7,10 @@ exports.getAddUserPage = (req, res) => {
 
 exports.postAddUserPage = async (req, res) => {
     console.log(req.body);
-    const { name, email, password, gender, day, month, year} = req.body;
+    const { name, email, password, gender, type, day, month, year } = req.body;
     const errors = {};
 
-    
+
     if (!name) {
         errors.name = 'Please enter a name';
     } else if (!/^[a-zA-Z ]+$/.test(name)) {
@@ -29,6 +29,10 @@ exports.postAddUserPage = async (req, res) => {
 
     if (!gender) {
         errors.gender = 'Please select a gender';
+    }
+    if (!type) {
+        errors.type = 'Please select a type for the User';
+
     }
 
     if (!day) {
@@ -51,29 +55,28 @@ exports.postAddUserPage = async (req, res) => {
 
 
 
-   
 
-    if(Object.keys(errors).length>0)
-        {
-            res.render('pages/addUser', { errors, get: false });
-        }
-    
-    
-        try{
-          const newUser=new User({
-           name,
-           email,
-           password,
-           gender,
-           birthdate: new Date(year, month, day)
-          });
-          await newUser.save();
-          res.render('pages/addUser', { errors, get: false });
-        }
-        catch(error){
-           console.error(error);
-           res.status(500).send('Server error');
-        }
+
+    if (Object.keys(errors).length > 0) {
+        res.render('pages/addUser', { errors, get: false });
+    }
+
+
+    try {
+        const newUser = new User({
+            name,
+            email,
+            password,
+            gender,
+            birthdate: new Date(year, month, day)
+        });
+        await newUser.save();
+        res.render('pages/addUser', { errors, get: false });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send('Server error');
+    }
 
 };
 function isValidEmail(email) {

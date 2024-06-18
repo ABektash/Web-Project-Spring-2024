@@ -108,15 +108,29 @@
 								<div class="input">
 									<span><i class="fa-solid fa-venus-mars"></i> Gender</span>
 									<div>
-										<input type="radio" id="male" name="gender" value="male" checked>
+										<input type="radio" id="male" name="gender" value="male" >
 										<label for="male">Male</label>
 									</div>
 									<div>
-										<input type="radio" id="female" name="gender" value="female">
+										<input type="radio" id="female" name="gender" value="female" checked>
 										<label for="female">Female</label>
 									</div>
 									<div class="error-message" id="gender-radio-error" style="color: red; ">
 										<%= errors.gender || "" %>
+									</div>
+								</div>
+								<div class="input">
+									<span>Type Of User</span>
+									<div>
+										<input type="radio" id="Admin" name="type" value="Admin" >
+										<label for="Admin">Admin</label>
+									</div>
+									<div>
+										<input type="radio" id="user" name="type" value="User" checked>
+										<label for="User">User</label>
+									</div>
+									<div class="error-message" id="type-radio-error" style="color: red; ">
+										<%= errors.type || "" %>
 									</div>
 								</div>
 							</div>
@@ -146,6 +160,7 @@
 									</div>
 								</div>
 							</div>
+							
 						</div>
 
 						
