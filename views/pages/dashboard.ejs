@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="/css/adminStyle.css">
+    <script src="/js/adminScript.js"></script>
     
 
 	<title>Dashboard</title>
@@ -13,7 +14,46 @@
 
 
 	<!-- SIDEBAR -->
-    <%- include('../partials/sidebar') %>
+    <section id="sidebar">
+        <a href="/dashboard" class="brand">
+            <img src="img/manu.png" alt="Admin Image">
+            <span class="text">Welcome admin!</span>
+        </a>
+        <ul class="side-menu top">
+            <li class="active">
+                <a href="/dashboard">
+                    <i class='bx bxs-dashboard' ></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/manageProducts">
+                    <i class='bx bxs-shopping-bag-alt' ></i>
+                    <span class="text">Manage Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="/manageUsers">
+                    <i class='bx bxs-group' ></i>
+                    <span class="text">Manage Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="/manageTickets">
+                    <i class='bx bxs-doughnut-chart' ></i>
+                    <span class="text">Tickets</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="/SignIn" class="logout">
+                    <i class='bx bxs-log-out-circle' ></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
 
 
 
@@ -134,6 +174,5 @@
 
 
 
-	<script src="script.js"></script>
 </body>
 </html>

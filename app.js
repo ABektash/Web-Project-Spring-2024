@@ -48,7 +48,7 @@ app.use('/addUser',require('./routes/addUser'));
 app.use('/BuyPage',require('./routes/BuyPage'));
 app.use('/SignUp',require('./routes/SignUp'));
 app.use('/Login',require('./routes/Login'));
-// app.use('/EditProduct',require('./routes/EditProduct'));
+app.use('/EditProduct',require('./routes/EditProduct'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

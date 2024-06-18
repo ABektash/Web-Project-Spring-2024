@@ -84,7 +84,13 @@
                 cardTitle.classList.add('card_title');
     
                 const h1 = document.createElement('h1');
-                h1.textContent = 'Upcoming Match';
+                if (matchData.fixture.status.long === 'Match Finished') {
+                    h1.textContent = 'Match finished';
+                } else if (matchData.fixture.status.short === 'NS') {
+                    h1.textContent = 'Upcoming Match';
+                } else {
+                    h1.textContent = 'Live Match';
+                }
                 cardTitle.appendChild(h1);
     
                 const matchLocation = document.createElement('p');
@@ -124,10 +130,6 @@
                     const timeNumber = document.createElement('span');
                     timeNumber.id = 'timeNumber';
                     timeNumber.textContent = matchData.goals.home + " - " + matchData.goals.away + " FT";
-                    const livetimeanimation = document.createElement('span');
-                    livetimeanimation.id = 'livetimeanimation';
-                    livetimeanimation.textContent = "'";
-                    timeNumber.appendChild(livetimeanimation);
                     seeDetails.appendChild(timeNumber);
                 } else if (matchData.fixture.status.short === 'NS') {
                     const infoButtonDiv = document.createElement('div');

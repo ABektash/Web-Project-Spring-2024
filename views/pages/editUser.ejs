@@ -7,7 +7,7 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="/css/adminStyle.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-	<script src="adminScript.js"></script>
+	<script src="/js/adminScript.js"></script>
 	<title>Edit User</title>
 </head>
 
@@ -15,31 +15,31 @@
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-		<a href="dashboard.html" class="brand">
+		<a href="/dashboard" class="brand">
 			<img src="img/manu.png" alt="Admin Image">
 			<span class="text">Welcome admin!</span>
 		</a>
 		<ul class="side-menu top">
-			<li class="active">
-				<a href="dashboard.html">
+			<li>
+				<a href="/dashboard">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
 			<li>
-				<a href="manageProducts.html">
+				<a href="/manageProducts">
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">Manage Products</span>
 				</a>
 			</li>
-			<li>
-				<a href="manageUsers.html">
+			<li class="active">
+				<a href="/manageUsers">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Manage Users</span>
 				</a>
 			</li>
 			<li>
-				<a href="manageTickets.html">
+				<a href="/manageTickets">
 					<i class='bx bxs-doughnut-chart' ></i>
 					<span class="text">Tickets</span>
 				</a>
@@ -47,7 +47,7 @@
 		</ul>
 		<ul class="side-menu">
 			<li>
-				<a href="SignIn.html" class="logout">
+				<a href="/SignIn" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
@@ -60,18 +60,7 @@
 	<!-- CONTENT -->
 	<section id="content">
 		<!-- NAVBAR -->
-		<nav>
-			<i class='bx bx-menu'></i>
-			<form action="#">
-				<div class="form-input">
-					<input type="search" placeholder="Search...">
-					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-				</div>
-			</form>
-			<a href="#" class="profile">
-				<img src="img/profile.jpg" alt="error loading the image">
-			</a>
-		</nav>
+		<%- include('../partials/nav') %>
 		<main>
 			<div class="head-title">
 				<div class="left">
@@ -80,7 +69,7 @@
                    
                         <li><i class='bx bx-chevron-right' ></i></li>
                         <li>
-                            <a class="active" href="manageUsers.html">Back</a>
+                            <a class="active" href="/manageUsers">Back</a>
                         </li>
                     </ul>
 				</div>
@@ -90,7 +79,7 @@
 
 			<section class="Bform">
 				<div class="booking_form">
-					<form name="booking" id="booking">
+					<form name="booking" id="booking" method="POST">
 						<div class="row">
 							<div class="column">
 								<div class="input">
