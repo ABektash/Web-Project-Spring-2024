@@ -1,17 +1,10 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); */
-
 /* Profile */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* * {
-   
-    font-family: "Bebas Neue", sans-serif;
-} */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
-
-*{
+* {
     --background-color: #c70101;
-    font-family: 'Roboto Condensed';
+    font-family: "Bebas Neue", sans-serif;
 }
 .wrapper {
     max-width: 1700px;

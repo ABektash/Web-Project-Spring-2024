@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const bcrypt = require('bcrypt');
 const upload = require('../middleware/multer');
 
 exports.getAddUserPage = (req, res) => {
@@ -64,10 +65,13 @@ exports.postAddUserPage = async (req, res) => {
         }
 
         try {
+
+            const saltRounds = 10;
+            const hashedPassword = await bcrypt.hash(password, saltRounds);
             const newUser = new User({
                 name,
                 email,
-                password,
+                password: hashedPassword,
                 gender,
                 type,
                 birthdate: new Date(year, month, day), 
@@ -78,7 +82,7 @@ exports.postAddUserPage = async (req, res) => {
 
           
             if (req.files && req.files.image) {
-                newUser.image = req.files.image[0].path;
+                newUser.image = req.files.image[0].filename;
             }
 
             console.log('Saving new user:', newUser);

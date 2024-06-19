@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const bcrypt = require('bcrypt');
 const upload = require('../middleware/multer');
 
 exports.getEditUserPage = async (req, res) => {
@@ -80,13 +81,14 @@ exports.postEditUserPage = async (req, res) => {
         }
 
         try {
-
+            const saltRounds = 10;
+            const hashedPassword = await bcrypt.hash(password, saltRounds);
             const image = req.files.image ? req.files.image[0].filename : req.body.currentImage;
             // Update user data
             await User.findByIdAndUpdate(userId, {
                 name,
                 email,
-                password,
+                password: hashedPassword,
                 gender,
                 type,
                 birthdate: new Date(year, month, day),

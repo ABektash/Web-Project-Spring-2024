@@ -3,6 +3,7 @@
 *{
     font-family: 'Roboto Condensed';
 }
+
 /*Header*/
 #header {
     display: flex;
@@ -760,6 +761,7 @@ ul {
 .footer-col h4 {
     font-size: 18px;
     color: #ffffff;
+    font-family: "Roboto Condensed", sans-serif;
     text-transform: capitalize;
     margin-bottom: 35px;
     font-weight: 500;
@@ -783,6 +785,7 @@ ul {
 
 .footer-col ul li a {
     font-size: 16px;
+    font-family: "Roboto Condensed", sans-serif;
     text-transform: capitalize;
     color: #ffffff;
     text-decoration: none;

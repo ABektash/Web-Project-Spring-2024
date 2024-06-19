@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
-    font-family: 'Roboto Condensed';
+
+* {
+    
+    font-family: "Bebas Neue", sans-serif;
 }
 /* About */
 .about
@@ -10,7 +12,7 @@
     margin: 0%;
     box-sizing: border-box;
     text-align: center;
-    font-family:'Poppins' , sans-serif;
+    /* font-family:'Poppins' , sans-serif; */
     
    
 }
@@ -41,7 +43,7 @@
     font-weight: 475;
     color: #fff;
     margin-top: 25px;
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
 .history
 {
@@ -55,7 +57,7 @@
     font-weight: 475;
     color: #fff;
     margin-top: 25px;
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
 .histoo h2::after
 {
@@ -155,7 +157,7 @@
     padding-bottom: 2px;
     width: 100%;
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
 .our_legends h2::after
 {
@@ -177,7 +179,7 @@
     padding-bottom: 2px;
     width: 100%;
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
 #content h2::after
 {  
@@ -222,7 +224,7 @@
 #TicketText{
 font-size: xx-large;
 color: white;
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+/* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
 
 .buttonTickets {

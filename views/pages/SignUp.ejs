@@ -26,7 +26,8 @@
       id="signUpForm"
       name="signUpForm"
       action="/SignUp"
-      method="POST">
+      method="POST"
+      enctype="multipart/form-data">
       <h2>SignUp</h2>
       <div class="row">
         <label>Full Name</label>
@@ -79,7 +80,13 @@
             <span></span
           ></label>
         </div>
-        <div class="error" id="genderErr"><%= errors.gender || '' %></div>
+  
+      </div>
+      <div class="error" id="genderErr" style="margin-bottom: 10px;"><%= errors.gender || '' %></div>
+      <div class="row">
+        <label>Upload Image (Optional)</label>
+        <input type="file" name="image" accept="image/*">
+        <div class="error-message" id="image-error" style="color: red;"><%= errors.image || '' %></div>
       </div>
       <div class="row">
         <input type="submit" value="Register" />
