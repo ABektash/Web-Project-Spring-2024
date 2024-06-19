@@ -4,18 +4,21 @@ const productSchema = new mongoose.Schema({
   name: {
     type: String
   },
-  price: {
-    type: Number
+  productImg: {
+    type: String
   },
-  quantity: {
+  price: {
     type: Number
   },
   size: {
     type: String,
-    enum: ['S', 'M', 'L', 'XL']  
+    enum: ['S', 'M', 'L', 'XL']
   },
-  productImg: {
-    type: String
+  noOfSoldPieces: {
+    type: Number
+  },
+  quantity: {
+    type: Number
   }
 });
 

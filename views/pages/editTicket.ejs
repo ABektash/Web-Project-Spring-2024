@@ -66,16 +66,13 @@
                 <div class="left">
                     <h1><i class="fa-solid fa-pencil"></i> Edit ticket</h1>
                     <ul class="pageSub">
-                       
-                        <li><i class='bx bx-chevron-right' ></i></li>
+                        <li><i class='bx bx-chevron-right'></i></li>
                         <li>
                             <a class="active" href="/manageTickets">Back</a>
                         </li>
                     </ul>
                 </div>
-
             </div>
-
 
             <section class="Bform">
                 <div class="booking_form">
@@ -84,25 +81,21 @@
                             <div class="column">
                                 <div class="input">
                                     <span><i class="fa-solid fa-x"></i> Match</span>
-                                    <input type="text" placeholder="Enter match title" name="match"
-                                        value="Manchester Utd vs Liverpool">
+                                    <input type="text" placeholder="Enter match title" name="match" value="<%= ticket.match %>">
                                     <div class="error-message" id="match-error" style="color: red;">
                                         <%= errors.match || '' %>
                                     </div>
                                 </div>
-
                                 <div class="input">
                                     <span><i class="fa-solid fa-location-dot"></i> Stadium</span>
-                                    <input type="text" placeholder="Enter stadium name" name="stadium"
-                                        value="Old trafford">
-                                    <div class="error-message" id="stadium-error" style="color: red; ">
+                                    <input type="text" placeholder="Enter stadium name" name="stadium" value="<%= ticket.stadium %>">
+                                    <div class="error-message" id="stadium-error" style="color: red;">
                                         <%= errors.stadium || '' %>
                                     </div>
                                 </div>
-
                                 <div class="input">
                                     <span><i class="fa-solid fa-gem"></i> Price</span>
-                                    <input type="text" placeholder="Enter ticket price" name="price" value="1000">
+                                    <input type="text" placeholder="Enter ticket price" name="price" value="<%= ticket.price %>">
                                     <div class="error-message" id="price-error" style="color: red;">
                                         <%= errors.price || '' %>
                                     </div>
@@ -110,57 +103,49 @@
                                 <div class="input">
                                     <span><i class="fa-solid fa-ticket"></i> Ticket type</span>
                                     <div>
-                                        <input type="radio" id="vip" name="ticketType" value="vip" checked>
+                                        <input type="radio" id="vip" name="ticketType" value="vip" <%= ticket.ticketType === 'vip' ? 'checked' : '' %>>
                                         <label for="vip">VIP</label>
                                     </div>
                                     <div>
-                                        <input type="radio" id="premium" name="ticketType" value="premium">
+                                        <input type="radio" id="premium" name="ticketType" value="premium" <%= ticket.ticketType === 'premium' ? 'checked' : '' %>>
                                         <label for="premium">Premium</label>
                                     </div>
                                     <div>
-                                        <input type="radio" id="standard" name="ticketType" value="standard">
+                                        <input type="radio" id="standard" name="ticketType" value="standard" <%= ticket.ticketType === 'standard' ? 'checked' : '' %>>
                                         <label for="standard">Standard</label>
                                     </div>
-                                    <div class="error-message" id="ticket-radio-error"
-                                        style="color: red; "></div>
+                                    <div class="error-message" id="ticket-radio-error" style="color: red;">
                                         <%= errors.ticketType || '' %>
+                                    </div>
                                 </div>
                             </div>
-
                             <div class="column">
                                 <div class="input">
                                     <label for="day"><i class="fa-solid fa-calendar"></i> Day</label>
-                                    <input type="text" placeholder="DD" id="day" name="day" class="small-input"
-                                        value="01">
-                                    <div class="error-message" id="day-error" style="color: red; "><%= errors.day || '' %></div>
+                                    <input type="text" placeholder="DD" id="day" name="day" class="small-input" value="<%= ticket.date.getDate() %>">
+                                    <div class="error-message" id="day-error" style="color: red;"><%= errors.day || '' %></div>
                                 </div>
-
                                 <div class="input">
                                     <label for="month"><i class="fa-solid fa-calendar"></i> Month</label>
-                                    <input type="text" placeholder="MM" id="month" name="month" class="small-input"
-                                        value="01">
-                                    <div class="error-message" id="month-error" style="color: red; ">
-                                        <%= errors.month || '' %>
-                                    </div>
+                                    <input type="text" placeholder="MM" id="month" name="month" class="small-input" value="<%= ticket.date.getMonth() %>">
+                                    <div class="error-message" id="month-error" style="color: red;"><%= errors.month || '' %></div>
                                 </div>
-
                                 <div class="input">
                                     <label for="year"><i class="fa-solid fa-calendar"></i> Year</label>
-                                    <input type="text" placeholder="YYYY" id="year" name="year" class="small-input"
-                                        value="1990">
-                                    <div class="error-message" id="year-error" style="color: red; "><%= errors.year || '' %></div>
+                                    <input type="text" placeholder="YYYY" id="year" name="year" class="small-input" value="<%= ticket.date.getFullYear() %>">
+                                    <div class="error-message" id="year-error" style="color: red;"><%= errors.year || '' %></div>
                                 </div>
                             </div>
                         </div>
-
                         <button type="submit" class="btn" value="Submit">Edit</button>
-                        <% if (Object.keys(errors).length == 0 && !get) { %>                     
+                        <% if (Object.keys(errors).length == 0 && !get) { %>
                             <div id="success-message">Ticket edited successfully!</div>
                         <% } %>
-
                     </form>
                 </div>
             </section>
+        </main>
+    </section>
             
 
 </body>

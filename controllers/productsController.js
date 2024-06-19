@@ -1,70 +1,59 @@
-const Product = require("../models/Product");
+const Product = require('../models/Product');
+const upload = require('../middleware/multer');
 
 exports.getProductsPage = (req, res) => {
   res.render('pages/Products', { errors: {}, get: true });
 };
 
-exports.postProductPage = async (req, res) => {
-console.log(req.body);
-  const { name, price, quantity, size, productImg } = req.body;
-  const errors = {};
+exports.postProductPage = (req, res) => {
+  upload(req, res, async (err) => {
+    if (err) {
+      return res.render('pages/Products', { errors: { productImg: err }, get: false });
+    }
 
+    const { name, price, quantity, size } = req.body;
+    const errors = {};
 
-  var nameRegex = /^[a-zA-Z\s\W]+$/;
-  if (name === "") {
-    errors.name = "Please enter the name of the product";
-  } else if (!nameRegex.test(name)) {
-    errors.name = "Please enter a valid name";
-  }
+    // Validation logic
+    const nameRegex = /^[a-zA-Z\s\W]+$/;
+    if (!name || !nameRegex.test(name)) {
+      errors.name = "Please enter a valid name";
+    }
 
-  var priceRegex = /^[0-9.,\s\W]+$/;
-  if (price === "") {
-    errors.price = "Please enter the price of the product";
+    const priceRegex = /^\d+(\.\d{1,2})?$/;
+    if (!price || !priceRegex.test(price)) {
+      errors.price = "Please enter a valid price";
+    }
 
-  } else if (!priceRegex.test(price)) {
-    errors.price = "Please enter a valid price";
-  }
+    if (!quantity || isNaN(quantity)) {
+      errors.quantity = "Please enter the number of available pieces";
+    }
 
+    if (!size || size === "selectSize") {
+      errors.size = "Please select a size";
+    }
 
-  if (quantity === "") {
-    errors.quantity = "Please enter the number of available pieces";
+    if (!req.file) {
+      errors.productImg = "Please upload an image";
+    }
 
-  }
-
-  if (size === "selectSize") {
-    errors.size = "Please select a size";
-
-  }
-
-  if (productImg === "") {
-    errors.productImg = "Please upload an image";
-  }
-
-
-
-
-  if(Object.keys(errors).length>0)
-    {
+    if (Object.keys(errors).length > 0) {
       return res.render("pages/Products", { errors, get: false });
     }
 
-
-    try{
-      const newProduct=new Product({
+    try {
+      const newProduct = new Product({
         name,
         price,
         quantity,
         size,
-        productImg
+        productImg: req.file.filename
       });
       await newProduct.save();
-      res.render("pages/Products", { errors, get: false });
+      res.render("pages/Products", { errors: {}, get: false });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Server error');
     }
-    catch(error){
-       console.error(error);
-       res.status(500).send('Server error');
-    }
-    
+  });
 };
-
-

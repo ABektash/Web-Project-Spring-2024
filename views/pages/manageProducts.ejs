@@ -111,62 +111,19 @@
                                 
                             </tr>         
                         </thead> 
-                            <tbody>
-                                <tr>
-                              <td class="pname">Man united first kit</td>
-                              <td class="prim"><img src="img/product.avif" alt="error loading the image"></td>
-                              <td class="pprice">$120</td>
-                              <td class="psize">XL</td>
-                              <td class="psold">20</td>
-                              <td class="premain">40</td>
-                              <td class="de" id="delete"><a onclick="document.getElementById('modal-Id-products').style.display='block'"><i class="fa-solid fa-trash"></i></a></td>
-                              <td class="de" id="edit"><a href="EditProduct.html"><i class="fa-solid fa-pencil"></i></a></td>
-                            </tr>
-
-
+                        <tbody>
+                            <% products.forEach(product => { %>
                             <tr>
-                                <td>Man united first kit</td>
-                                <td><img src="img/product.avif" alt="error loading the image"></td>
-                                <td>$120</td>
-                                <td>XL</td>
-                                <td>20</td>
-                                <td>40</td>
+                                <td class="pname"><%= product.name %></td>
+                                <td class="prim"><img src="/uploads/<%= product.productImg %>" alt="error loading the image"></td>
+                                <td class="pprice">$<%= product.price %></td>
+                                <td class="psize"><%= product.size %></td>
+                                <td class="psold"><%= product.noOfSoldPieces %></td>
+                                <td class="premain"><%= product.quantity %></td>
                                 <td class="de" id="delete"><a onclick="document.getElementById('modal-Id-products').style.display='block'"><i class="fa-solid fa-trash"></i></a></td>
-                                <td class="de" id="edit"><a href="EditProduct.html"><i class="fa-solid fa-pencil"></i></a></td>   
+                                <td class="de" id="edit"><a href="/manageProducts/edit/<%= product._id %>"><i class="fa-solid fa-pencil"></i></a></td>
                             </tr>
-                            <tr>
-                                <td>Man united first kit</td>
-                              <td><img src="img/product.avif" alt="error loading the image"></td>
-                              <td>$120</td>
-                              <td>XL</td>
-                              <td>20</td>
-                              <td>40</td>
-                              <td class="de" id="delete"><a onclick="document.getElementById('modal-Id-products').style.display='block'"><i class="fa-solid fa-trash"></i></a></td>
-                              <td class="de" id="edit"><a href="EditProduct.html"><i class="fa-solid fa-pencil"></i></a></td>
-                                
-                               
-                            </tr>
-                            <tr>
-                                <td>Man united first kit</td>
-                                <td><img src="img/product.avif" alt="error loading the image"></td>
-                                <td>$120</td>
-                                <td>XL</td>
-                                <td>20</td>
-                                <td>40</td>
-                                <td class="de" id="delete"><a onclick="document.getElementById('modal-Id-products').style.display='block'"><i class="fa-solid fa-trash"></i></a></td>
-                                <td class="de" id="edit"><a href="EditProduct.html"><i class="fa-solid fa-pencil"></i></a></td>
-                              
-                            </tr>
-                            <tr>
-                                <td>Man united first kit</td>
-                                <td><img src="img/product.avif" alt="error loading the image"></td>
-                                <td>$120</td>
-                                <td>XL</td>
-                                <td>20</td>
-                                <td>40</td>
-                                <td class="de" id="delete"><a onclick="document.getElementById('modal-Id-products').style.display='block'"><i class="fa-solid fa-trash"></i></a></td>
-                                <td class="de" id="edit"><a href="EditProduct.html"><i class="fa-solid fa-pencil"></i></a></td>
-                            </tr>
+                            <% }) %>
                         </tbody>
                     </table>
                 </div>

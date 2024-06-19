@@ -1,143 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-	
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Products</title>
-		<link rel="stylesheet" href="/css/adminStyle.css">
-		<link rel="stylesheet" href="/css/Products.css">
-		<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-		<script src="/js/adminScript.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <link rel="stylesheet" href="/css/adminStyle.css">
+    <link rel="stylesheet" href="/css/Products.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <script src="/js/adminScript.js"></script>
+  </head>
 
-<body >
-	
-	<section id="sidebar">
-		<a href="/dashboard" class="brand">
-			<img src="img/manu.png" alt="Admin Image">
-			<span class="text">Welcome admin!</span>
-		</a>
-		<ul class="side-menu top">
-			<li>
-				<a href="/dashboard">
-					<i class='bx bxs-dashboard' ></i>
-					<span class="text">Dashboard</span>
-				</a>
-			</li>
-			<li class="active">
-				<a href="/manageProducts">
-					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">Manage Products</span>
-				</a>
-			</li>
-			<li>
-				<a href="/manageUsers">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Manage Users</span>
-				</a>
-			</li>
-			<li>
-				<a href="/manageTickets">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Tickets</span>
-				</a>
-			</li>
-		</ul>
-		<ul class="side-menu">
-			<li>
-				<a href="/SignIn" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Logout</span>
-				</a>
-			</li>
-		</ul>
-	</section>
+  <body>
+    <section id="sidebar">
+      <a href="/dashboard" class="brand">
+        <img src="img/manu.png" alt="Admin Image">
+        <span class="text">Welcome admin!</span>
+      </a>
+      <ul class="side-menu top">
+        <li>
+          <a href="/dashboard">
+            <i class='bx bxs-dashboard'></i>
+            <span class="text">Dashboard</span>
+          </a>
+        </li>
+        <li class="active">
+          <a href="/manageProducts">
+            <i class='bx bxs-shopping-bag-alt'></i>
+            <span class="text">Manage Products</span>
+          </a>
+        </li>
+        <li>
+          <a href="/manageUsers">
+            <i class='bx bxs-group'></i>
+            <span class="text">Manage Users</span>
+          </a>
+        </li>
+        <li>
+          <a href="/manageTickets">
+            <i class='bx bxs-doughnut-chart'></i>
+            <span class="text">Tickets</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="side-menu">
+        <li>
+          <a href="/SignIn" class="logout">
+            <i class='bx bxs-log-out-circle'></i>
+            <span class="text">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </section>
 
-
-
-	<!-- CONTENT -->
-	<section id="content">
-		<!-- NAVBAR -->
-	<%- include('../partials/nav') %>
-		<main>
-            
-            <div class="head-title">
-                <div class="left">
-                    <h1>Add product</h1>
-                    <ul class="pageSub">
-                        
-                        <li><i class='bx bx-chevron-right' ></i></li>
-                        <li>
-                            <a class="active" href="/manageProducts">Back</a>
-                        </li>
-                    </ul>
-                </div>
-               
-            </div>
-		</main>
-	</section>
+    <!-- CONTENT -->
+    <section id="content">
+      <!-- NAVBAR -->
+      <%- include('../partials/nav') %>
+      <main>
+        <div class="head-title">
+          <div class="left">
+            <h1>Add product</h1>
+            <ul class="pageSub">
+              <li><i class='bx bx-chevron-right'></i></li>
+              <li>
+                <a class="active" href="/manageProducts">Back</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </section>
 
     <!-- productForm -->
-	<form id="productForm" name="productForm"  method="POST" action="/Products">
-		<h2 id="addH2">Add Product</h2>
-		<div class="productRow">
-			<label>Name Of Product</label>
-			<input type="text" name="name" placeholder="Enter product name" />
-			<div class="error" id="nameErr">
-				<%= errors.name || "" %>
-			</div>
-		</div>
-		<div class="productRow">
-			<label>Price</label>
-			<div class="price-input">
-				<input type="text" name="price" placeholder="Enter product price" />
-				<span class="currency">$</span>
-			</div>
-			<div class="error" id="priceErr">
-				<%= errors.price || ""%>
-			</div>
-		</div>
-		<div class="productRow">
-			<label>Number of Available Pieces</label>
-			<input  type="number" name="quantity" placeholder="Enter quantity available" />
-			<div class="error" id="quantityErr">
-				<%= errors.quantity || "" %>
-			</div>
-		</div>
-	
-		<div class="productRow">
-			<label>Select Size</label>
-			<select id="SelectSize" name="size" placeholder="Select product size">
-				<option value="selectSize">Select Size</option>
-				<option value="S">S</option>
-				<option value="M">M</option>
-				<option value="L">L</option>
-				<option value="XL">XL</option>
-				<option value="XXL">XXL</option>
-			</select>
-			<div class="error" id="sizeErr">
-				<%= errors.size || ""%>
-			</div>
-		</div>
-	
-		<div class="productRow">
-			<label>Upload Image</label>
-			<input type="file" name="productImg" accept="image/*" placeholder="Upload product image" />
-			<div class="error" id="imageErr">
-				<%= errors.productImg || "" %>
-			</div>
-		</div>
-		
-		<div class="productRow">
-			<input type="submit" class="submit-btn" value="Add Product" id="subbtnID" />
-			<% if (!(Object.keys(errors).length > 0 || get)) { %>
-				<div id="success">
-					<p style="color: green; margin-top: 11px;">Successful</p>
-				</div>
-			<% } %>
-		</div>
-</form>
-	
-
+    <form id="productForm" name="productForm" method="POST" action="/Products" enctype="multipart/form-data">
+      <h2 id="addH2">Add Product</h2>
+      <div class="productRow">
+        <label>Name Of Product</label>
+        <input type="text" name="name" placeholder="Enter product name" />
+        <div class="error" id="nameErr">
+          <%= errors.name || "" %>
+        </div>
+      </div>
+      <div class="productRow">
+        <label>Price</label>
+        <div class="price-input">
+          <input type="text" name="price" placeholder="Enter product price" />
+          <span class="currency">$</span>
+        </div>
+        <div class="error" id="priceErr">
+          <%= errors.price || "" %>
+        </div>
+      </div>
+      <div class="productRow">
+        <label>Number of Available Pieces</label>
+        <input type="number" name="quantity" placeholder="Enter quantity available" />
+        <div class="error" id="quantityErr">
+          <%= errors.quantity || "" %>
+        </div>
+      </div>
+      <div class="productRow">
+        <label>Select Size</label>
+        <select id="SelectSize" name="size">
+          <option value="selectSize">Select Size</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="XXL">XXL</option>
+        </select>
+        <div class="error" id="sizeErr">
+          <%= errors.size || "" %>
+        </div>
+      </div>
+      <div class="productRow">
+        <label>Upload Image</label>
+        <input type="file" name="productImg" accept="image/*" />
+        <div class="error" id="imageErr">
+          <%= errors.productImg || "" %>
+        </div>
+      </div>
+      <div class="productRow">
+        <input type="submit" class="submit-btn" value="Add Product" id="subbtnID" />
+        <% if (Object.keys(errors).length == 0 && !get) { %>
+          <div id="success">
+            <p style="color: green; margin-top: 11px;">Successful</p>
+          </div>
+        <% } %>
+      </div>
+    </form>
+  </body>
 </html>

@@ -1,137 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-	
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Edit Products</title>
-		<link rel="stylesheet" href="/css/adminStyle.css">
-		<link rel="stylesheet" href="/css/Products.css">
-		<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-		<script src="/js/adminScript.js"></script>
-    
-    <script src="/js/Products.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Products</title>
+  <link rel="stylesheet" href="/css/adminStyle.css">
+  <link rel="stylesheet" href="/css/Products.css">
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <script src="/js/adminScript.js"></script>
+  <script src="/js/Products.js"></script>
 </head>
+<body>
+  <!-- SIDEBAR -->
+  <section id="sidebar">
+    <a href="/dashboard" class="brand">
+      <img src="img/manu.png" alt="Admin Image">
+      <span class="text">Welcome admin!</span>
+    </a>
+    <ul class="side-menu top">
+      <li>
+        <a href="/dashboard">
+          <i class='bx bxs-dashboard' ></i>
+          <span class="text">Dashboard</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="/manageProducts">
+          <i class='bx bxs-shopping-bag-alt' ></i>
+          <span class="text">Manage Products</span>
+        </a>
+      </li>
+      <li>
+        <a href="/manageUsers">
+          <i class='bx bxs-group' ></i>
+          <span class="text">Manage Users</span>
+        </a>
+      </li>
+      <li>
+        <a href="/manageTickets">
+          <i class='bx bxs-doughnut-chart' ></i>
+          <span class="text">Tickets</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="side-menu">
+      <li>
+        <a href="/SignIn" class="logout">
+          <i class='bx bxs-log-out-circle' ></i>
+          <span class="text">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </section>
 
-<body >
-	<!-- SIDEBAR -->
-	<section id="sidebar">
-		<a href="/dashboard" class="brand">
-			<img src="img/manu.png" alt="Admin Image">
-			<span class="text">Welcome admin!</span>
-		</a>
-		<ul class="side-menu top">
-			<li>
-				<a href="/dashboard">
-					<i class='bx bxs-dashboard' ></i>
-					<span class="text">Dashboard</span>
-				</a>
-			</li>
-			<li class="active">
-				<a href="/manageProducts">
-					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">Manage Products</span>
-				</a>
-			</li>
-			<li>
-				<a href="/manageUsers">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Manage Users</span>
-				</a>
-			</li>
-			<li>
-				<a href="/manageTickets">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Tickets</span>
-				</a>
-			</li>
-		</ul>
-		<ul class="side-menu">
-			<li>
-				<a href="/SignIn" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Logout</span>
-				</a>
-			</li>
-		</ul>
-	</section>
+  <!-- CONTENT -->
+  <section id="content">
+    <!-- NAVBAR -->
+    <%- include('../partials/nav') %>
+    <main>
+      <div class="head-title">
+        <div class="left">
+          <h1><i class="fa-solid fa-pencil"></i> Edit product</h1>
+          <ul class="pageSub">
+            <li><i class='bx bx-chevron-right' ></i></li>
+            <li>
+              <a class="active" href="/manageProducts">Back</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </section>
 
-
-
-	<!-- CONTENT -->
-	<section id="content">
-		<!-- NAVBAR -->
-		<%- include('../partials/nav') %>
-		<main>
-			<div class="head-title">
-				<div class="left">
-					<h1><i class="fa-solid fa-pencil"></i> Edit product</h1>
-					<ul class="pageSub">
-                       
-                        <li><i class='bx bx-chevron-right' ></i></li>
-                        <li>
-                            <a class="active" href="/manageProducts">Back</a>
-                        </li>
-                    </ul>
-				</div>
-
-			</div>
-		</main>
-	</section>
-
-    <!-- EditproductForm -->
-	 <form id="productForm" name="productForm" method="POST">
-		<h2 id="addH2">Edit Product</h2>
-		<div class="productRow">
-			<label>Name Of Product</label>
-			<input type="text" name="name" placeholder="Enter product name" value="T-shirt" />
-			<div class="error" id="nameErr"><%= errors.name || '' %></div>
-		</div>
-		<div class="productRow">
-			<label>Price</label>
-			<div class="price-input">
-				<input type="text" name="price" placeholder="Enter product price" value="120.00" />
-				<span class="currency">$</span>
-			</div>
-			<div class="error" id="priceErr"><%= errors.price || '' %></div>
-		</div>
-		<div class="productRow">
-			<label>Number of Available Pieces</label>
-			<input  type="number" name="quantity" placeholder="Enter quantity available" value="40" />
-			<div class="error" id="quantityErr"><%= errors.quantity || '' %></div>
-			
-		</div>
-	
-		<div class="productRow">
-			<label>Select Size</label>
-			<select id="SelectSize" name="size">
-				<option value="selectSize">Select Size</option>
-				<option value="S">S</option>
-				<option value="M" >M</option>
-				<option value="L">L</option>
-				<option value="XL" selected>XL</option>
-				<option value="XXL">XXL</option>
-			</select>
-			<div class="error" id="sizeErr"><%= errors.size || '' %></div>
-		</div>
-	
-		<div class="productRow">
-			<label>Upload Image</label>
-			<input type="file" name="productImg" accept="image/*" placeholder="Upload product image" />
-			<div class="error" id="imageErr"><%= errors.productImg || '' %></div>
-		</div>
-	
-		<div class="productRow">
-			<input type="submit" class="submit-btn" value="Edit Product" />
-			<% if (!(Object.keys(errors).length > 0 || get)) { %>
-				<div id="success">
-					<p style="color: green; margin-top: 11px;">Successful</p>
-				</div>
-			<% } %>
-		</div>
-	</form> 
-	
-	
+  <!-- EditproductForm -->
+  <form id="productForm" name="productForm" method="POST" enctype="multipart/form-data">
+    <h2 id="addH2">Edit Product</h2>
+    <div class="productRow">
+      <label>Name Of Product</label>
+      <input type="text" name="name" placeholder="Enter product name" value="<%= product.name %>" />
+      <div class="error" id="nameErr"><%= errors.name || '' %></div>
+    </div>
+    <div class="productRow">
+      <label>Price</label>
+      <div class="price-input">
+        <input type="text" name="price" placeholder="Enter product price" value="<%= product.price %>" />
+        <span class="currency">$</span>
+      </div>
+      <div class="error" id="priceErr"><%= errors.price || '' %></div>
+    </div>
+    <div class="productRow">
+      <label>Number of Available Pieces</label>
+      <input type="number" name="quantity" placeholder="Enter quantity available" value="<%= product.quantity %>" />
+      <div class="error" id="quantityErr"><%= errors.quantity || '' %></div>
+    </div>
+    <div class="productRow">
+      <label>Select Size</label>
+      <select id="SelectSize" name="size">
+        <option value="selectSize">Select Size</option>
+        <option value="S" <%= product.size === 'S' ? 'selected' : '' %>>S</option>
+        <option value="M" <%= product.size === 'M' ? 'selected' : '' %>>M</option>
+        <option value="L" <%= product.size === 'L' ? 'selected' : '' %>>L</option>
+        <option value="XL" <%= product.size === 'XL' ? 'selected' : '' %>>XL</option>
+        <option value="XXL" <%= product.size === 'XXL' ? 'selected' : '' %>>XXL</option>
+      </select>
+      <div class="error" id="sizeErr"><%= errors.size || '' %></div>
+    </div>
+    <div class="productRow">
+      <label>Upload Image</label>
+      <input type="file" name="productImg" accept="image/*" />
+      <input type="hidden" name="currentProductImg" value="<%= product.productImg %>" />
+      <div class="error" id="imageErr"><%= errors.productImg || '' %></div>
+      <% if (product.productImg) { %>
+        <div class="productRow">
+          <label>Current Image</label>
+          <img src="/uploads/<%= product.productImg %>" alt="Product Image" style="max-width: 100px;" />
+        </div>
+      <% } %>
+    </div>
+    <div class="productRow">
+      <input type="submit" class="submit-btn" value="Edit Product" />
+      <% if (!(Object.keys(errors).length > 0 || get)) { %>
+        <div id="success">
+          <p style="color: green; margin-top: 11px;">Successful</p>
+        </div>
+      <% } %>
+    </div>
+  </form>
 </body>
-
 </html>

@@ -1,10 +1,13 @@
+const Ticket = require('../models/Ticket');
+
 exports.getEditTicketPage = (req, res) => {
-    res.render('pages/editTicket', { errors: {}, get: true });
+    res.render('pages/editTicket', { ticket: {}, errors: {}, get: true });
 };
 
 exports.postEditTicketPage = async (req, res) => {
     const { match, stadium, price, ticketType, day, month, year } = req.body;
     const errors = {};
+    const ticketId = req.params.id;
 
     if (!match) {
         errors.match = 'Please enter the match title';
@@ -41,13 +44,34 @@ exports.postEditTicketPage = async (req, res) => {
     } else if (!/^\d{4}$/.test(year)) {
         errors.year = 'Invalid year';
     } else {
-        const enteredDate = new Date(year, month, day);
+        const enteredDate = new Date(year, month, day); 
         const currentDate = new Date();
         if (enteredDate < currentDate) {
             errors.year = 'Invalid date';
         }
     }
-    
-    res.render('pages/editTicket', { errors, get: false });
-    
+
+    if (Object.keys(errors).length > 0) {
+        try {
+            const ticket = await Ticket.findById(ticketId);
+            return res.render('pages/editTicket', { ticket, errors, get: false });
+        } catch (err) {
+            console.error('Error fetching ticket:', err);
+            return res.status(500).send('Server error');
+        }
+    }
+
+    try {
+        await Ticket.findByIdAndUpdate(ticketId, {
+            match,
+            stadium,
+            price,
+            ticketType,
+            date: new Date(year, month, day)
+        });
+        res.redirect('/manageTickets');
+    } catch (err) {
+        console.error('Error updating ticket:', err);
+        res.status(500).send('Server error');
+    }
 };
