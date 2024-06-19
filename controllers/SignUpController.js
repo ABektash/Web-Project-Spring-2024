@@ -3,7 +3,7 @@ const User = require("../models/User");
 const upload = require("../middleware/multer");
 
 exports.getSignUp = (req, res) => {
-  res.render("pages/SignUp", { errors: {}, get: true });
+  res.render("pages/SignUp", { errors: {}, get: true, user: req.session.user });
 };
 
 exports.postSignUp = async (req, res) => {
@@ -63,7 +63,7 @@ exports.postSignUp = async (req, res) => {
     }
 
     if (Object.keys(errors).length > 0) {
-      return res.render("pages/SignUp", { errors, get: false });
+      return res.render("pages/SignUp", { errors, get: false, user: req.session.user });
     }
 
     try {

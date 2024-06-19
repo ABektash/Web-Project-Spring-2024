@@ -3,7 +3,7 @@ const Product = require('../models/Product');
 exports.getManageProductsPage = async (req, res) => {
     try {
         const products = await Product.find();
-        res.render('pages/manageProducts', { products });
+        res.render('pages/manageProducts', { products, admin: req.session.user });
     } catch (err) {
         console.error('Error fetching products:', err);
         res.status(500).send('Server error');
@@ -18,7 +18,7 @@ exports.getEditProductPage = async (req, res) => {
         if (!product) {
             return res.status(404).send('Product not found');
         }
-        res.render('pages/editProduct', { product, errors: {}, get: true });
+        res.render('pages/editProduct', { product, errors: {}, get: true, admin: req.session.user });
     } catch (err) {
         console.error('Error fetching product:', err);
         res.status(500).send('Server error');

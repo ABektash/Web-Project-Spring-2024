@@ -8,7 +8,18 @@
             <li><a href="/News">News</a></li>
             <li><a href="/Players">Players</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/signUp"><img src="/images/ProfileDefault.png" width="30px" height="30px" alt="Profile Logo"></a></li>
+
+            <% if (user) { %>
+                <li><a href="/Profile">
+                    <% if (user.image) { %>
+                        <img src="/uploads/<%= user.image %>" width="30px" height="30px" alt="Profile Image">
+                    <% } else { %>
+                        <img src="/images/ProfileDefault.png" width="30px" height="30px" alt="Default Profile Image">
+                    <% } %>
+                </a></li>
+            <% } else { %>
+                <li><a href="/signUp"><img src="/images/ProfileDefault.png" width="30px" height="30px" alt="Profile Logo"></a></li>
+            <% } %>
         </ul>
     </div>
 </section>

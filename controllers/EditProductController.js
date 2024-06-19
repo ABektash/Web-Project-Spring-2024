@@ -8,7 +8,7 @@ exports.getEditProductPage = async (req, res) => {
     if (!product) {
       return res.status(404).send('Product not found');
     }
-    res.render('pages/EditProduct', { product, errors: {}, get: true });
+    res.render('pages/EditProduct', { product, errors: {}, get: true, admin: req.session.user });
   } catch (err) {
     console.error('Error fetching product:', err);
     res.status(500).send('Server error');
@@ -18,7 +18,7 @@ exports.getEditProductPage = async (req, res) => {
 exports.postEditProductPage = (req, res) => {
   upload(req, res, async (err) => {
     if (err) {
-      return res.render('pages/EditProduct', { product: {}, errors: { productImg: err }, get: false });
+      return res.render('pages/EditProduct', { product: {}, errors: { productImg: err }, get: false, admin: req.session.user });
     }
 
     const { name, price, quantity, size } = req.body;

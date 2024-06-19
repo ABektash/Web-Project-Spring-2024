@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const upload = require('../middleware/multer');
 
 exports.getAddUserPage = (req, res) => {
-    res.render('pages/addUser', { errors: {}, get: true });
+    res.render('pages/addUser', { errors: {}, get: true, admin: req.session.user });
 };
 
 exports.postAddUserPage = async (req, res) => {
@@ -11,7 +11,7 @@ exports.postAddUserPage = async (req, res) => {
     upload(req, res, async (err) => {
         if (err) {
             console.log('Error during file upload:', err);
-            return res.render('pages/addUser', { errors: { image: err.message }, get: false });
+            return res.render('pages/addUser', { errors: { image: err.message }, get: false, admin: req.session.user });
         }
 
         const { name, email, password, gender, type, day, month, year } = req.body;
@@ -61,7 +61,7 @@ exports.postAddUserPage = async (req, res) => {
         }
 
         if (Object.keys(errors).length > 0) {
-            return res.render('pages/addUser', { errors, get: false });
+            return res.render('pages/addUser', { errors, get: false, admin: req.session.user });
         }
 
         try {
@@ -89,7 +89,7 @@ exports.postAddUserPage = async (req, res) => {
 
             await newUser.save();
             console.log('User saved successfully');
-            res.render('pages/addUser', { errors: {}, get: false, success: true });
+            res.render('pages/addUser', { errors: {}, get: false, success: true, admin: req.session.user });
         } catch (error) {
             console.error('Error saving user:', error);
             res.status(500).send('Server error');

@@ -1,5 +1,5 @@
 exports.getBuyPage = (req, res) => {
-    res.render('pages/BuyPage', { errors: {}, get: true });
+    res.render('pages/BuyPage', { errors: {}, get: true, user: req.session.user });
 };
 
 exports.postBuyPage = async (req, res) => {
@@ -78,7 +78,7 @@ exports.postBuyPage = async (req, res) => {
         errors.cvv = "Invalid CVV";
     }
 
-    res.render('pages/BuyPage', { errors, get: false });
+    res.render('pages/BuyPage', { errors, get: false,user: req.session.user });
 
 };
 function isValidEmail(email) {

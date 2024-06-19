@@ -9,7 +9,7 @@ exports.getEditUserPage = async (req, res) => {
         if (!user) {
             return res.status(404).send('User not found');
         }
-        res.render('pages/editUser', { user, errors: {}, get: true });
+        res.render('pages/editUser', { user, errors: {}, get: true, admin: req.session.user });
     } catch (err) {
         console.error('Error fetching user:', err);
         res.status(500).send('Server error');
@@ -19,7 +19,7 @@ exports.getEditUserPage = async (req, res) => {
 exports.postEditUserPage = async (req, res) => {
     upload(req, res, async (err) => {
         if (err) {
-            return res.render('pages/editUser', { user: {}, errors: { image: err }, get: false });
+            return res.render('pages/editUser', { user: {}, errors: { image: err }, get: false, admin: req.session.user });
         }
         const { name, email, password, gender, type, day, month, year } = req.body;
         const errors = {};
@@ -73,7 +73,7 @@ exports.postEditUserPage = async (req, res) => {
         if (Object.keys(errors).length > 0) {
             try {
                 const user = await User.findById(userId);
-                return res.render('pages/editUser', { user, errors, get: false });
+                return res.render('pages/editUser', { user, errors, get: false, admin: req.session.user });
             } catch (err) {
                 console.error('Error fetching user:', err);
                 return res.status(500).send('Server error');

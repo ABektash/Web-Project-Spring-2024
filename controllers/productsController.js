@@ -2,13 +2,13 @@ const Product = require('../models/Product');
 const upload = require('../middleware/multer');
 
 exports.getProductsPage = (req, res) => {
-  res.render('pages/Products', { errors: {}, get: true });
+  res.render('pages/Products', { errors: {}, get: true, admin: req.session.user });
 };
 
 exports.postProductPage = (req, res) => {
   upload(req, res, async (err) => {
     if (err) {
-      return res.render('pages/Products', { errors: { productImg: err }, get: false });
+      return res.render('pages/Products', { errors: { productImg: err }, get: false, admin: req.session.user });
     }
 
     const { name, price, quantity, size } = req.body;
@@ -37,7 +37,7 @@ exports.postProductPage = (req, res) => {
     }
 
     if (Object.keys(errors).length > 0) {
-      return res.render("pages/Products", { errors, get: false });
+      return res.render("pages/Products", { errors, get: false, admin: req.session.user });
     }
 
     try {
@@ -46,10 +46,10 @@ exports.postProductPage = (req, res) => {
         price,
         quantity,
         size,
-        productImg: req.file.filename
+        productImg: req.files.productImg[0].filename
       });
       await newProduct.save();
-      res.render("pages/Products", { errors: {}, get: false });
+      res.render("pages/Products", { errors: {}, get: false, admin: req.session.user });
     } catch (error) {
       console.error(error);
       res.status(500).send('Server error');

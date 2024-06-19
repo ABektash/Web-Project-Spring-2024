@@ -1,8 +1,8 @@
-const bcrypt = require('bcrypt');
+  const bcrypt = require('bcrypt');
 const User = require('../models/User');
 
 exports.getLogin = (req, res) => {
-  res.render('pages/Login', { errors: {}, get: true });
+  res.render('pages/Login', { errors: {}, get: true, user: req.session.user });
 };
 
 exports.postLogin = async (req, res) => {
@@ -28,14 +28,14 @@ exports.postLogin = async (req, res) => {
   }
 
   if (Object.keys(errors).length > 0) {
-    return res.render('pages/Login', { errors, get: false });
+    return res.render('pages/Login', { errors, get: false, user: req.session.user });
   }
 
   try {
     const user = await User.findOne({ email });
     if (!user) {
       errors.email = "No account found with this email";
-      return res.render('pages/Login', { errors, get: false });
+      return res.render('pages/Login', { errors, get: false, user: req.session.user });
     }
 
     // Compare the provided password with the stored hashed password
@@ -43,8 +43,21 @@ exports.postLogin = async (req, res) => {
 
     if (!isMatch) {
       errors.password = "Incorrect password";
-      return res.render('pages/Login', { errors, get: false });
+      return res.render('pages/Login', { errors, get: false, user: req.session.user });
     }
+
+    req.session.user = {
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      gender: user.gender,
+      birthdate: user.birthdate,
+      image: user.image,
+      type: user.type,
+      points: user.points,
+      purchasedProducts: user.purchasedProducts,
+      purchasedTickets: user.purchasedTickets
+  };
 
     // Redirect based on user type
     if (user.type === 'Admin') {
@@ -56,4 +69,4 @@ exports.postLogin = async (req, res) => {
     console.error('Error during login:', err);
     res.status(500).send('Server error');
   }
-};
+};  

@@ -1,7 +1,7 @@
 const Ticket = require('../models/Ticket');
 
 exports.getEditTicketPage = (req, res) => {
-    res.render('pages/editTicket', { ticket: {}, errors: {}, get: true });
+    res.render('pages/editTicket', { ticket: {}, errors: {}, get: true, admin: req.session.user });
 };
 
 exports.postEditTicketPage = async (req, res) => {
@@ -54,7 +54,7 @@ exports.postEditTicketPage = async (req, res) => {
     if (Object.keys(errors).length > 0) {
         try {
             const ticket = await Ticket.findById(ticketId);
-            return res.render('pages/editTicket', { ticket, errors, get: false });
+            return res.render('pages/editTicket', { ticket, errors, get: false, admin: req.session.user });
         } catch (err) {
             console.error('Error fetching ticket:', err);
             return res.status(500).send('Server error');

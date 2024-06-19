@@ -1,7 +1,7 @@
 const Ticket = require('../models/Ticket');
 
 exports.getAddTicketPage = (req, res) => {
-    res.render('pages/addTicket', { errors: {}, get: true });
+    res.render('pages/addTicket', { errors: {}, get: true, admin: req.session.user});
 };
 
 exports.postAddTicketPage = async (req, res) => {
@@ -51,7 +51,7 @@ exports.postAddTicketPage = async (req, res) => {
     }
 
     if (Object.keys(errors).length > 0) {
-        return res.render('pages/addTicket', { errors, get: false });
+        return res.render('pages/addTicket', { errors, get: false, admin: req.session.user });
     }
 
     try {
@@ -64,7 +64,7 @@ exports.postAddTicketPage = async (req, res) => {
         });
 
         await newTicket.save();
-        res.render('pages/addTicket', { errors: {}, get: false, success: true });
+        res.render('pages/addTicket', { errors: {}, get: false, success: true, admin: req.session.user });
     } catch (err) {
         console.error('Error saving ticket:', err);
         res.status(500).send('Server error');

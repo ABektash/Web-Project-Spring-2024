@@ -1,12 +1,22 @@
 <nav>
-    <i class='bx bx-menu' ></i>
+    <i class='bx bx-menu'></i>
     <form action="#">
         <div class="form-input">
             <input type="search" placeholder="Search...">
-            <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+            <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
         </div>
     </form>
-    <a href="#" class="profile">
-        <img src="/Images/profile.jpg" alt="error loading the image">
-    </a>
+    <% if (user) { %>
+        <a href="#" class="profile">
+            <% if (user.image) { %>
+                <img src="/uploads/<%= user.image %>" alt="error loading the image">
+                <% } else { %>
+                    <img src="/Images/profile.jpg" alt="error loading the image">
+                    <% } %>
+        </a>
+        <% } else { %>
+            <a href="#" class="profile">
+                <img src="/Images/profile.jpg" alt="error loading the image">
+            </a>
+            <% } %>
 </nav>
