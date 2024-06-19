@@ -8,6 +8,32 @@
     <link rel="stylesheet" href="/css/Products.css">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <script src="/js/adminScript.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const categorySelect = document.getElementById('SelectCategory');
+        const sectionSelect = document.getElementById('SelectSection');
+    
+        categorySelect.addEventListener('change', function () {
+          if (categorySelect.value === 'Retro') {
+            sectionSelect.innerHTML = `
+              <option value="Select Section">Select Section</option>
+              <option value="kit">Football Kits</option>
+            `;
+          } else {
+            sectionSelect.innerHTML = `
+              <option value="Select Section">Select Section</option>
+              <option value="kit">Football Kits</option>
+              <option value="training">Training</option>
+              <option value="h&sw">Hoodies and Sweatshirts</option>
+              <option value="t&sh">Trousers and Shorts</option>
+              <option value="footwear">Footwear</option>
+              <option value="headwear">Headwear</option>
+            `;
+          }
+        });
+      });
+    </script>
+    
   </head>
 
   <body>
@@ -98,6 +124,43 @@
           <%= errors.quantity || "" %>
         </div>
       </div>
+
+
+
+      <div class="productRow">
+        <label>Select Category</label>
+        <select id="SelectCategory" name="category">
+          <option value="Select Category">Select Category</option>
+          <option value="Men">Men</option>
+          <option value="Women">Women</option>
+          <option value="Retro">Retro</option>
+        </select>
+        <div class="error" id="sizeErr">
+          <%= errors.category || "" %>
+        </div>
+      </div>
+
+      <div class="productRow">
+        <label>Select Section</label>
+        <select id="SelectSection" name="section">
+          <option value="Select Section">Select Section</option>
+          
+            <option value="kit">Footbal Kits</option>
+            <option value="training">Training</option>
+            <option value="h&sw">Hoodies and Sweatshirts</option>
+            <option value="t&sh">Trousers and Shorts</option>
+            <option value="footwear">Footwear</option>
+            <option value="headwear">Headwear</option>
+        
+        </select>
+        <div class="error" >
+          <%= errors.section|| "" %>
+        </div>
+      </div>
+
+
+
+
       <div class="productRow">
         <label>Select Size</label>
         <select id="SelectSize" name="size">

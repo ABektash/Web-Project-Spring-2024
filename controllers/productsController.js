@@ -11,7 +11,7 @@ exports.postProductPage = (req, res) => {
       return res.render('pages/Products', { errors: { productImg: err }, get: false, admin: req.session.user });
     }
 
-    const { name, price, quantity, size } = req.body;
+    const { name,category,section, price, quantity, size } = req.body;
     const errors = {};
 
     const nameRegex = /^[a-zA-Z\s\W]+$/;
@@ -31,8 +31,14 @@ exports.postProductPage = (req, res) => {
     if (!size || size === "selectSize") {
       errors.size = "Please select a size";
     }
+    if (!category || category === "Select Category") {
+      errors.category = "Please select a category";
+    }
+    if (!section || section === "Select Section") {
+      errors.section = "Please select a section";
+    }
 
-    if (!req.file) {
+    if (!req.files || !req.files.productImg || req.files.productImg.length === 0) {
       errors.productImg = "Please upload an image";
     }
 
@@ -41,12 +47,15 @@ exports.postProductPage = (req, res) => {
     }
 
     try {
+      const productImg = req.files.productImg[0].filename;
       const newProduct = new Product({
         name,
+        category,
+        section,
         price,
         quantity,
         size,
-        productImg: req.files.productImg[0].filename
+        productImg
       });
       await newProduct.save();
       res.render("pages/Products", { errors: {}, get: false, admin: req.session.user });
