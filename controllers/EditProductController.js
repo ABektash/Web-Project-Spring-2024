@@ -61,7 +61,7 @@ exports.postEditProductPage = (req, res) => {
 
     // Update product
     try {
-      const productImg = req.file ? req.file.filename : req.body.currentProductImg;
+      const productImg = req.files.productImg ? req.files.productImg[0].filename : req.body.currentProductImg;
       await Product.findByIdAndUpdate(productId, {
         name,
         price,

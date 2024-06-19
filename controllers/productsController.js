@@ -14,7 +14,6 @@ exports.postProductPage = (req, res) => {
     const { name, price, quantity, size } = req.body;
     const errors = {};
 
-    // Validation logic
     const nameRegex = /^[a-zA-Z\s\W]+$/;
     if (!name || !nameRegex.test(name)) {
       errors.name = "Please enter a valid name";

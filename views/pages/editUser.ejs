@@ -1,180 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<link rel="stylesheet" href="/css/adminStyle.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-	<script src="/js/adminScript.js"></script>
-	<title>Edit User</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/adminStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/js/adminScript.js"></script>
+    <title>Edit User</title>
 </head>
-
 <body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="/dashboard" class="brand">
+            <img src="/img/manu.png" alt="Admin Image">
+            <span class="text">Welcome admin!</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="/dashboard">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/manageProducts">
+                    <i class='bx bxs-shopping-bag-alt'></i>
+                    <span class="text">Manage Products</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="/manageUsers">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Manage Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="/manageTickets">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Tickets</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="/SignIn" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
 
-	<!-- SIDEBAR -->
-	<section id="sidebar">
-		<a href="/dashboard" class="brand">
-			<img src="img/manu.png" alt="Admin Image">
-			<span class="text">Welcome admin!</span>
-		</a>
-		<ul class="side-menu top">
-			<li>
-				<a href="/dashboard">
-					<i class='bx bxs-dashboard' ></i>
-					<span class="text">Dashboard</span>
-				</a>
-			</li>
-			<li>
-				<a href="/manageProducts">
-					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">Manage Products</span>
-				</a>
-			</li>
-			<li class="active">
-				<a href="/manageUsers">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Manage Users</span>
-				</a>
-			</li>
-			<li>
-				<a href="/manageTickets">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Tickets</span>
-				</a>
-			</li>
-		</ul>
-		<ul class="side-menu">
-			<li>
-				<a href="/SignIn" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Logout</span>
-				</a>
-			</li>
-		</ul>
-	</section>
-
-
-
-	<!-- CONTENT -->
-	<section id="content">
-		<!-- NAVBAR -->
-		<%- include('../partials/nav') %>
-		<main>
-			<div class="head-title">
-				<div class="left">
-					<h1><i class="fa-solid fa-pencil"></i> Edit user</h1>
-					<ul class="pageSub">
-                   
-                        <li><i class='bx bx-chevron-right' ></i></li>
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <% include('../partials/nav') %>
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1><i class="fa-solid fa-pencil"></i> Edit user</h1>
+                    <ul class="pageSub">
+                        <li><i class='bx bx-chevron-right'></i></li>
                         <li>
                             <a class="active" href="/manageUsers">Back</a>
                         </li>
                     </ul>
-				</div>
+                </div>
+            </div>
 
-			</div>
+            <section class="Bform">
+                <div class="booking_form">
+                    <form name="booking" id="booking" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="column">
+                                <div class="input">
+                                    <span><i class="fa-solid fa-user"></i> Name</span>
+                                    <input type="text" placeholder="Enter name" name="name" value="<%= user.name %>">
+                                    <div class="error-message" id="name-error" style="color: red;"><%= errors.name || "" %></div>
+                                </div>
+            
+                                <div class="input">
+                                    <span><i class="fa-solid fa-envelope"></i> Email</span>
+                                    <input type="text" placeholder="Enter email" name="email" value="<%= user.email %>">
+                                    <div class="error-message" id="email-error" style="color: red;"><%= errors.email || "" %></div>
+                                </div>
+            
+                                <div class="input">
+                                    <span><i class="fa-solid fa-lock"></i> Password</span>
+                                    <input type="text" placeholder="Enter password" name="password" value="<%= user.password %>">
+                                    <div class="error-message" id="password-error" style="color: red;"><%= errors.password || "" %></div>
+                                </div>
+            
+                                <div class="input">
+                                    <span><i class="fa-solid fa-venus-mars"></i> Gender</span>
+                                    <div>
+                                        <input type="radio" id="male" name="gender" value="male" <%= user.gender === 'male' ? 'checked' : '' %>>
+                                        <label for="male">Male</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="female" name="gender" value="female" <%= user.gender === 'female' ? 'checked' : '' %>>
+                                        <label for="female">Female</label>
+                                    </div>
+                                    <div class="error-message" id="gender-radio-error" style="color: red;"><%= errors.gender || "" %></div>
+                                </div>
 
+                                <div class="input">
+                                    <label>Upload Image (Optional)</label>
+                                    <input type="file" name="image" accept="image/*">
+                                    <div class="error-message" id="image-error" style="color: red;"><%= errors.image || '' %></div>
+                                    <input type="hidden" name="currentImage" value="<%= user.image %>" />
+                                    <% if (user.image) { %>
+                                        <div class="input">
+                                        <label>Current Image</label>
+                                        <img src="/uploads/<%= user.image %>" alt="User Image" style="max-width: 100px;" />
+                                        </div>
+                                    <% } %>
+                                </div>
+                            </div>
 
-			<section class="Bform">
-				<div class="booking_form">
-					<form name="booking" id="booking" method="POST">
-						<div class="row">
-							<div class="column">
-								<div class="input">
-									<span><i class="fa-solid fa-user"></i> Name</span>
-									<input type="text" placeholder="Enter name" name="name" value="Marcus Rashford">
-									<div class="error-message" id="name-error" style="color: red; ">
-										<%= errors.name || "" %>
-									</div>
-								</div>
-			
-								<div class="input">
-									<span><i class="fa-solid fa-envelope"></i> Email</span>
-									<input type="text" placeholder="Enter email" name="email" value="example@example.com">
-									<div class="error-message" id="email-error" style="color: red; ">
-										<%= errors.email || "" %>
-									</div>
-								</div>
-			
-								<div class="input">
-									<span><i class="fa-solid fa-lock"></i> Password</span>
-									<input type="text" placeholder="Enter password" name="password" value="qwer1234">
-									<div class="error-message" id="password-error" style="color: red; ">
-										<%= errors.password || "" %>
-									</div>
-								</div>
-								<div class="input">
-									<span><i class="fa-solid fa-venus-mars"></i> Gender</span>
-									<div>
-										<input type="radio" id="male" name="gender" value="male" >
-										<label for="male">Male</label>
-									</div>
-									<div>
-										<input type="radio" id="female" name="gender" value="female" checked>
-										<label for="female">Female</label>
-									</div>
-									<div class="error-message" id="gender-radio-error" style="color: red; ">
-										<%= errors.gender || "" %>
-									</div>
-								</div>
-								<div class="input">
-									<span>Type Of User</span>
-									<div>
-										<input type="radio" id="Admin" name="type" value="Admin" >
-										<label for="Admin">Admin</label>
-									</div>
-									<div>
-										<input type="radio" id="user" name="type" value="User" checked>
-										<label for="User">User</label>
-									</div>
-									<div class="error-message" id="type-radio-error" style="color: red; ">
-										<%= errors.type || "" %>
-									</div>
-								</div>
-							</div>
-			
-							<div class="column">
-								<div class="input">
-									<label for="day"><i class="fa-solid fa-calendar"></i> Day</label>
-									<input type="text" placeholder="DD" id="day" name="day" class="small-input" value="01">
-									<div class="error-message" id="day-error" style="color: red; ">
-										<%= errors.day || "" %>
-									</div>
-								</div>
-			
-								<div class="input">
-									<label for="month"><i class="fa-solid fa-calendar"></i> Month</label>
-									<input type="text" placeholder="MM" id="month" name="month" class="small-input" value="01">
-									<div class="error-message" id="month-error" style="color: red; ">
-										<%= errors.month || "" %>
-									</div>
-								</div>
-			
-								<div class="input">
-									<label for="year"><i class="fa-solid fa-calendar"></i> Year</label>
-									<input type="text" placeholder="YYYY" id="year" name="year" class="small-input" value="1990">
-									<div class="error-message" id="year-error" style="color: red;">
-										<%= errors.year || "" %>
-									</div>
-								</div>
-							</div>
-							
-						</div>
+                            <div class="column">
+                                <div class="input">
+                                    <label for="day"><i class="fa-solid fa-calendar"></i> Day</label>
+                                    <input type="text" placeholder="DD" id="day" name="day" class="small-input" value="<%= user.birthdate ? user.birthdate.getDate() : '' %>">
+                                    <div class="error-message" id="day-error" style="color: red;"><%= errors.day || "" %></div>
+                                </div>
 
-						
-						<button type="submit" class="btn" value="Submit">Edit</button>
-						<% if (Object.keys(errors).length == 0 && !get) { %>
-							<div id="success-message">User edited successfully!</div>
-						<% } %>
+                                <div class="input">
+                                    <label for="month"><i class="fa-solid fa-calendar"></i> Month</label>
+                                    <input type="text" placeholder="MM" id="month" name="month" class="small-input" value="<%= user.birthdate ? user.birthdate.getMonth() : '' %>">
+                                    <div class="error-message" id="month-error" style="color: red;"><%= errors.month || "" %></div>
+                                </div>
 
-					</form>
-				</div>
-			</section>
-			
-			
+                                <div class="input">
+                                    <label for="year"><i class="fa-solid fa-calendar"></i> Year</label>
+                                    <input type="text" placeholder="YYYY" id="year" name="year" class="small-input" value="<%= user.birthdate ? user.birthdate.getFullYear() : '' %>">
+                                    <div class="error-message" id="year-error" style="color: red;"><%= errors.year || "" %></div>
+                                </div>
 
+                                <div class="input">
+                                    <span>Type Of User</span>
+                                    <div>
+                                        <input type="radio" id="Admin" name="type" value="Admin" <%= user.type === 'Admin' ? 'checked' : '' %>>
+                                        <label for="Admin">Admin</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="User" name="type" value="User" <%= user.type === 'User' ? 'checked' : '' %>>
+                                        <label for="User">User</label>
+                                    </div>
+                                    <div class="error-message" id="type-radio-error" style="color: red;"><%= errors.type || "" %></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn" value="Submit">Edit</button>
+                        <% if (Object.keys(errors).length == 0 && !get) { %>
+                            <div id="success-message">User edited successfully!</div>
+                        <% } %>
+
+                    </form>
+                </div>
+            </section>
+        </main>
+    </section>
 </body>
-
 </html>
