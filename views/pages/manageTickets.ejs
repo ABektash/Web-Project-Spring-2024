@@ -85,8 +85,7 @@
                                     onclick="document.getElementById('modal-Id-tickets').style.display='none'"
                                     class="cancelbtn">Cancel</button>
                                 <button type="button"
-                                    onclick="document.getElementById('modal-Id-tickets').style.display='none'"
-                                    class="deletebtn">Delete</button>
+                                    class="deletebtn" id="confirmDeleteBtn">Delete</button>
                             </div>
                         </div>
                     </form>
@@ -125,9 +124,11 @@
                                         <td>
                                             <%= ticket.ticketType.toUpperCase() %>
                                         </td>
-                                        <td class="de" id="delete"><a
-                                                onclick="document.getElementById('modal-Id-tickets').style.display='block'"><i
-                                                    class="fa-solid fa-trash"></i></a></td>
+                                        <td class="de" id="delete">
+                                            <a onclick="openDeleteModal('<%= ticket._id %>')">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </a>
+                                        </td>
                                         <td class="de" id="edit"><a href="/manageTickets/edit/<%= ticket._id %>"><i
                                                     class="fa-solid fa-pencil"></i></a></td>
                                     </tr>
@@ -138,7 +139,31 @@
                 </div>
             </main>
     </section>
+    <script>
+        let ticketIdToDelete = '';
 
+        function openDeleteModal(ticketId) {
+            ticketIdToDelete = ticketId;
+            document.getElementById('modal-Id-tickets').style.display = 'block';
+        }
+
+        document.getElementById('confirmDeleteBtn').addEventListener('click', async () => {
+            try {
+                const response = await fetch(`/manageTickets/delete/${ticketIdToDelete}`, {
+                    method: 'DELETE',
+                });
+                const result = await response.json();
+                if (response.status === 200) {
+                    window.location.reload();
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while deleting the product');
+            }
+        });
+    </script>
 
 
 </body>

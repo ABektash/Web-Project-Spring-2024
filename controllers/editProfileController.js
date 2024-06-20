@@ -2,24 +2,24 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const upload = require('../middleware/multer');
 
-exports.getEditUserPage = async (req, res) => {
+exports.geteditProfilePage = async (req, res) => {
     const userId = req.params.id;
     try {
         const user = await User.findById(userId);
         if (!user) {
             return res.status(404).send('User not found');
         }
-        res.render('pages/editUser', { user, errors: {}, get: true, admin: req.session.user });
+        res.render('pages/editProfile', { user, errors: {}, get: true, admin: req.session.user });
     } catch (err) {
         console.error('Error fetching user:', err);
         res.status(500).send('Server error');
     }
 };
 
-exports.postEditUserPage = async (req, res) => {
+exports.posteditProfilePage = async (req, res) => {
     upload(req, res, async (err) => {
         if (err) {
-            return res.render('pages/editUser', { user: {}, errors: { image: err }, get: false, admin: req.session.user });
+            return res.render('pages/editProfile', { user: {}, errors: { image: err }, get: false, admin: req.session.user });
         }
         console.log(req.body);
         const { name, email, password, gender, type, day, month, year } = req.body;
@@ -39,7 +39,9 @@ exports.postEditUserPage = async (req, res) => {
             errors.email = 'Please enter a valid email address';
         }
 
-       
+        if (!password) {
+            errors.password = 'Please enter a password';
+        }
 
         if (!gender) {
             errors.gender = 'Please select a gender';
@@ -72,7 +74,7 @@ exports.postEditUserPage = async (req, res) => {
         if (Object.keys(errors).length > 0) {
             try {
                 const user = await User.findById(userId);
-                return res.render('pages/editUser', { user, errors, get: false, admin: req.session.user });
+                return res.render('pages/editProfile', { user, errors, get: false, admin: req.session.user });
             } catch (err) {
                 console.error('Error fetching user:', err);
                 return res.status(500).send('Server error');
@@ -84,7 +86,6 @@ exports.postEditUserPage = async (req, res) => {
             const hashedPassword = await bcrypt.hash(password, saltRounds);
             const image = req.files.image ? req.files.image[0].filename : req.body.currentImage;
             // Update user data
-            if (password){
             await User.findByIdAndUpdate(userId, {
                 name,
                 email,
@@ -94,17 +95,7 @@ exports.postEditUserPage = async (req, res) => {
                 birthdate: new Date(year, month, day),
                 image
             });
-        }else {
-            await User.findByIdAndUpdate(userId, {
-                name,
-                email,
-                gender,
-                type,
-                birthdate: new Date(year, month, day),
-                image
-            });
-        }
-            res.redirect('/manageUsers');
+            res.redirect('/Profile');
         } catch (err) {
             console.error('Error editing user:', err);
             res.status(500).send('Internal Server Error');

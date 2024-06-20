@@ -5,6 +5,7 @@ const editTicketsController = require('../controllers/editTicketController');
 
 router.get('/',manageTicketsController.getManageTicketsPage);
 router.get('/edit/:id', manageTicketsController.getEditTicketPage);
+router.delete('/delete/:id', manageTicketsController.deleteTicket);
 router.post('/edit/:id', editTicketsController.postEditTicketPage);
 
 module.exports = router;

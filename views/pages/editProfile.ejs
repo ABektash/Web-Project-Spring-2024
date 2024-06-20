@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/adminStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Edit Profile</title>
+</head>
+<body>
+    <section class="Bform">
+        <div class="booking_form" style="margin-top: 4cm;">
+            <form name="booking" id="booking" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="column">
+                        <div class="input">
+                            <span><i class="fa-solid fa-user"></i> Name</span>
+                            <input type="text" placeholder="Enter name" name="name" value="<%= user.name %>">
+                            <div class="error-message" id="name-error"><%= errors.name || "" %></div>
+                        </div>
+
+                        <div class="input">
+                            <span><i class="fa-solid fa-envelope"></i> Email</span>
+                            <input type="text" placeholder="Enter email" name="email" value="<%= user.email %>">
+                            <div class="error-message" id="email-error"><%= errors.email || "" %></div>
+                        </div>
+
+                        <div class="input">
+                            <span><i class="fa-solid fa-lock"></i> Password</span>
+                            <input type="password" placeholder="Enter password" name="password" value="<%= admin.password %>">
+                            <div class="error-message" id="password-error"><%= errors.password || "" %></div>
+                        </div>
+
+                        <div class="input">
+                            <span><i class="fa-solid fa-venus-mars"></i> Gender</span>
+                            <div>
+                                <input type="radio" id="male" name="gender" value="male" <%= user.gender === 'male' ? 'checked' : '' %>>
+                                <label for="male">Male</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="female" name="gender" value="female" <%= user.gender === 'female' ? 'checked' : '' %>>
+                                <label for="female">Female</label>
+                            </div>
+                            <div class="error-message" id="gender-error"><%= errors.gender || "" %></div>
+                        </div>
+
+                        <div class="input">
+                            <label>Upload Image (Optional)</label>
+                            <input type="file" name="image" accept="image/*">
+                            <div class="error-message" id="image-error"><%= errors.image || '' %></div>
+                            <input type="hidden" name="currentImage" value="<%= user.image %>" />
+                            <% if (user.image) { %>
+                                <div class="input">
+                                    <label>Current Image</label>
+                                    <img src="/uploads/<%= user.image %>" alt="User Image" style="max-width: 100px;" />
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="input">
+                            <label for="day"><i class="fa-solid fa-calendar"></i> Day</label>
+                            <input type="text" placeholder="DD" id="day" name="day" class="small-input" value="<%= user.birthdate ? user.birthdate.getDate() : '' %>">
+                            <div class="error-message" id="day-error"><%= errors.day || "" %></div>
+                        </div>
+
+                        <div class="input">
+                            <label for="month"><i class="fa-solid fa-calendar"></i> Month</label>
+                            <input type="text" placeholder="MM" id="month" name="month" class="small-input" value="<%= user.birthdate ? user.birthdate.getMonth() : '' %>">
+                            <div class="error-message" id="month-error"><%= errors.month || "" %></div>
+                        </div>
+
+                        <div class="input">
+                            <label for="year"><i class="fa-solid fa-calendar"></i> Year</label>
+                            <input type="text" placeholder="YYYY" id="year" name="year" class="small-input" value="<%= user.birthdate ? user.birthdate.getFullYear() : '' %>">
+                            <div class="error-message" id="year-error"><%= errors.year || "" %></div>
+                        </div>
+                    </div>
+                    <div class="input" style="display: none;">
+                        <span>Type Of User</span>
+                        <div>
+                            <input type="radio" id="Admin" name="type" value="Admin" <%= user.type === 'Admin' ? 'checked' : '' %>>
+                            <label for="Admin">Admin</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="User" name="type" value="User" <%= user.type === 'User' ? 'checked' : '' %>>
+                            <label for="User">User</label>
+                        </div>
+                        <div class="error-message" id="type-radio-error" style="color: red;"><%= errors.type || "" %></div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" value="Submit">Edit</button>
+                <% if (Object.keys(errors).length == 0 && !get) { %>
+                    <div id="success-message">User edited successfully!</div>
+                <% } %>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

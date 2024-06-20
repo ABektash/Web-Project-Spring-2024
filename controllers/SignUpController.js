@@ -91,7 +91,7 @@ exports.postSignUp = async (req, res) => {
 
       await newUser.save();
       console.log("User saved successfully");
-      res.redirect('/Profile');
+      res.redirect('/login');
     } catch (error) {
       console.error("Error saving user:", error);
       res.status(500).send("Server error");

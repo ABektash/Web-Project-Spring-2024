@@ -24,3 +24,14 @@ exports.getEditProductPage = async (req, res) => {
         res.status(500).send('Server error');
     }
 };
+
+
+exports.deleteProduct = async (req, res) => {
+    try {
+        const productId = req.params.id;
+        await Product.findByIdAndDelete(productId);
+        res.status(200).json({ message: 'Product deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: 'Error deleting product', error });
+    }
+};
