@@ -12,14 +12,10 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/script.js"></script>
     <script src="/js/API-football-data.js"></script>
-    
 </head>
-
-
 <body>
-    
     <%- include('../partials/header', { user: user }) %>
-    
+
     <section id="categories">
         <div class="cat-bar">
             <ul>
@@ -34,976 +30,176 @@
                 <li><a href="/ShoppingCart"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
             </ul>
         </div>
-
     </section>
-
 
     <section id="hero1">
         <div class="men-content">
-
             <h4>Pitch Perfect Picks</h4>
             <h2>Elite Football Jerseys</h2>
             <p>Elevate your game with top-tier football kits!</p>
         </div>
-
     </section>  
-<!-- section1 -->
+
     <section id="product-1" class="section-p1">
         <h2>Football Kits</h2>
         <p>Men's collection today</p>
         <div class="pro-container">
-            <div class="pro" onclick="window.location.href='singleProduct.html';">
-                <img src="Images/1st.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Man united home kit</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            <% products.filter(product => product.section === 'Football Kits').forEach(product => { %>
+                <div class="pro" onclick="window.location.href='/product/<%= product._id %>';">
+                    <img src="/uploads/<%= product.productImg %>" alt="error loading the image">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5><%= product.name %></h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$<%= product.price %></h4>
                     </div>
-                    <h4>$120</h4>
+                    <a href="#"><i class="fal fa-shopping-cart"></i></a>
                 </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-
-            <div class="pro">
-                <img src="Images/secKittt.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Man united away kit</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$120</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/thrdKit.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Man united third kit</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$110</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/GKF.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Yellow GK Kit</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$100</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/GKS.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Green GK kit</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$78</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/GKT.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Black GK Kit</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$60</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/garSleeve.jpg" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Garnacho Home Kit</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$130</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-
-            <div class="pro">
-                <img src="Images/rashSleeve.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Rahsford away kit</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$130</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-
+            <% }) %>
         </div>
     </section>
     <hr>
     <br>
-<!-- section2 -->
+    
     <section id="product-2" class="section-p1">
         <h2>Training</h2>
         <p>Men's collection today</p>
         <div class="pro-container">
-            <div class="pro">
-                <img src="Images/t11.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Red Training Jacket</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            <% products.filter(product => product.section === 'Training').forEach(product => { %>
+                <div class="pro" onclick="window.location.href='/product/<%= product._id %>';">
+                    <img src="/uploads/<%= product.productImg %>" alt="error loading the image">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5><%= product.name %></h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$<%= product.price %></h4>
                     </div>
-                    <h4>$70</h4>
+                    <a href="#"><i class="fal fa-shopping-cart"></i></a>
                 </div>
-                <a href="#"><i class="fal fa-shopping-cart" ></i></a>
-
-            </div>
-
-            <div class="pro">
-                <img src="Images/t1.avif" alt="">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Blue Training Jacket</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$60</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/t3.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Black and White Training Jacket</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$58</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/t4.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Tezos White Training Jacket</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$80</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/t5.jpg" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Man united trainingsweatshirt</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$118</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/t6.webp" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Tezos white training shirt</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$30</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/t7.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Third kit training jacket</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$70</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-
-            <div class="pro">
-                <img src="Images/t8.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Green Blaack training hoodie</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$120</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-
+            <% }) %>
         </div>
     </section>
     <hr>
     <br>
 
-<!-- section3 -->
-<section id="product-3" class="section-p1">
-    <h2>Hoodies and Sweatshirts</h2>
-    <p>Men's collection today</p>
-    <div class="pro-container">
-        <div class="pro">
-            <img src="Images/s1.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Man united orange hoodie</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+    <section id="product-3" class="section-p1">
+        <h2>Hoodies and Sweatshirts</h2>
+        <p>Men's collection today</p>
+        <div class="pro-container">
+            <% products.filter(product => product.section === 'Hoodies and Sweatshirts').forEach(product => { %>
+                <div class="pro" onclick="window.location.href='/product/<%= product._id %>';">
+                    <img src="/uploads/<%= product.productImg %>" alt="error loading the image">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5><%= product.name %></h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$<%= product.price %></h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart"></i></a>
                 </div>
-                <h4>$150</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart" ></i></a>
-
+            <% }) %>
         </div>
+    </section>
+    <hr>
+    <br>
 
-        <div class="pro">
-            <img src="Images/s2.avif" alt="">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Man united grey hoodie</h5>
-                <div class="star"> 
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$140</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-        <div class="pro">
-            <img src="Images/s3.avif" alt="">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Adidas Black Hoodie</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$220</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-        <div class="pro">
-            <img src="Images/s4.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Adidas Pink Hoodie</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$80</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-        <div class="pro">
-            <img src="Images/s5.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Adidas Green Sweatshirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$100</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-        <div class="pro">
-            <img src="Images/s6.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Adidas Pink Hoodie</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$60</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-        <div class="pro">
-            <img src="Images/s7.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Adidas Navy Sweatshirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$50</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-
-        <div class="pro">
-            <img src="Images/ink.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Adidas Ink hoodie</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$40</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-
-    </div>
-</section>
-<hr>
-<br>
-
-
-
-<!-- section4 -->
     <section id="product-4" class="section-p1">
         <h2>Trousers and Shorts</h2>
         <p>Men's collection today</p>
         <div class="pro-container">
-            <div class="pro">
-                <img src="Images/l1.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Man united Black trousers</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            <% products.filter(product => product.section === 'Trousers and Shorts').forEach(product => { %>
+                <div class="pro" onclick="window.location.href='/product/<%= product._id %>';">
+                    <img src="/uploads/<%= product.productImg %>" alt="error loading the image">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5><%= product.name %></h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$<%= product.price %></h4>
                     </div>
-                    <h4>$50</h4>
+                    <a href="#"><i class="fal fa-shopping-cart"></i></a>
                 </div>
-                <a href="#"><i class="fal fa-shopping-cart" ></i></a>
-
-            </div>
-
-            <div class="pro">
-                <img src="Images/l2.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Man united black shorts</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$20</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/l3.webp" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Adidas Black and White Trousers</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$100</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/l4.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Third kit shorts</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$78</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/l5.webp" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Home kit shorts</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$30</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/l6.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Man united black icon trousers </h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$100</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cartt"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/l77.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Adidas Man united Dark blue pants</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$110</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-
-            <div class="pro">
-                <img src="Images/l8.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Adidas grey jogger pants </h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$100</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-
+            <% }) %>
         </div>
     </section>
     <hr>
     <br>
 
-
-    <!-- section5  -->
     <section id="product-5" class="section-p1">
         <h2>Footwear</h2>
         <p>Men's collection today</p>
         <div class="pro-container">
-            <div class="pro">
-                <img src="Images/f1.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Home kit long socks</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            <% products.filter(product => product.section === 'Footwear').forEach(product => { %>
+                <div class="pro" onclick="window.location.href='/product/<%= product._id %>';">
+                    <img src="/uploads/<%= product.productImg %>" alt="error loading the image">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5><%= product.name %></h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$<%= product.price %></h4>
                     </div>
-                    <h4>$5</h4>
+                    <a href="#"><i class="fal fa-shopping-cart"></i></a>
                 </div>
-                <a href="#"><i class="fal fa-shopping-cart" ></i></a>
-
-            </div>
-
-            <div class="pro">
-                <img src="Images/f2.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Third kit long socks</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$4</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/f3.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Away kit long socks</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$4</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/f4.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Man united white PLRboost trainers</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$130</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/f5.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Adidas Predator Accuracy 3 laceless</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$140</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/f8.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Man united gazelle trainers</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$100</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-            <div class="pro">
-                <img src="Images/f7.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Adidas Avryn Trainers</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$90</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-
-            <div class="pro">
-                <img src="Images/f6.avif" alt="error loading the image">
-                <div class="des">
-
-                    <span>adidas</span>
-                    <h5>Man united Mule slippers</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$20</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-            </div>
-
+            <% }) %>
         </div>
     </section>
-<hr>
-<br>
+    <hr>
+    <br>
 
-<!-- section6 -->
-<section id="product-6" class="section-p1">
-    <h2>Headwear</h2>
-    <p>Men's collection today</p>
-    <div class="pro-container">
-        <div class="pro">
-            <img src="Images/hg1.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Stone Roses bucket hat</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+    <section id="product-6" class="section-p1">
+        <h2>Headwear</h2>
+        <p>Men's collection today</p>
+        <div class="pro-container">
+            <% products.filter(product => product.section === 'Headwear').forEach(product => { %>
+                <div class="pro" onclick="window.location.href='/product/<%= product._id %>';">
+                    <img src=" /uploads/<%= product.productImg %>" alt="error loading the image">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5><%= product.name %></h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$<%= product.price %></h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart"></i></a>
                 </div>
-                <h4>$10</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart cart" ></i></a>
-
+            <% }) %>
         </div>
+    </section>
 
-        <div class="pro">
-            <img src="Images/hg2.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Black Man united cap</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$10</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-        <div class="pro">
-            <img src="Images/hg3.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5> Midcord 9Fifty Cap</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$12</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-        <div class="pro">
-            <img src="Images/hg4.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Floral Bucket hat</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$13</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-        <div class="pro">
-            <img src="Images/hg5.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Man united pop cap</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$9</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart "></i></a>
-
-        </div>
-        <div class="pro">
-            <img src="Images/hg6.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Red Devils grey cap</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$9</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart "></i></a>
-
-        </div>
-        <div class="pro">
-            <img src="Images/hg7.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>Engineered Cuff Beani Hat</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$8</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart "></i></a>
-
-        </div>
-
-        <div class="pro">
-            <img src="Images/hg8.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>New Era Love Beani Hat</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$16</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-
-    </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%- include('../partials/footer') %>
-
-
+    <%- include('../partials/footer') %>
 </body>
 </html>

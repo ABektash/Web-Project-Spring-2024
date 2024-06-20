@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema({
   section:
   {
     type:String,
-    enum:['kit','training','h&sw','t&sh','footwear','headwear']
+    enum:['Football Kits','Training','Hoodies and Sweatshirts','Trousers and Shorts','Footwear','Headwear']
   },
   productImg: {
     type: String
@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema({
   },
   size: {
     type: String,
-    enum: ['S', 'M', 'L', 'XL']
+    enum: ['S', 'M', 'L', 'XL','XXL']
   },
   noOfSoldPieces: {
     type: Number

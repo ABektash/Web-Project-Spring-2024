@@ -1,5 +1,5 @@
 const Product = require('../models/Product');
-const upload = require('../middleware/multer');  // Assuming you have multer configuration
+const upload = require('../middleware/multer');  
 
 exports.getEditProductPage = async (req, res) => {
   const productId = req.params.id;
@@ -21,7 +21,7 @@ exports.postEditProductPage = (req, res) => {
       return res.render('pages/EditProduct', { product: {}, errors: { productImg: err }, get: false, admin: req.session.user });
     }
 
-    const { name, price, quantity, size } = req.body;
+    const { name,category,section, price, quantity, size } = req.body;
     const errors = {};
     const productId = req.params.id;
 
@@ -43,6 +43,12 @@ exports.postEditProductPage = (req, res) => {
     if (!size || size === "selectSize") {
       errors.size = "Please select a size";
     }
+    if (!category || category === "Select Category") {
+      errors.category = "Please select a category";
+    }
+    if (!section || section === "Select Section") {
+      errors.section = "Please select a section";
+    }
 
     // Image validation (optional)
     if (!req.file && !req.body.currentProductImg) {
@@ -52,7 +58,7 @@ exports.postEditProductPage = (req, res) => {
     if (Object.keys(errors).length > 0) {
       try {
         const product = await Product.findById(productId);
-        return res.render('pages/EditProduct', { product, errors, get: false });
+        return res.render('pages/EditProduct', { product, errors, get: false, admin: req.session.user });
       } catch (err) {
         console.error('Error fetching product:', err);
         return res.status(500).send('Server error');
@@ -64,6 +70,8 @@ exports.postEditProductPage = (req, res) => {
       const productImg = req.files.productImg ? req.files.productImg[0].filename : req.body.currentProductImg;
       await Product.findByIdAndUpdate(productId, {
         name,
+        category,
+        section,
         price,
         quantity,
         size,

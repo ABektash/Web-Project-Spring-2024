@@ -10,7 +10,7 @@ exports.postProductPage = (req, res) => {
     if (err) {
       return res.render('pages/Products', { errors: { productImg: err }, get: false, admin: req.session.user });
     }
-
+    console.log(req.body);
     const { name,category,section, price, quantity, size } = req.body;
     const errors = {};
 

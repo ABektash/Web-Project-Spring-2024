@@ -17,17 +17,17 @@
           if (categorySelect.value === 'Retro') {
             sectionSelect.innerHTML = `
               <option value="Select Section">Select Section</option>
-              <option value="kit">Football Kits</option>
+              <option value="Football Kits">Football Kits</option>
             `;
           } else {
             sectionSelect.innerHTML = `
               <option value="Select Section">Select Section</option>
-              <option value="kit">Football Kits</option>
-              <option value="training">Training</option>
-              <option value="h&sw">Hoodies and Sweatshirts</option>
-              <option value="t&sh">Trousers and Shorts</option>
-              <option value="footwear">Footwear</option>
-              <option value="headwear">Headwear</option>
+              <option value="Football Kits">Football Kits</option>
+              <option value="Training">Training</option>
+              <option value="Hoodies and Sweatshirts">Hoodies and Sweatshirts</option>
+              <option value="Trousers and Shorts">Trousers and Shorts</option>
+              <option value="Footwear">Footwear</option>
+              <option value="Headwear">Headwear</option>
             `;
           }
         });
@@ -143,15 +143,13 @@
       <div class="productRow">
         <label>Select Section</label>
         <select id="SelectSection" name="section">
-          <option value="Select Section">Select Section</option>
-          
-            <option value="kit">Footbal Kits</option>
-            <option value="training">Training</option>
-            <option value="h&sw">Hoodies and Sweatshirts</option>
-            <option value="t&sh">Trousers and Shorts</option>
-            <option value="footwear">Footwear</option>
-            <option value="headwear">Headwear</option>
-        
+            <option value="Select Section">Select Section</option>
+            <option value="Football Kits">Football Kits</option>
+            <option value="Training">Training</option>
+            <option value="Hoodies and Sweatshirts">Hoodies and Sweatshirts</option>
+            <option value="Trousers and Shorts">Trousers and Shorts</option>
+            <option value="Footwear">Footwear</option>
+            <option value="Headwear">Headwear</option>
         </select>
         <div class="error" >
           <%= errors.section|| "" %>
