@@ -14,28 +14,15 @@
     <section id="proDetails" class="section-p1">
         <div class="single-pro-image">
 
-            <img src="Images/1st.avif" alt="error loading the image" width="100%" id="MainImg">
-            <div class="small-img-group">
-                <div class="small-img-col">
-                    <img src="Images/1st.avif" width="100%" alt="error loading the image" class="small-img">
-                </div>
-                <div class="small-img-col">
-                    <img src="Images/1sttt.avif" width="100%" alt="error loading the image" class="small-img">
-                </div>
-                <div class="small-img-col">
-                    <img src="Images/1stttt.avif" width="100%" alt="error loading the image" class="small-img">
-                </div>
-                <div class="small-img-col">
-                    <img src="Images/1sttttt.jpg" width="100%" alt="error loading the image" class="small-img">
-                </div>
-    </div>
+            <img src="/uploads/<%= product.productImg %>" alt="error loading the image" width="100%" id="MainImg">
+
 </div>
 
 <div class="single-pro-details">
 
-    <h5>Home / T-Shirt</h5>
-    <h4>Men's Fashion T-Shirt</h4>
-    <h2>$120</h2>
+    <h5>Home / <%= product.category %></h5>
+    <h4><%= product.name %></h4>
+    <h2>$<%= product.price %></h2>
     <select id="borderred" class="sel">
         <option >Select Size</option>
         <option >Small</option>
@@ -45,13 +32,15 @@
         <option >XXL</option>
     </select>
     <input type="number" id="numberInput" value="1" min="0">
-    <button onclick="validateInput();">Add To Cart</button>
-    <div class="errorMessage" style="display: none; color: red;">
-       
+    <button onclick="addToCart()">Add To Cart</button>
+    <div class="errorMessage" style=" color: red;">
+       <%= errors.error  %>
     </div>
-    <div class="successMessage" style="display: none; color: green;">
-        Items are added successfully!
-    </div>
+    <% if (Object.keys(errors).length == 0 && !get) {%>
+        <div class="successMessage" style=" color: green;">
+            Items are added successfully!
+        </div>
+    <% } %>
     <h4>Product Details</h4>
     <span>This is the main man united shirt with the red  color</span>
 </div>
@@ -62,86 +51,24 @@
     <h2>Featured Products</h2>
     <p>Men collection today</p>
     <div class="pro-container">
-        <div class="pro" onclick="window.location.href='singleProduct.html';">
-            <img src="Images/t11.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>tshirts</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+        <% products.forEach(product => { %>
+            <div class="pro" onclick="window.location.href='/singleproduct/<%= product.category%>/<%= product._id %>';">
+                <img src="/uploads/<%= product.productImg %>" alt="<%= product.name %>" width="100%">
+                <div class="des">
+                    <span><%= product.category %></span>
+                    <h5><%= product.name %></h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$<%= product.price %></h4>
                 </div>
-                <h4>$78</h4>
+                <a href="#"><i class="fal fa-shopping-cart"></i></a>
             </div>
-            <a href="#"><i class="fal fa-shopping-cart" ></i></a>
-
-        </div>
-
-        <div class="pro">
-            <img src="Images/secKittt.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>tshirts</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$78</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart "></i></a>
-
-        </div>
-        <div class="pro">
-            <img src="Images/thrdKit.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>tshirts</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$78</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-        <div class="pro">
-            <img src="Images/GKF.avif" alt="error loading the image">
-            <div class="des">
-
-                <span>adidas</span>
-                <h5>tshirts</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <h4>$78</h4>
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-       
-            </div>
-            <a href="#"><i class="fal fa-shopping-cart"></i></a>
-
-        </div>
-
-
+        <% }) %>
     </div>
 </section>
 
@@ -149,9 +76,15 @@
     <!-- footer  -->
     <%- include('../partials/footer') %>
 
-<script>
-    
-</script>
+    <script>
+        function addToCart() {
+            const sizeSelect = document.getElementById('borderred');
+            const quantityInput = document.getElementById('numberInput');
+            const size = sizeSelect.value;
+            const quantity = quantityInput.value;
+            window.location.href = `/singleProduct/add/<%=product.name%>/${size}/${quantity}`;
+        }
+    </script>
 
 </body>
 </html>
