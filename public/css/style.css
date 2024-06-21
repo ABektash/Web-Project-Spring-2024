@@ -335,6 +335,7 @@ h2 {
     width: 100%;
     height: 0.7rem;
     box-shadow: black 0px 0px 30px 3rem;
+    padding-right: 0;
 }
 
 #shopdemo {
@@ -500,7 +501,6 @@ h2 {
     display: grid;
     gap: 50px;
     grid-template-columns: auto auto;
-    padding: 10px;
 
 }
 
@@ -521,7 +521,6 @@ h2 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -100%);
-    padding: 20px;
     text-align: center;
     font-size: 5rem;
     font-weight: 500;
