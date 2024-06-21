@@ -33,7 +33,7 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 
 app.use('/', require('./routes/index'));
 app.use('/about', require('./routes/about'));
-app.use('/News', require('./routes/News'));
+app.use('/Fixtures', require('./routes/Fixtures'));
 app.use('/All-Matches', require('./routes/All-Matches'));
 app.use('/Shop', require('./routes/Shop'));
 app.use('/MenShop', require('./routes/MenShop'));
@@ -59,6 +59,8 @@ app.use('/SignUp',require('./routes/SignUp'));
 app.use('/Login',require('./routes/Login'));
 app.use('/EditProduct',require('./routes/EditProduct'));
 app.use('/EditProfile',require('./routes/EditProfile'));
+app.use('/onclick',require('./routes/onclick'));
+app.use('/news',require('./routes/news'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man Utd</title>
+    <link rel="stylesheet" href="/css/onclick.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="API-football-data.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <%- include('../partials/header', { user: user }) %>
+   <section class="RNEW">
+     <div class="heading">
+        <h1>Recent news</h1>
+       <h2 class="posted-date-onclick">posted on june 16 , 2024.</h2>
+     </div>
+     <div class="contain">
+        <section class="recent">
+            <div class="recent-image">
+                <img src="/images/newsphoto.jpg">
+            </div>
+            <div class="recent-content">
+                <h2>Manchester United manager Erik ten Hag says he had his summer holiday interrupted by the club.</h2>
+                <p>Ten Hag's future had been in doubt before he led United to victory in the FA Cup final, but the club have decided to keep the Dutchman in place.
+
+                    "The club management came to me while I was on holiday in Ibiza," Ten Hag said on Dutch TV channel NOS. "They suddenly showed up on my doorstep and told me they wanted to continue with me."
+                    
+                    United finished eighth last season - their lowest position in the Premier League era.
+                    
+                    New United co-owner Sir Jim Ratcliffe is thought to have spoken to former Bayern Munich boss Thomas Tuchel but the Red Devils eventually opted to keep Ten Hag.
+                    "Manchester United have told me that they spoke with Tuchel, but they eventually came to the conclusion that they already have the best manager," he added.
+
+                  "Ineos took their time. They are new in football, it's normal to reflect on the season. It's no secret that they talked with multiple candidates."
+
+                  In his debut season the Dutchman led the club to third place in the Premier League, along with the Carabao Cup and FA Cup finals. He then led them to EFL Cup victory in 2023.
+
+                 Ten Hag has the backing of the United board, but confirmed he is still yet to iron out a deal for a new contract.
+
+               He said: "Manchester United and I still have to find an agreement for the new contract. This isn't easily done - we are still going to have to talk about this."</p>
+            </div>
+        </section>
+     </div>
+
+    </section>
+    <%- include('../partials/footer', { user: user }) %>
+ 
+
+</body>
+</html>

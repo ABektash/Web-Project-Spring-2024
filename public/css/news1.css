@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.container1
+{
+    width:100%;
+}
+.container1 .blog-section .cards
+{
+  display: grid;
+  grid-template-columns: repeat(3 , 1fr);
+  grid-gap: 50px;
+  margin: 25px auto;
+
+}
+.container1 .blog-section .cards .card{
+    width: 100%;
+    background-color:rgb(234, 227, 227);
+    position: relative;
+}
+
+.blog-section{
+
+    width: 95%;
+    margin: 1% auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.blog-section .title{
+    width: 60%;
+    text-align: center;
+    margin:auto;
+
+}
+.blog-section .title h2{
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-top: 50px;
+    color: black;
+
+}
+.cards
+{
+    display: grid;
+    grid-template-columns:  repeat(3,1fr);
+    grid-gap: 50px;
+    margin: 25px auto;
+    padding: 1rem;
+
+}
+.cards .card{
+    width: 100%;
+    position: relative;
+}
+.image-section img{
+    width: 100%;
+    height: auto;
+    transition: 0.5s ease;
+}
+.content
+{
+    padding:15px 20px;
+}
+.content h4{
+    font-size: 23px;
+    color: black;
+    font-weight: 600;
+}
+.content p{
+    padding-top: 10px;
+    font-size: 15px;
+    color:black;
+    font-weight: 200;
+}
+.invisible-content
+{
+    padding:15px 20px;
+}
+.invisible-content h4{
+    font-size: 23px;
+    color: black;
+    font-weight: 600;
+}
+.invisible-content p{
+    padding-top: 10px;
+    font-size: 15px;
+    color:black;
+    font-weight: 200;
+}
+.content a{
+    text-decoration: none;
+    color:#fff;
+    margin-top:12px ;
+    display: inline-block;
+    padding: 8px 15px;
+    background-color:#c70101;
+    overflow: hidden;
+
+}
+#btn
+{
+   background-color: #c70101;
+   color: #fff;
+   padding: 10px 15px;
+   margin: 15px;
+   border-radius: 5px;
+   float: right;
+   font-size: 15px;
+}
+#btn:hover{
+    background-color: darkred;
+    transform: 0.3s;
+}
+.content a:hover{
+    background-color: darkred;
+    transform: 0.3s;
+}
+.card .posted-date
+{
+ position: absolute;
+ top: 0;
+ left: 0;
+ display: inline-block;
+ padding: 6px 15px;
+ background-color: #c70101;
+ color: white;
+}
+
+
+
+
+
+
