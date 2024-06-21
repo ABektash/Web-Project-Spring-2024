@@ -54,6 +54,7 @@ exports.postProductPage = (req, res) => {
         section,
         price,
         quantity,
+        noOfSoldPieces: 0,
         size,
         productImg
       });
