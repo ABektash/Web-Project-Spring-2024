@@ -14,7 +14,8 @@ exports.postAddUserPage = async (req, res) => {
             return res.render('pages/addUser', { errors: { image: err.message }, get: false, admin: req.session.user });
         }
 
-        const { name, email, password, gender, type, day, month, year } = req.body;
+        let { name, email, password, gender, type, day, month, year } = req.body;
+        email = email.toLowerCase()
 
         const errors = {};
 
@@ -91,8 +92,10 @@ exports.postAddUserPage = async (req, res) => {
             console.log('User saved successfully');
             res.render('pages/addUser', { errors: {}, get: false, success: true, admin: req.session.user });
         } catch (error) {
-            console.error('Error saving user:', error);
-            res.status(500).send('Server error');
+            // console.error('Error saving user:', error);
+            // res.status(500).send('Server error');
+            errors.email = "Email is already used";
+            return res.render('pages/addUser', { errors, get: false, admin: req.session.user });
         }
     });
 };

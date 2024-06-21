@@ -116,7 +116,7 @@
 
 #cart-add button
 {
-    background-color: #086d66;
+    background-color: black;
     color: #fff;    
     padding: 14px 20px;
     border-radius: 15px; 
@@ -126,7 +126,7 @@
 
 #Subtotal button:hover {
     cursor: pointer;
-    background-color:#024a46;
+    background-color:rgb(78, 78, 78);
 }
 
 

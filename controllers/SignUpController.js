@@ -16,8 +16,9 @@ exports.postSignUp = async (req, res) => {
       });
     }
     console.log(req.body);
-    const { name, email, password, confpassword, day, month, year, gender } =
+    let { name, email, password, confpassword, day, month, year, gender } =
       req.body;
+    email = email.toLowerCase();
     const errors = {};
 
     if (name == "") {
@@ -93,8 +94,10 @@ exports.postSignUp = async (req, res) => {
       console.log("User saved successfully");
       res.redirect('/login');
     } catch (error) {
-      console.error("Error saving user:", error);
-      res.status(500).send("Server error");
+      // console.error("Error saving user:", error);
+      // res.status(500).send("Server error");
+      errors.email = "Email is already used";
+      return res.render("pages/SignUp", { errors, get: false, user: req.session.user });
     }
   });
 };
