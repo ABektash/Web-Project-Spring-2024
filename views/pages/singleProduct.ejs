@@ -11,6 +11,17 @@
 <body>
     <%- include('../partials/header', { user: user }) %>
 
+    <section id="categories">
+        <div class="cat-bar">
+          <ul>
+            <li><a href="/MenShop">Men Shop</a></li>
+            <li><a href="/WomenShop">Women Shop</a></li>
+            <li><a href="/RetroShop">Retro Shop</a></li>
+            <li><a href="/ShoppingCart"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+          </ul>
+        </div>
+      </section>
+
     <section id="proDetails" class="section-p1">
         <div class="single-pro-image">
 
@@ -20,9 +31,9 @@
 
 <div class="single-pro-details">
 
-    <h5>Home / <%= product.category %></h5>
-    <h4><%= product.name %></h4>
-    <h2>$<%= product.price %></h2>
+    <p class="catStyle"><b>Category/<%= product.category %></b></p>
+    <p class="productStyle">Product name: <%= product.name %></p>
+    <p class="priceStyle">Price: $<%= product.price %></p>
     <select id="borderred" class="sel">
         <option >Select Size</option>
         <option >Small</option>
@@ -41,8 +52,7 @@
             Items are added successfully!
         </div>
     <% } %>
-    <h4>Product Details</h4>
-    <span>This is the main man united shirt with the red  color</span>
+   
 </div>
 </section>
 <hr>

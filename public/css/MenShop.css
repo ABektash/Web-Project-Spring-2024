@@ -312,8 +312,13 @@ html {
 
 /* single product */
 #proDetails .single-pro-image {
-    width: 30%;
+    width: 33%;
     margin-right: 50px;
+    margin-left: 50px;
+    border-color: #111;
+    
+    border-radius: 15px;
+
 }
 
 .small-img-group {
@@ -330,7 +335,7 @@ html {
     display: flex;
     overflow: hidden;
     margin-top: 20px;
-    padding: 0.9rem;
+    padding: 0.7rem;
 }
 
 #proDetails .single-pro-details {
@@ -341,6 +346,9 @@ html {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    justify-content: space-between; 
+    /* gap: 0.1rem;  */
+    border: 2px solid #ccc;
 }
 
 #proDetails .single-pro-details h4 {
@@ -348,14 +356,18 @@ html {
 }
 
 #proDetails .single-pro-details h5 {
-    font-size: 1.1rem;
-    transform: translateY(1.8rem);
+    font-size: 1.5rem;
+    transform: translateY(-2.8rem);
 }
 
 #proDetails .single-pro-details h2 {
     font-size: 26px;
 }
 
+.catStyle{
+    font-size: 1.5rem;
+    ;
+}
 
 
 #proDetails .single-pro-details select {
@@ -379,18 +391,18 @@ html {
 
 #proDetails .single-pro-details button {
     margin-top: 1rem;
-    background-color: #088178;
+    background-color:black;
     color: white;
     font-size: 1.3rem;
     font-weight: 600;
     padding: 15px 30px;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     border: none;
 }
 
 #proDetails .single-pro-details button:hover {
     cursor: pointer;
-    background-color: #056660;
+    background-color: rgb(78, 74, 74);
 }
 
 .sel {
