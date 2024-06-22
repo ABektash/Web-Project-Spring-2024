@@ -1,10 +1,9 @@
-// const Article = require('../models/Article');
+const Article = require('../models/Article');
 
 exports.getManageArticlesPage = async (req, res) => {
     try {
-        // const articles = await Article.find();
-        // res.render('pages/manageArticles', { articles, admin: req.session.user });
-        res.render('pages/manageArticles', {admin: req.session.user });
+        const articles = await Article.find();
+        res.render('pages/manageArticles', { articles, admin: req.session.user });
     } catch (err) {
         console.error('Error fetching articles:', err);
         res.status(500).send('Server error');

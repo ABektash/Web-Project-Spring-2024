@@ -106,18 +106,23 @@
                             </tr>         
                         </thead> 
                         <tbody>
-                            <tr>
-                                <td class="pname">Rashford is a very bad Driver!!!!</td>
-                                <td class="prim"><img src="/images/profile.jpg" alt="error loading the image"></td>
-                                <td class="pdate">12/12/2021</td>
-                                
-                                <td class="de" id="delete">
-                                    <a >
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-                                </td>
-                                <td class="de" id="edit"><a href="#"><i class="fa-solid fa-pencil"></i></a></td>
-                            </tr>
+                            <% articles.forEach(article => { %>
+                                <tr>
+                                    <td class="pname"><%= article.title %></td>
+                                    <td class="prim"><img src="/uploads/<%= article.articleImg %>" alt="Article Image"></td>
+                                    <td class="pdate"><%= new Date(article.date).toLocaleDateString() %></td>
+                                    <td class="de" id="delete">
+                                        <a onclick="openDeleteModal('<%= article._id %>')">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </td>
+                                    <td class="de" id="edit">
+                                        <a href="/editArticle/<%= article._id %>">
+                                            <i class="fa-solid fa-pencil"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <% }) %>
                         </tbody>
                     </table>
                 </div>
@@ -125,7 +130,7 @@
         </main>
     </section>
 
-    <!-- <script>
+    <script>
         let articleIdToDelete = '';
 
         function openDeleteModal(articleId) {
@@ -149,6 +154,6 @@
                 alert('An error occurred while deleting the article');
             }
         });
-    </script> -->
+    </script>
 </body>
 </html>

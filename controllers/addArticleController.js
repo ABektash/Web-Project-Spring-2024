@@ -1,4 +1,4 @@
-// const Article = require('../models/Article');
+const Article = require('../models/Article');
 const upload = require("../middleware/multer");
 
 exports.getArticlesPage = (req, res) => {
@@ -39,26 +39,28 @@ exports.postArticlesPage = (req, res) => {
       errors.articleImg = "Please upload an image";
     }
 
-    return res.render("pages/addArticle", {
-      errors,
-      get: false,
-      admin: req.session.user,
-    });
+    
+    if (Object.keys(errors).length > 0) {
+      return res.render("pages/addArticle", {
+        errors,
+        get: false,
+        admin: req.session.user,
+      });
+    }
 
-    // try {
-    //   const articleImg = req.file ? req.file.filename : req.body.currentImage;
-    //   const newArticle = new Article({
-    //     title,
-    //     date,
-    //     description,
-    //     body,
-    //     articleImg
-    //   });
-    //   await newArticle.save();
-    //   res.render('pages/addArticle', { errors: {}, get: false, admin: req.session.user, success: "Article edited successfully" });
-    // } catch (error) {
-    //   console.error(error);
-    //   res.status(500).send('Server error');
-    // }
+    try {
+      const articleImg = req.files.articleImg[0].filename;
+      const newArticle = new Article({
+        title,
+        description,
+        body,
+        articleImg
+      });
+      await newArticle.save();
+      res.render('pages/addArticle', { errors: {}, get: false, admin: req.session.user, success: "Article edited successfully" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Server error');
+    }
   });
 };
