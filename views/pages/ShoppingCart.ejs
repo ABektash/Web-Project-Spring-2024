@@ -8,112 +8,170 @@
     <link rel="stylesheet" href="/css/shop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="/js/ShoppingCart.js"></script>
+    <!-- <script src="/js/ShoppingCart.js" defer></script> -->
 </head>
 
 <body>
     <%- include('../partials/header', { user: user }) %>
-    <section id="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('Images/c3.webp');">
-        <div class="banner-content">
-            <h1>#Shopping Cart</h1>
-        </div>
-
-    </section>
-
-    <section id="cart" class="section-p1">
-        <table width="100%">
-            <thead>
-                <tr>
-                    <td>Remove</td>
-                    <td>Image</td>
-                    <td>Product</td>
-                    <td>Price</td>
-                    <td>Quantity</td>
-                    <td>Subtotal</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="Images/f1.avif" alt="error loading the image"></td>
-                    <td>T-shirts</td>
-                    <td>$118</td>
-                    <td><input class="quantity" type="number" value="1" min="1" max="99"></td>
-                    <td>$451</td>
-                </tr>
-                <tr>
-                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="Images/1st.avif" alt="error loading the image"></td>
-                    <td>T-shirts</td>
-                    <td>$118</td>
-                    <td><input class="quantity" type="number" value="1" min="1" max="99"></td>
-                    <td>$451</td>
-
-                </tr>
-                <tr>
-                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="Images/w18.avif" alt="error loading the image"></td>
-                    <td>T-shirts</td>
-                    <td>$118</td>
-                    <td><input class="quantity" type="number" value="1" min="1" max="99">
-                        <div id="errorText" style="display: none;">
-                            Out Of Stock
-                        </div>
-                    </td>
-                    <td>$451</td>
-                </tr>
-                <tr>
-                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="Images/f4.avif" alt="error loading the image"></td>
-                    <td>T-shirts</td>
-                    <td>$118</td>
-                    <td><input class="quantity" type="number" value="1" min="1" max="99"></td>
-                    <td>$451</td>
-
-                </tr>
-                <tr>
-                    <td><a href="#"><i class="far fa-times-circle" id="remIcon"></i></a></td>
-                    <td><img src="Images/w11.webp" alt="error loading the image"></td>
-                    <td>T-shirts</td>
-                    <td>$118</td>
-                    <td><input class="quantity" type="number" value="1" min="1" max="99"  width="2ch"></td>
-                    <td>$451</td>
-
-                </tr>
-            </tbody>
-
-        </table>
-    </section>
-
-    <section id="cart-add" class="section-p1">
-   
-
-        <div id="Subtotal">
-            <h3>Cart Total</h3>
-            <table>
-                <tr>
-                    <td>Cart Subtotal</td>
-                    <td>$9678</td>
-                </tr>
-                <tr>
-                    <td>Shipping</td>
-                    <td>Free</td>
-                </tr>
-                <tr>
-                    <td><strong>Total</strong></td>
-                    <td><strong>Total $9678</strong></td>
-                </tr>
-            </table>
-            <div id="eText" style="display: none;">
-                Failed!
+        <section id="banner"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('Images/c3.webp');">
+            <div class="banner-content">
+                <h1>#Shopping Cart</h1>
             </div>
-            <button id="checkout-btn" onclick=validateAndProceed();>Proceed to checkout</button>
-        </div>
-    </section>
+        </section>
+        <h4 style="margin-left: 30px; color: black;"><b>Note: </b>Users can only add products up to the available stock.
+        </h4>
 
-    <%- include('../partials/footer') %>
+        <section id="cart" class="section-p1">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>Remove</td>
+                        <td>Image</td>
+                        <td>Product</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Subtotal</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let i=0; i < products.length; i++) { %>
+                        <tr data-index="<%= i %>">
+                            <td><a href="#" class="remove-icon" data-id="<%= products[i]._id %>"><i
+                                        class="far fa-times-circle"></i></a></td>
+                            <td><img src="/uploads/<%= products[i].productImg %>" alt="error loading the image"></td>
+                            <td>
+                                <%= products[i].name %>
+                            </td>
+                            <td>$<%= products[i].price %>
+                            </td>
+                            <td>
+                                <input class="quantity" type="number" value="<%= quantities[i] %>" min="1"
+                                    max="<%= products[i].quantity %>" data-index="<%= i %>">
+                                <span class="error-message" style="color: red; display: none;">Invalid quantity</span>
+                            </td>
+                            <td class="subtotal">$<%= products[i].price * quantities[i] %>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </section>
 
-   
+        <section id="cart-add" class="section-p1">
+            <div id="Subtotal">
+                <h3>Cart Total</h3>
+                <table>
+                    <tr>
+                        <td>Cart Subtotal</td>
+                        <td id="cart-subtotal">$<%= total %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Shipping</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong id="cart-total">$<%= total %></strong></td>
+                    </tr>
+                </table>
+                <div id="eText" style="display: none;">
+                    Failed!
+                </div>
+                <button id="checkout-btn">Proceed to checkout</button>
+            </div>
+        </section>
+
+        <%- include('../partials/footer') %>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const quantityInputs = document.querySelectorAll('.quantity');
+                    const subtotals = document.querySelectorAll('.subtotal');
+                    const cartSubtotal = document.getElementById('cart-subtotal');
+                    const cartTotal = document.getElementById('cart-total');
+                    const removeIcons = document.querySelectorAll('.remove-icon');
+                    const checkoutBtn = document.getElementById('checkout-btn');
+
+                    function updateCartTotal() {
+                        let total = 0;
+                        subtotals.forEach((subtotal) => {
+                            const subtotalValue = parseFloat(subtotal.textContent.replace('$', ''));
+                            total += subtotalValue;
+                        });
+
+                        cartSubtotal.textContent = `$${total.toFixed(2)}`;
+                        cartTotal.textContent = `$${total.toFixed(2)}`;
+                    }
+
+                    quantityInputs.forEach(input => {
+                        input.addEventListener('change', function () {
+                            const index = input.getAttribute('data-index');
+                            let quantity = parseInt(input.value);
+                            const maxQuantity = parseInt(input.getAttribute('max'));
+                            const price = parseFloat(document.querySelector(`tr[data-index="${index}"] td:nth-child(4)`).textContent.replace('$', ''));
+                            const subtotalElement = document.querySelector(`tr[data-index="${index}"] .subtotal`);
+                            const errorMessage = document.querySelector(`tr[data-index="${index}"] .error-message`);
+
+                            
+                            if (quantity < 1 || quantity > maxQuantity) {
+                                errorMessage.style.display = 'block';
+                                quantity = quantity < 1 ? 1 : maxQuantity;
+                                input.value = quantity;
+                            } else {
+                                errorMessage.style.display = 'none';
+                            }
+
+                            
+                            const newSubtotal = price * quantity;
+                            subtotalElement.textContent = `$${newSubtotal.toFixed(2)}`;
+
+                        
+                            updateCartTotal();
+
+                          
+                            fetch('/ShoppingCart/updateQuantity', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ index, quantity })
+                            }).then(response => {
+                                if (!response.ok) {
+                                    console.error('Failed to update quantity in session');
+                                }
+                            }).catch(error => {
+                                console.error('Error:', error);
+                            });
+                        });
+                    });
+
+                    removeIcons.forEach(icon => {
+                        icon.addEventListener('click', function (event) {
+                            event.preventDefault();
+                            const productId = icon.getAttribute('data-id');
+                            fetch(`/ShoppingCart/remove/${productId}`, {
+                                method: 'DELETE'
+                            }).then(response => {
+                                if (response.ok) {
+                                    location.reload();
+                                } else {
+                                    alert('Failed to remove product from cart');
+                                }
+                            }).catch(error => {
+                                console.error('Error removing product:', error);
+                                alert('Failed to remove product from cart');
+                            });
+                        });
+                    });
+
+                    checkoutBtn.addEventListener('click', function () {
+                        window.location.href = '/BuyPage';
+                    });
+                });
+            </script>
+
+
 </body>
 
 </html>
