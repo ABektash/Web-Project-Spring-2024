@@ -16,7 +16,7 @@ exports.postSignUp = async (req, res) => {
       });
     }
     console.log(req.body);
-    let { name, email, password, confpassword, day, month, year, gender } =
+    let { name, email, password, confpassword, birthdate, gender } =
       req.body;
     email = email.toLowerCase();
     const errors = {};
@@ -55,8 +55,17 @@ exports.postSignUp = async (req, res) => {
       }
     }
 
-    if (day == "" || month == "" || year == "") {
-      errors.dob = "Invalid Date of birth";
+    const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/;
+    const isValidDate = (dateString) => {
+      const [year, month, day] = dateString.split("-");
+      return dateRegex.test(`${month}/${day}/${year}`);
+    };
+
+    if (!birthdate || !isValidDate(birthdate)) {
+      errors.birthdate = "Please enter a valid date in MM/DD/YYYY format";
+    }else {
+      const [year, month, day] = birthdate.split("-");
+      birthdate = new Date(year, month - 1, day); 
     }
 
     if (!gender) {
@@ -78,7 +87,7 @@ exports.postSignUp = async (req, res) => {
         password: hashedPassword, // Save the hashed password
         gender,
         type: "User",
-        birthdate: new Date(year, month, day), // Note: month is 0-based in JavaScript Date
+        birthdate, 
         points: 0,
         purchasedProducts: [],
         purchasedTickets: [],

@@ -51,7 +51,7 @@ exports.postEditProductPage = (req, res) => {
     }
 
     // Image validation (optional)
-    if (!req.file && !req.body.currentProductImg) {
+    if (!req.files && !req.body.currentProductImg) {
       errors.productImg = "Please upload an image";
     }
 

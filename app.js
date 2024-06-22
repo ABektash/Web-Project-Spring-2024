@@ -62,6 +62,9 @@ app.use('/EditProduct',require('./routes/EditProduct'));
 app.use('/EditProfile',require('./routes/EditProfile'));
 app.use('/onclick',require('./routes/onclick'));
 app.use('/news',require('./routes/news'));
+app.use('/manageArticles',require('./routes/manageArticles'));
+app.use('/editArticle',require('./routes/editArticle'));
+app.use('/addArticle',require('./routes/addArticle'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

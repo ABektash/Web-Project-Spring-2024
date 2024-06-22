@@ -7,8 +7,9 @@ exports.getLogin = (req, res) => {
 
 exports.postLogin = async (req, res) => {
   console.log(req.body);
-  const { email, password } = req.body;
+  let { email, password } = req.body;
   const errors = {};
+  email = email.toLowerCase();
 
   if (email == "") {
     errors.email = "Please enter your email address";

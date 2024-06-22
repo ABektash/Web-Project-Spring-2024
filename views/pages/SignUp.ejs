@@ -51,7 +51,7 @@
         <div class="error" id="confpassErr"><%= errors.confpassword || '' %></div>
       </div>
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="DateOfBirth">
           <label for="day">Day</label>
           <input type="number" id="day" name="day" min="1" max="31" size="2" />
@@ -67,6 +67,12 @@
           <input type="number" id="year" name="year" min="1900" max="2024" size="4" />
         </div>
         <div class="error"><%= errors.dob || '' %></div>
+      </div> -->
+
+      <div class="row">
+        <label>Date</label>
+        <input type="date" name="birthdate"/>
+        <div class="error" id="dateErr"><%=errors.birthdate %></div>
       </div>
 
       <div class="row">

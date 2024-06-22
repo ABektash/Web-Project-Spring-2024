@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 
-/* productForm Screen */
+/* articleForm Screen */
 *{
     font-family: 'Lato', sans-serif;
 }
-#productForm #addH2 {
+#articleForm #addH2 {
     color: #c70101;
     text-align: center;
     text-decoration: double;
 }
 
-#productForm {
+#articleForm {
     width: 500px;
     background: #ffffff;
     padding: 20px 35px 35px;
@@ -24,12 +24,22 @@
 
 }
 
-#productForm label  {
+#articleForm textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 100px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#articleForm label  {
     display: block;
     margin-bottom: 5px;
 }
 
-#productForm Input,
+#articleForm Input,
 select {
     border: 1px solid #a5a5a5;
     padding: 10px;
@@ -40,18 +50,18 @@ select {
     
 }
 
-#productForm .productRow {
+#articleForm .articleRow {
     padding-bottom: 20px;
     margin: 5px;
     margin-top: 5px;
 }
 
-#productForm .error {
+#articleForm .error {
     color: red;
     font-size: 90%;
 }
 
-#productForm input[type="submit"] {
+#articleForm input[type="submit"] {
     font-size: 110%;
     font-weight: 100;
     font-family: inherit;
@@ -65,20 +75,20 @@ select {
     border-radius: 1cm;
 }
 
-#productForm input[type="submit"]:hover {
+#articleForm input[type="submit"]:hover {
     transition: 0.4s;
     background: #740000;
 }
 
-#productForm .price-input {
+#articleForm .price-input {
     position: relative;
   }
   
-  #productForm  .price-input input[type="text"] {
+  #articleForm  .price-input input[type="text"] {
     padding-right: 10px; /* padding for $*/
   }
   
-  #productForm .price-input .currency {
+  #articleForm .price-input .currency {
     position: absolute;
     top: 50%;
     right: 15px;

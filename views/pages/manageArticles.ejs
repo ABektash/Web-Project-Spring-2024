@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,13 +7,13 @@
     <link rel="stylesheet" href="/css/adminStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="/js/adminScript.js"></script>
-    <title>Manage Users</title>
+    <title>Manage Articles</title>
 </head>
 <body>
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="/dashboard" class="brand">
-            <img src="/images/manu.png" alt="Admin Image">
+            <img src="images/manu.png" alt="Admin Image">
             <span class="text">Welcome admin!</span>
         </a>
         <ul class="side-menu top">
@@ -28,7 +29,7 @@
                     <span class="text">Manage Products</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="/manageUsers">
                     <i class='bx bxs-group'></i>
                     <span class="text">Manage Users</span>
@@ -40,7 +41,7 @@
                     <span class="text">Tickets</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="/manageArticles">
                     <i class='bx bxs-news'></i>
                     <span class="text">Manage Articles</span>
@@ -61,27 +62,28 @@
     <section id="content">
         <!-- NAVBAR -->
         <%- include('../partials/nav', { user: admin }) %>
+       
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Manage users</h1>
+                    <h1>Articles</h1>
                     <ul class="pageSub">
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="/addUser">Add user</a>
+                            <a class="active" href="/addArticle">Add article</a>
                         </li>
                     </ul>
                 </div>
             </div>
-
-            <div id="modal-Id-user" class="modal">
-                <span onclick="document.getElementById('modal-Id-user').style.display='none'" class="close" title="Close Modal">×</span>
+        
+            <div id="modal-Id-articles" class="modal">
+                <span onclick="document.getElementById('modal-Id-articles').style.display='none'" class="close" title="Close Modal">×</span>
                 <form class="modal-content">
                     <div class="container">
-                        <h1>Delete Account</h1>
-                        <p>Are you sure you want to delete this User?</p>
+                        <h1>Delete Item</h1>
+                        <p>Are you sure you want to delete this Item?</p>
                         <div class="clearfix">
-                            <button type="button" onclick="document.getElementById('modal-Id-user').style.display='none'" class="cancelbtn">Cancel</button>
+                            <button type="button" onclick="document.getElementById('modal-Id-articles').style.display='none'" class="cancelbtn">Cancel</button>
                             <button type="button" id="confirmDeleteBtn" class="deletebtn">Delete</button>
                         </div>
                     </div>
@@ -91,60 +93,49 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Top 5 Users By Points</h3>
+                        <h3>Articles</h3>
                     </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>User</th>
-                                <th>Email</th>
-                                <th>Birth Date</th>
-                                <th>Gender</th>
-                                <th>Points</th>
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Data</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
-                            </tr>
-                        </thead>
+                            </tr>         
+                        </thead> 
                         <tbody>
-                            <% users.forEach(user => { %>
-                                <tr>
-                                    <td>
-                                        <% if (user.image) { %>
-                                            <img src="/uploads/<%= user.image %>" alt="User Image">
-                                        <% } else { %>
-                                            <img src="/Images/profile.jpg" alt="Default User Image">
-                                        <% } %>
-                                        <p><%= user.name %></p>
-                                    </td>
-                                    <td><%= user.email %></td>
-                                    <td><%= user.birthdate.toLocaleDateString() %></td>
-                                    <td><%= user.gender %></td>
-                                    <td><%= user.points %></td>
-                                    <td class="de" id="delete">
-                                        <a onclick="openDeleteModal('<%= user._id %>')">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </a>
-                                    </td>
-                                    <td class="de" id="edit"><a href="/manageUsers/edit/<%= user._id %>"><i class="fa-solid fa-pencil"></i></a></td>
-                                </tr>
-                            <% }) %>
+                            <tr>
+                                <td class="pname">Rashford is a very bad Driver!!!!</td>
+                                <td class="prim"><img src="/images/profile.jpg" alt="error loading the image"></td>
+                                <td class="pdate">12/12/2021</td>
+                                
+                                <td class="de" id="delete">
+                                    <a >
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </td>
+                                <td class="de" id="edit"><a href="#"><i class="fa-solid fa-pencil"></i></a></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </main>
     </section>
-    <script>
-        let userIdToDelete = '';
 
-        function openDeleteModal(userId) {
-            userIdToDelete = userId;
-            document.getElementById('modal-Id-user').style.display = 'block';
+    <!-- <script>
+        let articleIdToDelete = '';
+
+        function openDeleteModal(articleId) {
+            articleIdToDelete = articleId;
+            document.getElementById('modal-Id-articles').style.display = 'block';
         }
 
         document.getElementById('confirmDeleteBtn').addEventListener('click', async () => {
             try {
-                const response = await fetch(`/manageUsers/delete/${userIdToDelete}`, {
+                const response = await fetch(`/manageArticles/delete/${articleIdToDelete}`, {
                     method: 'DELETE',
                 });
                 const result = await response.json();
@@ -155,9 +146,9 @@
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('An error occurred while deleting the user');
+                alert('An error occurred while deleting the article');
             }
         });
-    </script>
+    </script> -->
 </body>
 </html>

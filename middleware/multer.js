@@ -18,7 +18,8 @@ const upload = multer({
   }
 }).fields([
   { name: 'productImg'},
-  { name: 'image' }
+  { name: 'image' },
+  { name: 'articleImg' }
 ]);
 
 // Check file type
