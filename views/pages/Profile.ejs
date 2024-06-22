@@ -1,115 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/Profile.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <script src="/js/Profile.js"></script>
-    <title>Profile</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/Profile.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <script src="/js/Profile.js"></script>
+  <title>Profile</title>
+</head>
+<body>
+  <%- include('../partials/header', { user: user }) %>
 
-  <body>
-    <%- include('../partials/header', { user: user }) %>
-
-    <div class="wrapper">
-      <div class="profile__container">
-        <div class="left">
-          <span
-            >Welcome <br />
-            <%= user.name %></span
-          >
-          <img id="ball" src="images/ball.png" alt="ball" />
-          <div>
-            <span><a href="/Profile/edit/<%=user.id%>"  style="font-size:xx-large; color: #ffffff;" >Edit Profile</a></span>
-            <a href="/logout"  style="font-size:xx-large; color: #ffffff;" >logout</a>
-        </div>
-        </div>
-       
-        <div class="center">
-          <img
-            class="t-shirt"
-            src="https://www.manutd.com/assets/images/bg/t-shirt.png"
-            alt="a" />
-          <span id="name"><%= user.name.split(' ')[1] %></span>
-          <!-- Assuming the last name is the second part -->
-          <span id="shirtNumber">0</span>
-        </div>
-
-        
-
-        <div class="profile__details">
-          <ul class="profile__info">
-            <li>
-              <div class="profile-dob">
-                <p class="headling"><b>Date of birth</b></p>
-                <p><%= new Date(user.birthdate).toLocaleDateString() %></p>
-              </div>
-            </li>
-            <li>
-              <div class="profile-age">
-                <p class="headling"><b>Age</b></p>
-                <p>
-                  <%= Math.floor((new Date() - new Date(user.birthdate)) /
-                  (365.25 * 24 * 60 * 60 * 1000)) %>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div class="profile-tshirt-no">
-                <p class="headling" id="shirtNoContainer">
-                  <span><b>Shirt</b></span>
-                  <span class="editButton" onclick="editShirtNumber()"
-                    >Edit</span
-                  >
-                </p>
-                <p id="number">0</p>
-              </div>
-            </li>
-            <li>
-              <div class="profile-predictions">
-                <p class="headling">Prediction Points</p>
-                <p><%= user.points %></p>
-              </div>
-            </li>
-            <li>
-              <div class="profile-History">
-                <button id="showPopUp" onclick="showPopup()">
-                  Purchase History
-                </button>
-              </div>
-            </li>
-          </ul>
+  <div class="wrapper">
+    <div class="profile__container">
+      <div class="left">
+        <span>Welcome <br /><%= user.name %></span>
+        <img id="ball" src="images/ball.png" alt="ball" />
+        <div>
+          <span><a href="/Profile/edit/<%=user.id%>" style="font-size:xx-large; color: #ffffff;">Edit Profile</a></span>
+          <a href="/logout" style="font-size:xx-large; color: #ffffff;">logout</a>
         </div>
       </div>
-    </div>
 
-    <div id="myPopUp" class="popup">
-      <div class="popup-content">
-        <div class="popup-header">
-          <span class="close">&times;</span>
-          <h2>Purchase history</h2>
-        </div>
-        <div class="popup-body">
-          <ul id="list">
-            <% user.purchasedProducts.forEach(product => { %>
-            <li><%= product.name %></li>
-            <% }); %>
-          </ul>
-        </div>
+      <div class="center">
+        <img class="t-shirt" src="https://www.manutd.com/assets/images/bg/t-shirt.png" alt="a" />
+        <span id="name"><%= user.name.split(' ')[1] %></span> <!-- Assuming the last name is the second part -->
+        <span id="shirtNumber">0</span>
+      </div>
+
+      <div class="profile__details">
+        <ul class="profile__info">
+          <li>
+            <div class="profile-dob">
+              <p class="headling"><b>Date of birth</b></p>
+              <p><%= new Date(user.birthdate).toLocaleDateString() %></p>
+            </div>
+          </li>
+          <li>
+            <div class="profile-age">
+              <p class="headling"><b>Age</b></p>
+              <p><%= Math.floor((new Date() - new Date(user.birthdate)) / (365.25 * 24 * 60 * 60 * 1000)) %></p>
+            </div>
+          </li>
+          <li>
+            <div class="profile-tshirt-no">
+              <p class="headling" id="shirtNoContainer">
+                <span><b>Shirt</b></span>
+                <span class="editButton" onclick="editShirtNumber()">Edit</span>
+              </p>
+              <p id="number">0</p>
+            </div>
+          </li>
+          <li>
+            <div class="profile-predictions">
+              <p class="headling">Prediction Points</p>
+              <p><%= user.points %></p>
+            </div>
+          </li>
+          <li>
+            <div class="profile-History">
+              <button id="showPopUp" onclick="showPopup()">Purchase History</button>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
+  </div>
 
-    <div class="profile_description">
-      <span
-        ><b><%= user.name %></b> is one of our most loyal fans from
-        Dominica.</span
-      >
+  <div id="myPopUp" class="popup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <span class="close">&times;</span>
+        <h2>Purchase history</h2>
+      </div>
+      <div class="popup-body">
+        <ul id="list">
+          <% uniqueProductNames.forEach(name => { %>
+            <li><%= name %></li>
+          <% }); %>
+        </ul>
+      </div>
     </div>
+  </div>
 
-    <%- include('../partials/footer') %>
-  </body>
+  <div class="profile_description">
+    <span><b><%= user.name %></b> is one of our most loyal fans from Dominica.</span>
+  </div>
+
+  <%- include('../partials/footer') %>
+
+  <script>
+    function showPopup() {
+      var popup = document.getElementById("myPopUp");
+      var btn = document.getElementById("showPopUp");
+      var span = document.getElementsByClassName("close")[0];
+
+      popup.style.display = "block";
+
+      span.onclick = function () {
+        popup.style.display = "none";
+      }
+
+      window.onclick = function (event) {
+        if (event.target == popup) {
+          popup.style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
 </html>

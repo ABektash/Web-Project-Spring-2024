@@ -1,7 +1,17 @@
 const User = require('../models/User');
 
-exports.getProfilePage = (req, res) => {
-    res.render('pages/Profile', { user: req.session.user });
+exports.getProfilePage = async (req, res) => {
+    try {
+        const userId = req.session.user.id;
+        const user = await User.findById(userId).populate('purchasedProducts').exec();
+
+        const uniqueProductNames = [...new Set(user.purchasedProducts.map(product => product.name))];
+
+        res.render('pages/Profile', { user, uniqueProductNames });
+    } catch (error) {
+        console.error('Error fetching user profile:', error);
+        res.status(500).send('Server error');
+    }
 };
 
 

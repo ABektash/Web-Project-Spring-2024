@@ -58,6 +58,7 @@ app.use('/addUser',require('./routes/addUser'));
 app.use('/BuyPage',require('./routes/BuyPage'));
 app.use('/SignUp',require('./routes/SignUp'));
 app.use('/Login',require('./routes/Login'));
+app.use('/Logout',require('./routes/logout'));
 app.use('/EditProduct',require('./routes/EditProduct'));
 app.use('/EditProfile',require('./routes/EditProfile'));
 app.use('/onclick',require('./routes/onclick'));
