@@ -83,32 +83,27 @@
     <h2 id="addH2">Edit Article</h2>
     <div class="articleRow">
       <label>Article Title</label>
-      <input type="text" name="title" placeholder="Enter article title" value="Sample Article Title"  />
+      <input type="text" name="title" placeholder="Enter article title" value="<%= article.title  %>"  />
       <div class="error" id="nameErr"><%=errors.title %></div>
     </div>
     <div class="articleRow">
-      <label>Date</label>
-      <input type="date" name="date" value="2023-01-01"  />
-      <div class="error" id="dateErr"><%=errors.date %></div>
-    </div>
-    <div class="articleRow">
       <label>Description</label>
-      <textarea name="description" placeholder="Enter article description" >Sample description</textarea>
+      <textarea name="description" placeholder="Enter article description" ><%= article.description  %></textarea>
       <div class="error" id="descriptionErr"><%=errors.description %></div>
     </div>
     <div class="articleRow">
       <label>Body</label>
-      <textarea name="body" placeholder="Write body here" >Sample body</textarea>
+      <textarea name="body" placeholder="Write body here" ><%= article.body  %></textarea>
       <div class="error" id="bodyErr"><%=errors.body %></div>
     </div>
     <div class="articleRow">
       <label>Upload Image</label>
       <input type="file" name="articleImg" accept="image/*" />
-      <input type="hidden" name="currentImage" value="sample-image.jpg" />
+      <input type="hidden" name="currentArticleImg" value="<%= article.articleImg  %>" />
       <div class="error" id="imageErr"><%=errors.articleImg %></div>
       <div class="articleRow">
         <label>Current Image</label>
-        <img src="/uploads/sample-image.jpg" alt="Article Image" style="max-width: 100px;" />
+        <img src="/uploads/<%= article.articleImg  %>" alt="Article Image" style="max-width: 100px;" />
       </div>
     </div>
     <div class="articleRow">

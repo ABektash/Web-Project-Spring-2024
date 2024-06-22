@@ -1,19 +1,14 @@
-// const Article = require('../models/Article');
+const Article = require('../models/Article');
 const upload = require("../middleware/multer");
 
 exports.getEditArticlePage = async (req, res) => {
   const articleId = req.params.id;
   try {
-    // const article = await Article.findById(articleId);
-    // if (!article) {
-    //   return res.status(404).send('Article not found');
-    // }
-    // res.render('pages/EditArticle', { article, errors: {}, get: true, admin: req.session.user });
-    res.render("pages/EditArticle", {
-      errors: {},
-      get: true,
-      admin: req.session.user,
-    });
+    const article = await Article.findById(articleId);
+    if (!article) {
+      return res.status(404).send('Article not found');
+    }
+    res.render('pages/EditArticle', { article, errors: {}, get: true, admin: req.session.user });
   } catch (err) {
     console.error("Error fetching article:", err);
     res.status(500).send("Server error");
@@ -23,29 +18,22 @@ exports.getEditArticlePage = async (req, res) => {
 exports.postEditArticlePage = (req, res) => {
   upload(req, res, async (err) => {
     if (err) {
-      return res.render("pages/editArticle", {
-        errors: { articleImg: err.message },
-        get: false,
-        admin: req.session.user,
-      });
+      try {
+        const article = await Article.findById(articleId);
+        return res.render('pages/EditArticle', { article, errors, get: false, admin: req.session.user });
+      } catch (err) {
+        console.error('Error fetching article:', err);
+        return res.status(500).send('Server error');
+      }
     }
 
-    const { title, date, description, body } = req.body;
+    const { title, description, body } = req.body;
+    const articleId = req.params.id;
     const errors = {};
 
     const titleRegex = /^[a-zA-Z0-9\s\W]+$/;
     if (!title || !titleRegex.test(title)) {
       errors.title = "Please enter a valid title";
-    }
-
-    const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/;
-    const isValidDate = (dateString) => {
-      const [year, month, day] = dateString.split("-");
-      return dateRegex.test(`${month}/${day}/${year}`);
-    };
-
-    if (!date || !isValidDate(date)) {
-      errors.date = "Please enter a valid date in MM/DD/YYYY format";
     }
 
     if (!description || description.trim() === "") {
@@ -60,28 +48,29 @@ exports.postEditArticlePage = (req, res) => {
       errors.articleImg = "Please upload an image";
     }
 
-    return res.render("pages/editArticle", {
-      errors,
-      get: false,
-      admin: req.session.user,
-    });
+    if (Object.keys(errors).length > 0) {
+      try {
+        const article = await Article.findById(articleId);
+        return res.render('pages/EditArticle', { article, errors, get: false, admin: req.session.user });
+      } catch (err) {
+        console.error('Error fetching article:', err);
+        return res.status(500).send('Server error');
+      }
+    }
 
     // Update article
-    // try {
-    //   const articleImg = req.files.articleImg ? req.files.articleImg[0].filename : req.body.currentArticleImg;
-    //   await Article.findByIdAndUpdate(articleId, {
-    //     name,
-    //     category,
-    //     section,
-    //     price,
-    //     quantity,
-    //     size,
-    //     articleImg
-    //   });
-    //   res.redirect('/manageArticles');
-    // } catch (err) {
-    //   console.error('Error updating article:', err);
-    //   res.status(500).send('Server error');
-    // }
+    try {
+      const articleImg = req.files.articleImg ? req.files.articleImg[0].filename : req.body.currentArticleImg;
+      await Article.findByIdAndUpdate(articleId, {
+        title,
+        description,
+        body,
+        articleImg
+      });
+      res.redirect('/manageArticles');
+    } catch (err) {
+      console.error('Error updating article:', err);
+      res.status(500).send('Server error');
+    }
   });
 };
