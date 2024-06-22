@@ -51,25 +51,25 @@
             </div>
         </section>
         <script>
-            function fetchAllPlayers() {
-                fetch('https://v3.football.api-sports.io/players/squads?team=33', {
-                    "method": "GET",
-                    "headers": {
-                        "x-rapidapi-host": "v3.football.api-sports.io",
-                        "x-rapidapi-key": "86bfe4c0932d846ff80b0cae2adbe19a"
-                    }
-                }).then(response => response.json())
-                    .then(data => {
-                        const players = data.response[0].players;
-                        fetchGoalkeepers(players);
-                        fetchDefenders(players);
-                        fetchMidfielders(players);
-                        fetchAttackers(players);
-                    })
-                    .catch(error => {
-                        console.error('Error fetching data:', error);
-                    });
-            }
+            // function fetchAllPlayers() {
+            //     fetch('https://v3.football.api-sports.io/players/squads?team=33', {
+            //         "method": "GET",
+            //         "headers": {
+            //             "x-rapidapi-host": "v3.football.api-sports.io",
+            //             "x-rapidapi-key": "86bfe4c0932d846ff80b0cae2adbe19a"
+            //         }
+            //     }).then(response => response.json())
+            //         .then(data => {
+            //             const players = data.response[0].players;
+            //             fetchGoalkeepers(players);
+            //             fetchDefenders(players);
+            //             fetchMidfielders(players);
+            //             fetchAttackers(players);
+            //         })
+            //         .catch(error => {
+            //             console.error('Error fetching data:', error);
+            //         });
+            // }
     
     
     
@@ -77,297 +77,297 @@
     
     
     
-            // Fetch goalkeepers
-            function fetchGoalkeepers(players) {
+            // // Fetch goalkeepers
+            // function fetchGoalkeepers(players) {
     
-                const goalkeepers = players.filter(player => player.position === "Goalkeeper");
+            //     const goalkeepers = players.filter(player => player.position === "Goalkeeper");
     
-                const cardsContainer = document.getElementById('gk-cardsContainer');
-                for (let i = 0; i < goalkeepers.length; i++) {
-                    const player = goalkeepers[i];
-                    const age = player.age;
-                    const playerId = player.id;
-                    const imageUrl = `Images/Players/${playerId}.png`;
+            //     const cardsContainer = document.getElementById('gk-cardsContainer');
+            //     for (let i = 0; i < goalkeepers.length; i++) {
+            //         const player = goalkeepers[i];
+            //         const age = player.age;
+            //         const playerId = player.id;
+            //         const imageUrl = `Images/Players/${playerId}.png`;
     
-                    const minip = document.createElement('div');
-                    minip.classList.add('minip');
+            //         const minip = document.createElement('div');
+            //         minip.classList.add('minip');
     
-                    const mg = document.createElement('div');
-                    mg.classList.add('mg');
+            //         const mg = document.createElement('div');
+            //         mg.classList.add('mg');
     
-                    const clr = document.createElement('div');
-                    clr.classList.add('clr');
+            //         const clr = document.createElement('div');
+            //         clr.classList.add('clr');
     
-                    const group = document.createElement('div');
-                    group.classList.add('group');
+            //         const group = document.createElement('div');
+            //         group.classList.add('group');
     
-                    const span = document.createElement('span');
+            //         const span = document.createElement('span');
     
-                    const av = document.createElement('div');
-                    av.classList.add('av');
-                    av.style.backgroundImage = `url('${imageUrl}')`;
+            //         const av = document.createElement('div');
+            //         av.classList.add('av');
+            //         av.style.backgroundImage = `url('${imageUrl}')`;
     
-                    const info = document.createElement('div');
-                    info.classList.add('info');
+            //         const info = document.createElement('div');
+            //         info.classList.add('info');
     
-                    const name = document.createElement('name');
-                    name.innerText = player.name;
+            //         const name = document.createElement('name');
+            //         name.innerText = player.name;
     
-                    const deets = document.createElement('deets');
-                    deets.innerHTML = `Age: ${age}<br>number: ${player.number}`;
+            //         const deets = document.createElement('deets');
+            //         deets.innerHTML = `Age: ${age}<br>number: ${player.number}`;
     
-                    group.appendChild(span);
-                    mg.appendChild(clr);
-                    mg.appendChild(group);
-                    minip.appendChild(mg);
-                    minip.appendChild(av);
-                    info.appendChild(name);
-                    info.appendChild(deets);
-                    minip.appendChild(info);
+            //         group.appendChild(span);
+            //         mg.appendChild(clr);
+            //         mg.appendChild(group);
+            //         minip.appendChild(mg);
+            //         minip.appendChild(av);
+            //         info.appendChild(name);
+            //         info.appendChild(deets);
+            //         minip.appendChild(info);
     
-                    cardsContainer.appendChild(minip);
-                }
-            }
+            //         cardsContainer.appendChild(minip);
+            //     }
+            // }
     
     
     
     
-            // Fetch defenders
-            function fetchDefenders(players) {
+            // // Fetch defenders
+            // function fetchDefenders(players) {
     
-                const defenders = players.filter(player => player.position === "Defender");
+            //     const defenders = players.filter(player => player.position === "Defender");
     
-                const cardsContainer = document.getElementById('def-cardsContainer');
-                for (let i = 0; i < defenders.length; i++) {
-                    const player = defenders[i];
-                    const age = player.age;
-                    const playerId = player.id;
-                    const imageUrl = `Images/Players/${playerId}.png`;
+            //     const cardsContainer = document.getElementById('def-cardsContainer');
+            //     for (let i = 0; i < defenders.length; i++) {
+            //         const player = defenders[i];
+            //         const age = player.age;
+            //         const playerId = player.id;
+            //         const imageUrl = `Images/Players/${playerId}.png`;
     
-                    const minip = document.createElement('div');
-                    minip.classList.add('minip');
+            //         const minip = document.createElement('div');
+            //         minip.classList.add('minip');
     
-                    const mg = document.createElement('div');
-                    mg.classList.add('mg');
+            //         const mg = document.createElement('div');
+            //         mg.classList.add('mg');
     
-                    const clr = document.createElement('div');
-                    clr.classList.add('clr');
+            //         const clr = document.createElement('div');
+            //         clr.classList.add('clr');
     
-                    const group = document.createElement('div');
-                    group.classList.add('group');
+            //         const group = document.createElement('div');
+            //         group.classList.add('group');
     
-                    const span = document.createElement('span');
+            //         const span = document.createElement('span');
     
-                    const av = document.createElement('div');
-                    av.classList.add('av');
-                    av.style.backgroundImage = `url('${imageUrl}')`;
+            //         const av = document.createElement('div');
+            //         av.classList.add('av');
+            //         av.style.backgroundImage = `url('${imageUrl}')`;
     
-                    const info = document.createElement('div');
-                    info.classList.add('info');
+            //         const info = document.createElement('div');
+            //         info.classList.add('info');
     
-                    const name = document.createElement('name');
-                    name.innerText = player.name;
+            //         const name = document.createElement('name');
+            //         name.innerText = player.name;
     
-                    const deets = document.createElement('deets');
-                    deets.innerHTML = `Age: ${age}<br>number: ${player.number}`;
+            //         const deets = document.createElement('deets');
+            //         deets.innerHTML = `Age: ${age}<br>number: ${player.number}`;
     
-                    group.appendChild(span);
-                    mg.appendChild(clr);
-                    mg.appendChild(group);
-                    minip.appendChild(mg);
-                    minip.appendChild(av);
-                    info.appendChild(name);
-                    info.appendChild(deets);
-                    minip.appendChild(info);
+            //         group.appendChild(span);
+            //         mg.appendChild(clr);
+            //         mg.appendChild(group);
+            //         minip.appendChild(mg);
+            //         minip.appendChild(av);
+            //         info.appendChild(name);
+            //         info.appendChild(deets);
+            //         minip.appendChild(info);
     
-                    cardsContainer.appendChild(minip);
-                }
+            //         cardsContainer.appendChild(minip);
+            //     }
     
-            }
+            // }
     
     
     
     
-            // Fetch Midfielders
-            function fetchMidfielders(players) {
+            // // Fetch Midfielders
+            // function fetchMidfielders(players) {
     
-                const midfielders = players.filter(player => player.position === "Midfielder");
+            //     const midfielders = players.filter(player => player.position === "Midfielder");
     
-                const cardsContainer = document.getElementById('mid-cardsContainer');
-                for (let i = 0; i < midfielders.length; i++) {
-                    const player = midfielders[i];
-                    const age = player.age;
-                    const playerId = player.id;
-                    const imageUrl = `Images/Players/${playerId}.png`;
+            //     const cardsContainer = document.getElementById('mid-cardsContainer');
+            //     for (let i = 0; i < midfielders.length; i++) {
+            //         const player = midfielders[i];
+            //         const age = player.age;
+            //         const playerId = player.id;
+            //         const imageUrl = `Images/Players/${playerId}.png`;
     
-                    const minip = document.createElement('div');
-                    minip.classList.add('minip');
+            //         const minip = document.createElement('div');
+            //         minip.classList.add('minip');
     
-                    const mg = document.createElement('div');
-                    mg.classList.add('mg');
+            //         const mg = document.createElement('div');
+            //         mg.classList.add('mg');
     
-                    const clr = document.createElement('div');
-                    clr.classList.add('clr');
+            //         const clr = document.createElement('div');
+            //         clr.classList.add('clr');
     
-                    const group = document.createElement('div');
-                    group.classList.add('group');
+            //         const group = document.createElement('div');
+            //         group.classList.add('group');
     
-                    const span = document.createElement('span');
+            //         const span = document.createElement('span');
     
-                    const av = document.createElement('div');
-                    av.classList.add('av');
-                    av.style.backgroundImage = `url('${imageUrl}')`;
+            //         const av = document.createElement('div');
+            //         av.classList.add('av');
+            //         av.style.backgroundImage = `url('${imageUrl}')`;
     
-                    const info = document.createElement('div');
-                    info.classList.add('info');
+            //         const info = document.createElement('div');
+            //         info.classList.add('info');
     
-                    const name = document.createElement('name');
-                    name.innerText = player.name;
+            //         const name = document.createElement('name');
+            //         name.innerText = player.name;
     
-                    const deets = document.createElement('deets');
-                    deets.innerHTML = `Age: ${age}<br>number: ${player.number}`;
+            //         const deets = document.createElement('deets');
+            //         deets.innerHTML = `Age: ${age}<br>number: ${player.number}`;
     
-                    group.appendChild(span);
-                    mg.appendChild(clr);
-                    mg.appendChild(group);
-                    minip.appendChild(mg);
-                    minip.appendChild(av);
-                    info.appendChild(name);
-                    info.appendChild(deets);
-                    minip.appendChild(info);
+            //         group.appendChild(span);
+            //         mg.appendChild(clr);
+            //         mg.appendChild(group);
+            //         minip.appendChild(mg);
+            //         minip.appendChild(av);
+            //         info.appendChild(name);
+            //         info.appendChild(deets);
+            //         minip.appendChild(info);
     
-                    cardsContainer.appendChild(minip);
-                }
+            //         cardsContainer.appendChild(minip);
+            //     }
     
-            }
+            // }
     
     
     
-            // Fetch attackers
-            function fetchAttackers(players) {
+            // // Fetch attackers
+            // function fetchAttackers(players) {
     
-                const attackers = players.filter(player => player.position === "Attacker");
+            //     const attackers = players.filter(player => player.position === "Attacker");
     
-                const cardsContainer = document.getElementById('att-cardsContainer');
-                for (let i = 0; i < attackers.length; i++) {
-                    const player = attackers[i];
-                    const age = player.age;
-                    const playerId = player.id;
-                    const imageUrl = `Images/Players/${playerId}.png`;
+            //     const cardsContainer = document.getElementById('att-cardsContainer');
+            //     for (let i = 0; i < attackers.length; i++) {
+            //         const player = attackers[i];
+            //         const age = player.age;
+            //         const playerId = player.id;
+            //         const imageUrl = `Images/Players/${playerId}.png`;
     
-                    const minip = document.createElement('div');
-                    minip.classList.add('minip');
+            //         const minip = document.createElement('div');
+            //         minip.classList.add('minip');
     
-                    const mg = document.createElement('div');
-                    mg.classList.add('mg');
+            //         const mg = document.createElement('div');
+            //         mg.classList.add('mg');
     
-                    const clr = document.createElement('div');
-                    clr.classList.add('clr');
+            //         const clr = document.createElement('div');
+            //         clr.classList.add('clr');
     
-                    const group = document.createElement('div');
-                    group.classList.add('group');
+            //         const group = document.createElement('div');
+            //         group.classList.add('group');
     
-                    const span = document.createElement('span');
+            //         const span = document.createElement('span');
     
-                    const av = document.createElement('div');
-                    av.classList.add('av');
-                    av.style.backgroundImage = `url('${imageUrl}')`;
+            //         const av = document.createElement('div');
+            //         av.classList.add('av');
+            //         av.style.backgroundImage = `url('${imageUrl}')`;
     
-                    const info = document.createElement('div');
-                    info.classList.add('info');
+            //         const info = document.createElement('div');
+            //         info.classList.add('info');
     
-                    const name = document.createElement('name');
-                    name.innerText = player.name;
+            //         const name = document.createElement('name');
+            //         name.innerText = player.name;
     
-                    const deets = document.createElement('deets');
-                    deets.innerHTML = `Age: ${age}<br>number: ${player.number}`;
+            //         const deets = document.createElement('deets');
+            //         deets.innerHTML = `Age: ${age}<br>number: ${player.number}`;
     
-                    group.appendChild(span);
-                    mg.appendChild(clr);
-                    mg.appendChild(group);
-                    minip.appendChild(mg);
-                    minip.appendChild(av);
-                    info.appendChild(name);
-                    info.appendChild(deets);
-                    minip.appendChild(info);
+            //         group.appendChild(span);
+            //         mg.appendChild(clr);
+            //         mg.appendChild(group);
+            //         minip.appendChild(mg);
+            //         minip.appendChild(av);
+            //         info.appendChild(name);
+            //         info.appendChild(deets);
+            //         minip.appendChild(info);
     
-                    cardsContainer.appendChild(minip);
-                }
+            //         cardsContainer.appendChild(minip);
+            //     }
     
-            }
+            // }
     
     
     
     
-            // Fetch coach
-            function fetchCoach() {
-                fetch('https://v3.football.api-sports.io/coachs/squads?team=33', {
-                    "method": "GET",
-                    "headers": {
-                        "x-rapidapi-host": "v3.football.api-sports.io",
-                        "x-rapidapi-key": "86bfe4c0932d846ff80b0cae2adbe19a"
-                    }
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        const coaches = data.response;
+            // // Fetch coach
+            // function fetchCoach() {
+            //     fetch('https://v3.football.api-sports.io/coachs/squads?team=33', {
+            //         "method": "GET",
+            //         "headers": {
+            //             "x-rapidapi-host": "v3.football.api-sports.io",
+            //             "x-rapidapi-key": "86bfe4c0932d846ff80b0cae2adbe19a"
+            //         }
+            //     })
+            //         .then(response => response.json())
+            //         .then(data => {
+            //             const coaches = data.response;
     
-                        const manUtdCoach = coaches.find(coach => {
-                            return coach.team.id == 33 && coach.career[0].end == null;
-                        });
+            //             const manUtdCoach = coaches.find(coach => {
+            //                 return coach.team.id == 33 && coach.career[0].end == null;
+            //             });
     
-                        if (manUtdCoach) {
-                            const cardsContainer = document.getElementById('coach-cardsContainer');
+            //             if (manUtdCoach) {
+            //                 const cardsContainer = document.getElementById('coach-cardsContainer');
     
-                            const minip = document.createElement('div');
-                            minip.classList.add('minip');
+            //                 const minip = document.createElement('div');
+            //                 minip.classList.add('minip');
     
-                            const mg = document.createElement('div');
-                            mg.classList.add('mg');
+            //                 const mg = document.createElement('div');
+            //                 mg.classList.add('mg');
     
-                            const clr = document.createElement('div');
-                            clr.classList.add('clr');
+            //                 const clr = document.createElement('div');
+            //                 clr.classList.add('clr');
     
-                            const group = document.createElement('div');
-                            group.classList.add('group');
+            //                 const group = document.createElement('div');
+            //                 group.classList.add('group');
     
-                            const span = document.createElement('span');
+            //                 const span = document.createElement('span');
     
-                            const av = document.createElement('div');
-                            av.classList.add('av');
-                            av.style.backgroundImage = `url('Images/Players/${manUtdCoach.id}.png')`;
+            //                 const av = document.createElement('div');
+            //                 av.classList.add('av');
+            //                 av.style.backgroundImage = `url('Images/Players/${manUtdCoach.id}.png')`;
     
-                            const info = document.createElement('div');
-                            info.classList.add('info');
+            //                 const info = document.createElement('div');
+            //                 info.classList.add('info');
     
-                            const name = document.createElement('name');
-                            name.innerText = `${manUtdCoach.name}`;
+            //                 const name = document.createElement('name');
+            //                 name.innerText = `${manUtdCoach.name}`;
     
-                            const deets = document.createElement('deets');
-                            const startDate = new Date(manUtdCoach.career[0].start).toLocaleDateString('en-US');
-                            deets.innerHTML = `Age: ${manUtdCoach.age}<br><br>Date hired: ${startDate}`;
+            //                 const deets = document.createElement('deets');
+            //                 const startDate = new Date(manUtdCoach.career[0].start).toLocaleDateString('en-US');
+            //                 deets.innerHTML = `Age: ${manUtdCoach.age}<br><br>Date hired: ${startDate}`;
     
-                            group.appendChild(span);
-                            mg.appendChild(clr);
-                            mg.appendChild(group);
-                            minip.appendChild(mg);
-                            minip.appendChild(av);
-                            info.appendChild(name);
-                            info.appendChild(deets);
-                            minip.appendChild(info);
+            //                 group.appendChild(span);
+            //                 mg.appendChild(clr);
+            //                 mg.appendChild(group);
+            //                 minip.appendChild(mg);
+            //                 minip.appendChild(av);
+            //                 info.appendChild(name);
+            //                 info.appendChild(deets);
+            //                 minip.appendChild(info);
     
-                            cardsContainer.appendChild(minip);
-                        } else {
-                            console.log('No coach currently managing Manchester United found.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error fetching data:', error);
-                    });
-            }
+            //                 cardsContainer.appendChild(minip);
+            //             } else {
+            //                 console.log('No coach currently managing Manchester United found.');
+            //             }
+            //         })
+            //         .catch(error => {
+            //             console.error('Error fetching data:', error);
+            //         });
+            // }
     
-            fetchAllPlayers();
-            fetchCoach();
+            // fetchAllPlayers();
+            // fetchCoach();
         </script>
 
         <%- include('../partials/footer') %>

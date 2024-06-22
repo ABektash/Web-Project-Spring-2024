@@ -1,22 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-.heading{
+
+.heading {
     width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    margin:20px auto;
+    margin: 20px auto;
 }
-.heading h1{
+
+.heading h1 {
     font-size: 50px;
-    color:#000;
+    color: #000;
     margin-bottom: 25px;
     position: relative;
 }
-.heading h1::after{
+
+.heading h1::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -25,60 +28,68 @@
     margin: 0% auto;
     background-color: #c70101;
 }
-.heading p{
+
+.heading p {
     font-size: 25px;
     color: #666;
     margin-bottom: 35px;
-
 }
-.conatin{
-    width:90%;
-    margin:0% auto;
+
+.contain {
+    width: 90%;
+    margin: 0% auto;
     padding: 10px 20px;
 }
-.recent{
+
+.recent {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    justify-content: flex-start; 
+    align-items: flex-start;
 }
-.recent-image{
-    flex: 1;
+
+.recent-image {
+    flex: 0 0 auto; 
     margin-right: 40px;
     overflow: hidden;
+    max-width: 50%; 
+    margin-top: 1.8rem;
 }
-.recent-image img{
-    max-width: 100%;
+
+.recent-image img {
+    width: 100%;
     height: auto;
     display: block;
-    transition: 0.5s ease;
+    margin-bottom: 1rem; 
 }
-.recent-image:hover img{
-    transform: scale(1.2);
+
+.recent-content {
+    flex: 1; /* Take remaining space */
 }
-.recent-content{
-    flex:1;
-}
-.recent-content h2{
-    font-size: 30px;
-    margin-bottom: 15px;
+
+.contain h2 {
+    font-size: 2rem;
     color: black;
+    margin-bottom: 15px;
 }
-.recent-content p{
+
+.contain p {
     font-size: 20px;
     line-height: 1.5;
     color: #666;
+    text-align: justify;
+    margin-bottom: 2rem;
 }
-.RNEW{
+
+.RNEW {
     margin-top: 10px;
     margin-bottom: 25px;
     padding-left: 15px;
-   padding-right: 15px;
+    padding-right: 15px;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-   
 }
-.posted-date-onclick{
+
+.posted-date-onclick {
     background-color: #c70101;
     color: white;
     padding: 10px;

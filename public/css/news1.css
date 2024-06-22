@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-.container1
-{
-    width:100%;
+body {
+    width: 100%;
+    margin: 0;
 }
-.container1 .blog-section .cards
+*{
+    margin:0px;
+    padding:0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.blog-section .cards
 {
   display: grid;
   grid-template-columns: repeat(3 , 1fr);
@@ -13,14 +18,13 @@
   margin: 25px auto;
 
 }
-.container1 .blog-section .cards .card{
+.blog-section .cards .news-card{
     width: 100%;
-    background-color:rgb(234, 227, 227);
+    background-color:rgb(234, 236, 236);
     position: relative;
 }
 
 .blog-section{
-
     width: 95%;
     margin: 1% auto;
     padding-left: 15px;
@@ -40,24 +44,28 @@
     color: black;
 
 }
+
 .cards
 {
     display: grid;
     grid-template-columns:  repeat(3,1fr);
     grid-gap: 50px;
     margin: 25px auto;
-    padding: 1rem;
 
 }
-.cards .card{
+.news-card:hover{
+    transform: scale(1.02);
+    transition: 0.7s ease;
+}
+.cards .news-card{
     width: 100%;
     position: relative;
 }
 .image-section img{
     width: 100%;
     height: auto;
-    transition: 0.5s ease;
 }
+
 .content
 {
     padding:15px 20px;
@@ -116,7 +124,7 @@
     background-color: darkred;
     transform: 0.3s;
 }
-.card .posted-date
+.news-card .posted-date
 {
  position: absolute;
  top: 0;
@@ -126,9 +134,3 @@
  background-color: #c70101;
  color: white;
 }
-
-
-
-
-
-
