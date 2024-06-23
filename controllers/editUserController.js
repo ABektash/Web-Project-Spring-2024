@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const upload = require('../middleware/multer');
 
 exports.getEditUserPage = async (req, res) => {
@@ -39,8 +39,6 @@ exports.postEditUserPage = async (req, res) => {
             errors.email = 'Please enter a valid email address';
         }
 
-       
-
         if (!gender) {
             errors.gender = 'Please select a gender';
         }
@@ -67,8 +65,6 @@ exports.postEditUserPage = async (req, res) => {
             errors.year = 'Invalid number';
         }
 
-
-
         if (Object.keys(errors).length > 0) {
             try {
                 const user = await User.findById(userId);
@@ -80,36 +76,32 @@ exports.postEditUserPage = async (req, res) => {
         }
 
         try {
-            const saltRounds = 10;
-            const hashedPassword = await bcrypt.hash(password, saltRounds);
-            const image = req.files.image ? req.files.image[0].filename : req.body.currentImage;
-            // Update user data
-            if (password){
-            await User.findByIdAndUpdate(userId, {
-                name,
-                email,
-                password: hashedPassword,
-                gender,
-                type,
-                birthdate: new Date(year, month, day),
-                image
-            });
-        }else {
-            await User.findByIdAndUpdate(userId, {
+            const user = await User.findById(userId);
+            let updatedFields = {
                 name,
                 email,
                 gender,
                 type,
-                birthdate: new Date(year, month, day),
-                image
-            });
-        }
+                birthdate: new Date(year, month - 1, day), 
+                image: req.files.image ? req.files.image[0].filename : req.body.currentImage,
+            };
+
+            if (password !== user.password) {
+                const saltRounds = 10;
+                const hashedPassword = await bcrypt.hash(password, saltRounds);
+                updatedFields.password = hashedPassword;
+            } else {
+                updatedFields.password = user.password;
+            }
+
+            await User.findByIdAndUpdate(userId, updatedFields);
+
             res.redirect('/manageUsers');
         } catch (err) {
             console.error('Error editing user:', err);
             res.status(500).send('Internal Server Error');
         }
-    })
+    });
 };
 
 function isValidEmail(email) {
