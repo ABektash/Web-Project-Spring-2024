@@ -167,7 +167,7 @@ exports.getSingleProductCart = async (req, res) => {
         errors.error = "Please select a size!!";
     }
     if (inputValue > product.quantity) {
-        errors.error = "Out of stock!";
+        errors.error = "This quantity is not available in stock!";
     }
     if (Object.keys(errors).length > 0) {
         return res.render('pages/singleProduct', {
@@ -183,8 +183,8 @@ exports.getSingleProductCart = async (req, res) => {
 
     const existingProductIndex = req.session.cart.products.findIndex(p => p._id == product._id);
 
-    if (req.session.cart.quantities[existingProductIndex] + inputValue > product.quantity){
-        errors.error = "Out of Stock!";
+    if (req.session.cart.quantities[existingProductIndex] + inputValue > product.quantity) {
+        errors.error = "This quantity is not available in stock!";
         product = await Product.findOne({ name: req.params.name });
         const retroProducts = await Product.find({ category: product.category });
 
@@ -230,3 +230,5 @@ exports.getSingleProductCart = async (req, res) => {
         products: sameSectionProducts
     });
 };
+
+

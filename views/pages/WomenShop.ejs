@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body style="background-color: whitesmoke;">
 
     <%- include('../partials/header', { user: user }) %>
     
@@ -43,7 +43,7 @@
         <p>Women's collection today</p>
         <div class="pro-container">
             <% products.filter(product => product.section === 'Football Kits').forEach(product => { %>
-                <div class="pro" onclick="window.location.href='/singleProduct/women/<%= product._id %>';">
+                <div style="background-color: whitesmoke;" class="pro" onclick="window.location.href='/singleProduct/women/<%= product._id %>';">
                     <img src="/uploads/<%= product.productImg %>" alt="error loading the image">
                     <div class="des">
                         <span>adidas</span>
@@ -146,32 +146,6 @@
     <hr>
     <br>
 
-    <section id="product-5" class="section-p1">
-        <h2>Footwear</h2>
-        <p>Women's collection today</p>
-        <div class="pro-container">
-            <% products.filter(product => product.section === 'Footwear').forEach(product => { %>
-                <div class="pro" onclick="window.location.href='/singleProduct/women/<%= product._id %>';">
-                    <img src="/uploads/<%= product.productImg %>" alt="error loading the image">
-                    <div class="des">
-                        <span>adidas</span>
-                        <h5><%= product.name %></h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$<%= product.price %></h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart"></i></a>
-                </div>
-            <% }) %>
-        </div>
-    </section>
-    <hr>
-    <br>
 
     <section id="product-6" class="section-p1">
         <h2>Headwear</h2>

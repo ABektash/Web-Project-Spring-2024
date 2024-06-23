@@ -6,7 +6,7 @@
 /* cart  */
 #cart
 {
-    padding: 3rem;
+    padding: 0.6rem;
 }
 #cart table {
     width: 100%;
@@ -51,10 +51,11 @@
 }
 
 #cart table thead {
-    border: 1px solid #e2e9e1;
-    border-left: none;
-    border-right: none;
-  
+    border: 1px solid black;
+ border-radius: 20%;
+    /* border-left: none;
+    border-right: none; */
+  background-color: rgba(31, 25, 25, 0.781);
 }
 
 #cart table thead td {
@@ -62,6 +63,7 @@
     text-transform: uppercase;
     font-size: 13px;
     padding: 18px 0;
+    color: white;
 }
 
 #cart table tbody tr td {
@@ -86,14 +88,16 @@
 
 
 #Subtotal {
+    margin-top: 50px;
     width: 50%;
     margin-bottom: 30px;
-    border: 1px solid;
-    border-color:black;
-    border-radius: 10px;
+    /* border: 1px solid; */
+    /* border-color:black; */
+    border-radius: 15px;
     padding: 20px;
     margin-right: 30px;
     align-self: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.8); 
 
 
 }
@@ -112,17 +116,24 @@
     font-size: 13px;
 }
 
-
-
-#cart-add button
+#checkout-btn
 {
     background-color: black;
     color: #fff;    
     padding: 14px 20px;
-    border-radius: 15px; 
-  transform: translateX(560px);
+    border-radius: 90px; 
     
 }
+
+/* #cart-add button
+{
+    background-color: black;
+    color: #fff;    
+    padding: 14px 20px;
+    border-radius: 90px; 
+  
+    
+} */
 
 #Subtotal button:hover {
     cursor: pointer;
@@ -153,7 +164,7 @@
 }
 .banner-content h1
 {
-    color: #e2e9e1;
+    color: white;
     font-size: 5rem;
     
 }
@@ -164,7 +175,7 @@
 
 .quantity
 {
-    border-radius: 1rem;
+    border-radius: 10%;
     border-style: solid;
     width:2ch;
 }
@@ -172,4 +183,7 @@
 .quantity:focus
 {
     outline: none;
+}
+#cart table tbody tr {
+    border-bottom: 1px solid #ccc; /* Add bottom border */
 }

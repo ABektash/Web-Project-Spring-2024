@@ -1,100 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   
+
     <title>Product Details</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/MenShop.css">
+    <link rel="stylesheet" href="/css/singleProduct.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <script src="/js/singleProduct.js"></script>
+
 <body>
     <%- include('../partials/header', { user: user }) %>
 
-    <section id="categories">
-        <div class="cat-bar">
-          <ul>
-            <li><a href="/MenShop">Men Shop</a></li>
-            <li><a href="/WomenShop">Women Shop</a></li>
-            <li><a href="/RetroShop">Retro Shop</a></li>
-            <li><a href="/ShoppingCart"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
-          </ul>
-        </div>
-      </section>
+        <section id="categories">
+            <div class="cat-bar">
+                <ul>
+                    <li><a href="/MenShop">Men Shop</a></li>
+                    <li><a href="/WomenShop">Women Shop</a></li>
+                    <li><a href="/RetroShop">Retro Shop</a></li>
+                    <li><a href="/ShoppingCart"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+                </ul>
+            </div>
+        </section>
 
-    <section id="proDetails" class="section-p1">
-        <div class="single-pro-image">
+        <section id="proDetails" class="section-p1">
+            <div class="single-pro-image">
 
-            <img src="/uploads/<%= product.productImg %>" alt="error loading the image" width="100%" id="MainImg">
+                <img src="/uploads/<%= product.productImg %>" alt="error loading the image" width="100%" id="MainImg">
 
-</div>
+            </div>
 
-<div class="single-pro-details">
+            <div class="single-pro-details">
 
-    <p class="catStyle"><b>Category/<%= product.category %></b></p>
-    <p class="productStyle">Product name: <%= product.name %></p>
-    <p class="remPieces">Remaining Pieces: <%= product.quantity %></p>
-    <p class="priceStyle">Price: $<%= product.price %></p>
-    <select id="borderred" class="sel">
+                <p class="catStyle"><b>Category/<%= product.category %></b></p>
+                <p class="prod"><b>Product name: </b>
+                    <%= product.name %>
+                </p>
+                <p class="prod"><b>Remaining Pieces: </b>
+                    <%= product.quantity %>
+                </p>
+                <p class="prod"><b>Price: </b>$<%= product.price %>
+                </p>
+                <p class="prod"><b>Select a Size: </b></p>
+                <!-- <select id="borderred" class="sel">
         <option >Select Size</option>
         <option >Small</option>
         <option >Medium</option>
         <option >Large</option>
         <option >XL</option>
         <option >XXL</option>
-    </select>
-    <input type="number" id="numberInput" value="1" min="0">
-    <button onclick="addToCart()">Add To Cart</button>
-    <div class="errorMessage" style=" color: red;">
-       <%= errors.error  %>
-    </div>
-    <% if (Object.keys(errors).length == 0 && !get) {%>
-        <div class="successMessage" style=" color: green;">
-            Items are added successfully!
-        </div>
-    <% } %>
-   
-</div>
-</section>
-<hr>
+    </select> -->
 
-<section id="product-1" class="section-p1">
-    <h2>Featured Products</h2>
-    <p>Men collection today</p>
-    <div class="pro-container">
-        <% products.forEach(product => { %>
-            <div class="pro" onclick="window.location.href='/singleproduct/<%= product.category%>/<%= product._id %>';">
-                <img src="/uploads/<%= product.productImg %>" alt="<%= product.name %>" width="100%">
-                <div class="des">
-                    <span><%= product.category %></span>
-                    <h5><%= product.name %></h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$<%= product.price %></h4>
+                <div id="sizeButtons">
+                    <button class="sizeButton">S</button>
+                    <button class="sizeButton">M</button>
+                    <button class="sizeButton">L</button>
+                    <button class="sizeButton">XL</button>
+                    <button class="sizeButton">XXL</button>
                 </div>
-                <a href="#"><i class="fal fa-shopping-cart"></i></a>
+
+                <p class="prod"><b>Select quantity: </b></p>
+
+                <input type="number" id="numberInput" value="1" min="0">
+                <button onclick="addToCart()">Add To Cart</button>
+                <div class="errorMessage" style=" color: red;">
+                    <%= errors.error %>
+                </div>
+                <% if (Object.keys(errors).length==0 && !get) {%>
+                    <div class="successMessage" style=" color: green;">
+                        Items are added successfully!
+                    </div>
+                    <% } %>
+
             </div>
-        <% }) %>
-    </div>
-</section>
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <hr>
+
+        <section id="product-1" class="section-p1">
+            <h2>Featured Products</h2>
+            <p>Men collection today</p>
+            <div class="pro-container">
+                <% products.forEach(product=> { %>
+                    <div class="pro"
+                        onclick="window.location.href='/singleproduct/<%= product.category%>/<%= product._id %>';">
+                        <img src="/uploads/<%= product.productImg %>" alt="<%= product.name %>" width="100%">
+                        <div class="des">
+                            <span>
+                                <%= product.category %>
+                            </span>
+                            <h5>
+                                <%= product.name %>
+                            </h5>
+                            <div class="star">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4>$<%= product.price %>
+                            </h4>
+                        </div>
+                        <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                    </div>
+                    <% }) %>
+            </div>
+        </section>
 
 
-    <!-- footer  -->
-    <%- include('../partials/footer') %>
+        <!-- footer  -->
+        <%- include('../partials/footer') %>
 
-    <script>
-        function addToCart() {
-            const sizeSelect = document.getElementById('borderred');
-            const quantityInput = document.getElementById('numberInput');
-            const size = sizeSelect.value;
-            const quantity = quantityInput.value;
-            window.location.href = `/singleProduct/add/<%=product.name%>/${size}/${quantity}`;
-        }
-    </script>
+            <script>
+                function addToCart() {
+                    const selectedButton = document.querySelector('#sizeButtons .selected');
+                    const quantityInput = document.getElementById('numberInput');
+                    const size = selectedButton ? selectedButton.textContent : 'Select Size';
+                    const quantity = quantityInput.value;
+
+                    window.location.href = `/singleProduct/add/<%=product.name%>/${size}/${quantity}`;
+                }
+
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    const buttons = document.querySelectorAll('#sizeButtons .sizeButton');
+                    buttons.forEach(button => {
+                        button.addEventListener('click', () => {
+                            buttons.forEach(btn => btn.classList.remove('selected'));
+                            button.classList.add('selected');
+                        });
+                    });
+                });
+
+
+
+            </script>
 </body>
+
 </html>
