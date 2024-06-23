@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <main>
       <div class="head-title">
         <div class="left">
-          <h1><i class="fa-solid fa-pencil"></i> Edit product</h1>
+          <h1><i class="fa-solid fa-pencil"></i> Edit Product</h1>
           <ul class="pageSub">
             <li><i class='bx bx-chevron-right' ></i></li>
             <li>
@@ -110,28 +110,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
   <!-- EditproductForm -->
   <form id="productForm" name="productForm" method="POST" enctype="multipart/form-data">
-    <h2 id="addH2">Edit Product</h2>
-    <div class="productRow">
-      <label>Name Of Product</label>
-      <input type="text" name="name" placeholder="Enter product name" value="<%= product.name %>" />
-      <div class="error" id="nameErr"><%= errors.name || '' %></div>
-    </div>
-    <div class="productRow">
-      <label>Price</label>
-      <div class="price-input">
-        <input type="text" name="price" placeholder="Enter product price" value="<%= product.price %>" />
-        <span class="currency">$</span>
+    <!-- <h2 id="addH2">Edit Product</h2> -->
+    <div class="productRow" style="display: flex; justify-content: space-between; gap: 20px;">
+      <div class="field" style="flex: 1;">
+          <label>Name Of Product</label>
+          <input type="text" name="name" placeholder="Enter product name" value="<%= product.name %>" style="width: 100%;" />
+          <div class="error" id="nameErr"><%= errors.name || '' %></div>
       </div>
-      <div class="error" id="priceErr"><%= errors.price || '' %></div>
-    </div>
-    <div class="productRow">
-      <label>Number of Available Pieces</label>
-      <input type="number" name="quantity" placeholder="Enter quantity available" value="<%= product.quantity %>" />
-      <div class="error" id="quantityErr"><%= errors.quantity || '' %></div>
-    </div>
+      <div class="field" style="flex: 1;">
+          <label>Price</label>
+          <div class="price-input" style="display: flex;">
+              <input type="text" name="price" placeholder="Enter product price" value="<%= product.price %>" style="flex: 1;" />
+              <span class="currency" style="align-self: center;">$</span>
+          </div>
+          <div class="error" id="priceErr"><%= errors.price || '' %></div>
+      </div>
+  </div>
 
-
-    <div class="productRow">
+<div>
+  <div class="productRow" style="display: flex; justify-content: space-between; gap: 20px;">
+    <div class="field" style="flex: 1;">
       <label>Select Category</label>
       <select id="SelectCategory" name="category">
         <option value="Select Category">Select Category</option>
@@ -144,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     </div>
     
-    <div class="productRow">
+    <div class="field" style="flex: 1;">
       <label>Select Section</label>
       <select id="SelectSection" name="section">
         <option value="Select Section">Select Section</option>
@@ -159,6 +157,8 @@ document.addEventListener('DOMContentLoaded', function () {
         <%= errors.section || "" %>
       </div>
     </div>
+
+  </div>
     
 
 
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <input type="hidden" name="currentProductImg" value="<%= product.productImg %>" />
       <div class="error" id="imageErr"><%= errors.productImg || '' %></div>
       <% if (product.productImg) { %>
-        <div class="productRow">
+        <div class="productRow" style="margin-top: 15px; margin-bottom: 0px;">
           <label>Current Image</label>
           <img src="/uploads/<%= product.productImg %>" alt="Product Image" style="max-width: 100px;" />
         </div>

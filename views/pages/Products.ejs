@@ -90,7 +90,7 @@
       <main>
         <div class="head-title">
           <div class="left">
-            <h1>Add product</h1>
+            <h1>Add Product</h1>
             <ul class="pageSub">
               <li><i class='bx bx-chevron-right'></i></li>
               <li>
@@ -104,62 +104,64 @@
 
     <!-- productForm -->
     <form id="productForm" name="productForm" method="POST" action="/Products" enctype="multipart/form-data">
-      <h2 id="addH2">Add Product</h2>
-      <div class="productRow">
-        <label>Name Of Product</label>
-        <input type="text" name="name" placeholder="Enter product name" />
-        <div class="error" id="nameErr">
-          <%= errors.name || "" %>
+      <!-- <h2 id="addH2">Add Product</h2> -->
+      <div class="productRow" style="display: flex; justify-content: space-between; gap: 20px;">
+        <div class="field" style="flex: 1;">
+            <label>Name Of Product</label>
+            <input type="text" name="name" placeholder="Enter product name" />
+            <div class="error" id="nameErr">
+                <%= errors.name || "" %>
+            </div>
         </div>
-      </div>
-      <div class="productRow">
-        <label>Price</label>
-        <div class="price-input">
-          <input type="text" name="price" placeholder="Enter product price" />
-          <span class="currency">$</span>
+        <div class="field" style="flex: 1;">
+            <label>Price</label>
+            <div class="price-input" style="display: flex;">
+                <input type="text" name="price" placeholder="Enter product price" style="flex: 1;" />
+                <span class="currency" style="align-self: center;">$</span>
+            </div>
+            <div class="error" id="priceErr">
+                <%= errors.price || "" %>
+            </div>
         </div>
-        <div class="error" id="priceErr">
-          <%= errors.price || "" %>
-        </div>
-      </div>
-      <div class="productRow">
+    </div>
+
+    <div class="productRow">
         <label>Number of Available Pieces</label>
         <input type="number" name="quantity" placeholder="Enter quantity available" />
         <div class="error" id="quantityErr">
-          <%= errors.quantity || "" %>
+            <%= errors.quantity || "" %>
         </div>
-      </div>
+    </div>
 
-
-
-      <div class="productRow">
-        <label>Select Category</label>
-        <select id="SelectCategory" name="category">
-          <option value="Select Category">Select Category</option>
-          <option value="Men">Men</option>
-          <option value="Women">Women</option>
-          <option value="Retro">Retro</option>
-        </select>
-        <div class="error" id="sizeErr">
-          <%= errors.category || "" %>
+    <div class="productRow" style="display: flex; justify-content: space-between; gap: 20px;">
+        <div class="field" style="flex: 1;">
+            <label>Select Category</label>
+            <select id="SelectCategory" name="category" style="width: 100%;">
+                <option value="Select Category">Select Category</option>
+                <option value="Men">Men</option>
+                <option value="Women">Women</option>
+                <option value="Retro">Retro</option>
+            </select>
+            <div class="error" id="sizeErr">
+                <%= errors.category || "" %>
+            </div>
         </div>
-      </div>
-
-      <div class="productRow">
-        <label>Select Section</label>
-        <select id="SelectSection" name="section">
-            <option value="Select Section">Select Section</option>
-            <option value="Football Kits">Football Kits</option>
-            <option value="Training">Training</option>
-            <option value="Hoodies and Sweatshirts">Hoodies and Sweatshirts</option>
-            <option value="Trousers and Shorts">Trousers and Shorts</option>
-            <option value="Footwear">Footwear</option>
-            <option value="Headwear">Headwear</option>
-        </select>
-        <div class="error" >
-          <%= errors.section|| "" %>
+        <div class="field" style="flex: 1;">
+            <label>Select Section</label>
+            <select id="SelectSection" name="section" style="width: 100%;">
+                <option value="Select Section">Select Section</option>
+                <option value="Football Kits">Football Kits</option>
+                <option value="Training">Training</option>
+                <option value="Hoodies and Sweatshirts">Hoodies and Sweatshirts</option>
+                <option value="Trousers and Shorts">Trousers and Shorts</option>
+                <option value="Footwear">Footwear</option>
+                <option value="Headwear">Headwear</option>
+            </select>
+            <div class="error">
+                <%= errors.section || "" %>
+            </div>
         </div>
-      </div>
+    </div>
 
 
 

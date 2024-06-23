@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* editProfileForm Screen */
+* {
+    font-family: "Bebas Neue", sans-serif;
+}
+li {
+	list-style: none;
+}
+main {
+   font-family: inherit;
+    padding: 0px 10px;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+}
+.pageSub {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+}
+
+.back{
+    text-decoration: none;
+    color: black;
+}
+
+.back:hover{
+    color: #c70101;
+}
+.head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 16px;
+    flex-wrap: wrap;
+}
+
+.head-title .left h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #222;
+}
+#editProfileForm {
+    width: 500px;
+    background: #ffffff;
+    padding: 20px 35px 35px;
+    margin: 50px auto 0;
+    border-radius: 3mm;
+    margin-bottom: ocm;
+    margin-top: 1px;
+    padding-bottom: 0.2cm;
+    font-family: 'Lato', sans-serif;
+}
+
+#editProfileForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#editProfileForm input,
+#editProfileForm select {
+    border: 1px solid #a5a5a5;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 3mm;
+    font-size: large;
+}
+
+#editProfileForm .editProfileRow {
+    padding-bottom: 15px;
+    margin: 5px;
+    margin-top: 5px;
+}
+
+#editProfileForm .error-message {
+    color: red;
+    font-size: 90%;
+}
+
+#editProfileForm input[type="submit"] {
+    font-size: 110%;
+    font-weight: 100;
+    background: #c70101;
+    border-color: #74000000;
+    box-shadow: 0 3px 0 #c40000;
+    color: #fff;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 1rem;
+}
+
+#editProfileForm input[type="submit"]:hover {
+    transition: 0.4s;
+    background: #740000;
+}
+

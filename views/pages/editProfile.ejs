@@ -4,100 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/css/adminStyle.css">
+    <link rel="stylesheet" href="/css/editProfile.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Edit Profile</title>
 </head>
 <body>
-    <section class="Bform">
-        <div class="booking_form" style="margin-top: 4cm;">
-            <form name="booking" id="booking" method="POST" enctype="multipart/form-data">
-                <div class="row">
-                    <div class="column">
-                        <div class="input">
-                            <span><i class="fa-solid fa-user"></i> Name</span>
-                            <input type="text" placeholder="Enter name" name="name" value="<%= user.name %>">
+
+
+    <!-- CONTENT -->
+
+<style>body{
+    background-color: #e7e7e7;
+}</style>
+       
+
+            <%- include('../partials/header', { user: user }) %>
+
+            <main>
+                <div class="head-title">
+                  <div class="left">
+                    <h1><i class="fa-solid fa-pencil"></i> Edit Profile</h1>
+                    <ul class="pageSub">
+                      <li><i class='bx bx-chevron-right' ></i></li>
+                      <li>
+                        <a class="back" href="/Profile">Back</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </main>
+            
+
+
+                <form id="editProfileForm" name="editProfileForm" method="POST" enctype="multipart/form-data">
+                    <div class="editProfileRow" style="display: flex; justify-content: space-between; gap: 20px;">
+                        <div class="field" style="flex: 1;">
+                            <label><i class="fa-solid fa-user"></i> Name</label>
+                            <input type="text" name="name" placeholder="Enter name" value="<%= user.name %>" style="width: 100%;" />
                             <div class="error-message" id="name-error"><%= errors.name || "" %></div>
                         </div>
-
-                        <div class="input">
-                            <span><i class="fa-solid fa-envelope"></i> Email</span>
-                            <input type="text" placeholder="Enter email" name="email" value="<%= user.email %>">
+                        <div class="field" style="flex: 1;">
+                            <label><i class="fa-solid fa-envelope"></i> Email</label>
+                            <input type="text" name="email" placeholder="Enter email" value="<%= user.email %>" style="width: 100%;" />
                             <div class="error-message" id="email-error"><%= errors.email || "" %></div>
                         </div>
-
-                        <div class="input">
-                            <span><i class="fa-solid fa-lock"></i> Password</span>
-                            <input type="password" placeholder="Enter password" name="password" value="<%= user.password %>">
-                            <div class="error-message" id="password-error"><%= errors.password || "" %></div>
-                        </div>
-
-                        <div class="input">
-                            <span><i class="fa-solid fa-venus-mars"></i> Gender</span>
+                    </div>
+                
+                    <div class="editProfileRow">
+                        <label><i class="fa-solid fa-lock"></i> Password</label>
+                        <input type="password" name="password" placeholder="Enter password" value="<%= user.password %>" style="width: 100%;" />
+                        <div class="error-message" id="password-error"><%= errors.password || "" %></div>
+                    </div>
+                
+                    <div class="editProfileRow">
+                        <label><i class="fa-solid fa-venus-mars"></i> Gender</label>
+                        <div style="display: flex; gap: 10px;">
                             <div>
-                                <input type="radio" id="male" name="gender" value="male" <%= user.gender === 'male' ? 'checked' : '' %>>
+                                <input type="radio" id="male" name="gender" value="male" <%= user.gender === 'male' ? 'checked' : '' %> />
                                 <label for="male">Male</label>
                             </div>
                             <div>
-                                <input type="radio" id="female" name="gender" value="female" <%= user.gender === 'female' ? 'checked' : '' %>>
+                                <input type="radio" id="female" name="gender" value="female" <%= user.gender === 'female' ? 'checked' : '' %> />
                                 <label for="female">Female</label>
                             </div>
-                            <div class="error-message" id="gender-error"><%= errors.gender || "" %></div>
                         </div>
-
-                        <div class="input">
-                            <label>Upload Image (Optional)</label>
-                            <input type="file" name="image" accept="image/*">
-                            <div class="error-message" id="image-error"><%= errors.image || '' %></div>
-                            <input type="hidden" name="currentImage" value="<%= user.image %>" />
-                            <% if (user.image) { %>
-                                <div class="input">
-                                    <label>Current Image</label>
-                                    <img src="/uploads/<%= user.image %>" alt="User Image" style="max-width: 100px;" />
-                                </div>
-                            <% } %>
-                        </div>
+                        <div class="error-message" id="gender-error"><%= errors.gender || "" %></div>
                     </div>
-
-                    <div class="column">
-                        <div class="input">
+                
+                    <div class="editProfileRow">
+                        <label>Upload Image (Optional)</label>
+                        <input type="file" name="image" accept="image/*" style="width: 100%;" />
+                        <div class="error-message" id="image-error"><%= errors.image || "" %></div>
+                        <input type="hidden" name="currentImage" value="<%= user.image %>" />
+                        <% if (user.image) { %>
+                            <div class="editProfileRow" style="margin-top: 15px; margin-bottom: 0px;">
+                                <label>Current Image</label>
+                                <img src="/uploads/<%= user.image %>" alt="User Image" style="max-width: 100px;" />
+                            </div>
+                        <% } %>
+                    </div>
+                
+                    <div class="editProfileRow" style="display: flex; justify-content: space-between; gap: 20px;">
+                        <div class="field" style="flex: 1;">
                             <label for="day"><i class="fa-solid fa-calendar"></i> Day</label>
-                            <input type="text" placeholder="DD" id="day" name="day" class="small-input" value="<%= user.birthdate ? user.birthdate.getDate() : '' %>">
+                            <input type="text" id="day" name="day" placeholder="DD" class="small-input" value="<%= user.birthdate ? user.birthdate.getDate() : '' %>" style="width: 100%;" />
                             <div class="error-message" id="day-error"><%= errors.day || "" %></div>
                         </div>
-
-                        <div class="input">
+                        <div class="field" style="flex: 1;">
                             <label for="month"><i class="fa-solid fa-calendar"></i> Month</label>
-                            <input type="text" placeholder="MM" id="month" name="month" class="small-input" value="<%= user.birthdate ? user.birthdate.getMonth() : '' %>">
+                            <input type="text" id="month" name="month" placeholder="MM" class="small-input" value="<%= user.birthdate ? user.birthdate.getMonth() : '' %>" style="width: 100%;" />
                             <div class="error-message" id="month-error"><%= errors.month || "" %></div>
                         </div>
-
-                        <div class="input">
+                        <div class="field" style="flex: 1;">
                             <label for="year"><i class="fa-solid fa-calendar"></i> Year</label>
-                            <input type="text" placeholder="YYYY" id="year" name="year" class="small-input" value="<%= user.birthdate ? user.birthdate.getFullYear() : '' %>">
+                            <input type="text" id="year" name="year" placeholder="YYYY" class="small-input" value="<%= user.birthdate ? user.birthdate.getFullYear() : '' %>" style="width: 100%;" />
                             <div class="error-message" id="year-error"><%= errors.year || "" %></div>
                         </div>
                     </div>
-                    <div class="input" style="display: none;">
-                        <span>Type Of User</span>
-                        <div>
-                            <input type="radio" id="Admin" name="type" value="Admin" <%= user.type === 'Admin' ? 'checked' : '' %>>
-                            <label for="Admin">Admin</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="User" name="type" value="User" <%= user.type === 'User' ? 'checked' : '' %>>
-                            <label for="User">User</label>
+                
+                    <div class="editProfileRow" style="display: none;">
+                        <label>Type Of User</label>
+                        <div style="display: flex; gap: 10px;">
+                            <div>
+                                <input type="radio" id="Admin" name="type" value="Admin" <%= user.type === 'Admin' ? 'checked' : '' %> />
+                                <label for="Admin">Admin</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="User" name="type" value="User" <%= user.type === 'User' ? 'checked' : '' %> />
+                                <label for="User">User</label>
+                            </div>
                         </div>
                         <div class="error-message" id="type-radio-error" style="color: red;"><%= errors.type || "" %></div>
                     </div>
-                </div>
-
-                <button type="submit" class="btn" value="Submit">Edit</button>
-                <% if (Object.keys(errors).length == 0 && !get) { %>
-                    <div id="success-message">User edited successfully!</div>
-                <% } %>
-            </form>
-        </div>
-    </section>
+                
+                    <div class="editProfileRow">
+                        <input type="submit" class="submit-btn" value="Edit" >
+                        <% if (Object.keys(errors).length == 0 && !get) { %>
+                            <div id="success-message" style="color: green; margin-top: 11px;">User edited successfully!</div>
+                        <% } %>
+                    </div>
+                </form>  
+                
+                
+            
 </body>
 </html>

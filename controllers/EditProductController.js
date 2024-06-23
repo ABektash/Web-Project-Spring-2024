@@ -28,12 +28,12 @@ exports.postEditProductPage = (req, res) => {
     // Validation logic
     const nameRegex = /^[a-zA-Z\s\W]+$/;
     if (!name || !nameRegex.test(name)) {
-      errors.name = "Please enter a valid name of the product";
+      errors.name = "Please enter a valid name";
     }
 
     const priceRegex = /^\d+(\.\d{1,2})?$/;
     if (!price || !priceRegex.test(price)) {
-      errors.price = "Please enter a valid price of the product";
+      errors.price = "Please enter a valid price";
     }
 
     if (!quantity || isNaN(quantity)) {

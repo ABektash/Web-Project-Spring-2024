@@ -99,7 +99,12 @@
                             <% topUsers.forEach(user => { %>
                                 <tr>
                                     <td>
-                                        <img src="/uploads/<%= user.image %>" alt="Profile Image">
+                                        <% if (user.image) { %>                 
+                                            <img src="/uploads/<%= user.image %>" alt="Profile Image">
+                                        <% } else {%>
+                                            <img src="/Images/profile.jpg" alt="Profile Image">
+                                        <% }%>
+
                                         <p><%= user.name %></p>
                                     </td>
                                     <td><%= user.points %></td>

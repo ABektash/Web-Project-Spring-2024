@@ -41,7 +41,7 @@ select {
 }
 
 #productForm .productRow {
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     margin: 5px;
     margin-top: 5px;
 }
@@ -62,7 +62,7 @@ select {
     margin-top: 10px;
     cursor: pointer;
     font-weight: bold;
-    border-radius: 1cm;
+    border-radius: 1rem;
 }
 
 #productForm input[type="submit"]:hover {

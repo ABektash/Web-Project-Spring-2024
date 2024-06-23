@@ -3,6 +3,7 @@
 /* articleForm Screen */
 *{
     font-family: 'Lato', sans-serif;
+   
 }
 #articleForm #addH2 {
     color: #c70101;
@@ -51,7 +52,7 @@ select {
 }
 
 #articleForm .articleRow {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     margin: 5px;
     margin-top: 5px;
 }
@@ -72,7 +73,7 @@ select {
     margin-top: 10px;
     cursor: pointer;
     font-weight: bold;
-    border-radius: 1cm;
+    border-radius: 1rem;
 }
 
 #articleForm input[type="submit"]:hover {
