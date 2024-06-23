@@ -16,8 +16,8 @@
     <%- include('../partials/header', { user: user }) %>
 
     <section class="Bform">
-      <div class="booking_form" style="background-image:linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.70)), url('Images/backform.png');">
-        <form name="booking" id="booking" method="POST" action="/BuyPage">
+      <div class="booking_form" style="background-image:linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.70)), url('/Images/backform.png');">
+        <form name="booking" id="booking" method="POST">
           <div class="row">
             <div class="column">
               <h3 class="title">Personal Information</h3>
@@ -63,7 +63,7 @@
               <h3 class="title">Payment</h3>
               <div class="input">
                 <span>Cards Accepted</span>
-                <img src="Images/imgcards.png" />
+                <img src="/Images/imgcards.png" />
               </div>
 
               <div class="input">
