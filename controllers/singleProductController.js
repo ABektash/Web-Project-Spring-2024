@@ -112,6 +112,10 @@ exports.getSingleProductRetro = async (req, res) => {
 
 
 exports.getSingleProductCart = async (req, res) => {
+    if (!req.session.user) {
+        req.session.alertMessage = "Please login to be able to add items to the cart!";
+        return res.redirect('/login');
+    }
     const errors = {};
     const size = req.params.size;
     const inputValue = parseInt(req.params.quantity, 10);

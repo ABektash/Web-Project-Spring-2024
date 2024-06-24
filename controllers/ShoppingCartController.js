@@ -1,6 +1,24 @@
 exports.getShoppingCartPage = (req, res) => {
-    res.render('pages/ShoppingCart', { user: req.session.user, products: req.session.cart.products, quantities: req.session.cart.quantities, total: req.session.cart.total });
+    if (!req.session.user) {
+        req.session.alertMessage = "Please login to be able to view your shopping cart!";
+        return res.redirect('/login');
+    }
+    if (req.session.cart){
+        return res.render('pages/ShoppingCart', { 
+            user: req.session.user, 
+            products: req.session.cart.products, 
+            quantities: req.session.cart.quantities, 
+            total: req.session.cart.total 
+        });
+    }
+    res.render('pages/ShoppingCart', { 
+        user: req.session.user, 
+        products: {},
+        quantities: 0,
+        total: 0
+    });
 };
+
 
 
 exports.deleteCartProduct = (req, res) => {

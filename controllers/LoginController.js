@@ -2,7 +2,9 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 
 exports.getLogin = (req, res) => {
-  res.render('pages/Login', { errors: {}, get: true, user: req.session.user });
+  const alertMessage = req.session.alertMessage;
+   req.session.alertMessage = null;
+  res.render('pages/Login', { errors: {}, get: true, user: req.session.user,alertMessage:alertMessage});
 };
 
 exports.postLogin = async (req, res) => {

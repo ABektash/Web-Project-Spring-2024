@@ -3,6 +3,10 @@ const Product = require('../models/Product');
 const Ticket = require('../models/Ticket');
 
 exports.getBuyPage = (req, res) => {
+    if (!req.session.user) {
+        req.session.alertMessage = "Please login to be able to buy tickets!";
+        return res.redirect('/login');
+    }
     res.render('pages/BuyPage', { errors: {}, get: true, user: req.session.user });
 };
 

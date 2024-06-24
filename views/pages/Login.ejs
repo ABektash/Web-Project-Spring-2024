@@ -20,7 +20,9 @@
   </head>
 
   <body>
+
     <%- include('../partials/header', { user: user }) %>
+    
 
     <form
       id="loginForm"
@@ -48,5 +50,13 @@
     </form>
 
     <%- include('../partials/footer') %>
+
+    <% if (alertMessage) { %>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          alert("<%= alertMessage %>");
+        });
+      </script>
+      <% } %>
   </body>
 </html>
