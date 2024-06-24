@@ -1,113 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/css/Profile.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <script src="/js/Profile.js"></script>
-  <title>Profile</title>
-</head>
-<body>
-  <%- include('../partials/header', { user: user }) %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/Profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="/js/Profile.js"></script>
+    <title>Profile</title>
+  </head>
+  <body>
+    <%- include('../partials/header', { user: user }) %>
+    <div class="head-title" style="font-size: larger; visibility: hidden">
+      <div class="backbtn">
+        <ul class="pageSub">
+          <li><i class="bx bx-chevron-right"></i></li>
+          <li>
+            <a class="back" href="/Profile">Back</a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-  <div class="wrapper">
-    <div class="profile__container">
-      <div class="left">
-        <span>Welcome <br /><%= user.name %></span>
-        <img id="ball" src="images/ball.png" alt="ball" />
-        <div>
-          <span><a href="/Profile/edit/<%=user.id%>" style="font-size:xx-large; color: #ffffff;">Edit Profile</a></span>
-          <a href="/logout" style="font-size:xx-large; color: #ffffff;">logout</a>
+    <div class="wrapper">
+      <div class="profile__container" id="profileContainer">
+        <div class="left">
+          <span>Welcome <br /><%= user.name %></span>
+          <img id="ball" src="images/ball.png" alt="ball" />
+          <div>
+            <span>
+              <a
+                href="/Profile/edit/<%= user.id %>"
+                style="font-size: xx-large; color: #ffffff"
+                >Edit Profile</a
+              >
+            </span>
+            <a href="/logout" style="font-size: xx-large; color: #ffffff"
+              >logout</a
+            >
+          </div>
+          <div>
+            <button id="profile__theme__Red">Home</button>
+            <button id="profile__theme__Green">Away</button>
+          </div>
+        </div>
+
+        <div class="center">
+          <img
+            class="t-shirt"
+            id="tShirtImage"
+            src="<%= user.shirtImg %>"
+            alt="t-shirt" />
+          <span id="name"
+            ><%= user.shirtName || user.name.split(' ')[0] %></span
+          >
+          <span id="shirtNumber"><%= user.shirtNumber || 0 %></span>
+        </div>
+
+        <div id="buyNowContainer" style="display: none">
+          <div class="prof-det-container">
+            <p class="buyShirtName">
+              <%= user.shirtName || user.name.split(' ')[0] %> custom kit
+            </p>
+            <p class="buyShirtNumber">
+              Shirt number: <%= user.shirtNumber || 0 %>
+            </p>
+            <p>Price: $60</p>
+            <p style="margin-bottom: 1px">Select Size:</p>
+
+            <div id="profileSize-container">
+              <button class="profileSize">S</button>
+              <button class="profileSize">M</button>
+              <button class="profileSize">L</button>
+              <button class="profileSize">XL</button>
+              <button class="profileSize">XXL</button>
+            </div>
+            <button class="BuyNow">Buy Now</button>
+          </div>
+        </div>
+
+        <div class="profile__details">
+          <ul class="profile__info">
+            <li>
+              <div class="profile-dob">
+                <p class="headling"><b>Date of birth</b></p>
+                <p><%= new Date(user.birthdate).toLocaleDateString() %></p>
+              </div>
+            </li>
+            <li>
+              <div class="profile-age">
+                <p class="headling"><b>Age</b></p>
+                <p>
+                  <%= Math.floor((new Date() - new Date(user.birthdate)) /
+                  (365.25 * 24 * 60 * 60 * 1000)) %>
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="profile-tshirt-no">
+                <p class="headling" id="shirtNoContainer">
+                  <span><b>Shirt no.</b></span>
+                  <span class="editButton" onclick="editShirtNumber()"
+                    >Edit</span
+                  >
+                </p>
+                <p id="number"><%= user.shirtNumber || 0 %></p>
+              </div>
+            </li>
+            <li>
+              <div class="profile-tshirt-no">
+                <p class="headling" id="shirtNameContainer">
+                  <span><b>Shirt Name</b></span>
+                  <span class="editButton" onclick="editShirtName()">Edit</span>
+                </p>
+                <p id="shirtName">
+                  <%= user.shirtName || user.name.split(' ')[0] %>
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="profile-History">
+                <button id="showPopUp" onclick="showPopup()">
+                  Purchase History
+                </button>
+              </div>
+              <div class="profile-History">
+                <button
+                  id="showPopUp"
+                  onclick="saveShirtDetails()"
+                  style="margin-top: 5px">
+                  Save
+                </button>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-
-      <div class="center">
-        <img class="t-shirt" src="https://www.manutd.com/assets/images/bg/t-shirt.png" alt="a" />
-        <span id="name"><%= user.name.split(' ')[1] %></span> <!-- Assuming the last name is the second part -->
-        <span id="shirtNumber">0</span>
-      </div>
-
-      <div class="profile__details">
-        <ul class="profile__info">
-          <li>
-            <div class="profile-dob">
-              <p class="headling"><b>Date of birth</b></p>
-              <p><%= new Date(user.birthdate).toLocaleDateString() %></p>
-            </div>
-          </li>
-          <li>
-            <div class="profile-age">
-              <p class="headling"><b>Age</b></p>
-              <p><%= Math.floor((new Date() - new Date(user.birthdate)) / (365.25 * 24 * 60 * 60 * 1000)) %></p>
-            </div>
-          </li>
-          <li>
-            <div class="profile-tshirt-no">
-              <p class="headling" id="shirtNoContainer">
-                <span><b>Shirt</b></span>
-                <span class="editButton" onclick="editShirtNumber()">Edit</span>
-              </p>
-              <p id="number">0</p>
-            </div>
-          </li>
-          <li>
-            <div class="profile-predictions">
-              <p class="headling">Prediction Points</p>
-              <p><%= user.points %></p>
-            </div>
-          </li>
-          <li>
-            <div class="profile-History">
-              <button id="showPopUp" onclick="showPopup()">Purchase History</button>
-            </div>
-          </li>
-        </ul>
-      </div>
     </div>
-  </div>
 
-  <div id="myPopUp" class="popup">
-    <div class="popup-content">
-      <div class="popup-header">
-        <span class="close">&times;</span>
-        <h2>Purchase history</h2>
-      </div>
-      <div class="popup-body">
-        <ul id="list">
-          <% uniqueProductNames.forEach(name => { %>
+    <div id="myPopUp" class="popup">
+      <div class="popup-content">
+        <div class="popup-header">
+          <span class="close">&times;</span>
+          <h2>Purchase history</h2>
+        </div>
+        <div class="popup-body">
+          <h3 style="color: #c70101">Products</h3>
+          <ul id="productList">
+            <% uniqueProductNames.forEach(name => { %>
             <li><%= name %></li>
-          <% }); %>
-        </ul>
+            <% }); %>
+          </ul>
+          <h3 style="color: #c70101">Matches</h3>
+          <ul id="matchList">
+            <% uniqueMatchNames.forEach(match => { %>
+            <li><%= match %></li>
+            <% }); %>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="profile_description">
-    <span><b><%= user.name %></b> is one of our most loyal fans.</span>
-  </div>
+    <div class="profile_description">
+      <span
+        ><b><%= user.name %></b> is one of our most loyal fans. Buy your
+        customized shirt <button id="herebtn">here</button></span
+      >
+    </div>
 
-  <%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>
 
-  <script>
-    function showPopup() {
-      var popup = document.getElementById("myPopUp");
-      var btn = document.getElementById("showPopUp");
-      var span = document.getElementsByClassName("close")[0];
+    <script>
+      function showPopup() {
+        var popup = document.getElementById("myPopUp");
+        var btn = document.getElementById("showPopUp");
+        var span = document.getElementsByClassName("close")[0];
 
-      popup.style.display = "block";
+        popup.style.display = "block";
 
-      span.onclick = function () {
-        popup.style.display = "none";
-      }
-
-      window.onclick = function (event) {
-        if (event.target == popup) {
+        span.onclick = function () {
           popup.style.display = "none";
-        }
+        };
+
+        window.onclick = function (event) {
+          if (event.target == popup) {
+            popup.style.display = "none";
+          }
+        };
       }
-    }
-  </script>
-</body>
+
+      function saveShirtDetails() {
+        const shirtName = document.getElementById("name").innerText;
+        const shirtNumber = document.getElementById("shirtNumber").innerText;
+        const shirtImg = document.querySelector(".t-shirt").src;
+
+        fetch("/Profile/updateShirtDetails", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ shirtName, shirtNumber, shirtImg }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Successful saving");
+            document.getElementById("shirtName").innerText = data.shirtName;
+            document.getElementById("number").innerText = data.shirtNumber;
+          })
+          .catch((error) => {
+            console.error("Error saving shirt details:", error);
+          });
+      }
+
+      const homeButton = document.getElementById("profile__theme__Red");
+      const awayButton = document.getElementById("profile__theme__Green");
+      const buyNowContainer = document.getElementById("buyNowContainer");
+      const herebtn = document.getElementById("herebtn");
+      const profileSizeContainer = document.getElementById(
+        "profileSize-container"
+      );
+      const tShirtImage = document.querySelector(".t-shirt");
+      const profileContainer = document.querySelector(".profile__container");
+      const left = document.querySelector(".left");
+      const details = document.querySelector(".profile__details");
+      const description = document.querySelector(".profile_description");
+      const backbtn = document.querySelector(".head-title");
+
+      if (
+        tShirtImage.src.includes(
+          "https://www.manutd.com/assets/images/bg/t-shirt.png"
+        )
+      ) {
+        profileContainer.style.background = "#6b0000";
+        profileContainer.style.boxShadow =
+          "inset 7px 7px 14px #ff0202, inset -7px -7px 14px #ff0202";
+      } else if (tShirtImage.src.includes("/Images/awayKit.png")) {
+        profileContainer.style.background = "#25433b";
+        profileContainer.style.boxShadow =
+          "inset 7px 7px 14px #00d49c, inset -7px -7px 14px #00d49c";
+      }
+
+      homeButton.addEventListener("click", function () {
+        tShirtImage.src = "https://www.manutd.com/assets/images/bg/t-shirt.png";
+        profileContainer.style.background = "#6b0000";
+        profileContainer.style.boxShadow =
+          "inset 7px 7px 14px #ff0202, inset -7px -7px 14px #ff0202";
+      });
+
+      awayButton.addEventListener("click", function () {
+        tShirtImage.src = "/Images/awayKit.png";
+        profileContainer.style.background = "#25433b";
+        profileContainer.style.boxShadow =
+          "inset 7px 7px 14px #00d49c, inset -7px -7px 14px #00d49c";
+      });
+
+      herebtn.addEventListener("click", function () {
+        left.style.display = "none";
+        details.style.display = "none";
+        description.style.display = "none";
+        backbtn.style.visibility = "visible";
+        profileContainer.style.marginBottom = "105px";
+        buyNowContainer.style.display = "block";
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll(".profileSize");
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            buttons.forEach((btn) => btn.classList.remove("selected-sbtn"));
+            button.classList.add("selected-sbtn");
+          });
+        });
+      });
+
+      document
+        .querySelector(".BuyNow")
+        .addEventListener("click", async function () {
+          const sizeButton = document.querySelector(
+            ".profileSize.selected-sbtn"
+          );
+          const size = sizeButton ? sizeButton.innerText : null;
+
+          if (!size) {
+            alert("Please select a size.");
+            return;
+          }
+
+          const tShirtImage = document.querySelector(".t-shirt");
+          const shirtType = tShirtImage.src.includes(
+            "https://www.manutd.com/assets/images/bg/t-shirt.png"
+          )
+            ? "Custom Home Kit"
+            : "Custom Away Kit";
+
+          try {
+            const response = await fetch(
+              `/Profile/getProductIdByNameAndSize?name=${encodeURIComponent(
+                shirtType
+              )}&size=${encodeURIComponent(size)}`
+            );
+            const data = await response.json();
+            if (data.productId) {
+              window.location.href = `/buypage/custom/${data.productId}`;
+            } else {
+              alert("Product not found.");
+            }
+          } catch (error) {
+            console.error("Error fetching product ID:", error);
+            alert("An error occurred while trying to buy the product.");
+          }
+        });
+    </script>
+  </body>
 </html>

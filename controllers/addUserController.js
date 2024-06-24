@@ -69,6 +69,7 @@ exports.postAddUserPage = async (req, res) => {
 
             const saltRounds = 10;
             const hashedPassword = await bcrypt.hash(password, saltRounds);
+            const defaultShirtImg = "https://www.manutd.com/assets/images/bg/t-shirt.png";
             const newUser = new User({
                 name,
                 email,
@@ -76,7 +77,9 @@ exports.postAddUserPage = async (req, res) => {
                 gender,
                 type,
                 birthdate: new Date(year, month, day), 
-                points: 0,
+                shirtNumber: 0,
+                shirtName: name.split(' ')[0],
+                shirtImg: defaultShirtImg,
                 purchasedProducts: [],
                 purchasedTickets: []
             });

@@ -32,9 +32,14 @@ const userSchema = new Schema({
         enum: ['Admin', 'User'],
         required: true
     },
-    points: {
-        type: Number,
-        default: 0
+    shirtName: {
+        type: String
+    },
+    shirtNumber: {
+        type: Number
+    },
+    shirtImg: {
+        type: String
     },
     purchasedProducts: [{
         type: mongoose.Schema.Types.ObjectId,

@@ -31,8 +31,8 @@
     font-optical-sizing: auto;
     font-weight: bold;
     font-style: normal;
-    background: #c70101;
-    box-shadow: inset 7px 7px 14px #500000,
+    background: #6b0000;
+    box-shadow: inset 7px 7px 14px #ff0202,
         inset -7px -7px 14px #ff0202;
 }
 
@@ -80,6 +80,7 @@
     left: 52%;
     transform: translate(-55%, 50px);
     font-size: 2rem;
+    text-transform: uppercase;
 }
 
 .center #shirtNumber {
@@ -124,12 +125,12 @@
 
 .profile__info p {
     margin: 0;
-    color: white;
+    color: #ffe600;
 }
 
 .profile__info p.headling {
     font-size: xx-large;
-    color: #ffe600;
+    color: #ffffff;
 }
 
 .editButton {
@@ -146,17 +147,17 @@
 /* PopUp */
 
 .popup {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 100px; 
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
     font-size: small;
     text-align: center;
 }
@@ -170,31 +171,46 @@
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 30%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    width: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s;
 }
-.popup-body
-{
-    height: 200px;
+
+.popup-body {
+    height: auto;
+    text-align: left;
     overflow-x: hidden;
     overflow-y: auto;
-    text-align: center;
+    text-align: left;
     font-size: xx-large;
 }
 
 
 @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
 }
- 
+
 @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
 }
 
 
@@ -218,15 +234,137 @@
     color: white;
 }
 
-.popup-body {padding: 2px 16px;}
+.popup-body {
+    padding: 2px 16px;
+}
 
 #showPopUp {
-    background-color: #ffe600;
-    color: black; 
+    background-color: #ffffff;
+    color: black;
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
-    border-radius: 10px;
-  }
-  
+    border-radius: 15px;
+    margin-top: 5px
+}
+
+#profile__theme__Green {
+    background-color: #25433b;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-left: 5px;
+
+
+
+}
+
+#profile__theme__Red {
+    background-color: #ffe600;
+    color: black;
+    border-color: #000;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-top: 100px
+}
+
+#herebtn {
+    background-color: #ffffff;
+    color: rgb(0, 89, 255);
+    border: none;
+    font-size: xx-large;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+
+
+
+#profileSize-container {
+    display: flex;
+    justify-content: space-between;
+
+
+
+}
+
+.profileSize {
+
+    background-color: #ffe600;
+    color: rgb(0, 0, 0);
+    font-size: 0.7rem;
+    /* font-weight: 1000; */
+    font-size: x-large;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 4px;
+}
+
+.profileSize:hover {
+    cursor: pointer;
+    background-color: #8f8100;
+
+}
+
+.prof-det-container {
+    margin-left: 3px;
+
+}
+
+.prof-det-container p {
+    font-size: xx-large;
+    color: white;
+    margin-top: 2px;
+font-weight: 100;
+text-transform: capitalize;
+}
+
+.BuyNow {
+
+    background-color: #ffe600;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 3px;
+
+
+}
+
+.BuyNow:hover {
+    background-color: #8f8100;
+    cursor: pointer;
+}
+
+.BuyNow:active {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#buyNowContainer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 70px;
+
+    display: none;
+    /* justify-content: space-between; */
+    margin-right: 16rem;
+}
+
+
+.selected-sbtn {
+    border: rgb(255, 255, 255);
+    border-style: solid;
+    background-color: #8f8100;  
+}

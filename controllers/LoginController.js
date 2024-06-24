@@ -31,14 +31,14 @@ exports.postLogin = async (req, res) => {
   }
 
   if (Object.keys(errors).length > 0) {
-    return res.render('pages/Login', { errors, get: false, user: req.session.user });
+    return res.render('pages/Login', { errors, get: false, user: req.session.user, alertMessage: false });
   }
 
   try {
     const user = await User.findOne({ email });
     if (!user) {
       errors.email = "No account found with this email";
-      return res.render('pages/Login', { errors, get: false, user: req.session.user });
+      return res.render('pages/Login', { errors, get: false, user: req.session.user, alertMessage: false });
     }
 
     // Compare the provided password with the stored hashed password
@@ -46,7 +46,7 @@ exports.postLogin = async (req, res) => {
 
     if (!isMatch) {
       errors.password = "Incorrect password";
-      return res.render('pages/Login', { errors, get: false, user: req.session.user });
+      return res.render('pages/Login', { errors, get: false, user: req.session.user, alertMessage: false });
     }
 
     req.session.user = {
