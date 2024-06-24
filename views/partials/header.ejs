@@ -2,14 +2,15 @@
     <a id="navbar" href="/"><img src="/images/ManchesterUnitedLogo.png" width="80px" height="80px" class="Logo" alt="Team Logo"></a>
     <div>
         <ul id="navbar">
-            <li><a class="active" href="/">Home</a></li>
-            <li><a href="/shop">Shop</a></li>
-            <li><a href="/Tickets">Tickets</a></li>
-            <li><a href="/Fixtures">Fixtures & Standings</a></li>
-            <li><a href="/News">News</a></li>
-            <li><a href="/Players">Players</a></li>
-            <li><a href="/about">About</a></li>
-
+            <li><a class="active" href="/"><%= __('home') %></a></li>
+            <li><a href="/shop"><%= __('shop') %></a></li>
+            <li><a href="/Tickets"><%= __('tickets') %></a></li>
+            <li><a href="/Fixtures"><%= __('fixtures') %></a></li>
+            <li><a href="/News"><%= __('news') %></a></li>
+            <li><a href="/Players"><%= __('players') %></a></li>
+            <li><a href="/about"><%= __('about') %></a></li>
+            <li><a href="/ShoppingCart"><i style="color: white; cursor: pointer;" class="fa-solid fa-bag-shopping"></i></a></li>
+           
             <% if (user) { %>
                 <li><a href="/Profile">
                     <% if (user.image) { %>

@@ -40,7 +40,7 @@ exports.postAddUserPage = async (req, res) => {
         }
 
         if (!type) {
-            errors.type = 'Please select a type for the User';
+            errors.type = 'Please select a type';
         }
 
         if (!day) {
@@ -59,6 +59,12 @@ exports.postAddUserPage = async (req, res) => {
             errors.year = 'Please enter the year';
         } else if (!/^\d{4}$/.test(year)) {
             errors.year = 'Year must be a valid 4-digit number';
+        }else {
+            const enteredDate = new Date(year, month, day);
+            const currentDate = new Date();
+            if (enteredDate >= currentDate) {
+                errors.year = 'Invalid date';
+            }
         }
 
         if (Object.keys(errors).length > 0) {
@@ -76,7 +82,7 @@ exports.postAddUserPage = async (req, res) => {
                 password: hashedPassword,
                 gender,
                 type,
-                birthdate: new Date(year, month, day), 
+                birthdate: new Date(year, month - 1, day), 
                 shirtNumber: 0,
                 shirtName: name.split(' ')[0],
                 shirtImg: defaultShirtImg,

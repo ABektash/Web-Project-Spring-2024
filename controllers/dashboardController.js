@@ -11,7 +11,7 @@ exports.getDashboardPage = async (req, res) => {
             totalSales += product.price * product.noOfSoldPieces;
         });
 
-        const topUsers = await User.find().sort({ points: -1 }).limit(5);
+        const topUsers = await User.find().sort({ purchasedProducts: -1 }).limit(5);
 
         const mostOrderedProduct = await Product.findOne().sort({ noOfSoldPieces: -1 });
 

@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
   <!-- SIDEBAR -->
   <section id="sidebar">
     <a href="/dashboard" class="brand">
-        <img src="images/manu.png" alt="Admin Image">
+        <img src="/images/manu.png" alt="Admin Image">
         <span class="text">Welcome admin!</span>
     </a>
     <ul class="side-menu top">
@@ -127,6 +127,14 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
   </div>
 
+  <div class="productRow">
+    <label>Number of Available Pieces</label>
+    <input type="number" name="quantity" placeholder="Enter quantity available" value="<%= product.quantity %>"/>
+    <div class="error" id="quantityErr">
+        <%= errors.quantity || "" %>
+    </div>
+</div>
+
 <div>
   <div class="productRow" style="display: flex; justify-content: space-between; gap: 20px;">
     <div class="field" style="flex: 1;">
@@ -150,7 +158,6 @@ document.addEventListener('DOMContentLoaded', function () {
         <option value="Training" <%= product.section === 'Training' ? 'selected' : '' %>>Training</option>
         <option value="Hoodies and Sweatshirts" <%= product.section === 'Hoodies and Sweatshirts' ? 'selected' : '' %>>Hoodies and Sweatshirts</option>
         <option value="Trousers and Shorts" <%= product.section === 'Trousers and Shorts' ? 'selected' : '' %>>Trousers and Shorts</option>
-        <option value="Footwear" <%= product.section === 'Footwear' ? 'selected' : '' %>>Footwear</option>
         <option value="Headwear" <%= product.section === 'Headwear' ? 'selected' : '' %>>Headwear</option> 
       </select>
       <div class="error">

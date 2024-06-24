@@ -82,19 +82,25 @@ exports.posteditProfilePage = async (req, res) => {
         }
 
         try {
-            const saltRounds = 10;
-            const hashedPassword = await bcrypt.hash(password, saltRounds);
-            const image = req.files.image ? req.files.image[0].filename : req.body.currentImage;
-            // Update user data
-            await User.findByIdAndUpdate(userId, {
+            const user = await User.findById(userId);
+            let updatedFields = {
                 name,
                 email,
-                password: hashedPassword,
                 gender,
                 type,
-                birthdate: new Date(year, month, day),
-                image
-            });
+                birthdate: new Date(year, month - 1, day), 
+                image: req.files.image ? req.files.image[0].filename : req.body.currentImage,
+            };
+
+            if (password !== user.password) {
+                const saltRounds = 10;
+                const hashedPassword = await bcrypt.hash(password, saltRounds);
+                updatedFields.password = hashedPassword;
+            } else {
+                updatedFields.password = user.password;
+            }
+
+            await User.findByIdAndUpdate(userId, updatedFields);
             res.redirect('/Profile');
         } catch (err) {
             console.error('Error editing user:', err);

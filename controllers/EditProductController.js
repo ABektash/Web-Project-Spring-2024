@@ -21,6 +21,7 @@ exports.postEditProductPage = (req, res) => {
       return res.render('pages/EditProduct', { product: {}, errors: { productImg: err }, get: false, admin: req.session.user });
     }
 
+    console.log(req.body);
     const { name,category,section, price, quantity, size } = req.body;
     const errors = {};
     const productId = req.params.id;
@@ -50,11 +51,13 @@ exports.postEditProductPage = (req, res) => {
       errors.section = "Please select a section";
     }
 
+    console.log("AUERFVIURBiufeuir");
     // Image validation (optional)
     if (!req.files && !req.body.currentProductImg) {
       errors.productImg = "Please upload an image";
     }
 
+    console.log(errors);
     if (Object.keys(errors).length > 0) {
       try {
         const product = await Product.findById(productId);
@@ -67,6 +70,7 @@ exports.postEditProductPage = (req, res) => {
 
     // Update product
     try {
+      console.log("AUERFVIURBiufeuir");
       const productImg = req.files.productImg ? req.files.productImg[0].filename : req.body.currentProductImg;
       await Product.findByIdAndUpdate(productId, {
         name,

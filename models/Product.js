@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema({
   section:
   {
     type:String,
-    enum:['Football Kits','Training','Hoodies and Sweatshirts','Trousers and Shorts','Footwear','Headwear']
+    enum:['Football Kits','Training','Hoodies and Sweatshirts','Trousers and Shorts','Headwear']
   },
   productImg: {
     type: String

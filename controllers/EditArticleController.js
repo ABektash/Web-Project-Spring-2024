@@ -44,10 +44,6 @@ exports.postEditArticlePage = (req, res) => {
       errors.body = "Please enter the body of the article";
     }
 
-    if (!req.files || !req.files.articleImg) {
-      errors.articleImg = "Please upload an image";
-    }
-
     if (Object.keys(errors).length > 0) {
       try {
         const article = await Article.findById(articleId);

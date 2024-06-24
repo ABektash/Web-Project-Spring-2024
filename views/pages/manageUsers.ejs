@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -91,9 +92,9 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Top 5 Users By Points</h3>
+                        <h3>Users</h3>
                     </div>
-                    <table>
+                    <table id="usersTable">
                         <thead>
                             <tr>
                                 <th>User</th>
@@ -158,6 +159,28 @@
                 alert('An error occurred while deleting the user');
             }
         });
+
+        function searchTable() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("navSearchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("usersTable");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }       
+            }
+        }
     </script>
 </body>
 </html>

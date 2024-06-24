@@ -63,6 +63,12 @@ exports.postEditUserPage = async (req, res) => {
             errors.year = 'Please enter the year';
         } else if (!/^\d{4}$/.test(year)) {
             errors.year = 'Invalid number';
+        }else {
+            const enteredDate = new Date(year, month, day);
+            const currentDate = new Date();
+            if (enteredDate >= currentDate) {
+                errors.year = 'Invalid date';
+            }
         }
 
         if (Object.keys(errors).length > 0) {

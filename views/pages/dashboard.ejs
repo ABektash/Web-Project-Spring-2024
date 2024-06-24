@@ -86,13 +86,13 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Top 5 Users By Points</h3>
+                        <h3>Top 5 Users by Purchased Products</h3>
                     </div>
                     <table>
                         <thead>
                             <tr>
                                 <th>User</th>
-                                <th>Points</th>
+                                <th>Number of Purchased Products</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -107,7 +107,7 @@
 
                                         <p><%= user.name %></p>
                                     </td>
-                                    <td><%= user.points %></td>
+                                    <td><%= user.purchasedProducts.length %></td>
                                 </tr>
                             <% }); %>
                         </tbody>

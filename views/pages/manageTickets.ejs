@@ -13,11 +13,10 @@
 
 <body>
 
-
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="/dashboard" class="brand">
-            <img src="images/manu.png" alt="Admin Image">
+            <img src="/images/manu.png" alt="Admin Image">
             <span class="text">Welcome admin!</span>
         </a>
         <ul class="side-menu top">
@@ -67,83 +66,76 @@
     <section id="content">
         <!-- NAVBAR -->
         <%- include('../partials/nav', { user: admin }) %>
-            <main>
-                <div class="head-title">
-                    <div class="left">
-                        <h1>Manage tickets</h1>
-                        <ul class="pageSub">
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li>
-                                <a class="active" href="/addTicket">Add ticket</a>
-                            </li>
-                        </ul>
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Manage tickets</h1>
+                    <ul class="pageSub">
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a class="active" href="/addTicket">Add ticket</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="modal-Id-tickets" class="modal">
+                <span onclick="document.getElementById('modal-Id-tickets').style.display='none'" class="close"
+                    title="Close Modal">×</span>
+                <form class="modal-content">
+                    <div class="container">
+                        <h1>Delete Ticket</h1>
+                        <p>Are you sure you want to delete this Ticket?</p>
+                        <div class="clearfix">
+                            <button type="button"
+                                onclick="document.getElementById('modal-Id-tickets').style.display='none'"
+                                class="cancelbtn">Cancel</button>
+                            <button type="button" id="confirmDeleteBtn" class="deletebtn">Delete</button>
+                        </div>
                     </div>
-                </div>
-                <div id="modal-Id-tickets" class="modal">
-                    <span onclick="document.getElementById('modal-Id-tickets').style.display='none'" class="close"
-                        title="Close Modal">×</span>
-                    <form class="modal-content">
-                        <div class="container">
-                            <h1>Delete Ticket</h1>
-                            <p>Are you sure you want to delete this Ticket?</p>
-                            <div class="clearfix">
-                                <button type="button"
-                                    onclick="document.getElementById('modal-Id-tickets').style.display='none'"
-                                    class="cancelbtn">Cancel</button>
-                                <button type="button"
-                                    class="deletebtn" id="confirmDeleteBtn">Delete</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="table-data">
-                    <div class="order">
-                        <div class="head">
-                            <h3>Tickets</h3>
-                        </div>
-                        <table>
-                            <thead>
+                </form>
+            </div>
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Tickets</h3>
+                    </div>
+                    <table id="ticketsTable">
+                        <thead>
+                            <tr>
+                                <th>Match</th>
+                                <th>Date</th>
+                                <th>Stadium</th>
+                                <th>Price</th>
+                                <th>Ticket Type</th>
+                                <th>Delete</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% tickets.forEach(ticket => { %>
                                 <tr>
-                                    <th>Match</th>
-                                    <th>Date</th>
-                                    <th>Stadium</th>
-                                    <th>Price</th>
-                                    <th>Ticket Type</th>
-                                    <th>Delete</th>
-                                    <th>Edit</th>
+                                    <td><%= ticket.match %></td>
+                                    <td><%= ticket.date.toDateString() %></td>
+                                    <td><%= ticket.stadium %></td>
+                                    <td>$<%= ticket.price %></td>
+                                    <td><%= ticket.ticketType.toUpperCase() %></td>
+                                    <td class="de" id="delete">
+                                        <a onclick="openDeleteModal('<%= ticket._id %>')">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </td>
+                                    <td class="de" id="edit">
+                                        <a href="/manageTickets/edit/<%= ticket._id %>">
+                                            <i class="fa-solid fa-pencil"></i>
+                                        </a>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <% tickets.forEach(ticket=> { %>
-                                    <tr>
-                                        <td>
-                                            <%= ticket.match %>
-                                        </td>
-                                        <td>
-                                            <%= ticket.date.toDateString() %>
-                                        </td>
-                                        <td>
-                                            <%= ticket.stadium %>
-                                        </td>
-                                        <td>$<%= ticket.price %>
-                                        </td>
-                                        <td>
-                                            <%= ticket.ticketType.toUpperCase() %>
-                                        </td>
-                                        <td class="de" id="delete">
-                                            <a onclick="openDeleteModal('<%= ticket._id %>')">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </a>
-                                        </td>
-                                        <td class="de" id="edit"><a href="/manageTickets/edit/<%= ticket._id %>"><i
-                                                    class="fa-solid fa-pencil"></i></a></td>
-                                    </tr>
-                                    <% }) %>
-                            </tbody>
-                        </table>
-                    </div>
+                            <% }) %>
+                        </tbody>
+                    </table>
                 </div>
-            </main>
+            </div>
+        </main>
     </section>
     <script>
         let ticketIdToDelete = '';
@@ -166,12 +158,30 @@
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('An error occurred while deleting the product');
+                alert('An error occurred while deleting the ticket');
             }
         });
+
+        function searchTable() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("navSearchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("ticketsTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
     </script>
-
-
 </body>
 
 </html>
