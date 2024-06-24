@@ -19,7 +19,7 @@
     <section id="categories">
         <div class="cat-bar">
             <ul>
-                <li><a href="#product-1">Football Kits</a></li>
+                <li> <a href="#product-1"></i>Football Kits</a></li>
                 <li><a href="#product-2">Training</a></li>
                 <li><a href="#product-3">Hoodies and Sweatshirts</a></li>
                 <li><a href="#product-4">Trousers and Shorts</a></li>
@@ -52,8 +52,8 @@
                         <h5><%= product.name %></h5>
                         <h4>$<%= product.price %></h4>
                     </div>
-                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></i></a>
-
+                    <!-- <a href="#"><i class="fa-solid fa-cart-shopping"></i></i></a> -->
+<button class="pcbtn">Add To Cart  <i class="fa-solid fa-cart-plus"></i></button>
                 </div>
             <% }) %>
         </div>
@@ -70,15 +70,8 @@
                     <img src="/uploads/<%= product.productImg %>" alt="error loading the image">
                     <div class="des">
                         <span>adidas</span>
-                        <h5><%= product.name %></h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$<%= product.price %></h4>
+                        <h5><%= product.name %></h5> 
+                        <h4 >$<%= product.price %></h4>
                     </div>
                     <a href="#"><i class="fal fa-shopping-cart"></i></a>
                 </div>

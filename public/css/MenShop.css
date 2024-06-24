@@ -317,10 +317,11 @@ body {
 
 html {
     scroll-behavior: smooth;
+
 }
 
 
-#product-1 .pro .fa-solid,
+/* #product-1 .pro .fa-solid,
 #product-2 .pro .fa-solid,
 #product-3 .pro .fa-solid,
 #product-4 .pro .fa-solid,
@@ -338,6 +339,25 @@ html {
     font-weight: 500;
     color: white;
     border: 1px solid white;
-    /* text-align: center; */
+    text-align: center;
    
+} */
+.pcbtn
+{
+    color: white;
+    background-color: #bb052c;
+    width:250px;
+    height:3rem ;
+    border: none;
+    border-radius: 2rem;
+    transition: background-color 0.3s
+}
+.pcbtn i {
+    margin-left: 0.5rem; 
+}
+
+.pcbtn:hover
+{
+    background-color: #8a3044;
+    cursor: pointer;
 }
