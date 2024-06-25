@@ -2,26 +2,30 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const path = require('path');
-const i18n = require('i18n'); 
-const app = express();
+const i18n = require('i18n');
+const https = require('https');
+const fs = require('fs');
 require('dotenv').config();
 
+const app = express();
 
+// Set view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-
+// Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(i18n.init);
+// i18n configuration
 i18n.configure({
   locales: ['en', 'es', 'fr'],
   directory: path.join(__dirname, 'locales'),
   defaultLocale: 'en',
   cookie: 'lang'
 });
+app.use(i18n.init);
 app.use((req, res, next) => {
   const lang = req.query.lang || req.acceptsLanguages(i18n.getLocales()) || 'en';
   res.cookie('lang', lang, { maxAge: 900000, httpOnly: true });
@@ -30,32 +34,31 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
+// Session configuration
 app.use(session({
-    secret: 'secretkey123', 
-    resave: false,
-    saveUninitialized: false,
-    cookie: { maxAge: 1000 * 60 * 60 * 24 } 
+  secret: 'secretkey123',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }));
 
-
-app.use(i18n.init);
-
-
-mongoose.connect(process.env.MONGO_URI).then(() => {
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
     console.log('Connected to MongoDB');
-}).catch(err => {
+  })
+  .catch(err => {
     console.error('MongoDB connection error:', err);
-});
+  });
 
-
+// Language route
 app.get('/language/:locale', (req, res) => {
-    res.cookie('i18n', req.params.locale);
-    res.setLocale(req.params.locale);
-    res.redirect('back');
+  res.cookie('i18n', req.params.locale);
+  res.setLocale(req.params.locale);
+  res.redirect('back');
 });
 
+// Routes
 app.use('/', require('./routes/index'));
 app.use('/about', require('./routes/about'));
 app.use('/Fixtures', require('./routes/Fixtures'));
@@ -91,7 +94,14 @@ app.use('/manageArticles', require('./routes/manageArticles'));
 app.use('/editArticle', require('./routes/EditArticle'));
 app.use('/addArticle', require('./routes/addArticle'));
 
+// SSL certificate options
+const options = {
+  key: fs.readFileSync(path.join(__dirname, 'ssl', 'key.pem')),
+  cert: fs.readFileSync(path.join(__dirname, 'ssl', 'cert.pem')),
+};
+
+// Create HTTPS server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+https.createServer(options, app).listen(PORT, () => {
+  console.log(`HTTPS Server is running on https://localhost:${PORT}`);
 });
