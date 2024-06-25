@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const path = require('path');
-const i18n = require('./i18n'); 
+const i18n = require('i18n'); 
 const app = express();
 require('dotenv').config();
 
@@ -14,6 +14,22 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(i18n.init);
+i18n.configure({
+  locales: ['en', 'es', 'fr'],
+  directory: path.join(__dirname, 'locales'),
+  defaultLocale: 'en',
+  cookie: 'lang'
+});
+app.use((req, res, next) => {
+  const lang = req.query.lang || req.acceptsLanguages(i18n.getLocales()) || 'en';
+  res.cookie('lang', lang, { maxAge: 900000, httpOnly: true });
+  req.setLocale(lang);
+  res.locals.lang = lang;
+  next();
+});
+
 
 
 app.use(session({
