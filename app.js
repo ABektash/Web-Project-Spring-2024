@@ -9,16 +9,16 @@ require('dotenv').config();
 
 const app = express();
 
-// Set view engine
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Middleware
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// i18n configuration
+
 i18n.configure({
   locales: ['en', 'es', 'fr'],
   directory: path.join(__dirname, 'locales'),
