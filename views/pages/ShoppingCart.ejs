@@ -19,7 +19,7 @@
                 <h1>Shopping Cart</h1>
             </div>
         </section>
-        
+
         <section id="cart" class="section-p1">
             <h4 style="color: black; "><b>Note: </b>Users can only add products up to the available stock.</h4>
             <table width="100%">
@@ -81,7 +81,7 @@
                 <button id="checkout-btn">Proceed to checkout</button>
             </div>
         </section>
-
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <%- include('../partials/footer') %>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -112,7 +112,7 @@
                             const subtotalElement = document.querySelector(`tr[data-index="${index}"] .subtotal`);
                             const errorMessage = document.querySelector(`tr[data-index="${index}"] .error-message`);
 
-                            
+
                             if (quantity < 1 || quantity > maxQuantity) {
                                 errorMessage.style.display = 'block';
                                 quantity = quantity < 1 ? 1 : maxQuantity;
@@ -121,14 +121,14 @@
                                 errorMessage.style.display = 'none';
                             }
 
-                            
+
                             const newSubtotal = price * quantity;
                             subtotalElement.textContent = `$${newSubtotal.toFixed(2)}`;
 
-                        
+
                             updateCartTotal();
 
-                          
+
                             fetch('/ShoppingCart/updateQuantity', {
                                 method: 'POST',
                                 headers: {

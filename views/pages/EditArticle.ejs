@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="<%= lang %>">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,72 +11,73 @@
   <script src="/js/adminScript.js"></script>
   <script src="/js/Articles.js"></script>
 </head>
+
 <body>
   <!-- SIDEBAR -->
-     <section id="sidebar">
-        <a href="/dashboard" class="brand">
-            <img src="images/manu.png" alt="Admin Image">
-            <span class="text">Welcome admin!</span>
+  <section id="sidebar">
+    <a href="/dashboard" class="brand">
+      <img src="images/manu.png" alt="Admin Image">
+      <span class="text">Welcome admin!</span>
+    </a>
+    <ul class="side-menu top">
+      <li>
+        <a href="/dashboard">
+          <i class='bx bxs-dashboard'></i>
+          <span class="text">Dashboard</span>
         </a>
-        <ul class="side-menu top">
-            <li>
-                <a href="/dashboard">
-                    <i class='bx bxs-dashboard'></i>
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="/manageProducts">
-                    <i class='bx bxs-shopping-bag-alt'></i>
-                    <span class="text">Manage Products</span>
-                </a>
-            </li>
-            <li>
-                <a href="/manageUsers">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">Manage Users</span>
-                </a>
-            </li>
-            <li>
-                <a href="/manageTickets">
-                    <i class='bx bxs-dollar-circle'></i>
-                    <span class="text">Tickets</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="/manageArticles">
-                    <i class='bx bxs-news'></i>
-                    <span class="text">Manage Articles</span>
-                </a>
-            </li>
-        </ul>
-        <ul class="side-menu">
-            <li>
-              <a href="/logout" class="logout">
-                <i class='bx bxs-log-out-circle'></i>
-                <span class="text">Logout</span>
-            </a>
-            </li>
-        </ul>
-    </section>
+      </li>
+      <li>
+        <a href="/manageProducts">
+          <i class='bx bxs-shopping-bag-alt'></i>
+          <span class="text">Manage Products</span>
+        </a>
+      </li>
+      <li>
+        <a href="/manageUsers">
+          <i class='bx bxs-group'></i>
+          <span class="text">Manage Users</span>
+        </a>
+      </li>
+      <li>
+        <a href="/manageTickets">
+          <i class='bx bxs-dollar-circle'></i>
+          <span class="text">Tickets</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="/manageArticles">
+          <i class='bx bxs-news'></i>
+          <span class="text">Manage Articles</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="side-menu">
+      <li>
+        <a href="/logout" class="logout">
+          <i class='bx bxs-log-out-circle'></i>
+          <span class="text">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </section>
 
   <!-- CONTENT -->
   <section id="content">
     <!-- NAVBAR -->
     <%- include('../partials/nav', { user: admin }) %>
-    <main>
-      <div class="head-title">
-        <div class="left">
-          <h1><i class="fa-solid fa-pencil"></i> Edit Article</h1>
-          <ul class="pageSub">
-            <li><i class='bx bx-chevron-right'></i></li>
-            <li>
-              <a class="active" href="/manageArticles">Back</a>
-            </li>
-          </ul>
+      <main>
+        <div class="head-title">
+          <div class="left">
+            <h1><i class="fa-solid fa-pencil"></i> Edit Article</h1>
+            <ul class="pageSub">
+              <li><i class='bx bx-chevron-right'></i></li>
+              <li>
+                <a class="active" href="/manageArticles">Back</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
   </section>
 
   <!-- Edit Article Form -->
@@ -83,24 +85,32 @@
     <!-- <h2 id="addH2">Edit Article</h2> -->
     <div class="articleRow">
       <label>Article Title</label>
-      <input type="text" name="title" placeholder="Enter article title" value="<%= article.title  %>"  />
-      <div class="error" id="nameErr"><%=errors.title %></div>
+      <input type="text" name="title" placeholder="Enter article title" value="<%= article.title  %>" />
+      <div class="error" id="nameErr">
+        <%=errors.title %>
+      </div>
     </div>
     <div class="articleRow">
       <label>Description</label>
-      <textarea name="description" placeholder="Enter article description" ><%= article.description  %></textarea>
-      <div class="error" id="descriptionErr"><%=errors.description %></div>
+      <textarea name="description" placeholder="Enter article description"><%= article.description  %></textarea>
+      <div class="error" id="descriptionErr">
+        <%=errors.description %>
+      </div>
     </div>
     <div class="articleRow">
       <label>Body</label>
-      <textarea name="body" placeholder="Write body here" ><%= article.body  %></textarea>
-      <div class="error" id="bodyErr"><%=errors.body %></div>
+      <textarea name="body" placeholder="Write body here"><%= article.body  %></textarea>
+      <div class="error" id="bodyErr">
+        <%=errors.body %>
+      </div>
     </div>
     <div class="articleRow">
       <label>Upload Image</label>
       <input type="file" name="articleImg" accept="image/*" />
       <input type="hidden" name="currentArticleImg" value="<%= article.articleImg  %>" />
-      <div class="error" id="imageErr"><%=errors.articleImg %></div>
+      <div class="error" id="imageErr">
+        <%=errors.articleImg %>
+      </div>
       <div class="articleRow">
         <label>Current Image</label>
         <img src="/uploads/<%= article.articleImg  %>" alt="Article Image" style="max-width: 100px;" />
@@ -108,7 +118,7 @@
     </div>
     <div class="articleRow">
       <input type="submit" class="submit-btn" value="Edit Article" />
-      <% if (Object.keys(errors).length == 0 && !get) { %>
+      <% if (Object.keys(errors).length==0 && !get) { %>
         <div id="success">
           <p style="color: green; margin-top: 11px;">Successful</p>
         </div>
@@ -116,4 +126,5 @@
     </div>
   </form>
 </body>
+
 </html>

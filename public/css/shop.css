@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     font-family: 'Roboto Condensed';
 }
+
 /* shop */
 /* The three cards */
 
 #cardSec {
-  
+
     background-position: center;
     background-size: cover;
     background-color: #c70101;
@@ -17,6 +18,7 @@
     align-items: center;
     position: relative;
 }
+
 .cardImage {
     height: 500px;
 
@@ -160,7 +162,7 @@
     cursor: pointer;
     background-color: black;
     transform: scale(1.05);
-   
+
 }
 
 html {

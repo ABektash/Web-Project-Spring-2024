@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     font-family: 'Roboto Condensed';
 }
+
 /* shop page */
 #categories ul {
     list-style-type: none;
@@ -10,7 +11,7 @@
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    display:flex;
+    display: flex;
 }
 
 #categories li {
@@ -97,7 +98,7 @@
 #product-5 .pro-container,
 #product-6 .pro-container {
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     flex-wrap: wrap;
     padding: 2.0rem;
 }
@@ -131,8 +132,8 @@
 #product-5 .pro:hover,
 #product-6 .pro:hover {
     box-shadow: 20px 20px 30px rgb(0, 0, 0, 0.06);
-     /* transition: transform 0.3s ease; */
-     /* transform: scale(1.1); */
+    /* transition: transform 0.3s ease; */
+    /* transform: scale(1.1); */
 }
 
 #product-1 .pro img,
@@ -143,7 +144,7 @@
 #product-6 .pro img {
     width: 100%;
     /* border-radius: 20px; */
-    
+
 }
 
 #product-1 .pro .des,
@@ -176,7 +177,7 @@
     padding-top: 4px;
     color: #1a1a1a;
     font-size: 14px;
-    text-transform:capitalize;
+    text-transform: capitalize;
 }
 
 #product-1 .pro .des i,
@@ -342,22 +343,175 @@ html {
     text-align: center;
    
 } */
-.pcbtn
-{
+.pcbtn {
     color: white;
     background-color: #bb052c;
-    width:250px;
-    height:3rem ;
+    width: 250px;
+    height: 3rem;
     border: none;
     border-radius: 2rem;
     transition: background-color 0.3s
 }
+
 .pcbtn i {
-    margin-left: 0.5rem; 
+    margin-left: 0.5rem;
 }
 
-.pcbtn:hover
-{
+.pcbtn:hover {
     background-color: #8a3044;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    #product-1 .pro-container,
+    #product-2 .pro-container,
+    #product-3 .pro-container,
+    #product-4 .pro-container,
+    #product-5 .pro-container,
+    #product-6 .pro-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Center items horizontally */
+        padding: 0;
+        /* Remove padding to save space on smaller screens */
+    }
+
+    #product-1 .pro-container .pro,
+    #product-2 .pro-container .pro,
+    #product-3 .pro-container .pro,
+    #product-4 .pro-container .pro,
+    #product-5 .pro-container .pro,
+    #product-6 .pro-container .pro {
+        margin-bottom: 20px;
+        /* Add margin between each product */
+        width: 100%;
+        margin-left: auto;
+        /* Move products slightly left */
+        margin-right: auto;
+        /* Move products slightly right */
+    }
+
+    .men-content h2 {
+        font-size: 3rem;
+    }
+
+    .men-content {
+        width: 100%;
+    }
+
+    #categories ul {
+        overflow-x: auto;
+        /* Enable horizontal scrolling */
+        overflow-y: hidden;
+        /* Hide vertical scrollbar */
+        white-space: nowrap;
+        /* Ensure list items stay in a single line */
+        -webkit-overflow-scrolling: touch;
+        /* Enable smooth scrolling on iOS */
+    }
+
+    #categories li {
+        width: auto;
+        /* Allow items to adjust width based on content */
+        display: inline-block;
+    }
+
+    #categories li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    #categories li a:hover:not(.active) {
+        background-color: #111;
+    }
+
+    #hero2 h2 {
+        font-size: 3rem;
+    }
+
+    #hero2 {
+        width: 100%;
+    }
+    .retro-content {
+        width: 100%;
+        scale: 0.8;
+    }
+
+}
+
+@media (max-width: 1024px) and (min-width:769px) {
+
+    #product-1 .pro-container,
+    #product-2 .pro-container,
+    #product-3 .pro-container,
+    #product-4 .pro-container,
+    #product-5 .pro-container,
+    #product-6 .pro-container {
+        display: flex;
+        flex-wrap: wrap;
+        /* Allow items to wrap into multiple rows */
+        justify-content: center;
+        /* Center items horizontally */
+        padding: 0;
+        /* Remove padding */
+    }
+
+    #product-1 .pro-container .pro,
+    #product-2 .pro-container .pro,
+    #product-3 .pro-container .pro,
+    #product-4 .pro-container .pro,
+    #product-5 .pro-container .pro,
+    #product-6 .pro-container .pro {
+        width: calc(50% - 20px);
+        /* Calculate width for 2 cards per row with margin */
+        margin: 10px;
+        /* Margin between cards */
+    }
+
+    #categories ul {
+        overflow-x: auto;
+        /* Enable horizontal scrolling */
+        overflow-y: hidden;
+        /* Hide vertical scrollbar */
+        white-space: nowrap;
+        /* Ensure list items stay in a single line */
+        -webkit-overflow-scrolling: touch;
+        /* Enable smooth scrolling on iOS */
+    }
+
+    #categories li {
+        width: auto;
+        /* Allow items to adjust width based on content */
+        display: inline-block;
+    }
+
+    #categories li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    #categories li a:hover:not(.active) {
+        background-color: #111;
+    }
+
+    #hero2 h2 {
+        font-size: 3rem;
+    }
+
+    #hero2 {
+        width: 100%;
+    }
+    .retro-content p{
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
 }

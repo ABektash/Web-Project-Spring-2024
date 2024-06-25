@@ -2,206 +2,206 @@
 
 
 * {
-    
-    font-family: "Bebas Neue", sans-serif;
+
+  font-family: "Bebas Neue", sans-serif;
 }
+
 /* About */
-.about
-{
-    padding: 0%;
-    margin: 0%;
-    box-sizing: border-box;
-    text-align: center;
-    /* font-family:'Poppins' , sans-serif; */
-    
-   
-}
-.about_us
-{
-    min-height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-left: 3rem;
-    padding-right: 3rem;
+.about {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  text-align: center;
+  /* font-family:'Poppins' , sans-serif; */
+
 
 }
-.cont content 
-{
-    font-size: 25px;
-    color: #fff;
-    line-height: 1.5;
-    margin-top: 30px;
-    text-align: center;
+
+.about_us {
+  min-height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-left: 3rem;
+  padding-right: 3rem;
 
 }
-.cont h2
-{
-    text-transform: uppercase;
-    font-size: 65px;
-    font-weight: 475;
-    color: #fff;
-    margin-top: 25px;
-   /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+
+.cont content {
+  font-size: 25px;
+  color: #fff;
+  line-height: 1.5;
+  margin-top: 30px;
+  text-align: center;
+
 }
-.history
-{
-    min-height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
+
+.cont h2 {
+  text-transform: uppercase;
+  font-size: 65px;
+  font-weight: 475;
+  color: #fff;
+  margin-top: 25px;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
-.histoo h2
-{
-    font-size: 55px;
-    font-weight: 475;
-    color: #fff;
-    margin-top: 25px;
-   /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+
+.history {
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.histoo h2::after
-{
+
+.histoo h2 {
+  font-size: 55px;
+  font-weight: 475;
+  color: #fff;
+  margin-top: 25px;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+}
+
+.histoo h2::after {
   content: "";
   height: 3px;
   display: block;
   background-color: #c70101;
   margin: auto;
   width: 325px;
-  
-}
-.histoo content 
-{
-    font-size: 25px;
-    color: #fff;
-    line-height: 1.5;
-    margin-top: 30px;
-    text-align: center;
 
 }
-.cont h2::after
-{
+
+.histoo content {
+  font-size: 25px;
+  color: #fff;
+  line-height: 1.5;
+  margin-top: 30px;
+  text-align: center;
+
+}
+
+.cont h2::after {
   content: "";
   height: 3px;
   display: block;
   background-color: #c70101;
   margin: auto;
   width: 330px;
-  
-}
-.cont
-{
-    width: 80%;
-    padding: 30px 0px;
-    margin: auto;
-}
-.content h2::after
-{
-    width: 390px;
-}
-.content p
-{
-    font-size: 25px;
-    color: #fff;
-    line-height: 1.5;
-    margin-top: 30px;
-    text-align: center;
 
 }
-.Contact 
-{
-    padding-bottom: 4rem;
+
+.cont {
+  width: 80%;
+  padding: 30px 0px;
+  margin: auto;
 }
-.lengend
-{
-    display: flex;
-    gap : 2rem;
-    margin-top: 15rem;
-    grid-template-columns: repeat(3,1fr);
-    
+
+.content h2::after {
+  width: 390px;
 }
-.legend_record img
-{
-   max-width: 125px;
-   margin : auto;
-   margin-bottom: 1rem;
-   display: flex;
-   border-radius: 10px;
-  
+
+.content p {
+  font-size: 25px;
+  color: #fff;
+  line-height: 1.5;
+  margin-top: 30px;
+  text-align: center;
+
 }
-.legend_record
-{
+
+.Contact {
+  padding-bottom: 4rem;
+}
+
+.lengend {
   display: flex;
-  padding : 3rem;
+  gap: 2rem;
+  margin-top: 15rem;
+  grid-template-columns: repeat(3, 1fr);
+
+}
+
+.legend_record img {
+  max-width: 125px;
+  margin: auto;
+  margin-bottom: 1rem;
+  display: flex;
+  border-radius: 10px;
+
+}
+
+.legend_record {
+  display: flex;
+  padding: 3rem;
   border-radius: 3rem;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);  
-  background-color:black;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  background-color: black;
   margin-top: 1rem;
   padding-left: 3rem;
-    padding-right: 3rem;
- 
+  padding-right: 3rem;
+
 }
-.legend_record p
-{
-   text-align: left;
-   color: whitesmoke;
-   font-size: 1.5rem;
-   margin-left: 15px;
-   font-size: 150%;
+
+.legend_record p {
+  text-align: left;
+  color: whitesmoke;
+  font-size: 1.5rem;
+  margin-left: 15px;
+  font-size: 150%;
 }
-.our_legends h2
-{
-    color: white;
-    font-size: 55px;
-    font-weight: 475;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    width: 100%;
-    text-align: center;
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+
+.our_legends h2 {
+  color: white;
+  font-size: 55px;
+  font-weight: 475;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  width: 100%;
+  text-align: center;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
-.our_legends h2::after
-{
+
+.our_legends h2::after {
   content: "";
   height: 3px;
   display: block;
   background-color: #c70101;
   margin: auto;
   width: 350px;
-  
+
 }
-#content h2
-{
-    color: white;
-    font-size: 65px;
-    font-weight: 475;
-    padding-top: 2px;
-    margin-top: 2rem;
-    padding-bottom: 2px;
-    width: 100%;
-    text-align: center;
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+
+#content h2 {
+  color: white;
+  font-size: 65px;
+  font-weight: 475;
+  padding-top: 2px;
+  margin-top: 2rem;
+  padding-bottom: 2px;
+  width: 100%;
+  text-align: center;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
-#content h2::after
-{  
+
+#content h2::after {
 
   content: "";
   height: 3px;
   display: block;
   background-color: #c70101;
-  margin:auto;
+  margin: auto;
   width: 350px;
 
 }
-#content p
-{
-    font-size: 25px;
-    color: #fff;
-    line-height: 1.5;
-    margin-top: 30px;
-    text-align: center;
+
+#content p {
+  font-size: 25px;
+  color: #fff;
+  line-height: 1.5;
+  margin-top: 30px;
+  text-align: center;
 
 }
-.Contact
-{
+
+.Contact {
   font-weight: 475;
   justify-content: center;
   padding: 25px 100px;
@@ -210,49 +210,191 @@
   text-align: center;
   flex-direction: column;
 }
-.Contact .content
-{
-    max-width: 800px;
-    text-align: center;
-}
-.content{
-    display: flex;
-    min-height: 110vh;
+
+.Contact .content {
+  max-width: 800px;
+  text-align: center;
 }
 
-#TicketText{
-font-size: xx-large;
-color: white;
-/* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+.content {
+  display: flex;
+  min-height: 110vh;
+}
+
+#TicketText {
+  font-size: xx-large;
+  color: white;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
 
 .buttonTickets {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #ffcc00;
-    color: #000;
-    text-decoration: none;
-    border: 1px solid #000;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 16px;
-    text-transform: uppercase;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin-bottom: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  color: #000;
+  text-decoration: none;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+.buttonTickets:hover {
+  background-color: #ffdb4d;
+}
+
+.buttonTickets:active {
+  background-color: #ffaa00;
+}
+
+#StadiumImg {
+  border-radius: 20px;
+  width: 100%;
+}
+
+#trophiesImg {
+  border-radius: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .cont h2 {
+    font-size: 50px;
   }
-  
-  .buttonTickets:hover {
-    background-color: #ffdb4d;
+
+  .histoo h2,
+  .our_legends h2,
+  #content h2 {
+    font-size: 50px;
   }
-  
-  .buttonTickets:active {
-    background-color: #ffaa00;
+
+  .cont content,
+  .histoo content,
+  .content p,
+  #content p {
+    font-size: 22px;
   }
-  
-  #StadiumImg{
-    border-radius: 20px;
+
+  .legend_record {
+    flex-direction: column;
+    padding: 2rem;
   }
-  #trophiesImg{
-    border-radius: 20px;
-    margin-top: 20px;
+
+  .legend_record p {
+    text-align: center;
   }
+}
+
+@media (max-width: 992px) {
+  .cont h2 {
+    font-size: 45px;
+  }
+
+  .histoo h2,
+  .our_legends h2,
+  #content h2 {
+    font-size: 45px;
+  }
+
+  .cont content,
+  .histoo content,
+  .content p,
+  #content p {
+    font-size: 20px;
+  }
+
+  .legend {
+    flex-direction: column;
+  }
+
+  .legend_record {
+    padding: 1.5rem;
+  }
+
+  .legend_record p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cont h2 {
+    font-size: 40px;
+  }
+
+  .histoo h2,
+  .our_legends h2,
+  #content h2 {
+    font-size: 40px;
+  }
+
+  .cont content,
+  .histoo content,
+  .content p,
+  #content p {
+    font-size: 18px;
+  }
+
+  .legend_record {
+    padding: 1rem;
+  }
+
+  .legend_record p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  @media (max-width: 576px) {
+
+    .cont h2,
+    .histoo h2,
+    .our_legends h2,
+    #content h2 {
+      font-size: 40px;
+      margin: auto;
+      padding-bottom: 2rem;
+    }
+
+    .our_legends h2::after {
+      width: 60%;
+    }
+
+    .cont h2::after,
+    .histoo h2::after,
+    #content h2::after {
+      width: 100%;
+
+    }
+
+    #content p {
+      width: 100%;
+      margin: auto;
+      text-align: center;
+    }
+
+    #content {
+      width: 100%;
+    }
+
+    .histoo content {
+      width: 90%;
+      margin: auto;
+    }
+
+    .Contact {
+      font-weight: 475;
+      justify-content: center;
+      padding: 25px 10px;
+      margin-top: 2rem;
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+    }
+  }
+
+}

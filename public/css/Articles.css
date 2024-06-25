@@ -96,3 +96,39 @@ select {
     transform: translateY(-50%);
   }
 
+  @media (max-width: 768px) {
+    #articleForm {
+        width: 300px;
+        background: #ffffff;
+        padding: 20px 35px 35px;
+        margin: 50px auto 0;
+        border-radius: 3mm;
+        margin-bottom: 4cm;
+        margin-top: 8px;
+        padding-bottom: 0.2cm;
+        background: #ffffff;
+        font-family: 'Lato', sans-serif;
+        margin-left: 6rem;
+    
+    }
+
+    /* Stack form elements vertically */
+    #productForm label,
+    #productForm input,
+    #productForm select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #productForm .price-input {
+        width: 100%;
+    }
+
+    #productForm .currency {
+        display: none;
+    }
+
+    #productForm .productRow {
+        display: block; /* Ensures each row stacks vertically */
+    }
+}

@@ -98,3 +98,36 @@ main {
     background: #740000;
 }
 
+@media (max-width: 768px) {
+    .head-title .left h1 {
+        font-size: 28px; /* Adjust title font size for smaller screens */
+    }
+
+    #editProfileForm {
+        padding: 15px; /* Adjust padding for smaller screens */
+        width: 80%;
+        margin-bottom: 4rem;
+    }
+
+    #editProfileForm input,
+    #editProfileForm select {
+        padding: 8px; /* Adjust input padding for smaller screens */
+        font-size: 14px; /* Reduce font size for smaller screens */
+    }
+
+    #editProfileForm .editProfileRow {
+        display: flex;
+        flex-direction: column; /* Stack fields vertically */
+    }
+
+    #editProfileForm .editProfileRow label {
+        margin-bottom: 5px; /* Space between labels */
+    }
+
+    #editProfileForm input[type="submit"] {
+        font-size: 16px; /* Adjust button font size for smaller screens */
+        padding: 10px 18px; /* Adjust button padding */
+    }
+}
+
+

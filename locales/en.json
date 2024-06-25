@@ -22,5 +22,7 @@
 	"legends": "legends",
 	"onlineShop": "onlineShop",
 	"merch": "merch",
-	"followUs": "followUs"
+	"followUs": "followUs",
+	"online": "online",
+    "shop": "shop"
 }

@@ -137,6 +137,35 @@ h2{
 }
 
 
+@media (max-width: 1024px) and ( min-width:769px) {
+
+    .tick_grid
+    {
+      display: grid;
+      gap : 2rem;
+      margin-top: 4rem;
+      grid-template-columns: repeat(2,1fr);
+      padding-left:2rem ;
+      padding-right: 2rem;
+    }
+
+}
+
+/*responsive*/
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .tick_grid
+    {
+      display: grid;
+      gap : 2rem;
+      margin-top: 4rem;
+      grid-template-columns: repeat(1,1fr);
+      padding-left:2rem ;
+      padding-right: 2rem;
+    }
+}
+
+
 
 
 

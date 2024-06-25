@@ -49,8 +49,8 @@ form {
     margin-bottom: 2.45cm;
     margin-top: 1.4cm;
     background: #ffffff;
-    box-shadow:  -19px 19px 38px #bfbfbf,
-                 19px -19px 38px #c5c5c5;
+    box-shadow: -19px 19px 38px #bfbfbf,
+        19px -19px 38px #c5c5c5;
 }
 
 label {

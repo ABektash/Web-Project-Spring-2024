@@ -288,9 +288,6 @@
 #profileSize-container {
     display: flex;
     justify-content: space-between;
-
-
-
 }
 
 .profileSize {
@@ -321,8 +318,8 @@
     font-size: xx-large;
     color: white;
     margin-top: 2px;
-font-weight: 100;
-text-transform: capitalize;
+    font-weight: 100;
+    text-transform: capitalize;
 }
 
 .BuyNow {
@@ -366,5 +363,215 @@ text-transform: capitalize;
 .selected-sbtn {
     border: rgb(255, 255, 255);
     border-style: solid;
-    background-color: #8f8100;  
+    background-color: #8f8100;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+    }
+  
+    .left {
+      width: 100%;
+      text-align: center;
+      font-size: 2rem; /* Corrected from size to font-size */
+      margin-bottom: 1rem; /* Optional: Adjust margin as needed */
+    }
+  
+    .profile__container {
+      width: 80%;
+      padding: 1rem;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: var(--background-color);
+      padding-top: 2rem;
+      padding-inline: 2rem;
+      border-radius: 5mm;
+      max-height: 90%;
+      font-family: "Montserrat", sans-serif;
+      font-weight: bold;
+      font-style: normal;
+      background: #6b0000;
+      box-shadow: inset 7px 7px 14px #ff0202, inset -7px -7px 14px #ff0202;
+    }
+  
+    .center {
+      width: 100%; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    #buyNowContainer {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: -500px; /* Adjust this value as needed to position it correctly */
+        left: 48%; /* Adjust left to center it horizontally */
+        transform: translateX(-50%); /* Center horizontally */
+        width: 80%; /* Adjust width as needed */
+        padding: 1rem; /* Example padding */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example box shadow */
+        border-radius: 5px; /* Example border radius */
+        display: none; /* Initially hidden */
+        background-color: #1d1d1d;
+      }
+  
+    .profile__details,
+    .profile_description {
+      width: 100%;
+      margin-bottom: 1rem; 
+    }
+    #profileSize-container {
+        display: flex;
+        justify-content: space-between;
+        overflow-x: scroll;
+    }
+    #profileSize-container ::-webkit-scrollbar{
+        display: none;
+    }
+    .popup {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+        font-size: small;
+        text-align: center;
+    }
+    
+    
+    .popup-content {
+        position: relative;
+        background-color: #ffffff;
+        font-size: 150%;
+        color: black;
+        margin: auto;
+        padding: 0;
+        border: 1px solid #888;
+        width: 70%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s;
+    }
+  }
+  
+
+  
+@media (max-width: 1024px) and (min-width:769px) {
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+      }
+    
+      .left {
+        width: 100%;
+        text-align: center;
+        font-size: 2rem; /* Corrected from size to font-size */
+        margin-bottom: 1rem; /* Optional: Adjust margin as needed */
+      }
+    
+      .profile__container {
+        width: 80%;
+        padding: 1rem;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--background-color);
+        padding-top: 2rem;
+        padding-inline: 2rem;
+        border-radius: 5mm;
+        max-height: 90%;
+        font-family: "Montserrat", sans-serif;
+        font-weight: bold;
+        font-style: normal;
+        background: #6b0000;
+        box-shadow: inset 7px 7px 14px #ff0202, inset -7px -7px 14px #ff0202;
+      }
+    
+      .center {
+        width: 100%; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+      #buyNowContainer {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          bottom: -550px; /* Adjust this value as needed to position it correctly */
+          left: 48%; /* Adjust left to center it horizontally */
+          transform: translateX(-50%); /* Center horizontally */
+          width: 80%; /* Adjust width as needed */
+          padding: 1rem; /* Example padding */
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example box shadow */
+          border-radius: 5px; /* Example border radius */
+          display: none; /* Initially hidden */
+          background-color: #1d1d1d;
+        }
+    
+      .profile__details,
+      .profile_description {
+        width: 100%;
+        margin-bottom: 1rem; 
+      }
+      #profileSize-container {
+          display: flex;
+          justify-content: space-between;
+      }
+
+      .popup {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          padding-top: 100px;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgb(0, 0, 0);
+          background-color: rgba(0, 0, 0, 0.4);
+          font-size: small;
+          text-align: center;
+      }
+      
+      
+      .popup-content {
+          position: relative;
+          background-color: #ffffff;
+          font-size: 150%;
+          color: black;
+          margin: auto;
+          padding: 0;
+          border: 1px solid #888;
+          width: 70%;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          -webkit-animation-name: animatetop;
+          -webkit-animation-duration: 0.4s;
+          animation-name: animatetop;
+          animation-duration: 0.4s;
+      }
 }

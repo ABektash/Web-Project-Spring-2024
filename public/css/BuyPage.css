@@ -1,124 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
-    font-family: 'Roboto Condensed';
-}
-/*Header*/
-#header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 5rem;
-    height: 3.5rem;
-    background: #c70101;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .4);
-    position: sticky;
-    z-index: 2;
-    top: 0;
-}
-
-body {
-    width: 100%;
-    margin: 0;
-}
-
-#navbar li {
-    list-style: none;
-    padding: 0 1.25rem;
-    position: relative;
-}
-
-#navbar {
-    display: flex;
-    align-items: center;
-    justify-content: justify;
-    text-transform: uppercase;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-}
-
-#navbar li a {
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 600;
-    color: white;
-    transition: 0.3s ease;
-    font-family: "Roboto Condensed", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 900;
-    font-style: italic;
-}
-
-h1 {
-    font-family: "Roboto Condensed", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 900;
-    font-style: italic;
-}
-
-#navbar li a:hover,
-#navbar li a.active {
-    color: white;
-
-}
-
-#navbar li a.active::after,
-#navbar li a:hover::after {
-    content: "";
-    width: 30%;
-    height: 2px;
-    background: white;
-    position: absolute;
-    bottom: -4px;
-    left: 20px;
-}
-
-/* Home Page */
-
-#intro {
-    display: none;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-#intro h1 {
-    font-size: 150px;
-    font-weight: 600;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.3);
-    margin-top: 20px;
-}
-
-#intro h4 {
-    font-size: 40px;
-    font-weight: 400;
-    color: #fff;
-    margin-top: 160px;
-}
-
-#intro a {
-    text-decoration: none;
-    display: inline-block;
-    color: #fff;
-    font-size: 24px;
-    border: 2px solid #fff;
-    padding: 14px 70px;
-    border-radius: 50px;
-    margin-top: 20px;
-}
-
-#intro a:hover {
-    background-color: black;
-}
-
-.back-video {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-}
 
 .Bform
 {
@@ -216,3 +96,29 @@ form .btn:hover
     color: red;
     font-size: 90%;
 }
+
+@media (max-width: 768px) {
+    .booking_form form {
+      width: 70%; /* Adjust form width for smaller screens */
+      padding: 20px;
+      margin-bottom: 3rem;
+      margin-top: 3rem;
+    }
+  
+    .row {
+      flex-direction: column; /* Stack columns vertically */
+    }
+  
+    .column {
+      flex: 1 1 auto; /* Allow columns to take full width */
+      margin-bottom: 20px;
+    }
+  
+    .flex {
+      flex-direction: column; /* Stack flex columns vertically */
+    }
+  
+    .input {
+      margin: 10px 0; /* Adjust input margins */
+    }
+  }

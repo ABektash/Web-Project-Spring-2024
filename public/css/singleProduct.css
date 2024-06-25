@@ -64,13 +64,13 @@
 
 #proDetails .single-pro-details button {
     margin-top: 0.7rem;
-    background-color:black;
+    background-color: black;
     color: white;
     font-size: 1.3rem;
     font-weight: 600;
     padding: 15px 30px;
     border: none;
-   
+
 }
 
 #proDetails .single-pro-details button:hover {
@@ -82,7 +82,7 @@
     margin-top: 0.1rem;
     margin-bottom: 0.27rem;
 
-    background-color:black;
+    background-color: black;
     color: white;
     font-size: 0.7rem;
     font-weight: 1000;
@@ -92,19 +92,14 @@
 
 
 
-    #proDetails .single-pro-details #sizeButtons .sizeButton:hover {
-        cursor: pointer;
-        background-color: white;
-        color: black;
-        border: solid;
-        border-color: black;
-    }
-
-#numberInput
-{
-
-    
+#proDetails .single-pro-details #sizeButtons .sizeButton:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: solid;
+    border-color: black;
 }
+
 
 .sel {
     background-color: black;
@@ -112,33 +107,32 @@
     border-radius: 1rem;
 }
 
-#proDetails .single-pro-details .prod
-{
-    font-size:large;
-   
+#proDetails .single-pro-details .prod {
+    font-size: large;
+
 }
-.catStyle{
+
+.catStyle {
     font-size: 1.5rem;
     margin-bottom: 0.7rem;
 }
 
-.single-pro-details
-{
+.single-pro-details {
     border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
-            padding: 20px; 
-            border-radius: 10px; 
-            background-color: white;
-            margin: 20px; 
-            margin-left: 12rem;
-            width: 40%;
-            max-height: 30%;
-         
-            display: flex;
-            flex-direction: column;
-          
-            justify-content: space-between; 
-            margin-top: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    margin: 20px;
+    margin-left: 12rem;
+    width: 40%;
+    max-height: 30%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    margin-top: 2px;
 }
 
 #proDetails .single-pro-details #sizeButtons .sizeButton.selected {
@@ -146,4 +140,122 @@
     color: black;
     border: solid;
     border-color: black;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        width: 100%;
+        margin: 0;
+    }
+    /* Adjust single product details section */
+    #proDetails {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        text-align: center; /* Center align text */
+        margin-top: 20px;
+        padding: 0.7rem;
+    }
+
+    #proDetails .single-pro-image {
+        width: 100%;
+        margin-bottom: 20px; /* Add margin below image */
+        border-color: #111;
+        border-radius: 15px;
+    }
+
+    .single-pro-details {
+        width: 100%;
+        margin: 0 auto; /* Center align */
+        padding: 15px;
+        text-align: left; /* Left align text */
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        background-color: white;
+    }
+
+    /* Adjust specific elements inside .single-pro-details */
+    #proDetails .single-pro-details h4 {
+        font-size: 1.5rem;
+    }
+
+    #proDetails .single-pro-details h5 {
+        font-size: 1.5rem;
+        transform: none; /* Reset transform */
+        margin-top: 10px; /* Adjust margin as needed */
+    }
+
+    #proDetails .single-pro-details h2 {
+        font-size: 26px;
+    }
+
+    #proDetails .single-pro-details select {
+        width: 100%;
+        padding: 8px;
+        font-size: 0.9rem;
+        margin-bottom: 10px; /* Increase margin for better spacing */
+    }
+
+    #proDetails .single-pro-details input {
+        width: auto; /* Adjust width as per content */
+        height: 20px;
+        padding: 5px 10px; /* Adjust padding */
+        font-size: 16px;
+        margin-right: 10px;
+        border-radius: 10%;
+    }
+
+    #proDetails .single-pro-details input:focus {
+        outline: none;
+    }
+
+    #proDetails .single-pro-details button {
+        margin-top: 10px; /* Adjust margin for spacing */
+        background-color: black;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 12px 24px;
+        border: none;
+    }
+
+    #proDetails .single-pro-details button:hover {
+        background-color: rgb(78, 74, 74);
+        cursor: pointer;
+    }
+
+    #proDetails .single-pro-details #sizeButtons button {
+        margin-top: 5px; /* Adjust margin for spacing */
+        margin-bottom: 5px; /* Adjust margin for spacing */
+        background-color: black;
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 1000;
+        padding: 12px 24px;
+        border: none;
+    }
+
+    #proDetails .single-pro-details #sizeButtons .sizeButton.selected {
+        background-color: white;
+        color: black;
+        border: solid;
+        border-color: black;
+    }
+
+    .sel {
+        background-color: black;
+        color: white;
+        border-radius: 1rem;
+    }
+
+    #proDetails .single-pro-details .prod {
+        font-size: large;
+    }
+
+    .catStyle {
+        font-size: 1.5rem;
+        margin-bottom: 10px; /* Adjust margin for spacing */
+    }
 }
