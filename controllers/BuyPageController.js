@@ -331,7 +331,6 @@ exports.postBuyCustomPage = async (req, res) => {
         return res.render('pages/BuyPage', { errors, get: false, user: req.session.user });
     }
 
-
     try {
         const userId = req.session.user.id;
         const productId = req.params.id;
@@ -344,10 +343,18 @@ exports.postBuyCustomPage = async (req, res) => {
             return res.render('pages/BuyPage', { errors, get: false, user: req.session.user });
         }
 
-       
+        if (!product) {
+            errors.product = "Product not found";
+            console.log("Product not found");
+            return res.render('pages/BuyPage', { errors, get: false, user: req.session.user });
+        }
 
+        // Increment the noOfSoldPieces
+        product.noOfSoldPieces = (product.noOfSoldPieces || 0) + 1;
+        await product.save();
+
+        // Add product to user's purchased products
         user.purchasedProducts.push(product._id);
-
         await user.save();
 
         console.log("Purchase successful");
@@ -358,3 +365,4 @@ exports.postBuyCustomPage = async (req, res) => {
         res.render('pages/BuyPage', { errors, get: false, user: req.session.user });
     }
 };
+

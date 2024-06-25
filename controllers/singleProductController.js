@@ -123,7 +123,7 @@ exports.getSingleProductCart = async (req, res) => {
     let product = await Product.findOne({ name: req.params.name, size: size });
 
     if (!product) {
-        errors.error = "Out of Stock!";
+        errors.error = "Invalid!";
         product = await Product.findOne({ name: req.params.name });
         const retroProducts = await Product.find({ category: product.category });
 

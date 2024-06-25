@@ -16,8 +16,7 @@ exports.postSignUp = async (req, res) => {
       });
     }
     console.log(req.body);
-    let { name, email, password, confpassword, birthdate, gender } =
-      req.body;
+    let { name, email, password, confpassword, birthdate, gender } = req.body;
     email = email.toLowerCase();
     const errors = {};
 
@@ -55,17 +54,22 @@ exports.postSignUp = async (req, res) => {
       }
     }
 
-    const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/;
+    const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
     const isValidDate = (dateString) => {
-      const [year, month, day] = dateString.split("-");
-      return dateRegex.test(`${month}/${day}/${year}`);
+      return dateRegex.test(dateString);
     };
 
     if (!birthdate || !isValidDate(birthdate)) {
-      errors.birthdate = "Please enter a valid date in MM/DD/YYYY format";
-    }else {
+      errors.birthdate = "Please enter a valid date in YYYY-MM-DD format";
+    } else {
       const [year, month, day] = birthdate.split("-");
-      birthdate = new Date(year, month - 1, day); 
+      const enteredDate = new Date(year, month - 1, day);
+      const currentDate = new Date();
+      if (enteredDate >= currentDate) {
+        errors.birthdate = "Birthdate must be before the current date";
+      } else {
+        birthdate = enteredDate;
+      }
     }
 
     if (!gender) {
@@ -87,7 +91,7 @@ exports.postSignUp = async (req, res) => {
         password: hashedPassword, // Save the hashed password
         gender,
         type: "User",
-        birthdate, 
+        birthdate,
         shirtNumber: 0,
         shirtName: name.split(' ')[0],
         shirtImg: defaultShirtImg,
@@ -105,8 +109,7 @@ exports.postSignUp = async (req, res) => {
       console.log("User saved successfully");
       res.redirect('/login');
     } catch (error) {
-      // console.error("Error saving user:", error);
-      // res.status(500).send("Server error");
+      console.error("Error saving user:", error);
       errors.email = "Email is already used";
       return res.render("pages/SignUp", { errors, get: false, user: req.session.user });
     }

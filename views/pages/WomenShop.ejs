@@ -12,7 +12,34 @@
 </head>
 <body style="background-color: whitesmoke;">
 
-    <%- include('../partials/header', { user: user }) %>
+    
+<section id="header">
+    <a id="navbar" href="/"><img src="/images/ManchesterUnitedLogo.png" width="80px" height="80px" class="Logo" alt="Team Logo"></a>
+    <div>
+        <ul id="navbar">
+            <li><a href="/"><%= __('home') %></a></li>
+            <li><a class="active" href="/shop"><%= __('shop') %></a></li>
+            <li><a href="/Tickets"><%= __('tickets') %></a></li>
+            <li><a href="/Fixtures"><%= __('fixtures') %></a></li>
+            <li><a href="/News"><%= __('news') %></a></li>
+            <li><a href="/Players"><%= __('players') %></a></li>
+            <li><a href="/about"><%= __('about') %></a></li>
+            <li><a href="/ShoppingCart"><i style="color: white; cursor: pointer;" class="fa-solid fa-bag-shopping"></i></a></li>
+           
+            <% if (user) { %>
+                <li><a href="/Profile">
+                    <% if (user.image) { %>
+                        <img src="/uploads/<%= user.image %>" width="30px" height="30px" alt="Profile Image">
+                    <% } else { %>
+                        <img src="/images/ProfileDefault.png" width="30px" height="30px" alt="Default Profile Image">
+                    <% } %>
+                </a></li>
+            <% } else { %>
+                <li><a href="/signUp"><img src="/images/ProfileDefault.png" width="30px" height="30px" alt="Profile Logo"></a></li>
+            <% } %>
+        </ul>
+    </div>
+</section>
     
     <section id="categories">
         <div class="cat-bar">
@@ -69,16 +96,10 @@
                     <div class="des">
                         <span>adidas</span>
                         <h5><%= product.name %></h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                        
                         <h4>$<%= product.price %></h4>
                     </div>
-                    <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                    <button class="pcbtn">Add To Cart  <i class="fa-solid fa-cart-plus"></i></button>
                 </div>
             <% }) %>
         </div>
@@ -96,16 +117,10 @@
                     <div class="des">
                         <span>adidas</span>
                         <h5><%= product.name %></h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                        
                         <h4>$<%= product.price %></h4>
                     </div>
-                    <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                    <button class="pcbtn">Add To Cart  <i class="fa-solid fa-cart-plus"></i></button>
                 </div>
             <% }) %>
         </div>
@@ -123,16 +138,10 @@
                     <div class="des">
                         <span>adidas</span>
                         <h5><%= product.name %></h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                     
                         <h4>$<%= product.price %></h4>
                     </div>
-                    <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                    <button class="pcbtn">Add To Cart  <i class="fa-solid fa-cart-plus"></i></button>
                 </div>
             <% }) %>
         </div>
@@ -151,16 +160,10 @@
                     <div class="des">
                         <span>adidas</span>
                         <h5><%= product.name %></h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                        
                         <h4>$<%= product.price %></h4>
                     </div>
-                    <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                    <button class="pcbtn">Add To Cart  <i class="fa-solid fa-cart-plus"></i></button>
                 </div>
             <% }) %>
         </div>
